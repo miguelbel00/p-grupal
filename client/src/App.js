@@ -1,12 +1,18 @@
+import "./App.css";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Register from "./Pages/Register";
 
-import './App.css';
-import {BrowserRouter, Route} from "react-router-dom" ;
+
 
 function App() {
   return (
-      <BrowserRouter>
-        <Route></Route>
-      </BrowserRouter>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path='/register'>
+<Register />
+        </Route>
+      </Switch>
+    </BrowserRouter>
   );
 }
 
