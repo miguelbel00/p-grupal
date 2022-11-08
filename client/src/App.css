@@ -1,38 +1,36 @@
-.App {
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.divMayorRegister{
+ width: 400px;
+ height: 500px; 
+ background-color: rgb(28, 27, 27);
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ border-radius: 3px;
+ border-radius: 5px;
+ text-align: center;
+}
+.titleRegister{
+  margin-top: 200px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+.registerEmail{
+  background-color: whitesmoke;
+border-radius: 3px;
+width: 250px;
+height: 35px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.registerPassword{
+  border-radius: 3px;
+  background-color: whitesmoke; 
+  width: 250px;
+height: 35px;
 }
