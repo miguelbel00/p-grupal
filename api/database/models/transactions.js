@@ -1,9 +1,10 @@
+
 const {
     Model
   } = require('sequelize');
-const idCreator = require('../../functions/idCreator');
+const idCreator = require("../../functions/idCreator");
   module.exports = (sequelize, DataTypes) => {
-    class Products extends Model {
+    class Transactions extends Model {
       /**
        * Helper method for defining associations.
        * This method is not a part of Sequelize lifecycle.
@@ -16,40 +17,30 @@ const idCreator = require('../../functions/idCreator');
         }) */
       }
     };
-    Products.init({
+    Transactions.init({
         id:{
             type:DataTypes.STRING,
             primaryKey: true,
             allowNull: false,
             defaultValue: idCreator()
         },
-        name:{
-            type:DataTypes.STRING,
+        value:{
+            type:DataTypes.FLOAT,
             allowNull: false
         },
         description:{
             type:DataTypes.TEXT,
-            allowNull: false
-        },
-        image:{
-            type:DataTypes.ARRAY(DataTypes.STRING),
-            allowNull: false
-        },
-        price:{
-            type:DataTypes.FLOAT,
-            allowNull:false,
-            defaultValue: 0
-        },
-        stock:{
-            type:DataTypes.INTEGER,
             allowNull: false,
-            defaultValue: 0 
+            defaultValue: "NOT DESCRIPTION"
+        },
+
+        status:{
+            type:DataTypes.ENUM("pending", "cancelled", "completed"),
+            allowNull: false
         }
     }, {
       sequelize,
-      modelName: 'Products',
+      modelName: 'Transactions',
     });
-    return Products;
+    return Transactions;
   };
-
-
