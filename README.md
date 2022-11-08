@@ -19,6 +19,10 @@ npx sequelize db:create
 ```
 npx sequelize db:migrate
 ```
+### Crear la migracion
+```
+npx sequelize migration:generate --name "nombre-migracion"
+```
 ### Borrar la base de datos que creamos
 ```
 npx sequelize db:drop
