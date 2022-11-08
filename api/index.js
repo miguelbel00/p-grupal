@@ -1,6 +1,10 @@
-const express = require('express')
-const router = express()
+const server = require("./src/app.js")
+const { connect } = require('./src/db')
+const PORT = 3001
 
-router.use(require('./src/router/index'))
 
-router.listen(3000, () => {console.log("Server On")})
+connect.sync({force:true}).then(()=>{
+    server.listen(process.env.PORT || PORT, () => {console.log(`server on port ${PORT}`)})
+})
+
+// server.listen(PORT, ()=> console.log("funciona"))
