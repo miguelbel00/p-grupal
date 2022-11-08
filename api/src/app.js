@@ -8,17 +8,13 @@ app.use(express.json())
 app.use(morgan('dev'))
 
 
-
-
-
-
-
-app.use((err, req, res, next) => { 
-    const status = err.status || 500;
-    const message = err.message || err;
-    console.error(err);
-    res.status(status).send(message);
-  })
+server.use((err, req, res, next) => { 
+  const status = err.status || 500;
+  console.log(err)
+  console.log(err.message)
+  const message =  err.message;
+  return res.status(status).send({error:message});
+});
 
 
 
