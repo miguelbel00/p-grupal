@@ -4,26 +4,26 @@ const { endpointResponse } = require('../../helpers/success');
 const { ErrorObject } = require('../../helpers/error');
 
 module.exports = {
-    getProducts: async(req, res, next) => {
+    getAllProducts: async(req, res, next) => {
         const { productId, categoryId, price } = req.query;
         try {
             const response =  await Product.findByPk(productId);  
-            if (response) {
+            if (productId) {
                 endpointResponse({
                     res,
                     code: 200,
-                    message: 'Test retrieved successfully',
+                    message: 'the product has been found',
                     body: response,
                   })
             } else {
                 throw new ErrorObject("The product does not exist", 404)
             }       
             const resCategory = await Category.findByPk(categoryId);  
-            if (resCategory) {
+            if (categoryId) {
                 endpointResponse({
                     res,
                     code: 200,
-                    message: 'Test retrieved successfully',
+                    message: 'the category has been found',
                     body: resCategory,
                   })
             } else {
@@ -35,7 +35,7 @@ module.exports = {
                 endpointResponse({
                     res,
                     code: 200,
-                    message: 'Test retrieved successfully',
+                    message: 'the price has been found',
                     body: productPrice,
                   });
             } else {
@@ -44,7 +44,7 @@ module.exports = {
         } catch (error) {
             const httpError = createHttpError(
                 error.statusCode,
-                `[Error retrieving product] - [product - GET]: ${error.message}`,
+                `[Error retrieving products] - [products - GET]: ${error.message}`,
               )
               next(httpError)          
         }
