@@ -1,6 +1,4 @@
 'use strict';
-
-const idCreator = require("../../functions/idCreator.js")
 const { DataTypes, UUIDV4 }= require("sequelize")
 module.exports = {
   up: async (queryInterface, Sequelize) => {

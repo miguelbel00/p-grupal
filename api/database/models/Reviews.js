@@ -1,9 +1,7 @@
-const {DataTypes} = require("sequelize")
-
 const {
     Model
   } = require('sequelize');
-const idCreator = require('../../functions/idCreator');
+
   module.exports = (sequelize, DataTypes) => {
     class Reviews extends Model {
       /**

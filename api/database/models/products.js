@@ -1,9 +1,8 @@
-const {DataTypes} = require("sequelize")
+
 
 const {
     Model
   } = require('sequelize');
-const idCreator = require('../../functions/idCreator');
   module.exports = (sequelize, DataTypes) => {
     class Products extends Model {
       /**
@@ -20,7 +19,7 @@ const idCreator = require('../../functions/idCreator');
     };
     Products.init({
       name:DataTypes.STRING,
-      image:DataTypes.STRING,
+      image:DataTypes.ARRAY,
       description:DataTypes.TEXT,
       price:DataTypes.FLOAT,
       stock:DataTypes.INTEGER

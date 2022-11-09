@@ -1,7 +1,6 @@
 'use strict';
 
-const idCreator = require("../../functions/idCreator.js")
-const { DataTypes }= require("sequelize")
+const { DataTypes, UUIDV4 }= require("sequelize")
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable("Products", {
@@ -9,7 +8,7 @@ module.exports = {
               type:DataTypes.STRING,
               primaryKey: true,
               allowNull: false,
-              defaultValue: idCreator()
+              defaultValue: UUIDV4
           }, 
           name:{
               type:DataTypes.STRING,
