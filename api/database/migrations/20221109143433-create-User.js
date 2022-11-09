@@ -24,7 +24,7 @@ module.exports = {
        allowNull: false
       },
       phone: {
-       type: DataTypes.TEXT
+       type: DataTypes.STRING
       }, 
 
      });
