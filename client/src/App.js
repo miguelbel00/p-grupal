@@ -1,7 +1,8 @@
-import "./App.css";
+
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Register from "./Pages/Register";
-import Footer from "./componentes/Footer";
+import Footer from "./componets/Footer";
+import Carrusel from "./componets/Carrusel";
 
 
 
@@ -12,10 +13,13 @@ function App() {
         <Route exact path='/register'>
           <Register />
         </Route>
-        <Route exact path="/"> 
-          <Footer/>  
+        <Route path='/'>
+          <Carrusel />
         </Route>
       </Switch>
+      <Route path="/"> 
+          <Footer/>  
+        </Route>
     </BrowserRouter>
   );
 }

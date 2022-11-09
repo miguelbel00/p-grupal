@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import logo from "./../assets/astrologoC.png"
 
-import '../style/footer.css'
+import '../styles/footer.css'
 
 
 export default function Footer () {
@@ -16,12 +16,12 @@ export default function Footer () {
                    </ul>
                    <ul className="col-xs-12 col-md-6 col-lg-3 list-unstyled">
                         <li className="h5 mb-2">Direccion</li>
-                        <li className="text-center">Avenida Siempre Viva 742</li>
+                        <li className="">Avenida Siempre Viva 742</li>
                    </ul>
                    <ul  className="col-xs-12 col-md-6 col-lg-3 list-unstyled">
                         <li className="h5 mb-2">Contacto</li>
-                        <li className="text-center mb-2">+54 9 011 789 654 123</li>
-                        <li className="text-center mb-2">astrogamer@gmail.com</li>
+                        <li className="mb-2">+54 9 011 789 654 123</li>
+                        <li className="mb-2">astrogamer@gmail.com</li>
                    </ul>
                    <ul className="col-xs-12 col-md-6 col-lg-3 list-unstyled  ">
                         <li className="h5 mb-2">Redes Sociales</li>
