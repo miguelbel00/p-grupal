@@ -1,0 +1,32 @@
+.divMayorRegister{
+    width: 400px;
+    height: 500px; 
+    background-color: rgb(28, 27, 27);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    border-radius: 5px;
+    text-align: center;
+   }
+   .titleRegister{
+     margin-top: 200px;
+   }
+   
+   
+   .inputStyle{
+     background-color: whitesmoke;
+   border-radius: 3px;
+   width: 250px;
+   height: 30px;
+   }
+   
+   
+   
+   .errorButton{
+    border-color: red; 
+   }
+   
+   .godButton{
+    border-color: rgb(125, 241, 150); 
+   }
