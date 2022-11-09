@@ -1,5 +1,5 @@
 #root {
-  max-width: 1280px;
+  width: 100%;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
@@ -34,3 +34,5 @@ height: 35px;
   width: 250px;
 height: 35px;
 }
+
+
