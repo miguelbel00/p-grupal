@@ -1,5 +1,5 @@
 const express = require('express')
-const { getProducts } = require('../controllers/products/products')
+const { getProducts } = require('../controllers/getProducts/getProducts')
 const router = express.Router()
 
 // example of a route with index controller get function
