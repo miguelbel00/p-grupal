@@ -51,6 +51,35 @@ module.exports = {
               next(httpError)          
         }
 
+    },
+    post: async (req, res, next) => {
+        const { name, description, image, price, categories} = req.body
+        
+        try {
+            const createProduct = await Product.create({
+                name,
+                description,
+                image,
+                price
+            });
+
+            const category = await Category.findAll({
+                where: {
+                    name: categories
+                } 
+            })
+              Product.addCategory(category)
+              endpointResponse({
+                res,
+                code: 200,
+                message: 'Test retrieved successfully',
+                body: createProduct,
+              });
+            
+        } catch (error) {
+            
+        }
+
     }
 };
 
