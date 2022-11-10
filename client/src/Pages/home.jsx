@@ -1,11 +1,13 @@
 import React from "react";
 import '../styles/home.css'
+import Carrusel from '../componets/Carrusel'
 
 
 export default function Home(){
 
     return(
     <div>
+        <Carrusel/>
         <header className="header">
             <h1 className="h1">Astro Gamer</h1>
         </header>
