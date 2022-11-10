@@ -19,7 +19,7 @@ module.exports = {
       endpointResponse({
         res,
         code: 200,
-        message: "User successfully deleted",
+        message: "User successfully edit",
         body: responce,
       });
     } catch (error) {
