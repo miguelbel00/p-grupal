@@ -9,7 +9,7 @@ module.exports = {
         try {
             if(!productId)throw new ErrorObject("missing params", 404)
             const deleteProduct = await Product.destroy({ where: { id: productId } })
-            if(deleteProduct === null) throw new ErrorObject("missing params", 404)
+            if(deleteProduct === null) throw new ErrorObject("product not found", 404)
             endpointResponse({
                 res,
                 code: 204,
