@@ -1,13 +1,18 @@
+*{
+box-sizing: border-box; 
+margin: 0;
+padding: 0;
+}
+
 .divMayorRegister{
     width: 400px;
-    height: 500px; 
-    background-color: rgb(28, 27, 27);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: 520px; 
+    background-color:#FFFFF3;
     border-radius: 3px;
     border-radius: 5px;
-    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
    }
    .titleRegister{
      margin-top: 200px;
@@ -18,7 +23,7 @@
      background-color: whitesmoke;
    border-radius: 3px;
    width: 250px;
-   height: 30px;
+   height: 40px;
    }
    
    
@@ -30,3 +35,27 @@
    .godButton{
     border-color: rgb(125, 241, 150); 
    }
+
+
+   .parrafo{
+  color: rgb(43, 43, 43);
+  font-weight: bold
+   }
+
+
+  .background{
+    background-color: #E5E0AC;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .botoncito{
+    width: 100px;
+    height: 35px;
+  }
+
+  .logoRegister{
+    transform: translate(20px,30px); 
+  }

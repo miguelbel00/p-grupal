@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 import postUser from "../redux/actions";
-import logo from '.././assets/logo.png'
+import logo from '../assets/logo.png'
 import '../styles/register.css'
 
 export default function Register() {
@@ -41,9 +41,9 @@ if(errormessage){
 
 function buttonError(errormessage){
 if(errormessage){
-return <button  type="disabled" className="errorButton">Register!</button>
+return <button  type="disabled" className="botoncito">Register!</button>
 }else{
-return <button className="godButton">Register!</button>  
+return <button className="botoncito">Register!</button>  
 }
 }
 
@@ -54,9 +54,10 @@ return <button className="godButton">Register!</button>
 
 
 return(
+<div className='background'>
 <div className="divMayorRegister">
     <div className="divHijoRegister">
-        <div className="nameRegister">
+        <div className="logoRegister">
             <img src={logo} alt="Imagen not found"width='200px'height='200px' />
         </div>
         <div className="form">
@@ -80,11 +81,12 @@ return(
                 {
                 buttonError(errormessage)
                 }
-                <p>Ya tienes cuenta?<Link to='/login'>Inicia Sesion</Link></p>
+                <p className="parrafo">Ya tienes cuenta?<Link to='/login'>Inicia Sesion</Link></p>
                 {/* <p>Olvidaste tu clave?<Link to='/recuperationPassword'>Recuperala Aqui!</Link></p> */}
             </form>
         </div>
     </div>
+  </div>
 </div>
 )
 }
