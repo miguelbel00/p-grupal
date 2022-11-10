@@ -2,39 +2,39 @@
     height: 100px;
     text-align: center;
     padding: 10px;
-    background:linear-gradient(
-		360deg,
-		#350069 30%,
-		rgba(114, 5, 177, 0.42) 90%);
+    background:#350069;
 }
 .h1{
     color: white;
-    
+}
+.h2{
+    color: white;
+    background-color: black;
 }
 .conteiner{
     margin-top: 40px;
     overflow:hidden;
     text-align: center;
     margin:auto;
-    background: #350069;
+    background: #FFFFF3;
 }
 .div1{
     display:inline-table;
-    border: 5px black solid;
     border-radius: 10px;
-    height:100px;
-    width:100px;
-    margin: 15px;
+    margin: 50px;
     transition: all 0.25s; 
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
+    background-color: #9600F4;
+    color: #FFFFF3;
+    border: 5px solid black;
     
 }
-
 .div1:hover{
-    transform: translateY(-15px);
+    background-color: #350069;
+    cursor: pointer;
 }
 .img{
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+    margin-top: 0;
+    width: 300px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
