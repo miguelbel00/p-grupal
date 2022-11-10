@@ -1,12 +1,12 @@
 const createHttpError = require('http-errors')
-const { Category } = require('../database/models')
-const { endpointResponse } = require('../helpers/success')
+const { Category } = require('../../database/models')
+const { endpointResponse } = require('../../helpers/success')
 const {ErrorObject} = require('../../helpers/error')
 
 module.exports = {
   createCategory: async (req, res, next) => {
     try {
-      const {name} = req.params;
+      const {name} = req.body;
       if (!name) throw new ErrorObject('Missing parameters',404)
       const response = await Category.create({name})
 
