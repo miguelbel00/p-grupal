@@ -21,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
     timestamps: true,
     modelName: 'Review',
   },Review.addHook('beforeSave', async (review) => {
-    return Review.id = uuid();
+    return review.id = uuid();
   })
   );
   return Review;
