@@ -6,31 +6,47 @@ const { ErrorObject } = require('../../helpers/error');
 
 module.exports = {
     getProductsQuery: async (req, res, next) => {
-      const { categoryId, price } = req.query;
+      const { productName, categoryId, price } = req.query;
         try {
-            const products = await Product.findAll({
+
+            const productsByName = await Product.findAll({
+                where: {
+                    name: productName
+                }
+            })
+            if (productsByName) {
+                endpointResponse({
+                    res,
+                    code: 200,
+                    message: 'product was found by name',
+                    body: productsByName,
+                  });  
+            } else {
+                throw new ErrorObject('product not found', 404)
+            }
+            const productsByPrice = await Product.findAll({
                 where: {
                     price: price
                 }
             });
-            if (products) {
+            if (productsByPrice) {
                 endpointResponse({
                     res,
                     code: 200,
-                    message: 'price found successfully',
-                    body: products,
+                    message: 'product was found by price',
+                    body: productsByPrice,
                   });      
             } else {
-                const orderPrice = products.sort((a, b) => b - a);
+                const orderPrice = productsByPrice.sort((a, b) => b - a);
                 endpointResponse({
                     res,
                     code: 200,
-                    message: 'price created successfully',
+                    message: 'all product',
                     body: orderPrice,
                   });  
             } 
 
-            if (!price) {
+            if (!productsByPrice) {
                 throw new ErrorObject('price not found', 404)
             }
             
@@ -41,7 +57,7 @@ module.exports = {
                 endpointResponse({
                     res,
                     code: 200,
-                    message: 'category was found by id',
+                    message: 'the product was found by the category id',
                     body: category,
                   }); 
             } else {
@@ -51,7 +67,7 @@ module.exports = {
         } catch (error) {
             const httpError = createHttpError(
                 error.statusCode,
-                `[Error get product query] - [productQuery - POST]: ${error.message}`,
+                `[Error get product query] - [productQuery - GET]: ${error.message}`,
               )
               next(httpError)
         }
