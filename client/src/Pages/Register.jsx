@@ -58,7 +58,7 @@ return(
 <div className="divMayorRegister">
     <div className="divHijoRegister">
         <div className="logoRegister">
-            <img src={logo} alt="Imagen not found"width='200px'height='200px' />
+            <img src={logo} alt={logo} width='200px'height='200px' />
         </div>
         <div className="form">
             <form onSubmit={e=>handleSubmit(e)}>
