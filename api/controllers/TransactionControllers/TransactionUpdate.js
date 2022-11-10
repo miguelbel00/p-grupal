@@ -8,13 +8,13 @@ module.exports = {
   transactionUpdate: async (req, res, next) => {
     const { transactionId} = req.body;
     try{
-      const IdTransaction = await User.findByPk(transactionId)
+      const IdTransaction = await Transaction.findByPk(transactionId)
     
       if(!IdTransaction.length){
           throw new ErrorObject("transaction not found", 400)
       }
     
-      const response = await Recipe.update(req.body, {where:{id: transactionId}})
+      const response = await Transaction.update(req.body, {where:{id: transactionId}})
       
       endpointResponse({
         res,
