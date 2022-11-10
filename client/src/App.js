@@ -4,12 +4,16 @@ import Register from "./Pages/Register";
 import Detail from "./Pages/Detail";
 import Footer from "./componets/Footer";
 import Carrusel from "./componets/Carrusel";
+import Navbar from "./componets/NavBar";
 
 
 
 function App() {
   return (
     <BrowserRouter>
+      <Route path='/'>
+        <Navbar/>
+      </Route>
       <Switch>
         <Route exact path='/register'>
           <Register />
