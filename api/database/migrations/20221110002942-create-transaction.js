@@ -20,7 +20,8 @@ module.exports = {
        allowNull: false
       },
       status: {
-       type: DataTypes.STRING
+       type: DataTypes.ENUM('Pending', 'Completed','Canceled'),
+       defaultValue: 'Pending' 
       },
       createdAt: {
          allowNull: false,
