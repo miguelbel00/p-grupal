@@ -26,6 +26,10 @@ module.exports = {
       phone: {
        type: DataTypes.STRING
       }, 
+      isAdmin: {
+       type: DataTypes.BOOLEAN,
+       defaultValue: false
+      }, 
       createdAt: {
          allowNull: false,
          type: Sequelize.DATE

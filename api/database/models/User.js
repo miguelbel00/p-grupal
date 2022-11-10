@@ -4,7 +4,6 @@ const { uuid} = require("uuidv4")
 const {
   Model
 } = require('sequelize');
-const { uuid } = require('uuidv4')
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     static associate(models) {
@@ -18,7 +17,8 @@ module.exports = (sequelize, DataTypes) => {
     fullName: DataTypes.STRING,
     email: DataTypes.STRING,
     password: DataTypes.STRING,
-    phone: DataTypes.STRING
+    phone: DataTypes.STRING,
+    isAdmin: DataTypes.BOOLEAN   
   }, {
     sequelize,
     paranoid: true,

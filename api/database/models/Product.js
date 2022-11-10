@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
   Product.init({
     name: DataTypes.STRING,
     description: DataTypes.TEXT,
-    image:DataTypes.ARRAY,
+    image:DataTypes.ARRAY(DataTypes.STRING),
     price:DataTypes.FLOAT,
     stock:DataTypes.INTEGER
   }, {
