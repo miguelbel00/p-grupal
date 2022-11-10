@@ -8,11 +8,7 @@ export default function Home(){
     return(
     <div>
         <Carrusel/>
-        <header className="header">
-            <h1 className="h1">Astro Gamer</h1>
-        </header>
             <div className="conteiner">
-                <h2>Categories</h2>
                     <div className="div1">
                         <h2 className="h2">Pc</h2>
                         <img className="img" src="https://app.contabilium.com/files/explorer/16277/Productos-Servicios/concepto-7930450.jpg" alt="blank"/>        
