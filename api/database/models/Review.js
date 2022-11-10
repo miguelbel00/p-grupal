@@ -16,6 +16,8 @@ module.exports = (sequelize, DataTypes) => {
     rating: DataTypes.FLOAT,
   }, {
     sequelize,
+    paranoid: true,
+    timestamps: true,
     modelName: 'Review',
   });
   return Review;
