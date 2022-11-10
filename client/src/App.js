@@ -14,9 +14,6 @@ function App() {
         <Route exact path='/register'>
           <Register />
         </Route>
-        <Route path='/'>
-          <Carrusel />
-        </Route>
         <Route exact path={"/detail"} component={Detail}/>
       </Switch>
       <Route path="/"> 
