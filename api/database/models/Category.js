@@ -1,7 +1,9 @@
-'use strict';
 const {
+  
   Model
-} = require('sequelize');
+} = require('sequelize'); 
+const { uuid } = require('uuidv4')
+
 module.exports = (sequelize, DataTypes) => {
   class Category extends Model {
     /**
@@ -20,6 +22,9 @@ module.exports = (sequelize, DataTypes) => {
     paranoid: true,
     timestamps: true,
     modelName: 'Category',
+  }),
+  Category.addHook('beforeSave', async (user) => {
+    return user.id = uuid();
   });
   return Category;
 };
