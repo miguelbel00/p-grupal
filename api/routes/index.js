@@ -1,10 +1,9 @@
 const express = require('express')
-const { postProducts } = require('../controllers/products/postProducts')
-const router = express.Router()
+const productRoutes  = require('./productRoutes')
+const router = express.Router();
 
-// example of a route with index controller get function
-//router.get('/', get)
-router.post('/products', postProducts)
+
+router.use('/products', productRoutes)
 
 
 module.exports = router

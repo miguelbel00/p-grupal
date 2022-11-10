@@ -5,14 +5,27 @@ const { ErrorObject } = require('../../helpers/error');
 const { get } = require('../../routes');
 
 module.exports = {
-    postProducts: async (req, res, next) => {
+    createProducts: async (req, res, next) => {
         const {
             name,
             description,
             image,
             price,
             categories} = req.body;
+
+
+
             try {
+                if (!name ||
+                    !description||
+                    !image||
+                    !price||
+                    !categories) {
+
+                        throw new ErrorObject('Missing parameters', 404)
+                    
+                }
+
                 const createProducts = await Product.create({
                     name,
                     description,
@@ -31,9 +44,10 @@ module.exports = {
                 endpointResponse({
                     res,
                     code: 200,
-                    message: 'Test retrieved successfully',
+                    message: 'Product created successfully',
                     body: createProducts,
                   });
+
                 
             } catch (error) {
                     const httpError = createHttpError(
