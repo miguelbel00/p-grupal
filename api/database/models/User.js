@@ -7,10 +7,12 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     static associate(models) {
-      // define association here
-      /* Test.hasMany(models.User,{
-        foreignKey:'roleId'
-      }) */
+      User.hasMany(models.Transaction, {
+        foreignKey: 'userId'
+      })
+      User.hasMany(models.Review, {
+        foreignKey: 'userId'
+      })
     }
   };
   User.init({

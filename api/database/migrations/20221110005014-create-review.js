@@ -19,6 +19,24 @@ module.exports = {
        type: DataTypes.FLOAT,
        allowNull: false
       },
+      productId: {
+        type: DataTypes.UUID,
+        references: {
+          model: 'Products',
+          key: 'id'
+        },
+        onDelet: 'CASCADE',
+        onUpdate: 'CASCADE'
+      },
+      userId: {
+        type: DataTypes.UUID,
+        references: {
+          model: 'Users',
+          key: 'id'
+        },
+        onDelet: 'CASCADE',
+        onUpdate: 'CASCADE'
+      },
       createdAt: {
          allowNull: false,
          type: Sequelize.DATE
