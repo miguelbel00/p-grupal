@@ -1,10 +1,10 @@
 const express = require('express')
-const { userCreate } = require('../controllers/User/userCreate')
+const { reviewCreate } = require('../controllers/Review/reviewCreate')
 
 const router = express.Router()
 
 // example of a route with index controller get function
-router.post('/', userCreate)
+router.post('/', reviewCreate)
 
 
 module.exports = router

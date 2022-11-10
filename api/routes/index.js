@@ -1,11 +1,14 @@
 const express = require('express')
-const { get } = require('../controllers/index')
-const userRoutes = require("./UserRoutes")
+
+const  reviewsRoutes  = require('./reviewRoutes')
+const userRoutes = require("./userRoutes")
 
 const router = express.Router()
 
-// example of a route with index controller get function
-router.get('/', get)
+
+
 router.use("/user", userRoutes)
+router.use("/reviews", reviewsRoutes)
+
 
 module.exports = router
