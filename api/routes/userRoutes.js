@@ -1,8 +1,8 @@
 const express = require('express')
-const userRoutes = require('./userRoutes')
+const {editUser} = require('../controllers/User/userEdit')
 
 const router = express.Router()
 
-router.use('/users',userRoutes)
+router.put('/',editUser)
 
 module.exports = router
