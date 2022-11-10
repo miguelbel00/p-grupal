@@ -23,8 +23,8 @@ module.exports = (sequelize, DataTypes) => {
     timestamps: true,
     modelName: 'Category',
   }),
-  Category.addHook('beforeSave', async (user) => {
-    return user.id = uuid();
+  Category.addHook('beforeSave', async (category) => {
+    return category.id = uuid();
   });
   return Category;
 };
