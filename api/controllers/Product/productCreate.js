@@ -2,7 +2,7 @@ const createHttpError = require('http-errors');
 const { Product, Category } = require('../../database/models');
 const { endpointResponse } = require('../../helpers/success');
 const { ErrorObject } = require('../../helpers/error');
-const { get } = require('../../routes');
+
 
 module.exports = {
     createProducts: async (req, res, next) => {
