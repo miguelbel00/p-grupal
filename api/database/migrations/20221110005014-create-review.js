@@ -18,7 +18,18 @@ module.exports = {
       rating: {
        type: DataTypes.FLOAT,
        allowNull: false
-      } 
+      },
+      createdAt: {
+         allowNull: false,
+         type: Sequelize.DATE
+       },
+       updatedAt: {
+         allowNull: false,
+         type: Sequelize.DATE
+       },
+       deletedAt: {
+         type: Sequelize.DATE
+       } 
      });
  },
 
