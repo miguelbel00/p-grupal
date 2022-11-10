@@ -6,15 +6,15 @@ const { ErrorObject } = require("../../helpers/error");
 module.exports = {
   editUser: async (req, res, next) => {
     try {
-      const { userId, fullname, password, phone } = req.body;
-      if (!userId || !fullname || !password || !phone)
+      const { userId, fullName, password, phone } = req.body;
+      if (!userId || !fullName || !password || !phone)
         throw new ErrorObject("Missing parameters", 404);
 
       const userFound = await User.findByPk(userId);
 
       if (!userFound) throw new ErrorObject("User not found", 400);
 
-      const responce = await userFound.update({ fullname, password, phone });
+      const responce = await userFound.update({ fullName, password, phone });
       await userFound.save();
       endpointResponse({
         res,
