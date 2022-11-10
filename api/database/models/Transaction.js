@@ -1,3 +1,5 @@
+const {uuid} = require("uuidv4")
+
 'use strict';
 const {
   Model
@@ -5,10 +7,6 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class Transaction extends Model {
     static associate(models) {
-      // define association here
-      /* Test.hasMany(models.User,{
-        foreignKey:'roleId'
-      }) */
     }
   };
   Transaction.init({
@@ -17,7 +15,13 @@ module.exports = (sequelize, DataTypes) => {
     status: DataTypes.STRING,
   }, {
     sequelize,
+    paranoid: true,
+    timestamps: true,
     modelName: 'Transaction',
   });
+  Transaction.addHook('beforeSave', async (transaction) => {
+    return transaction.id = uuid();
+  })
   return Transaction;
 };
+
