@@ -11,6 +11,7 @@ module.exports = {
             description,
             image,
             price,
+            stock,
             categories
         } = req.body;
 
@@ -29,7 +30,8 @@ module.exports = {
                     name,
                     description,
                     image,
-                    price,        
+                    price,
+                    stock        
                 });
 
                 const dbCategory = await Category.findAll({
