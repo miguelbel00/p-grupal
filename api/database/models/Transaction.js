@@ -7,6 +7,11 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class Transaction extends Model {
     static associate(models) {
+      Transaction.belongsToMany(models.Product, {
+        through: "transactionProduct",
+        foreignKey : "transactionId",
+        constraints:false
+      });
     }
   };
   Transaction.init({
