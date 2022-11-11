@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
     paranoid: true,
     timestamps: true,
     modelName: 'Review',
-  })
+  });
   Review.addHook('beforeSave', async (review) => {
     return review.id = uuid();
   })
