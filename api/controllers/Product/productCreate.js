@@ -58,7 +58,7 @@ module.exports = {
             } catch (error) {
                     const httpError = createHttpError(
                         error.statusCode,
-                        `[Error retrieving products] - [product - POST]: ${error.message}`,
+                        `[Error post products] - [product - POST]: ${error.message}`,
                       )
                       next(httpError)          
                 }   
