@@ -3,7 +3,7 @@ const { DataTypes } = require('sequelize')
 
 module.exports = {
  up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Transactions', {
+    await queryInterface.createTable('Reviews', {
       id:{
        type: DataTypes.UUID,
        defaultValue: DataTypes.UUIDV4,
@@ -11,16 +11,31 @@ module.exports = {
        primaryKey: true,
        allowNull: false
       },
-      value: {
-       type: DataTypes.FLOAT,
-       allowNull: false
-      },
-      description: {
+      comment: {
        type: DataTypes.TEXT,
        allowNull: false
       },
-      status: {
-       type: DataTypes.STRING
+      rating: {
+       type: DataTypes.FLOAT,
+       allowNull: false
+      },
+      productId: {
+        type: DataTypes.UUID,
+        references: {
+          model: 'Products',
+          key: 'id'
+        },
+        onDelet: 'CASCADE',
+        onUpdate: 'CASCADE'
+      },
+      userId: {
+        type: DataTypes.UUID,
+        references: {
+          model: 'Users',
+          key: 'id'
+        },
+        onDelet: 'CASCADE',
+        onUpdate: 'CASCADE'
       },
       createdAt: {
          allowNull: false,
@@ -33,12 +48,11 @@ module.exports = {
        deletedAt: {
          type: Sequelize.DATE
        } 
-
      });
  },
 
  down: async (queryInterface, Sequelize) => { 
-    await queryInterface.dropTable('Transactions');
+    await queryInterface.dropTable('Reviews');
 
  }
 };

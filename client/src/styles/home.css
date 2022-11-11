@@ -1,9 +1,4 @@
-.header{
-    height: 100px;
-    text-align: center;
-    padding: 10px;
-    background:#350069;
-}
+
 .h1{
     color: white;
 }
@@ -16,17 +11,17 @@
     overflow:hidden;
     text-align: center;
     margin:auto;
-    background: #350069;
-    border: solid black 5px;
-    
+    background: #FFFFF3;
 }
 .div1{
-    display:inline-table;
+    display:inline-block;
     border-radius: 10px;
     margin: 50px;
     transition: all 0.25s; 
-    background-color: #350069;
+    background-color: #9600F4;
     color: #FFFFF3;
+    border: 5px solid black;
+    
 }
 .div1:hover{
     cursor: pointer;
