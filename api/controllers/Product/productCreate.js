@@ -40,7 +40,7 @@ module.exports = {
                     }
                 });
                 for (const data of dbCategory) {   
-                    await data.addCategory(dbCategory.dataValue.name); 
+                    await data.addCategory(dbCategory); 
                   };
 
                 endpointResponse({
