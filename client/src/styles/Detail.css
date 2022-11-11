@@ -1,9 +1,3 @@
-/* #imgg{
-    margin-left: 25%;   
-    border: white 2px ridge;
-    border-radius: 2%;
-} */
-
 .container{
     border-radius: 1%;
    background-color: #F5EEF8;
@@ -32,9 +26,7 @@
     font-size: 40px;
     color: #54D713 ;
 }
-/* #price{
-    
-} */
+
 #stock{
     margin-top: 10px;
     font-size: 20px;
