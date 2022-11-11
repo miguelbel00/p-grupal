@@ -20,7 +20,17 @@ module.exports = {
        allowNull: false
       },
       status: {
-       type: DataTypes.STRING
+       type: DataTypes.ENUM('Pending', 'Completed','Canceled'),
+       defaultValue: 'Pending' 
+      },
+      userId: {
+        type: DataTypes.UUID,
+        references: {
+          model: 'Users',
+          key: 'id'
+        },
+        onDelet: 'CASCADE',
+        onUpdate: 'CASCADE'
       },
       createdAt: {
          allowNull: false,

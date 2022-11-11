@@ -1,20 +1,20 @@
 
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Register from "./Pages/Register";
-import Footer from "./componets/Footer";
-import Carrusel from "./componets/Carrusel";
-
+import Home from './Pages/home'
+import Navbar from './componets/NavBar'
+import Footer from './componets/Footer.jsx'
 
 
 function App() {
   return (
     <BrowserRouter>
+      <Route path='/'>
+        <Navbar/>
+      </Route>
       <Switch>
-        <Route exact path='/register'>
-          <Register />
-        </Route>
-        <Route path='/'>
-          <Carrusel />
+        <Route exact path='/' component={Home}/>
+        <Route exact path='/register'><Register />
         </Route>
       </Switch>
       <Route path="/"> 

@@ -7,10 +7,7 @@ npm install
 
 ## 💡 El proyecto utliza Sequelize como ORM. Comandos utiles del CLI:
 
-### Como generar un modelo desde cero
-```
-npx sequelize model:generate --name Ejemplo --attributes ejemplo:string
-```
+
 ### Crear la base de datos
 ```
 npx sequelize db:create
@@ -18,10 +15,6 @@ npx sequelize db:create
 ### Migrar modelos creados previamente
 ```
 npx sequelize db:migrate
-```
-### Crear la migracion
-```
-npx sequelize migration:generate --name "nombre-migracion"
 ```
 ### Borrar la base de datos que creamos
 ```
