@@ -7,32 +7,64 @@ import "../styles/Detail.css"
 export default function Detail() {
 
     const dispatch = useDispatch()
-    const product = useSelector((state) => state.detail)
-    const {id} = useParams()
+    //const product = useSelector((state) => state.detail)
+    const { id } = useParams()
 
     useEffect(() => {
         dispatch(getDetail(id))
     })
 
+    const product = {
+        name: "pc gamer",
+        description: "Especialistas en Hardware Gamer. Más de 20 años de experiencia.Más de 100.000 operaciones nos avalan. Mercadolider Platinum.",
+        image: ["https://www.elcolombiano.com/binrepository/848x565/6c0/780d565/none/11101/JVEV/documentation-fotos-1-12369984-e2c388b27731bd2600683278b6daf042_41032867_20221110080339.jpg",
+            "https://cloudfront-us-east-1.images.arcpublishing.com/infobae/GY5BIMXN4SFLSW2LABHTEKCTKU.jpg",
+            "https://imagenes.elpais.com/resizer/B9PHqy1z6p-EHDPw7y8lKowfz38=/1960x1470/filters:focal(1690x586:1700x596)/cloudfront-eu-central-1.images.arcpublishing.com/prisa/FCGE3FZSEXQZ2IBUEKSGGLH6HQ.jpg"
+            ],
+        price: 90000,
+        stock: 58,
+        categories: ["ofice", "gamer"]
+    }
+
     return (
         <div className="container">
             <div className="row">
-                <div className="col-sm-12 col-md-8 col-lg-8 col-xl-8">
-                    <div className="row-md-4">
-                        <h2 className="title">Pc Armada Gamer{product.name} </h2>
-                    </div>
-                    <div className="row-md-4">
-                        <img /* src={product.image} */
-                        src="https://http2.mlstatic.com/D_NQ_NP_2X_976403-MLA51364537264_082022-F.webp" 
-                        alt="img not found" width="350px" id="imgg"/>
+                <div className="col-sm-12 col-md-8 col-lg-8 col-xl-8">                  
+                    <div className="row-sm-12-md-4" id="slider">
+                        <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src={product.image[0]} class="d-block w-100" alt="not found" />
+                                </div>
+                                {product.image[1] &&
+                                <div class="carousel-item">
+                                 <img src={product.image[1]} class="d-block w-100" alt="not found" />
+                                </div>}
+                                {product.image[2] &&
+                                <div class="carousel-item">
+                                 <img src={product.image[2]} class="d-block w-100" alt="not found" />
+                                </div>}
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <div className="col-sm-12 col-md-4 col-lg-4 col-xl-4" id="containerTwo">
+                    <div className="row" id="title">
+                        <h2 className="title">{product.name} </h2>
+                    </div>
                     <div className="row" id="price">
-                        <h3 className="price">$ 200.000 {product.price}</h3>
+                        <h3 className="price">${product.price}</h3>
                     </div>
                     <div className="row" id="stock">
-                        <p>Stock:{product.stock}</p>
+                        <p>Stock: {product.stock}</p>
                     </div>
                     <div className="row" id="btn">
                         <div class="d-grid gap-2">
