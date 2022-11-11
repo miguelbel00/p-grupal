@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
   Transaction.init({
     value: DataTypes.FLOAT,
     description: DataTypes.TEXT,
-    status: DataTypes.STRING,
+    status: DataTypes.ENUM('Pending', 'Completed','Canceled'),
   }, {
     sequelize,
     paranoid: true,
