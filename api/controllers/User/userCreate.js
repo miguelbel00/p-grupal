@@ -5,7 +5,7 @@ const { endpointResponse } = require('../../helpers/success')
 
 // example of a controller. First call the service, then build the controller method
 module.exports = {
-  userCreate: async (req, res, next) => {
+  createUser: async (req, res, next) => {
     const { fullName, email, password, phone } = req.body;
     try{
       const userEmail = await User.findAll({
