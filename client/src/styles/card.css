@@ -1,0 +1,59 @@
+  .card {
+    border: 1px solid #eee;
+    overflow: hidden;
+    padding: 10px;
+    box-shadow: 2px 8px 20px #ddd;
+    margin: 10px;
+    transition: 0.5s linear;
+  }
+
+  .card:hover {
+    box-shadow: none;
+  }
+
+  .card img {
+    max-width: 300px;
+    max-height: 300px;
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+  }
+
+  .card h3 {
+    height: 150px;
+    font-size: 15px;
+    margin: 10px 0;
+  }
+
+  .card h3 a{
+    text-decoration: none;
+    color: #333;
+  }
+
+  .card span{
+    color: crimson;
+    font-weight: bold;
+  }
+
+  .card p{
+    margin: 10px 0;
+  }
+
+  .card button{
+    text-decoration: none;
+    color: whitesmoke;
+    border: none;
+    outline: none;
+    background-color: #350069;
+    width: 100%;
+    height: 40px;
+    display: block;
+    cursor: pointer;
+    text-transform: uppercase;
+    margin: 15px 0;
+  }
+
+  .card button:hover {
+    background-color: #9600F4;
+  }

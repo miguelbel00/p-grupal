@@ -4,6 +4,7 @@ import Register from "./Pages/Register";
 import Footer from "./componets/Footer";
 import Carrusel from "./componets/Carrusel";
 import Navbar from "./componets/NavBar";
+import CardProduct_Container from "./componets/CardProduct_Container";
 
 
 
@@ -23,7 +24,7 @@ function App() {
       </Switch>
       <Route path="/"> 
           <Footer/>  
-        </Route>
+      </Route>
     </BrowserRouter>
   );
 }
