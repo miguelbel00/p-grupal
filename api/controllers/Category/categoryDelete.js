@@ -10,7 +10,7 @@ module.exports = {
       if (!categoryId) throw new ErrorObject("Missing parameters", 404);
       const categoryFound = await Category.findByPk(categoryId);
 
-      if (!categoryFound) throw new ErrorObject("Transaction not found", 400);
+      if (!categoryFound) throw new ErrorObject("Category not found", 400);
 
       const responce = await categoryFound.destroy({
         where: { id:categoryId },

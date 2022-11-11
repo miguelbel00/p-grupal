@@ -1,0 +1,27 @@
+
+a:link, a:visited, a:active {
+    text-decoration:none;
+}
+
+.logo{
+    width: 80px;
+    margin: -10px;
+}
+
+.navbar_brand {
+    padding-right: 40px;
+    color: whitesmoke;
+    text-decoration: none;
+}
+
+.navbar_brand:hover {
+    color: whitesmoke;
+}
+
+.navbar navbar-dark bg-dark {
+    background-color: #350069;
+}
+
+.btn btn-outline-success:hover{
+    background-color: #9600F4;
+}
