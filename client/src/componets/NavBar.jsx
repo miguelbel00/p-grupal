@@ -7,7 +7,7 @@ import Styles from '../styles/navbar.module.css'
 const Navbar = () => {
 
     return (
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark">
             <div className="container-fluid">
                 <div>
                     <Link to='/' >
