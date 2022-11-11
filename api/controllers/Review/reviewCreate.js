@@ -1,30 +1,34 @@
 const {ErrorObject} = require("../../helpers/error")
 const createHttpError = require('http-errors')
-const { Transaction } = require('../../database/models')
+const { Review } = require('../../database/models')
 const { endpointResponse } = require('../../helpers/success')
 
 // example of a controller. First call the service, then build the controller method
 module.exports = {
-  createTransaction: async (req, res, next) => {
-    const { value, description, status} = req.body;
-    try{
-
+  reviewCreate: async (req, res, next) => {
+    const { comment, rating } = req.body;
     
-      const response = await Transaction.create({
-        value, description, status
+    try{
+        
+      if(!comment || !rating ){
+          throw new ErrorObject("missing parameters", 404)
+      }
+    
+      const response = await Review.create({
+        comment, rating
       })
       
       endpointResponse({
         res,
         code:201,
-        message: 'Transaction retrieved successfully',
+        message: 'Review successfully created',
         body: response,
       })
 
     }catch(error){
         const httpError = createHttpError(
             error.statusCode,
-            `[Error create transaction] - [TransactionCreateControllers - POST]: ${error.message}`,
+            `[Error create review] - [ReviewCreateControllers - POST]: ${error.message}`,
           )
           next(httpError)
     }

@@ -1,10 +1,10 @@
 const express = require('express')
-const { transactionCreate } = require('../controllers/TransactionControllers/TransactionCreate.js')
+const { createTransaction } = require('../controllers/TransactionControllers/TransactionCreate.js')
 
 const router = express.Router()
 
 
-router.post('/', transactionCreate)
+router.post('/', createTransaction)
 
 
 module.exports = router

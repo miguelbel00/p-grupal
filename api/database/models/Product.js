@@ -6,12 +6,16 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class Product extends Model {
     static associate(models) {
+      Product.hasMany(models.Review, {
+        foreignKey: 'reviewId'
+      })
+    
     }
   };
   Product.init({
     name: DataTypes.STRING,
     description: DataTypes.TEXT,
-    image:DataTypes.ARRAY,
+    image:DataTypes.ARRAY(DataTypes.STRING),
     price:DataTypes.FLOAT,
     stock:DataTypes.INTEGER
   }, {
