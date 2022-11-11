@@ -1,11 +1,10 @@
 'use strict';
-const { uuid} = require("uuidv4")
-
+const {uuid} = require("uuidv4")
 const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class User extends Model {
+  class Review extends Model {
     static associate(models) {
       // define association here
       /* Test.hasMany(models.User,{
@@ -13,19 +12,17 @@ module.exports = (sequelize, DataTypes) => {
       }) */
     }
   };
-  User.init({
-    fullName: DataTypes.STRING,
-    email: DataTypes.STRING,
-    password: DataTypes.STRING,
-    phone: DataTypes.STRING
+  Review.init({
+    comment: DataTypes.TEXT,
+    rating: DataTypes.FLOAT,
   }, {
     sequelize,
     paranoid: true,
     timestamps: true,
-    modelName: 'User',
-  }),
-  User.addHook('beforeSave', async (user) => {
-    return user.id = uuid();
+    modelName: 'Review',
   });
-  return User;
+  Review.addHook('beforeSave', async (review) => {
+    return review.id = uuid();
+  })
+  return Review;
 };
