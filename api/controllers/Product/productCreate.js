@@ -40,7 +40,7 @@ module.exports = {
                     }
                 });
                 for (const data of dbCategory) {   
-                    await data.addCategory(dbCategory); 
+                    await data.addCategory(dbCategory.dataValue.name); 
                   };
 
                 endpointResponse({
@@ -51,7 +51,7 @@ module.exports = {
                   }); 
 
                 } else {
-                    throw new ErrorObject({error: "the product already exists"}, 404)
+                    throw new ErrorObject("the product already exists", 404)
                 }      
             };
                  
