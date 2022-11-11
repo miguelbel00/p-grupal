@@ -6,10 +6,10 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class Review extends Model {
     static associate(models) {
-      Review.hasMany(models.Product, {
+      Review.belongsTo(models.Product, {
         foreignKey: 'productId'
       }),
-      Review.belongsTo(models.User,{
+      Review.belongsTo(models.User, {
         foreignKey: 'userId'
       })
     }
