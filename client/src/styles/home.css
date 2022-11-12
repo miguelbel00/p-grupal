@@ -14,13 +14,13 @@
     background: #FFFFF3;
 }
 .div1{
+    text-align: center;
     display:inline-block;
     border-radius: 10px;
     margin: 50px;
     transition: all 0.25s; 
-    background-color: #9600F4;
+    background-color: #350069;
     color: #FFFFF3;
-    border: 5px solid black;
     
 }
 .div1:hover{

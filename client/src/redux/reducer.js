@@ -1,6 +1,7 @@
 const initialState = {
     detail: {},
-    products: []
+    products: [],
+    filterProducts: [], //modificar orden
 }
 
 
@@ -15,11 +16,32 @@ switch(type){
             ...state,
             detail: payload
         }
-    case 'GET_PRODUCTS':
+    case 'GET_ALL_PRODUCTS':
         return{
             ...state,
-            products: payload
+            products: payload,
+            filterProducts: payload
         }
+        case 'ORDER_BY_PRICE':
+            let price = state.filterProducts
+            if(payload === 'All'){
+                price = state.products
+            }else{
+                price = price.sort((a,b) => {
+                    const priceA = a.price
+                    const priceB = b.price
+                    
+                    if(payload === 'Min'){
+                        return priceA - priceB
+                    }if(payload === 'Max'){
+                        return priceB - priceA
+                    }
+                })
+            }
+            return{
+                ...state,
+                filterProducts: price
+            }
     default:
         return state
     }
