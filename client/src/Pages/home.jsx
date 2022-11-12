@@ -1,7 +1,7 @@
 import React from "react";
+
 import '../styles/home.css'
 import Carrusel from '../componets/Carrusel'
-
 
 export default function Home(){
 

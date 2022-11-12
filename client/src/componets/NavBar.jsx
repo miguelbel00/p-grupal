@@ -6,6 +6,7 @@ import Styles from '../styles/navbar.module.css'
 
 const Navbar = () => {
 
+
     return (
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div className="container-fluid">
@@ -19,27 +20,27 @@ const Navbar = () => {
                     </button>
                 </div>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                    <ul className="navbar-nav me-auto mt-3 mb-lg-0">
                         <li className="nav-item">
                             <Link to='/' >
-                                <p className="nav-link">Inicio</p>
+                                <p className="nav-link">Home</p>
                             </Link>
                         </li>
                         <li className="nav-item">
                             <Link to='/' >
-                                <p className="nav-link">Mi cuenta</p>
+                                <p className="nav-link">My account</p>
                             </Link>
                         </li>
                         <li className="nav-item">
                             <Link to='/' >
-                                <p className="nav-link">Mi carrito</p>
+                                <p className="nav-link">My Card</p>
                             </Link>
                         </li>
                     </ul>
-                    <form className="d-flex" role="search">
-                        <input className="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search"/>
-                        <button className="btn btn-outline-secondary" type="submit">Buscar</button>
-                    </form>
+                    <div className="d-flex" role="search">
+                        <input className="form-control me-2" type="search" placeholder="Search product" aria-label="Search"/>
+                        <button className="btn btn-outline-secondary mt-0" type="submit">Search</button>
+                    </div>
                 </div>
             </div>
         </nav>
