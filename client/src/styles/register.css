@@ -1,12 +1,12 @@
 .divMayorRegister{
-    width: 400px;
-    height: 520px; 
-    background-color:#FFFFF3;
-    border-radius: 3px;
-    border-radius: 5px;
-    justify-content: center;
-    align-items: center;
-    display: flex;
+  width: 400px;
+  height: 520px; 
+  background-color:#9600F4;
+  border-radius: 15px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  box-shadow: 0 0 0  2.8px white;
    }
    .titleRegister{
      margin-top: 200px;
@@ -51,5 +51,7 @@
   }
 
   .logoRegister{
-    transform: translate(20px,30px); 
+   display: flex;
+   align-items: center;
+   justify-content: center;
   }

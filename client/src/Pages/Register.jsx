@@ -10,7 +10,7 @@ export default function Register() {
 
 const dispatch=useDispatch()
 const[input,setInput]=useState({
-fullname:"",
+fullName:"",
 email:"",
 password:"",
 address:"",
@@ -66,7 +66,7 @@ return(
                     <input className="inputStyle" type="text" name="fullname"value={input.fullName} placeholder='FullName' onChange={e=>handleChangue(e)}/>
                 </div>
                 <div>
-                    <input type="text" name="email" value={input.email}  className="inputStyle" placeholder="Email"onChange={e=>handleChangue(e)} />
+                    <input type="email" name="email" value={input.email}  className="inputStyle" placeholder="Email"onChange={e=>handleChangue(e)} />
                 </div>
                 <div>
                     <input  className="inputStyle" type="text" name="password"value={input.password} placeholder="Password"onChange={e=>handleChangue(e)}/>
