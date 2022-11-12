@@ -31,27 +31,27 @@ export default function Detail() {
             <div className="row">
                 <div className="col-sm-12 col-md-8 col-lg-8 col-xl-8">                  
                     <div className="row-sm-12-md-4" id="slider">
-                        <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img src={product.image[0]} class="d-block w-100" alt="not found" />
+                        <div id="carouselExampleControlsNoTouching" className="carousel slide" data-bs-touch="false">
+                            <div className="carousel-inner">
+                                <div className="carousel-item active">
+                                    <img src={product.image[0]} className="d-block w-100" alt="not found" />
                                 </div>
                                 {product.image[1] &&
-                                <div class="carousel-item">
-                                 <img src={product.image[1]} class="d-block w-100" alt="not found" />
+                                <div className="carousel-item">
+                                 <img src={product.image[1]} className="d-block w-100" alt="not found" />
                                 </div>}
                                 {product.image[2] &&
-                                <div class="carousel-item">
-                                 <img src={product.image[2]} class="d-block w-100" alt="not found" />
+                                <div className="carousel-item">
+                                 <img src={product.image[2]} className="d-block w-100" alt="not found" />
                                 </div>}
                             </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
+                            <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
+                                <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span className="visually-hidden">Previous</span>
                             </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
+                            <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
+                                <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span className="visually-hidden">Next</span>
                             </button>
                         </div>
                     </div>
@@ -67,14 +67,14 @@ export default function Detail() {
                         <p>Stock: {product.stock}</p>
                     </div>
                     <div className="row" id="btn">
-                        <div class="d-grid gap-2">
-                            <button class="btn btn-primary" type="button">Add to cart</button>
-                            <button class="btn btn-primary" type="button">Buy now</button>
+                        <div className="d-grid gap-2">
+                            <button className="btn btn-primary" type="button">Add to cart</button>
+                            <button className="btn btn-primary" type="button">Buy now</button>
                         </div>
                     </div>
-                    <div class="row" id="containerTree">
+                    <div className="row" id="containerTree">
                         <div className="row" id="method">
-                            <label for="description" class="form-label">Payment method</label>
+                            <label for="description" className="form-label">Payment method</label>
                         </div>
                         <div className="row" id="img">
                             <img src={"https://cdn-icons-png.flaticon.com/512/888/888870.png"} alt="not found" width="200px"></img>
@@ -83,8 +83,8 @@ export default function Detail() {
                 </div>
             </div>
             <div className="row-4" id="containerFive">
-                <table class="table table-bordered">
-                    <label for="description" class="form-label">Main features</label>
+                <table className="table table-bordered">
+                    <label for="description" className="form-label">Main features</label>
                     <tbody>
                         <tr>
                             <th scope="row-4">DATO1</th>
@@ -106,7 +106,7 @@ export default function Detail() {
                 </table>
             </div>
             <div className="row-4" id="containerFive">
-                <label for="description" class="form-label">Description</label>
+                <label for="description" className="form-label">Description</label>
                 <div id="description">
                     <p>{product.description}</p>
                 </div>

@@ -1,5 +1,6 @@
 const initialState = {
-    detail: {}
+    detail: {},
+    products: []
 }
 
 
@@ -13,6 +14,11 @@ switch(type){
         return{
             ...state,
             detail: payload
+        }
+    case 'GET_PRODUCTS':
+        return{
+            ...state,
+            products: payload
         }
     default:
         return state
