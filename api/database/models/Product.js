@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
         constraints:false
       });
       Product.hasMany(models.Review, {
-        foreignKey: 'reviewId'
+        foreignKey: 'productId'
       })
     }
   }

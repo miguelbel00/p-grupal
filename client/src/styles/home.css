@@ -16,7 +16,7 @@
     overflow:hidden;
     text-align: center;
     margin:auto;
-    background: #FFFFF3;
+    background: whitesmoke;
 }
 .div1{
     display:inline-table;
@@ -24,7 +24,7 @@
     margin: 50px;
     transition: all 0.25s; 
     background-color: #9600F4;
-    color: #FFFFF3;
+    color: whitesmoke;
     border: 5px solid black;
     
 }
