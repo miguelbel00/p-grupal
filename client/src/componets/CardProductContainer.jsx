@@ -42,41 +42,7 @@ const notbooks = [
     price: '22.000'
   },
 ];
-const pc = [
-  {
-    id: 1,
-    name: "",
-    image: image1,
-    url: "",
-    description: 'Esta es una breve descripción del producto',
-    price: '31.000'
-  },
-  {
-    id: 2,
-    name: "Notbook HPpppppppppp",
-    image: image2,
-    url: "",
-    description: 'Esta es una breve descripción del producto',
-    price: "18.000"
-  },
-  {
-    id: 3,
-    name: "Notbook Dell",
-    image: image3,
-    url: "",
-    description: 'Esta es una breve descripción del producto',
-    price: '11.000'
 
-  },
-  {
-    id: 1,
-    name: "Notbook Lenovoooooooooo",
-    image: image4,
-    url: "",
-    description: 'Esta es una breve descripción del producto',
-    price: '22.000'
-  },
-];
 
 
 function CardProduct_Container() {
