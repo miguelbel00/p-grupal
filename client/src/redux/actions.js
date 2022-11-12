@@ -6,7 +6,7 @@ export function getAllProducts(){
     return async function(dispatch){
         var json = await axios.get(`${server}/products`)
         return dispatch({
-            type: 'GET_PRODUCTS',
+            type: 'GET_ALL_PRODUCTS',
             payload: json.data.body,
         })
     }
@@ -35,4 +35,12 @@ export function postUser(payload) {
             payload: user
         })
     }
+}
+
+export function orderByPrice(payload){
+        return {
+            type: 'ORDER_BY_PRICE',
+            payload
+        }
+        
 }
