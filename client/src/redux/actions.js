@@ -13,7 +13,6 @@ export function getAllProducts(){
 }
 export function getDetail(id){
     return async function(dispatch){
-        console.log(id)
         const response = await axios.get(`${server}/products/${id}`)
             return dispatch({
                 type: "GET_DETAIL",

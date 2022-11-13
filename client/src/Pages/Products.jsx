@@ -6,6 +6,7 @@ import { getAllProducts } from "../redux/actions";
 import '../styles/product.css'
 import Filters from "../componets/Filters";
 
+
 export default function Products(){
     const [option, setOption] = useState('')
     const allProducts = useSelector((state) => state.filterProducts)

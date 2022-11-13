@@ -9,7 +9,6 @@ export default function Detail() {
 
     const dispatch = useDispatch()
     const product = useSelector((state) => state.detail)
-    console.log(product)
     const { productId } = useParams()
 
     useEffect(()=>{
