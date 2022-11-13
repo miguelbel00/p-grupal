@@ -67,7 +67,7 @@ export default function Detail() {
                     </div>
                     <div className="row" id="containerTree">
                         <div className="row" id="method">
-                            <label for="description" className="form-label">Payment method</label>
+                            <label htmlFor="description" className="form-label">Payment method</label>
                         </div>
                         <div className="row" id="img">
                             <img src={"https://cdn-icons-png.flaticon.com/512/888/888870.png"} alt="not found" width="200px"></img>
@@ -75,31 +75,9 @@ export default function Detail() {
                     </div>
                 </div>
             </div>
+            
             <div className="row-4" id="containerFive">
-                <table className="table table-bordered">
-                    <label for="description" className="form-label">Main features</label>
-                    <tbody>
-                        <tr>
-                            <th scope="row-4">DATO1</th>
-                            <td>info</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">DATO2</th>
-                            <td>info</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">DATO3</th>
-                            <td>info</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">DATO4</th>
-                            <td>info</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div className="row-4" id="containerFive">
-                <label for="description" className="form-label">Description</label>
+                <label htmlFor="description" className="form-label">Description</label>
                 <div id="description">
                     <p>{product.description}</p>
                 </div>
