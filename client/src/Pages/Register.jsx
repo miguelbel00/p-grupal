@@ -12,6 +12,7 @@ export default function Register() {
     return (
         <div className="background">
             <div className="divMayorRegister">
+                <div className="divHijoRegister">
                 <Formik
 
                     onSubmit={(valores,{resetForm}) => {
@@ -129,6 +130,7 @@ export default function Register() {
                         </form>
                     )}
                 </Formik>
+            </div>
             </div>
         </div>
     );
