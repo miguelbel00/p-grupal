@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom"
 import { getDetail } from "../redux/actions"
+import Loading from "../componets/Loading"
 import "../styles/Detail.css"
 
 export default function Detail() {
@@ -9,30 +10,33 @@ export default function Detail() {
     const dispatch = useDispatch()
     const product = useSelector((state) => state.detail)
     console.log(product)
-    const { id } = useParams()
+    const { productId } = useParams()
 
     useEffect(()=>{
-        dispatch(getDetail(id))
-    },[dispatch, id])
+        dispatch(getDetail(productId))
+    },[dispatch])
+     
+
+    if(!Object.values(product).length){ return <Loading/>}
 
     return (
         <div className="container">
-            {/* <div className="row">
+            <div className="row">
                 <div className="col-sm-12 col-md-8 col-lg-8 col-xl-8">                  
                     <div className="row-sm-12-md-4" id="slider">
                         <div id="carouselExampleControlsNoTouching" className="carousel slide" data-bs-touch="false">
                             <div className="carousel-inner">
                                 <div className="carousel-item active">
-                                    <img src={product?.image[0]} className="d-block w-100" alt="not found" />
+                                    <img src={product.image[0]} className="d-block w-100" alt="not found" />
                                 </div>
-                                {product?.image[1] &&
+                                {product.image[1] &&(
                                 <div className="carousel-item">
                                  <img src={product.image[1]} className="d-block w-100" alt="not found" />
-                                </div>}
-                                {product?.image[2] &&
+                                </div>)}
+                                {product.image[2] && (
                                 <div className="carousel-item">
                                  <img src={product.image[2]} className="d-block w-100" alt="not found" />
-                                </div>}
+                                </div>)}
                             </div>
                             <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
                                 <span className="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -99,7 +103,7 @@ export default function Detail() {
                 <div id="description">
                     <p>{product.description}</p>
                 </div>
-            </div> */}
+            </div>
         </div>
     )
 }

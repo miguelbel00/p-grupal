@@ -13,10 +13,11 @@ export function getAllProducts(){
 }
 export function getDetail(id){
     return async function(dispatch){
-        const response = await axios.get(`${server}products/${id}`)
+        console.log(id)
+        const response = await axios.get(`${server}/products/${id}`)
             return dispatch({
                 type: "GET_DETAIL",
-                payload: response.data
+                payload: response.data.body
             })     
     }
 }
