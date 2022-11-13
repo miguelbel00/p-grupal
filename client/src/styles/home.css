@@ -1,9 +1,4 @@
-.header{
-    height: 100px;
-    text-align: center;
-    padding: 10px;
-    background:#350069;
-}
+
 .h1{
     color: white;
 }
@@ -16,25 +11,27 @@
     overflow:hidden;
     text-align: center;
     margin:auto;
-    background: whitesmoke;
+    background: #FFFFF3;
 }
 .div1{
-    display:inline-table;
+    text-align: center;
+    display:inline-block;
     border-radius: 10px;
     margin: 50px;
     transition: all 0.25s; 
-    background-color: #9600F4;
-    color: whitesmoke;
-    border: 5px solid black;
+    background-color: #350069;
+    color: #FFFFF3;
     
 }
 .div1:hover{
-    background-color: #350069;
     cursor: pointer;
+    
 }
 .img{
     margin-top: 0;
     width: 300px;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
+    border-radius: 5px;
 }
+.img:hover {
+    opacity: 0.5;
+  }
