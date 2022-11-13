@@ -46,3 +46,11 @@ switch(type){
         return state
     }
 }
+
+const findproduct=(id, products)=>{
+    console.log(id)
+    console.log(products)
+    const dato= products.find(p => p.id == id)
+    /* console.log(dato) */
+    return dato
+}

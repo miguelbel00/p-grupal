@@ -14,7 +14,7 @@ function App() {
     <BrowserRouter>
       <Navbar/>
       <Switch>
-        <Route exact path={"/detail"} component={Detail}/>
+        <Route exact path={"/detail/:productId"} component={Detail}/>
         <Route exact path='/' component={Home}/>
         <Route exact path='/register' component={Register}/>
         <Route exact path='/products' component={Products}/>

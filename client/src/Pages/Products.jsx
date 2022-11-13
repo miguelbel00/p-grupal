@@ -14,17 +14,16 @@ export default function Products(){
     const [option, setOption] = useState('')
     const allProducts = useSelector((state) => state.filterProducts)
     const dispatch = useDispatch()
-    useEffect(()=>{
-        dispatch(getAllProducts())
-    },[dispatch])
-
+    
+    
     return(
 
         <div className="containerCardsProducts" >
             {
-                allProducts?.map(e => (
+                allProducts?.map((e, i) => (
                 <Card 
-                id={e.id} 
+                id={e.id}
+                key={i} 
                 name={e.name} 
                 description={e.description} 
                 image={e.image} 

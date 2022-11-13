@@ -7,40 +7,29 @@ import "../styles/Detail.css"
 export default function Detail() {
 
     const dispatch = useDispatch()
-    const producto = useSelector((state) => state.detail)
+    const product = useSelector((state) => state.detail)
+    console.log(product)
     const { id } = useParams()
 
-    useEffect(() => {
+    useEffect(()=>{
         dispatch(getDetail(id))
-    })
-
-    const product = {
-        name: "pc gamer",
-        description: "Especialistas en Hardware Gamer. Más de 20 años de experiencia.Más de 100.000 operaciones nos avalan. Mercadolider Platinum.",
-        image: ["https://www.elcolombiano.com/binrepository/848x565/6c0/780d565/none/11101/JVEV/documentation-fotos-1-12369984-e2c388b27731bd2600683278b6daf042_41032867_20221110080339.jpg",
-            "https://cloudfront-us-east-1.images.arcpublishing.com/infobae/GY5BIMXN4SFLSW2LABHTEKCTKU.jpg",
-            "https://imagenes.elpais.com/resizer/B9PHqy1z6p-EHDPw7y8lKowfz38=/1960x1470/filters:focal(1690x586:1700x596)/cloudfront-eu-central-1.images.arcpublishing.com/prisa/FCGE3FZSEXQZ2IBUEKSGGLH6HQ.jpg"
-            ],
-        price: 90000,
-        stock: 58,
-        categories: ["ofice", "gamer"]
-    }
+    },[dispatch, id])
 
     return (
         <div className="container">
-            <div className="row">
+            {/* <div className="row">
                 <div className="col-sm-12 col-md-8 col-lg-8 col-xl-8">                  
                     <div className="row-sm-12-md-4" id="slider">
                         <div id="carouselExampleControlsNoTouching" className="carousel slide" data-bs-touch="false">
                             <div className="carousel-inner">
                                 <div className="carousel-item active">
-                                    <img src={product.image[0]} className="d-block w-100" alt="not found" />
+                                    <img src={product?.image[0]} className="d-block w-100" alt="not found" />
                                 </div>
-                                {product.image[1] &&
+                                {product?.image[1] &&
                                 <div className="carousel-item">
                                  <img src={product.image[1]} className="d-block w-100" alt="not found" />
                                 </div>}
-                                {product.image[2] &&
+                                {product?.image[2] &&
                                 <div className="carousel-item">
                                  <img src={product.image[2]} className="d-block w-100" alt="not found" />
                                 </div>}
@@ -110,7 +99,7 @@ export default function Detail() {
                 <div id="description">
                     <p>{product.description}</p>
                 </div>
-            </div>
+            </div> */}
         </div>
     )
 }
