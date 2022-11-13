@@ -6,9 +6,6 @@ import { getAllProducts } from "../redux/actions";
 import '../styles/product.css'
 import Filters from "../componets/Filters";
 
-// import { getAllProducts } from "../redux/actions";
-
-
 
 export default function Products(){
     const [option, setOption] = useState('')
@@ -17,14 +14,15 @@ export default function Products(){
     useEffect(()=>{
         dispatch(getAllProducts())
     },[dispatch])
-
+    
     return(
 
         <div className="containerCardsProducts" >
             {
-                allProducts?.map(e => (
+                allProducts?.map((e, i) => (
                 <Card 
-                id={e.id} 
+                id={e.id}
+                key={i} 
                 name={e.name} 
                 description={e.description} 
                 image={e.image} 
