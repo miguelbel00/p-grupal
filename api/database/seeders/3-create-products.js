@@ -43,9 +43,7 @@ module.exports = {
         name:"Pc Gamer Amd A6 7480 4ghz X6 8gb Ram Ssd240 Hdmi Radeon R5",
         description: `MICRO: INTEL CELERON G5905 10MA GEN Dual Core, MOTHER: H510M PCIE 4.0 DDR4 USB 3.2, DISCO RIGIDO: ESTADO SOLIDO SSD 240GB SATA3, MEMORIA RAM: 8GB 2666MHZ DDR4, GABINETE: ATX G18 POWER KIT FUENTE 500W`,
         image: [
-      'https://www.computershopping.com.ar/Images/Productos/CS3-1356-CB_Foto0.jpg',
-      "https://www.computershopping.com.ar/Images/Productos/Grandes/CS3-1356-CB_Foto3g.jpg",
-      "https://www.computershopping.com.ar/Images/Productos/Grandes/CS3-1356-CB_Foto1g.jpg"
+      'https://http2.mlstatic.com/D_NQ_NP_2X_978377-MLA43312085713_082020-F.webp'
       ],
         price: 500,
         stock: 5,
@@ -58,7 +56,6 @@ module.exports = {
         name:"Pc Cpu Solarmax Intel Core I5 16gb 480 Ssd Wifi",
         description: `Procesador Intel Core i5 10ma Generación LGA1200, Motherboard H410 con: HD Audio integrado Conexion Red LAN (por cable) integrada, 2 puertos USB 3.2 Gen 1 Type-A, 4 puertos USB 2.0, 1 Puerto PS2 para Mouse o Teclado, Video Graficos Integrados Intel UHD-630 Resolucion 4K, Modulo Wifi Interno para conexiones locales inalámbricas, Gabinete Solarmax CI-S102 de diseño compacto, Fuente Solarmax KC-EAA500 (500W)`,
         image: [
-      "https://www.tecnica.red/compras/wp-content/uploads/2019/08/CI-S102.jpg",
       "https://http2.mlstatic.com/D_NQ_NP_632761-MLA47747827649_102021-O.webp",
       "https://http2.mlstatic.com/D_NQ_NP_631249-MLA47747827650_102021-O.webp"
       ],
@@ -89,9 +86,9 @@ module.exports = {
         name:"Pc Armada Gamer Amd Ryzen 3 3200g 8gb Ddr4 1 Tb",
         description: `AMD Ryzen 3 3200G, N.° de núcleos de CPU: 4, N.° de subprocesos: 4, N.° de núcleos de GPU: 8, Reloj base: 3.6GHz, Reloj de aumento Max: 4GHz,Caché L1 total: 384KB,Caché L2 total: 2MB,Caché L3 total:4MB,-Versión de PCI Express: PCIe 3.0 x8Velocidad máxima de memoria: 2933MHz, Canales de memoria: 2, Frecuencia de gráficos: 1250 MHz, Modelo de gráficos: Radeon™ Vega 8 Graphics, Número de núcleos de los gráficos: 8 `,
         image: [     
-          "https://d3ugyf2ht6aenh.cloudfront.net/stores/854/212/products/gabinete-atx-sentey-x10-ventana-usb-3-0-rgb-021-8f34c49af6482bf52d15598520180401-640-0.jpg",
-          "https://d3ugyf2ht6aenh.cloudfront.net/stores/854/212/products/gabinete-atx-sentey-x10-ventana-usb-3-0-rgb-031-d41574d424b324e1d715598520183680-640-0.jpg",
-          'https://d3ugyf2ht6aenh.cloudfront.net/stores/854/212/products/gabinete-atx-sentey-x10-ventana-usb-3-0-rgb-011-47aa5fa3118eac825415598520180972-640-0.jpg'
+          "https://http2.mlstatic.com/D_NQ_NP_2X_625946-MLA46946916104_082021-F.webp",
+          "https://http2.mlstatic.com/D_NQ_NP_2X_709165-MLA46946939068_082021-F.webp",
+          'https://http2.mlstatic.com/D_NQ_NP_2X_978239-MLA46946914132_082021-F.webp'
 
        ],
         price: 500,
@@ -106,8 +103,7 @@ module.exports = {
         name:"Pc Armada Gamer Amd Ryzen 5 4600g 8gb Ddr4 Nvme 240 Rx Vega",
         description: `Microprocesador AMD Ryzen 5 4600G 8MB 3.7GHz AM4, Memoria Ddr4 8Gb, Disco Solido Ssd 240Gb Nvme Western Digital Green SN350, Mother A320M Socket AM4, Sistema Operativo : Windows 10 Home 30 dias de prueba`,
         image: [
-          "https://langtecnologia.com.ar/6401-large_default/gabinete-sentey-k20-vidrio-templado.jpg",
-          "https://langtecnologia.com.ar/6403-large_default/gabinete-sentey-k20-vidrio-templado.jpg"
+          "https://http2.mlstatic.com/D_NQ_NP_2X_787728-MLA50545076522_072022-F.webp"
         ],
         price: 700,
         stock: 40,
@@ -132,9 +128,7 @@ module.exports = {
         name:"Pc Armada Gamer Ryzen 5 3600 Rtx 3060 12gb Cyberpunk 2077",
         description: `MICRO: AMD Ryzen 5 3600, VIDEO: NVIDIA RTX3060 12GB PNY XLR8 con RGB, MOTHER: MSI A320 M2 PRO AM4, DISCO SSD: 240GB M2 ADATA 2000MB/S, DISCO DURO: 1TB SEAGATE 7200RPM, MEMORIA RAM: 16GB DDR4 3200MHZ PNY XLR8 (pack 2 x 8gb), GABINETE: SENTEY R20 con RGB, SISTEMA OPERATIVO: WINDOWS 10 64 TRIAL`,
         image: [
-          'https://d3ugyf2ht6aenh.cloudfront.net/stores/854/212/products/diseno-sin-titulo-971-7f4be51eb1f43c876416351880797997-640-0.png',
-          'https://d3ugyf2ht6aenh.cloudfront.net/stores/854/212/products/diseno-sin-titulo-981-2fafcddfacc6348f0b16351880797555-640-0.png'
-        
+          'https://http2.mlstatic.com/D_NQ_NP_2X_627363-MLA44320603361_122020-F.webp'
         ],
         price: 1500,
         stock: 39,
