@@ -11,19 +11,13 @@ export function getAllProducts(){
         })
     }
 }
-
-
-export function getDetail(id) {
-    return async function (dispatch) {
-        try {
-            const response = await axios.get(`/${id}`)
+export function getDetail(id){
+    return async function(dispatch){
+        const response = await axios.get(`${server}/products/${id}`)
             return dispatch({
                 type: "GET_DETAIL",
-                payload: response.data
-            })
-        } catch (error) {
-            console.error(error)
-        }
+                payload: response.data.body
+            })     
     }
 }
 

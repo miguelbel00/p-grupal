@@ -35,16 +35,6 @@ export default function Products(){
             <div className="col-10">
                 <div className="containerCardsProducts">
             {
-                allProducts.length > 1 ? allProducts.slice((page - 1) * forPage, (page - 1) * forPage + forPage).map(e => (
-                <Card 
-                id={e.id} 
-                name={e.name} 
-                description={e.description} 
-                image={e.image} 
-                price={e.price} 
-                stock={e.stock} 
-                ategories={e.Categories} Transactions={e.Transactions} Reviews={e.Reviews} />
-                )):
                 allProducts.length > 0 ? 
                 allProducts.slice((page - 1) * forPage, (page - 1) * forPage + forPage).map(e => (
                     <Card 
@@ -54,9 +44,8 @@ export default function Products(){
                     image={e.image} 
                     price={e.price} 
                     stock={e.stock} 
-                    ategories={e.Categories} Transactions={e.Transactions} Reviews={e.Reviews} />
-                    ))
-                : <h1>ERROR</h1> }
+                    Categories={e.Categories} Transactions={e.Transactions} Reviews={e.Reviews} />
+                    )):<h1>ERROR</h1> }
                 </div>
                 <div className="paginado">
                 <Paginated page={page} setPage={setPage} max={max} />

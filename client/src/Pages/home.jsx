@@ -1,10 +1,17 @@
-import React from "react";
+import React, {useEffect} from "react";
 import '../styles/home.css';
 import Carrusel from '../componets/Carrusel';
 import CardProductContainer from '../componets/CardProductContainer';
 import { Link } from "react-router-dom";
+import {useDispatch} from "react-redux"
+import { getAllProducts } from "../redux/actions";
 
 export default function Home(){
+    const dispatch = useDispatch()
+    useEffect(()=>{
+        dispatch(getAllProducts())
+    },[dispatch])
+
 
     return(
     <div>
