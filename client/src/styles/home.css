@@ -9,7 +9,10 @@
 }
 .h2{
     color: white;
-    background-color: black;
+    background-color: rgb(44, 44, 44);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .conteiner{
     margin-top: 40px;
@@ -25,7 +28,7 @@
     transition: all 0.25s; 
     background-color: #9600F4;
     color: whitesmoke;
-    border: 5px solid black;
+    border: 5px solid rgb(41, 40, 40);
     
 }
 .div1:hover{
@@ -37,4 +40,9 @@
     width: 300px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
+}
+
+.select{
+float: right;
+
 }

@@ -24,6 +24,11 @@ export default function Home(){
                     </div> 
             </div>
         <CardProductContainer/>
+        <div className="select">
+            <select name="" id="">
+                <option value="">HOLA</option>
+            </select>
+        </div>
     </div>
 )
 }
