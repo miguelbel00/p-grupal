@@ -5,12 +5,11 @@ const { DataTypes } = require('sequelize')
 module.exports = {
  up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('Products', {
-      id:{
-       type: DataTypes.UUID,
-       defaultValue: DataTypes.UUIDV4,
-       unique: true,
-       primaryKey: true,
-       allowNull: false
+      id: {
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+        type: Sequelize.INTEGER
       },
       name: {
        type: DataTypes.STRING,
