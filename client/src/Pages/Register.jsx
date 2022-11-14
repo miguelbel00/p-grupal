@@ -101,19 +101,6 @@ export default function Register() {
                                     {touched.password && errors.password && <div className="error">{errors.password}</div>}
                                 </div>
                                 <div>
-                                    <input
-                                        type="password"
-                                        className="inputStyle"
-                                        id="address"
-                                        name="address"
-                                        placeholder="Adress"
-                                        value={values.address}
-                                        onChange={handleChange}
-                                        onBlur={handleBlur}
-                                    />
-                                    {touched.address && errors.address && <div className="error">{errors.address}</div>}
-                                </div>
-                                <div>
 
                                     <input
                                         type="text"

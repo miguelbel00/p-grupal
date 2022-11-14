@@ -53,8 +53,8 @@ export default function Login() {
                         )}
 
 
-
                     </Formik>
+                    <Link>Olvidaste tu contraseña?</Link>
                 </div>
             </div>
         </div>
