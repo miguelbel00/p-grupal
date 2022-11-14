@@ -38,6 +38,7 @@ switch(type){
                     }
                 })
             }
+
             return{
                 ...state,
                 filterProducts: price

@@ -6,6 +6,7 @@ import Footer from "./componets/Footer";
 import Navbar from "./componets/NavBar";
 import Home from './Pages/home'
 import Products from './Pages/Products'
+import Login from "./Pages/Login";
 
 
 
@@ -18,6 +19,7 @@ function App() {
         <Route exact path='/' component={Home}/>
         <Route exact path='/register' component={Register}/>
         <Route exact path='/products' component={Products}/>
+        <Route exact path='/login' component={Login}/>
       </Switch>
       <Footer/>  
     </BrowserRouter>

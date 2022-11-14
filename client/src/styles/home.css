@@ -22,14 +22,8 @@
     border-radius: 10px;
     margin: 50px;
     transition: all 0.25s; 
-<<<<<<< HEAD
-    background-color: #9600F4;
-    color: whitesmoke;
-    border: 5px solid rgb(41, 40, 40);
-=======
     background-color: #350069;
     color: #FFFFF3;
->>>>>>> c2f2e7594d78c3f7dafea4ebd6c6bd412489d221
     
 }
 .div1:hover{
@@ -39,19 +33,8 @@
 .img{
     margin-top: 0;
     width: 300px;
-<<<<<<< HEAD
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-}
-
-.select{
-float: right;
-
-}
-=======
     border-radius: 5px;
 }
 .img:hover {
     opacity: 0.5;
   }
->>>>>>> c2f2e7594d78c3f7dafea4ebd6c6bd412489d221

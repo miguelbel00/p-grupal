@@ -1,12 +1,14 @@
+
 .divMayorRegister{
-  width: 400px;
-  height: 520px; 
+  width: 450px;
+  height: 600px; 
   background-color:#d6d6d6;
   border-radius: 15px;
   justify-content: center;
   align-items: center;
   display: flex;
   box-shadow: 0 0 0  2.8px white;
+  padding: 10px;
    }
    .titleRegister{
      margin-top: 200px;
@@ -14,11 +16,12 @@
    
    
    .inputStyle{
-  max-width: 190px;
-  height: 44px;
+  width: 300px;
+  height: 40px;
   background-color: #00000052;
   border-radius: .5rem;
-  padding: 0 1rem;
+  padding:20px;
+  margin-bottom: 5px;
   border: 2px solid transparent;
   font-size: 1rem;
   transition: border-color .3s cubic-bezier(.25,.01,.25,1) 0s, color .3s cubic-bezier(.25,.01,.25,1) 0s,background .2s cubic-bezier(.25,.01,.25,1) 0s;
@@ -28,6 +31,7 @@
    
    .errorButton{
     border-color: red; 
+    overflow: hidden
    }
    
    .godButton{
@@ -48,6 +52,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    word-wrap: break-word ;
   }
   .botoncito{
     width: 100px;
@@ -81,6 +86,7 @@
       box-shadow: 6px 6px 12px #c5c5c5,
                   -6px -6px 12px #ffffff;
                   height: 45px;
+                  text-align: center;
                   
   
   }
@@ -88,4 +94,10 @@
       border: 1px solid rgb(99, 18, 18);
      }
      
-  
+
+     
+  .image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
