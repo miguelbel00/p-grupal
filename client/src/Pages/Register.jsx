@@ -5,6 +5,7 @@ import { useState } from "react";
 import postUser from "../redux/actions/actionsPetitions";
 import logo from '../assets/logo.png'
 import '../styles/register.css'
+import { Formik } from "formik";
 
 export default function Register() {
     const dispatch = useDispatch()
