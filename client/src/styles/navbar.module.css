@@ -25,3 +25,8 @@ a:link, a:visited, a:active {
 .btn btn-outline-success:hover{
     background-color: #9600F4;
 }
+
+.Login button{
+     background-color: transparent;
+     border: none;
+}

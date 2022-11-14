@@ -16,6 +16,9 @@ npx sequelize db:migrate
 ```
 npx sequelize db:seed:all
 ``` 
-
+### Crear modelos
+```
+npx sequelize-cli db:model --name ModelName --attributes name:string,age:float
+``` 
 
 
