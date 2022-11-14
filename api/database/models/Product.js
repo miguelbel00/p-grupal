@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
       Product.belongsToMany(models.Transaction, {
         through: "transactionProduct",
         foreignKey : "productId",
-        constraints:false
+        constraints: false
       });
       Product.hasMany(models.Review, {
         foreignKey: 'productId'
