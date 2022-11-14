@@ -1,8 +1,8 @@
 const express = require('express')
-const { userCreate } = require('../controllers/User/UserCreate')
+const { createUser } = require('../controllers/User/userCreate')
 const router = express.Router()
 
-router.post('/', userCreate)
+router.post('/', createUser)
 
 
 
