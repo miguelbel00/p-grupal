@@ -6,18 +6,10 @@ const { ErrorObject } = require('../../helpers/error');
 
 module.exports = {
     createProducts: async (req, res, next) => {
-        const {
-            name,
-            description,
-            image,
-            price,
-            stock,
-            Categories
-        } = req.body;
-
-     
-            try {
-                if (!name || !description || !image || !price || !Categories) {
+        const { name, description, image, price, stock, categories } = req.body;
+    
+            try{ 
+                 if (!name || !description || !image || !price || !categories) {
                         throw new ErrorObject('Missing parameters', 404)   
                 };
 
@@ -25,7 +17,8 @@ module.exports = {
                   const allproduct = await Product.findAll();
                   const productCheck = allproduct.find(data => data.name === name);
 
-                  if (!productCheck) {       
+                  if (!productCheck) {  
+                    console.log(1);     
                   const createProducts = await Product.create({
                     name,
                     description,
@@ -34,9 +27,11 @@ module.exports = {
                     stock,    
                 });
 
+                console.log(2);
+
                 const dbCategory = await Category.findAll({
                     where: {
-                        name: Categories
+                        name: categories
                     }
                 });
                 createProducts.addCategory(dbCategory); 
@@ -45,13 +40,14 @@ module.exports = {
                     code: 201,
                     message: 'Product created successfully',
                     body: createProducts,
-                  }); 
+                  });  
                   
 
-                } else {
+              } else {
                     throw new ErrorObject("the product already exists", 404)
-                }      
-            };
+                }  
+
+            }; 
                  
             } catch (error) {
                     const httpError = createHttpError(
