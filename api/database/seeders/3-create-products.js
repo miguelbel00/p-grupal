@@ -70,9 +70,7 @@ module.exports = {
         name:"Pc Armada Gamer Amd Ryzen 5 5600g 6/12 Nucleos 16gb Ram DDR4",
         description: `MICRO PROCESADOR: AMD Ryzen 5 5600G 6/12 NUCLEOS 4.4GHZ, PLACA DE VIDEO INCORPORADA RADEON VEGA RX, MOTHER: MSI A320M PRO PCI 3.0 USB 3.1, DISCO SSD: 480GB SATA3 ADATA 500MB, MEMORIA RAM: 16GB DDR4 2666 EXPANDIBLE HASTA 64GB, GABINETE: ATX SENTEY F10 - FUENTE BCP500W, SISTEMA OPERATIVO: WINDOWS 10 64BITS TRIAL`,
         image: [
-        'https://d3ugyf2ht6aenh.cloudfront.net/stores/854/212/products/gabinete-atx-sentey-x10-ventana-usb-3-0-rgb-011-47aa5fa3118eac825415598520180972-640-0.jpg',
-        "https://d3ugyf2ht6aenh.cloudfront.net/stores/854/212/products/gabinete-atx-sentey-x10-ventana-usb-3-0-rgb-021-8f34c49af6482bf52d15598520180401-640-0.jpg",
-        "https://d3ugyf2ht6aenh.cloudfront.net/stores/854/212/products/gabinete-atx-sentey-x10-ventana-usb-3-0-rgb-031-d41574d424b324e1d715598520183680-640-0.jpg"
+          "https://http2.mlstatic.com/D_NQ_NP_2X_940844-MLA52267654288_112022-F.webp"
         ],
         price: 1000,
         stock: 64,
@@ -141,10 +139,10 @@ module.exports = {
         name:"Pc Gaming Lenovo Legion T5 Intel I7 1tbssd 16gb Rtx3060 12gb",
         description: `Legion Tower T5i 6ta GeneraciónModelo: 90RT00XJAE Color: Negro Procesador11va generación Intel® Core™ i7-11700F Procesador (2.50 GHz hasta 4.90 GHz), Sistema Operativo Windows 11 Home Single Language 64, Memoria 16 GB (2 x 8 GB) UDIMM ARMOR DDR4 3200MHz, Almacenamiento 1TB SSD, Adaptador de Corriente 550W, Tarjeta Gráfica NVIDIA GeForce® RTX™ 3060 12GB GDDR6, Potencia 550W, Conectividad Inalámbrica11AX (2x2) & Bluetooth® 5.1`,
         image: [
-          "https://www.megatone.net/images//Articulos/zoom2x/313/MKT0075LNV-2.webp",
+          "https://http2.mlstatic.com/D_NQ_NP_2X_736771-MLA51397037619_092022-F.webp",
           'https://http2.mlstatic.com/D_NQ_NP_2X_600063-MLA51397037621_092022-F.webp',
-          "https://www.megatone.net/images//Articulos/zoom2x/313/MKT0075LNV-3.webp",
-          "https://www.megatone.net/images//Articulos/zoom2x/313/MKT0075LNV-4.webp",
+          "https://http2.mlstatic.com/D_NQ_NP_2X_616833-MLA51397037622_092022-F.webp",
+          "https://http2.mlstatic.com/D_NQ_NP_2X_633065-MLA51397037618_092022-F.webp",
         ],
         price: 1500,
         stock: 1,
