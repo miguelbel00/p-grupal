@@ -5,9 +5,7 @@ import "../styles/card.css";
 
 export default function Card({ image, name, url, price, id }) {
 
-  const handelclick = ()=> {
-    console.log("detalle")
-  }
+
   return (
         <div className="card">
           <Link to='/'>
@@ -17,7 +15,11 @@ export default function Card({ image, name, url, price, id }) {
             <h3><Link to='/'>{name}</Link>
             </h3>
             <span>${price}</span>
-            <button onClick={handelclick}><Link className="text-reset text-decoration-none" to={'/detail/' + id}>Ver más</Link></button>
+
+            <Link className="text-decoration-none text-white link" to={`/detail/${id}`}>
+              Ver más
+            </Link>
+
           </div>
         </div>
   );

@@ -21,7 +21,6 @@ module.exports = {
         updatedAt: "2022-11-10T20:47:06.072Z",
           createdAt: "2022-11-10T20:47:06.072Z",
           deletedAt: null
-
       },
       {
         id:"2",
@@ -36,7 +35,6 @@ module.exports = {
         updatedAt: "2022-11-10T23:20:56.217Z",
         createdAt: "2022-11-10T23:20:56.217Z",
         deletedAt: null
-
       },
       {
         id: "3",
@@ -207,8 +205,7 @@ module.exports = {
     {
       id:"14",
       name:"Notebook Kelyx Kl3350 Gris 14 , Intel Celeron N3350 4gb De Ram 64gb Ssd, Intel Hd Graphics 1920x1080px Windows 10 Home",
-      description: `Procesador Intel Celeron, Memoria RAM de 4GB, Pantalla LED de 14", Resolución de 1920x1080 px, Placa de video Intel Graphics HD, Conexión wifi y bluetooth, Cuenta con 2 puertos USB y puerto HDMI, Incluye lector de tarjeta de memoria, Modo de sonido Stereo, La duración de la batería depende del uso que se le dé al producto.
-      `,
+      description: `Procesador Intel Celeron, Memoria RAM de 4GB, Pantalla LED de 14", Resolución de 1920x1080 px, Placa de video Intel Graphics HD, Conexión wifi y bluetooth, Cuenta con 2 puertos USB y puerto HDMI, Incluye lector de tarjeta de memoria, Modo de sonido Stereo, La duración de la batería depende del uso que se le dé al producto.`,
       image: [
         'https://http2.mlstatic.com/D_NQ_NP_2X_624320-MLA51838855951_102022-F.webp',
          'https://http2.mlstatic.com/D_NQ_NP_2X_912825-MLA51838863832_102022-F.webp',
@@ -216,8 +213,7 @@ module.exports = {
          'https://http2.mlstatic.com/D_NQ_NP_2X_780982-MLA51838842946_102022-F.webp',
          'https://http2.mlstatic.com/D_NQ_NP_2X_758547-MLA51839137194_102022-F.webp',
          'https://http2.mlstatic.com/D_NQ_NP_2X_777475-MLA51839158127_102022-F.webp',
-         'https://http2.mlstatic.com/D_NQ_NP_2X_714074-MLA51838842954_102022-F.webp',
-
+         'https://http2.mlstatic.com/D_NQ_NP_2X_714074-MLA51838842954_102022-F.webp'
       ],
       price: 250,
       stock: 33,
@@ -740,7 +736,7 @@ Compatible con Intel.
       createdAt: "2022-11-13T00:24:43.383Z",
       deletedAt: null
     }, 
-{
+     {
     id:"37",
     name:"Procesador AMD Ryzen 7 5700G 100-100000263BOX de 8 núcleos y 4.6GHz de frecuencia con gráfica integrada",
     description: `
@@ -1103,7 +1099,8 @@ De uso imprescindible para el buen funcionamiento de la PC.
 },
 
 down: async (queryInterface, Sequelize) => {
-await queryInterface.bulkDelete("Products", null, {});
+await queryInterface.bulkDelete("People", null, {});
 },
 };
+
 
