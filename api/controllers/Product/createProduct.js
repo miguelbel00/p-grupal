@@ -12,12 +12,12 @@ module.exports = {
             image,
             price,
             stock,
-            categories
+            Categories
         } = req.body;
 
      
             try {
-                if (!name || !description || !image || !price || !categories) {
+                if (!name || !description || !image || !price || !Categories) {
                         throw new ErrorObject('Missing parameters', 404)   
                 };
 
@@ -31,24 +31,22 @@ module.exports = {
                     description,
                     image,
                     price,
-                    stock        
+                    stock,    
                 });
 
                 const dbCategory = await Category.findAll({
                     where: {
-                        name: categories
+                        name: Categories
                     }
                 });
-                for (const data of dbCategory) {   
-                    await data.addCategory(dbCategory); 
-                  };
-
+                createProducts.addCategory(dbCategory); 
                 endpointResponse({
                     res,
-                    code: 200,
+                    code: 201,
                     message: 'Product created successfully',
                     body: createProducts,
                   }); 
+                  
 
                 } else {
                     throw new ErrorObject("the product already exists", 404)
