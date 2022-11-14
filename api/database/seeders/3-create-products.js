@@ -4,8 +4,7 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
       await queryInterface.bulkInsert('Products', [
         {
-        id:"1",
-        name:"Computadora Cpu Armada Intel Core I5 8 Gb 240 Gb Ssd",
+                name:"Computadora Cpu Armada Intel Core I5 8 Gb 240 Gb Ssd",
         description: `
         Procesador: Intel Core i5.
         Motherboard: Gigabyte, MSI, Esonic (a disponibilidad de stock).
@@ -23,8 +22,7 @@ module.exports = {
           deletedAt: null
       },
       {
-        id:"2",
-        name:"Pc Armada Intel Core I5 8gb Ssd240 W10 Office",
+                name:"Pc Armada Intel Core I5 8gb Ssd240 W10 Office",
         description: `8GIGAS, DDR3, SSD 240, GAB ATX FUENTE 550W, SISTEMA OPERATIVO INSTALADO LISTA PARA USAR`,
         image: [
       'https://http2.mlstatic.com/D_NQ_NP_2X_711170-MLA31113816812_062019-F.webp',
@@ -37,7 +35,6 @@ module.exports = {
         deletedAt: null
       },
       {
-        id: "3",
         name:"Pc Gamer Amd A6 7480 4ghz X6 8gb Ram Ssd240 Hdmi Radeon R5",
         description: `MICRO: INTEL CELERON G5905 10MA GEN Dual Core, MOTHER: H510M PCIE 4.0 DDR4 USB 3.2, DISCO RIGIDO: ESTADO SOLIDO SSD 240GB SATA3, MEMORIA RAM: 8GB 2666MHZ DDR4, GABINETE: ATX G18 POWER KIT FUENTE 500W`,
         image: [
@@ -50,8 +47,7 @@ module.exports = {
           deletedAt: null
       },
       {
-        id:"4",
-        name:"Pc Cpu Solarmax Intel Core I5 16gb 480 Ssd Wifi",
+                name:"Pc Cpu Solarmax Intel Core I5 16gb 480 Ssd Wifi",
         description: `Procesador Intel Core i5 10ma Generación LGA1200, Motherboard H410 con: HD Audio integrado Conexion Red LAN (por cable) integrada, 2 puertos USB 3.2 Gen 1 Type-A, 4 puertos USB 2.0, 1 Puerto PS2 para Mouse o Teclado, Video Graficos Integrados Intel UHD-630 Resolucion 4K, Modulo Wifi Interno para conexiones locales inalámbricas, Gabinete Solarmax CI-S102 de diseño compacto, Fuente Solarmax KC-EAA500 (500W)`,
         image: [
       "https://http2.mlstatic.com/D_NQ_NP_632761-MLA47747827649_102021-O.webp",
@@ -64,8 +60,7 @@ module.exports = {
         deletedAt: null
       },
       {
-        id:"5",
-        name:"Pc Armada Gamer Amd Ryzen 5 5600g 6/12 Nucleos 16gb Ram DDR4",
+                name:"Pc Armada Gamer Amd Ryzen 5 5600g 6/12 Nucleos 16gb Ram DDR4",
         description: `MICRO PROCESADOR: AMD Ryzen 5 5600G 6/12 NUCLEOS 4.4GHZ, PLACA DE VIDEO INCORPORADA RADEON VEGA RX, MOTHER: MSI A320M PRO PCI 3.0 USB 3.1, DISCO SSD: 480GB SATA3 ADATA 500MB, MEMORIA RAM: 16GB DDR4 2666 EXPANDIBLE HASTA 64GB, GABINETE: ATX SENTEY F10 - FUENTE BCP500W, SISTEMA OPERATIVO: WINDOWS 10 64BITS TRIAL`,
         image: [
           "https://http2.mlstatic.com/D_NQ_NP_2X_940844-MLA52267654288_112022-F.webp"
@@ -78,8 +73,7 @@ module.exports = {
 
       },
       {
-        id:"6",
-        name:"Pc Armada Gamer Amd Ryzen 3 3200g 8gb Ddr4 1 Tb",
+                name:"Pc Armada Gamer Amd Ryzen 3 3200g 8gb Ddr4 1 Tb",
         description: `AMD Ryzen 3 3200G, N.° de núcleos de CPU: 4, N.° de subprocesos: 4, N.° de núcleos de GPU: 8, Reloj base: 3.6GHz, Reloj de aumento Max: 4GHz,Caché L1 total: 384KB,Caché L2 total: 2MB,Caché L3 total:4MB,-Versión de PCI Express: PCIe 3.0 x8Velocidad máxima de memoria: 2933MHz, Canales de memoria: 2, Frecuencia de gráficos: 1250 MHz, Modelo de gráficos: Radeon™ Vega 8 Graphics, Número de núcleos de los gráficos: 8 `,
         image: [     
           "https://http2.mlstatic.com/D_NQ_NP_2X_625946-MLA46946916104_082021-F.webp",
@@ -95,8 +89,7 @@ module.exports = {
 
       },
       {
-        id:"7",
-        name:"Pc Armada Gamer Amd Ryzen 5 4600g 8gb Ddr4 Nvme 240 Rx Vega",
+                name:"Pc Armada Gamer Amd Ryzen 5 4600g 8gb Ddr4 Nvme 240 Rx Vega",
         description: `Microprocesador AMD Ryzen 5 4600G 8MB 3.7GHz AM4, Memoria Ddr4 8Gb, Disco Solido Ssd 240Gb Nvme Western Digital Green SN350, Mother A320M Socket AM4, Sistema Operativo : Windows 10 Home 30 dias de prueba`,
         image: [
           "https://http2.mlstatic.com/D_NQ_NP_2X_787728-MLA50545076522_072022-F.webp"
@@ -109,8 +102,7 @@ module.exports = {
 
       },
       {
-        id:"8",
-        name:"Pc Armada Core I3 8g Ssd240 (gabinete Oulet) W10 Ofice",
+                name:"Pc Armada Core I3 8g Ssd240 (gabinete Oulet) W10 Ofice",
         description: `PC ARMADA I3, 8 GIGAS ddr3, SSD 240, REG DE DVD, GAB ATX 550w OULET o USADO ACTUAL, SISTEMA OPERATIVO, W10 OFFICE ANTIVIRUS`,
         image: ['https://http2.mlstatic.com/D_NQ_NP_2X_947590-MLA49891440341_052022-F.webp'],
         price: 450,
@@ -120,8 +112,7 @@ module.exports = {
           deletedAt: null
       },
       {
-        id:"9",
-        name:"Pc Armada Gamer Ryzen 5 3600 Rtx 3060 12gb Cyberpunk 2077",
+                name:"Pc Armada Gamer Ryzen 5 3600 Rtx 3060 12gb Cyberpunk 2077",
         description: `MICRO: AMD Ryzen 5 3600, VIDEO: NVIDIA RTX3060 12GB PNY XLR8 con RGB, MOTHER: MSI A320 M2 PRO AM4, DISCO SSD: 240GB M2 ADATA 2000MB/S, DISCO DURO: 1TB SEAGATE 7200RPM, MEMORIA RAM: 16GB DDR4 3200MHZ PNY XLR8 (pack 2 x 8gb), GABINETE: SENTEY R20 con RGB, SISTEMA OPERATIVO: WINDOWS 10 64 TRIAL`,
         image: [
           'https://http2.mlstatic.com/D_NQ_NP_2X_627363-MLA44320603361_122020-F.webp'
@@ -133,7 +124,7 @@ module.exports = {
         deletedAt: null
       },
       {
-        id:"10",
+        
         name:"Pc Gaming Lenovo Legion T5 Intel I7 1tbssd 16gb Rtx3060 12gb",
         description: `Legion Tower T5i 6ta GeneraciónModelo: 90RT00XJAE Color: Negro Procesador11va generación Intel® Core™ i7-11700F Procesador (2.50 GHz hasta 4.90 GHz), Sistema Operativo Windows 11 Home Single Language 64, Memoria 16 GB (2 x 8 GB) UDIMM ARMOR DDR4 3200MHz, Almacenamiento 1TB SSD, Adaptador de Corriente 550W, Tarjeta Gráfica NVIDIA GeForce® RTX™ 3060 12GB GDDR6, Potencia 550W, Conectividad Inalámbrica11AX (2x2) & Bluetooth® 5.1`,
         image: [
@@ -149,7 +140,7 @@ module.exports = {
         deletedAt: null
       },
       {
-        id:"11",
+        
         name:"Notebook EXO Smart R33 gris 14, Intel Celeron N4020 4GB de RAM 64GB SSD, Intel UHD Graphics 600 1366x768px Windows 11 Home",
         description: `La notebook EXO Smart R33 es una solución tanto para trabajar y estudiar como para entretenerte. Al ser portátil, el escritorio dejará de ser tu único espacio de uso para abrirte las puertas a otros ambientes ya sea en tu casa o en la oficina. Pantalla con gran impacto visual Su pantalla de 14 y 1366x768 px de resolución te brindará colores más vivos y definidos. Tus películas y series preferidas cobrarán vida, ya que ganarán calidad y definición en cada detalle. Eficiencia a tu alcance Con su procesador Intel Celeron de 2 núcleos, lograrás el desempeño que necesitás para navegar y trabajar. Podrás usar los programas más esenciales, llevar a cabo tus tareas y organizar tu vida diaria. Un procesador exclusivo para los gráficos Su placa de video Intel UHD Graphics 600 convierte a este dispositivo en una gran herramienta de trabajo para cualquier profesional del diseño. Te permitirá lograr una gran performance en todos tus juegos y en otras tareas cotidianas que impliquen procesamiento gráfico.`,
         image: [
@@ -167,7 +158,7 @@ module.exports = {
         deletedAt: null
       },
       {
-      id:"12",
+      
       name:"Notebook Dell Inspiron 3515 plateada 15.5, AMD Ryzen 5 3450U 8GB de RAM 256GB SSD, AMD Radeon RX Vega 8 (Ryzen 2000/3000) 1366x768px Windows 11 Home",
       description:`Procesador AMD Ryzen 5, Memoria RAM de 8GB, Pantalla LCD de 15.5, Resolución de 1366x768 px, Es antirreflejo, Placa de video AMD Radeon RX Vega 8 (Ryzen 2000/3000), Conexión wifi y bluetooth, Cuenta con 3 puertos USB y puerto HDMI, Incluye lector de tarjeta de memoria, Posee pad numérico, Modo de sonido Stereo, HD Audio, La duración de la batería depende del uso que se le dé al producto.`,
       image: [
@@ -185,7 +176,7 @@ module.exports = {
       deletedAt: null
     },
     {
-      id:"13",
+      
       name:"Notebook Asus X515EA slate gray 15.6, Intel Core i5 1135G7 8GB de RAM 256GB SSD, Intel Iris Xe Graphics G7 80EUs 1920x1080px",
       description: `Procesador Intel Core i5, Memoria RAM de 8GB, Resolución de 1920x1080 px, Es antirreflejo, Placa de video Intel Iris Xe Graphics G7 80EUs, Conexión wifi y bluetooth, Cuenta con 4 puertos USB y puerto HDMI, Modo de sonido SonicMaster, Mono, La duración de la batería depende del uso que se le dé al producto`,
       image: [
@@ -203,7 +194,7 @@ module.exports = {
       deletedAt: null
     },
     {
-      id:"14",
+      
       name:"Notebook Kelyx Kl3350 Gris 14 , Intel Celeron N3350 4gb De Ram 64gb Ssd, Intel Hd Graphics 1920x1080px Windows 10 Home",
       description: `Procesador Intel Celeron, Memoria RAM de 4GB, Pantalla LED de 14", Resolución de 1920x1080 px, Placa de video Intel Graphics HD, Conexión wifi y bluetooth, Cuenta con 2 puertos USB y puerto HDMI, Incluye lector de tarjeta de memoria, Modo de sonido Stereo, La duración de la batería depende del uso que se le dé al producto.`,
       image: [
@@ -222,7 +213,7 @@ module.exports = {
       deletedAt: null
     },
     {
-      id:"15",
+      
       name:"Notebook Lenovo Ideapad 3 14iil05 Intel Core I3 1005g1, 8gb De Ram, 128gb Ssd, 14 Full Hd, Windows 11 S, Gris Platino",
       description:` Procesador Intel Core i3, Memoria RAM de 8GB, Pantalla LCD de 14", Resolución de 1920x1080 px, Conexión wifi y bluetooth, Cuenta con puerto HDMI, Incluye lector de tarjeta de memoria, La duración de la batería depende del uso que se le dé al producto.`,
       image: [
@@ -240,7 +231,7 @@ module.exports = {
       deletedAt: null
     },
     {
-      id:"16",
+      
       name:"Notebook Asus ZenBook 14 UM425QA pine gray 14, AMD Ryzen 5 4500U 8GB de RAM 512GB SSD, AMD Radeon RX Vega 6 (Ryzen 4000/5000) 1920x1080px Windows 11 Home",
       description: `Procesador AMD Ryzen 5, Memoria RAM de 8GB, Pantalla LED de 14", Resolución de 1920x1080 px, Es antirreflejo, Placa de video AMD Radeon RX Vega 6 (Ryzen 4000/5000), Conexión wifi y bluetooth, Cuenta con 5 puertos USB y puerto HDMI, Incluye lector de tarjeta de memoria, Modo de sonido Mono, Harman/kardon, La duración de la batería depende del uso que se le dé al producto,
       `,
@@ -260,7 +251,7 @@ module.exports = {
       deletedAt: null
     },
     {
-      id:"17",
+      
       name:"Mouse de juego Xinua M3 rosa",
       description: `
 Es inalámbrico.
@@ -279,7 +270,7 @@ Control inteligente y navegación fácil.
       deletedAt: null
     },
     {
-      id:"18",
+      
       name:"Mouse de juego Logitech G Series Lightsync G203 negro",
       description: `
 Utiliza cable.
@@ -298,7 +289,7 @@ Control inteligente y navegación fácil.
       deletedAt: null
     },
     {
-      id:"19",
+      
       name:"Mouse de juego Razer Viper Mini negro",
       description: `
       Utiliza cable.
@@ -317,7 +308,6 @@ Control inteligente y navegación fácil.
       deletedAt: null
     },
     {
-      id: "20",
       name:"Mouse Genius Dx-110 Usb 1000 Dpi Negro 31010116100",
       description: `
  Compatible con Windows y MacOS
@@ -346,7 +336,7 @@ Resolución (DPI): 1000
       deletedAt: null
     },
     {
-      id:"21",
+      
       name:"Mouse de juego Logitech G Series Lightsync G203 blanco",
       description: `
       Utiliza cable.
@@ -365,7 +355,7 @@ Control inteligente y navegación fácil.
       deletedAt: null
     },
     {
-      id:"22",
+      
       name:"Teclado bluetooth Apple Magic QWERTY español España color plata y blanco",
       description: `
       Conectividad con múltiples dispositivos.
@@ -385,7 +375,7 @@ Control inteligente y navegación fácil.
       deletedAt: null
     },
     {
-      id:"23",
+      
       name:"Teclado bluetooth Logitech K380 QWERTY español color negro",
       description: `
       Conectividad con múltiples dispositivos.
@@ -405,7 +395,7 @@ Control inteligente y navegación fácil.
       deletedAt: null
     },
     {
-      id:"24",
+      
       name:"Teclado gamer T-Dagger Arena T-TGK321 QWERTY T-Dagger Brown inglés US color negro con luz rainbow",
       description: `Resiste a salpicaduras.
       Función antighosting incorporada.
@@ -426,7 +416,7 @@ Control inteligente y navegación fácil.
       deletedAt: null
     },
     {
-      id:"25",
+      
       name:"Teclado gamer Redragon Yama K550 QWERTY Outemu Purple español latinoamérica color negro con luz RGB",
       description: `
       Ergonómico y apto para diversos usos.
@@ -450,7 +440,7 @@ Control inteligente y navegación fácil.
       deletedAt: null
     },
     {
-      id:"26",
+      
       name:"Teclado gamer bluetooth Redragon Draconic K530 QWERTY Outemu Brown inglés US color blanco con luz RGB",
       description: `
       Conectividad con múltiples dispositivos.
@@ -473,7 +463,7 @@ Las imágenes pueden ser ilustrativas.
       deletedAt: null
     },
     {
-      id:"27",
+      
       name:"Motherboard Asus Prime B460m-a S1200 Intel B460 Hdmi R2.0",
       description: `
       Plataforma: Intel
@@ -496,7 +486,7 @@ Las imágenes pueden ser ilustrativas.
       deletedAt: null
     },
     {
-      id:"28",
+      
       name:"Motherboard Asus Tuf B450m Plus Gaming Ii Am4 Ddr4 Hdmi",
       description: `
       Plataforma: AMD
@@ -518,7 +508,7 @@ Factor de forma: mATX
       deletedAt: null
     },
     {
-      id:"29",
+      
       name:"Motherboard Asrock Mb Am4 B450 Steel Legend 6 Pci Gamer",
       description: `
  Admite procesadores de escritorio AMD AM4 Socket Ryzen ™ de las series 2000, 3000 y 5000
@@ -544,7 +534,7 @@ Realtek Gigabit LAN
       deletedAt: null
     },
     {
-      id:"30",
+      
       name:"Motherboard Gigabyte H510m-h Intel 10ma 11va Gen Lga 1200 Pc",
       description: `
       Marca: Gigabyte
@@ -574,7 +564,7 @@ SKU 413544
       deletedAt: null
     },
     {
-      id:"31",
+      
       name:"Motherboard Asus Prime Z590-p S1200 Intel",
       description: `
 Memoria:
@@ -621,7 +611,7 @@ Puertos de E / S del panel posterior:
     },
 
     {
-      id:"32",
+      
       name:"Memoria RAM Value Select gamer color negro 16GB 1 Corsair CMV16GX4M1A2400C16",
       description: `
 Optimizá el rendimiento de tu máquina con la tecnología DDR4.
@@ -644,7 +634,7 @@ Compatible con Intel.
     }, 
 
     {
-      id:"33",
+      
       name:"Memoria RAM Fury Beast DDR4 gamer color negro 8GB 1 Kingston KF432C16BB/8",
       description: `
 Optimizá el rendimiento de tu máquina con la tecnología DDR4 SDRAM.
@@ -668,7 +658,7 @@ Compatible con AMD Ryzen.
     }, 
 
     {
-      id:"34",
+      
       name:"Memoria RAM XLR8 Gaming EPIC-X RGB gamer color negro 8GB 1 PNY MD8GD4320016XRGB",
       description: `
 Optimizá el rendimiento de tu máquina con la tecnología DDR4.
@@ -692,7 +682,7 @@ Cuenta con una tasa de transferencia de 25600 MB/s.
     }, 
 
     {
-      id:"35",
+      
       name:"Memoria RAM Vengeance RGB Pro gamer color blanco 16GB 2 Corsair CMW16GX4M2C3200C16",
       description: `
 Optimizá el rendimiento de tu máquina con la tecnología DDR4 DRAM.
@@ -715,7 +705,7 @@ Compatible con Intel, AMD.
     }, 
 
     {
-      id:"36",
+      
       name:"Memoria RAM Vengeance LPX gamer color black 16GB 1 Corsair CMK16GX4M1D3000C16",
       description: `
 Optimizá el rendimiento de tu máquina con la tecnología DDR4 DRAM.
@@ -737,7 +727,7 @@ Compatible con Intel.
       deletedAt: null
     }, 
      {
-    id:"37",
+    
     name:"Procesador AMD Ryzen 7 5700G 100-100000263BOX de 8 núcleos y 4.6GHz de frecuencia con gráfica integrada",
     description: `
 Es ideal para jugadores y creadores de contenido que requieran un instrumento de gran ejecución.
@@ -760,7 +750,7 @@ Procesador innovador desarrollado bajo altos estándares de calidad.
     deletedAt: null
   },
   {
-  id:"38",
+  
   name:"Pocesador gamer AMD Ryzen 5 5600X 100-100000065BOX de 6 núcleos y 4.6GHz de frecuencia",
   description: `
  Es ideal para jugadores y creadores de contenido que requieran un instrumento de gran ejecución.
@@ -783,7 +773,7 @@ Procesador innovador desarrollado bajo altos estándares de calidad.
 },
 
 {
-id:"39",
+
 name:"Procesador gamer Intel Core i5-10400F BX8070110400F de 6 núcleos y 4.3GHz de frecuencia",
 description: `
 Ejecuta programas de edición de videos, creación de contenido, streaming y videojuegos sin afectar el rendimiento del dispositivo.
@@ -807,7 +797,7 @@ deletedAt: null
 },
 
 {
-id:"40",
+
 name:"Proocesador gamer Intel Core i9-10900F BX8070110900F de 10 núcleos y 5.2GHz de frecuencia",
 description: `
 Ejecuta con rapidez y eficiencia cualquier tipo de programa sin afectar el funcionamiento total del dispositivo.
@@ -832,7 +822,7 @@ deletedAt: null
 },
 
 {
-id:"41",
+
 name:"Microprocesador Gamer Amd Ryzen 9 5900x 4.8ghz Am4 5ta Gen F",
 description: `
 Plataforma: Boxed Processor.
@@ -864,7 +854,7 @@ createdAt: "2022-11-13T00:24:43.383Z",
 deletedAt: null
 },
 {
-  id:"42",
+  
   name:"Disco sólido interno Kingston SA400S37/480G 480GB negro",
   description: `
 Con tecnología 3D NAND.
@@ -888,7 +878,7 @@ Las imágenes pueden ser ilustrativas.
   deletedAt: null
 },
 {
-  id:"43",
+  
   name:"Disco sólido interno Western Digital WD Green WDS240G2G0A 240GB verde",
   description: `
 Útil para guardar programas y documentos con su capacidad de 240 GB.
@@ -909,7 +899,7 @@ Las imágenes pueden ser ilustrativas.
   deletedAt: null
 },
 {
-  id:"44",
+  
   name:"Disco sólido interno Gigabyte GP-GSTFS31120GNTD 120GB negro",
   description: `
 Con tecnología 3D NAND.
@@ -932,7 +922,7 @@ Las imágenes pueden ser ilustrativas.
   deletedAt: null
 },
 {
-  id:"45",
+  
   name:"Disco duro interno Western Digital WD10EZEX 1TB",
   description: `
 Útil para guardar programas y documentos con su capacidad de 1 TB.
@@ -954,7 +944,7 @@ Las imágenes pueden ser ilustrativas.
   deletedAt: null
 },
 {
-  id:"46",
+  
   name:"Disco duro externo Seagate Basic STJL2000400 2TB negro",
   description: `
 Útil para guardar programas y documentos con su capacidad de 2 TB.
@@ -979,7 +969,7 @@ Las imágenes pueden ser ilustrativas.
   deletedAt: null
 },
 {
-  id:"47",
+  
   name:"Fuente de alimentación para PC Noga ATX-550 P4 550W negra 200V",
   description: `
 Potencia de salida de 550W.
@@ -1001,7 +991,7 @@ De uso imprescindible para el buen funcionamiento de la PC.
   deletedAt: null
 },
 {
-  id:"48",
+  
   name:"Fuente de alimentación para PC LNZ PX550-FS 550W 115V/230V",
   description: `
 Potencia de salida de 550W.
@@ -1023,7 +1013,7 @@ De uso imprescindible para el buen funcionamiento de la PC.
   deletedAt: null
 },
 {
-  id:"49",
+  
   name:"Fuente de alimentación para PC Corsair RMx Series RM850x 850W black 100V/240V",
   description: ` 
 Potencia de salida de 850W.
@@ -1046,7 +1036,7 @@ De uso imprescindible para el buen funcionamiento de la PC.
   deletedAt: null
 },
 {
-  id:"50",
+  
   name:"Fuente Redragon 850w Gc-ps010 Full Modular 80 Plus Gold",
   description: `
 Potencia de salida de 850W.
@@ -1069,7 +1059,7 @@ De uso imprescindible para el buen funcionamiento de la PC.
   deletedAt: null
 },
 {
-  id:"51",
+  
   name:"Fuente de alimentación para PC LNZ SX Series SX850-FS 850W negra 115V/230V",
   description: `
 Potencia de salida de 850W.
