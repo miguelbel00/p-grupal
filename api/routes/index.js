@@ -15,4 +15,6 @@ router.use('/products', productRoutes)
 router.use('/reviews', reviewsRoutes)
 router.use('/auth',authRoutes)
 
+
+
 module.exports = router

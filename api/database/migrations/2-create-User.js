@@ -6,8 +6,8 @@ module.exports = {
     await queryInterface.createTable('Users', {
       id:{
        type: DataTypes.UUID,
+       defaultValue: DataTypes.UUIDV4,
        primaryKey: true,
-       defaultValue:DataTypes.UUIDV4
       },
       fullName: {
        type: DataTypes.STRING,
