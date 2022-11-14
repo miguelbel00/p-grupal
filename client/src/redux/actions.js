@@ -38,3 +38,10 @@ export function orderByPrice(payload){
         }
         
 }
+
+export function getNameQuery(payload){
+    return{
+        type: 'GET_NAME_QUERY',
+        payload
+    }
+}

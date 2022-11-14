@@ -42,7 +42,23 @@ switch(type){
                 ...state,
                 filterProducts: price
             }
+        case 'GET_NAME_QUERY':
+            return{
+                ...state,
+                filterProducts: searchProduct(state.products,payload)
+                
+            }
     default:
         return state
     }
 }
+
+function searchProduct(product, n){
+    let productResult = product.filter(p => p.name.includes(n))
+    if(!productResult.length){
+        alert('Product not found')
+        return false
+    }
+    return productResult
+}
+
