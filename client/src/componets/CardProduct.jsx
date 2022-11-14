@@ -15,6 +15,7 @@ export default function Card({ image, name, url, price, id }) {
             </div>
           <div className="content">
             <h3>
+            {name}
             </h3>
             <span>${price}</span>
             <button className="text-decoration-none text-white link" > 
