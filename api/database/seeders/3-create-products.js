@@ -1093,11 +1093,17 @@ De uso imprescindible para el buen funcionamiento de la PC.
   updatedAt: "2022-11-13T00:24:43.383Z",
   createdAt: "2022-11-13T00:24:43.383Z",
   deletedAt: null
- }
-], {});
+ },
+      
+],
+{}
+);
+{
+}
 },
-  down: async (queryInterface, Sequelize) => {
-   await queryInterface.bulkDelete('Products', null, {});
-  }
+
+down: async (queryInterface, Sequelize) => {
+await queryInterface.bulkDelete("Products", null, {});
+},
 };
 
