@@ -11,7 +11,7 @@ import Filters from "../componets/Filters";
 
 export default function Products(){
     
-    const allProducts = useSelector((state) => state.products)
+    const allProducts = useSelector((state) => state.filterProducts)
     const dispatch = useDispatch()
 
     const [option, setOption] = useState('')
@@ -31,7 +31,7 @@ export default function Products(){
     return(
         <div className= 'counter text-center'>
         <div className="row">
-            <div className="filtros col-2 "> <Filters setOption={setOption}/></div>
+            <div className="filtros col-2 "> <Filters setOption={setOption} setPage={setPage}/></div>
             <div className="col-10">
                 <div className="containerCardsProducts">
             {

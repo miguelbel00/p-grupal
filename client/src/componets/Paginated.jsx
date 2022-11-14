@@ -37,7 +37,6 @@ export default function Paginated({ page, setPage, max }) {
     }
 
     const onChange = (e) => {
-
         setInpunt(e.target.value)
     }
 
