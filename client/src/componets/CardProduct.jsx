@@ -5,20 +5,24 @@ import "../styles/card.css";
 
 export default function Card({ image, name, url, price, id }) {
 
-  const handelclick = ()=> {
-    console.log("detalle")
-  }
+
   return (
         <div className="card">
-          <Link to='/'>
+          
+            <Link to={`/detail/${id}`}>
+            <div>
             <img src={image} alt='' />
-          </Link>
+            </div>
           <div className="content">
-            <h3><Link to='/'>{name}</Link>
+            <h3>
             </h3>
             <span>${price}</span>
-            <button onClick={handelclick}><Link className="text-reset text-decoration-none" to={'/detail/' + id}>Ver más</Link></button>
+            <button className="text-decoration-none text-white link" > 
+              Ver más
+            </button>
+
           </div>
+            </Link>
         </div>
   );
 }
