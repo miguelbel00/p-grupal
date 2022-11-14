@@ -8,19 +8,22 @@ export default function Card({ image, name, url, price, id }) {
 
   return (
         <div className="card">
-          <Link to='/'>
+          
+            <Link to={`/detail/${id}`}>
+            <div>
             <img src={image} alt='' />
-          </Link>
+            </div>
           <div className="content">
-            <h3><Link to='/'>{name}</Link>
+            <h3>
+            {name}
             </h3>
             <span>${price}</span>
-
-            <Link className="text-decoration-none text-white link" to={`/detail/${id}`}>
+            <button className="text-decoration-none text-white link" > 
               Ver más
-            </Link>
+            </button>
 
           </div>
+            </Link>
         </div>
   );
 }

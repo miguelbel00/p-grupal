@@ -2,9 +2,26 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import astroLogo from '../assets/astrologo2.0(sin fondo).png'
 import Styles from '../styles/navbar.module.css'
+import { getNameQuery } from '../redux/actions';
+import { useDispatch } from 'react-redux';
+import { useState } from 'react';
 
+const Navbar = ({setCurrentPage}) => {
+    const dispatch = useDispatch()
+    const [input, setInput] = useState()
 
-const Navbar = () => {
+    function handleInput(e){
+        e.preventDefault()
+        setInput(e.target.value)
+        console.log(input)
+    }
+
+    function handleSubmit(e){
+        e.preventDefault();
+        setInput(e.target.value)
+        dispatch(getNameQuery(input))
+        setCurrentPage(1)
+    }
 
     return (
         <nav className="navbar navbar-expand-lg navbar-dark">
@@ -37,8 +54,8 @@ const Navbar = () => {
                         </li>
                     </ul>
                     <form className="d-flex" role="search">
-                        <input className="form-control me-2" type="search" placeholder="Search Product..." aria-label="Search"/>
-                        <button className="btn btn-outline-secondary mt-0" type="submit">Search</button>
+                        <input onChange={(e) => handleInput(e)} className="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search"/>
+                        <button  className="btn btn-outline-secondary" type="submit" onClick={(e) => handleSubmit(e)}>Buscar</button>
                     </form>
                 </div>
             </div>
