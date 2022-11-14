@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector, useDispatch} from "react-redux";
 import { useEffect, useState } from "react";
 import Card from "../componets/CardProduct";
-import { getAllProducts } from "../redux/actions";
+import { getAllProducts } from "../redux/actions/actionsPetitions";
 import '../styles/product.css'
 import Paginated from '../componets/Paginated.jsx'
 import Filters from "../componets/Filters";
