@@ -39,7 +39,8 @@ export default function rootReducer(state = initialState, { type, payload }) {
                     }
                 })
             }
-            return {
+
+            return{
                 ...state,
                 filterProducts: price
             }

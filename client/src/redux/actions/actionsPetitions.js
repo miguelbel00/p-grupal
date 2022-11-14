@@ -23,10 +23,10 @@ export function getDetail(id) {
 
 export function postUser(payload) {
     return async function (dispatch) {
-        let user = axios.post('Example', payload)
+        let user = axios.post(`${server}/users`,payload)
         return dispatch({
-            type: 'POST-USER',
-            payload: user
+            type: 'POST_USER',
+            payload: user.data.body
         })
     }
 }
