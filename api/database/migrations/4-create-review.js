@@ -4,12 +4,11 @@ const { DataTypes } = require('sequelize')
 module.exports = {
  up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('Reviews', {
-      id:{
-       type: DataTypes.UUID,
-       defaultValue: DataTypes.UUIDV4,
-       unique: true,
-       primaryKey: true,
-       allowNull: false
+      id: {
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+        type: Sequelize.INTEGER
       },
       comment: {
        type: DataTypes.TEXT,
@@ -20,7 +19,7 @@ module.exports = {
        allowNull: false
       },
       productId: {
-        type: DataTypes.UUID,
+        type: DataTypes.INTEGER,
         references: {
           model: 'Products',
           key: 'id'
