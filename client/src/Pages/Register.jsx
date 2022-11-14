@@ -21,6 +21,7 @@ export default function Register() {
                         onSubmit={(valores, { resetForm }) => {
                             dispatch(postUser(valores))
                             resetForm()
+                            alert('Se creo la cuenta con exito')
                         }}
 
                         initialValues={{
@@ -33,24 +34,21 @@ export default function Register() {
                         validate={(valores) => {
                             let errores = {}
                             if (!valores.name) {
-                                errores.name = 'Por favor ingrese un nombre'
+                                errores.name = 'Please enter a name'
                             } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.name)) {
-                                errores.name = 'El nombre solo puede contener letras y espacios'
+                                errores.name = 'The name can only contain letters and spaces'
                             }//Validacion NOMBRE
 
                             if (!valores.email) {
-                                errores.email = 'Por favor ingrese un correo'
+                                errores.email = 'Please enter a email'
                             } else if (!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(valores.email)) {
-                                errores.email = 'Ingrese un correo valido'
+                                errores.email = 'Enter a valid name'
                             }
                             if (!valores.password) {
-                                errores.password = 'Por favor ingrese una contraseña'
-                            }
-                            if (!valores.address) {
-                                errores.address = 'Por favor ingrese su direccion'
+                                errores.password = 'Please enter a password'
                             }
                             if (!valores.phone) {
-                                errores.phone = 'Por favor ingrese su Phone'
+                                errores.phone = 'Please enter a phone'
                             }
 
 
@@ -60,7 +58,6 @@ export default function Register() {
                     >
                         {({ handleSubmit, values, handleChange, handleBlur, errors, touched }) => (
                             <form onSubmit={handleSubmit}>
-                                {console.log(errors)}
                                 <div>
                                     <input
                                         type="text"
@@ -89,7 +86,7 @@ export default function Register() {
                                 </div>
                                 <div>
                                     <input
-                                        type="text"
+                                        type="password"
                                         className="inputStyle"
                                         id="password"
                                         name="password"

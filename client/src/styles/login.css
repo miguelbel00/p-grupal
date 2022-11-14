@@ -33,4 +33,17 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            position: static;
+          }
+
+          .parrafo{
+           font-weight: bold;
+           color: #424141; 
+          }
+
+          .loginBoton{
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
           }
