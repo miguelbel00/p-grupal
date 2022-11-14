@@ -1,7 +1,7 @@
 const express = require('express')
 const { get } = require('../controllers/index')
 const userRoutes = require("./UserRoutes")
-const transactionRoutes = require("./TransactionRoutes")
+const transactionRoutes = require("./transactionRoutes")
 const categoryRoutes = require('./categoryRoutes')
 const productRoutes = require("./productRoutes.js")
 
