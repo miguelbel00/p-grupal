@@ -2,10 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
-import { postUser } from '../redux/actions'
-import logo from "../assets/logo.png";
-import "../styles/register.css";
-import { Formik } from "formik";
+import postUser from "../redux/actions/actionsPetitions";
+import logo from '../assets/logo.png'
+import '../styles/register.css'
 
 export default function Register() {
     const dispatch = useDispatch()

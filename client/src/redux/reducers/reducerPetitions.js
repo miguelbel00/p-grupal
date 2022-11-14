@@ -2,6 +2,7 @@ const initialState = {
     detail: {},
     products: [],
     filterProducts: [], //modificar orden
+
 }
 
 

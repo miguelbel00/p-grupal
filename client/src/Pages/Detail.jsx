@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom"
-import { getDetail } from "../redux/actions"
+import { getDetail } from "../redux/actions/actionsPetitions"
 import Loading from "../componets/Loading"
 import "../styles/Detail.css"
 
