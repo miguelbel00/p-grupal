@@ -25,7 +25,7 @@ export default function Products(){
     useEffect(()=>{
         dispatch(getAllProducts())
     },[dispatch])
-
+    
 
 
     return(
