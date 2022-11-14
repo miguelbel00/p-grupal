@@ -22,17 +22,17 @@ const Navbar = () => {
                 <ul className="navbar-nav me-auto mt-3 mb-lg-0">
                         <li className="nav-item">
                             <Link to='/' >
-                                <p className="nav-link">Home</p>
+                            <i class="bi bi-house nav-link mb-3"> Home</i>
                             </Link>
                         </li>
                         <li className="nav-item">
                             <Link to='/' >
-                                <p className="nav-link">My Account</p>
+                            <i class="bi bi-person-circle nav-link mb-3"> My Account</i>
                             </Link>
                         </li>
                         <li className="nav-item">
-                            <Link to='/' >
-                                <p className="nav-link">My Cart</p>
+                            <Link to='/shoppingcart' >
+                                <i class="0bi bi-cart4 nav-link mb-3"> My Cart</i>
                             </Link>
                         </li>
                     </ul>
