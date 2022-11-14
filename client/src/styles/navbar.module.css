@@ -1,5 +1,5 @@
 
-p:link, p:visited, p:active {
+a:link, a:visited, a:active {
     text-decoration:none;
 }
 
