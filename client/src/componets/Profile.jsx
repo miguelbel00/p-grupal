@@ -7,22 +7,22 @@ export default function Profile() {
     const { user, isAuthenticated } = useAuth0()
     console.log(user) //debe consologear la data del usuario google.
 
-  
+
 
     return (
 
         isAuthenticated ?
-        <div>
+            <div>
 
-            <img src={user.picture} alt={user.name} />
-            <h2>{user.name}</h2>
-            <p>{user.email}</p>
+                <img src={user.picture} alt={user.name} />
+                <h2>{user.name}</h2>
+                <p>{user.email}</p>
 
-            <pre>
-                {JSON.stringify(user)}
-            </pre>
+                <pre>
+                    {JSON.stringify(user)}
+                </pre>
 
-        </div>:
-            <Loading/>    
-            )
+            </div> :
+            <Loading />
+    )
 }
