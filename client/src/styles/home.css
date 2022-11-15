@@ -4,7 +4,10 @@
 }
 .h2{
     color: white;
-    background-color: black;
+    background-color: rgb(44, 44, 44);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .conteiner{
     margin-top: 40px;
