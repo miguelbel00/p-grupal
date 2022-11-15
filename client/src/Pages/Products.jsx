@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector, useDispatch} from "react-redux";
 import { useEffect, useState } from "react";
 import Card from "../componets/CardProduct";
-import { getAllProducts } from "../redux/actions/actionsFilter";
+import { getAllProducts } from "../redux/actions/actionsPetitions";
 import '../styles/product.css'
 import Paginated from '../componets/Paginated.jsx'
 import Filters from "../componets/Filters";
@@ -13,7 +13,6 @@ export default function Products(){
     
     const allProducts = useSelector((state) => state.filterReducer.filterProducts)
     const dispatch = useDispatch()
-
     const [option, setOption] = useState('')
 
     const [page, setPage] = useState(1);
@@ -23,8 +22,11 @@ export default function Products(){
 
     
     useEffect(()=>{
-        dispatch(getAllProducts())
-    },[dispatch])
+        if (!allProducts.length) {
+            dispatch(getAllProducts())
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[])
     
 
 
