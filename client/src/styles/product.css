@@ -1,0 +1,16 @@
+.containerCardsProducts{
+    display: grid;
+    grid-template-columns: repeat(3,minmax(300px,1fr))
+}
+
+.counter {
+background: #DADACD;
+margin-bottom: 15px;
+}
+.filtros{
+    border: solid 1px #000000;
+}
+.paginado{
+    display: flex;
+    align-items: center;
+}

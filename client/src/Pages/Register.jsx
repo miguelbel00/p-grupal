@@ -2,91 +2,123 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
-import postUser from "../redux/actions";
+import { postUser } from "../redux/actions/actionsPetitions";
 import logo from '../assets/logo.png'
 import '../styles/register.css'
+import { Formik } from "formik";
 
 export default function Register() {
+    const dispatch = useDispatch()
+    return (
+        <div className="background">
+            <div className="divMayorRegister">
+                <div className="divHijoRegister">
+                    <div className="image">
+                        <img src={logo} alt="" width='200px' height='200px' />
+                    </div>
+                    <Formik
 
-const dispatch=useDispatch()
-const[input,setInput]=useState({
-fullname:"",
-email:"",
-password:"",
-address:"",
-phone:""
-})
+                        onSubmit={(valores, { resetForm }) => {
+                            dispatch(postUser(valores))
+                            resetForm()
+                            alert('Se creo la cuenta con exito')
+                        }}
 
-function validateInput(input){
-    if(!input.email)return "Por Favor completa los campos requeridos"
-    }
-    const errormessage=validateInput(input)
+                        initialValues={{
+                            name: "",
+                            email: "",
+                            password: "",
+                            phone: "",
+                        }}
 
-function handleChangue(e){
-    e.preventDefault()
-    setInput({
-        ...input, //Osea, guardamos todo lo que ya habia en el estado y ademas...
-        [e.target.name]: e.target.value, //Segun el name del input se va a llenar el estado.
-    })
-}
+                        validate={(valores) => {
+                            let errores = {}
+                            if (!valores.name) {
+                                errores.name = 'Please enter a name'
+                            } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.name)) {
+                                errores.name = 'The name can only contain letters and spaces'
+                            }//Validacion NOMBRE
 
-function handleSubmit(e){
-// dispatch(postUser(e))
-if(errormessage){
-    return alert('Por favor,ingrese un correo y contraseña validos para registrarse!')
-}else{
-    return alert('Tu cuenta ha sido creada con exito')
-}
-}
-
-function buttonError(errormessage){
-if(errormessage){
-return <button  type="disabled" className="botoncito">Register!</button>
-}else{
-return <button className="botoncito">Register!</button>  
-}
-}
-
-
-
-
-
+                            if (!valores.email) {
+                                errores.email = 'Please enter a email'
+                            } else if (!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(valores.email)) {
+                                errores.email = 'Enter a valid name'
+                            }
+                            if (!valores.password) {
+                                errores.password = 'Please enter a password'
+                            }
+                            if (!valores.phone) {
+                                errores.phone = 'Please enter a phone'
+                            }
 
 
-return(
-<div className='background'>
-<div className="divMayorRegister">
-    <div className="divHijoRegister">
-        <div className="logoRegister">
-            <img src={logo} alt={logo} width='200px'height='200px' />
+                            return errores
+                        }}
+
+                    >
+                        {({ handleSubmit, values, handleChange, handleBlur, errors, touched }) => (
+                            <form onSubmit={handleSubmit}>
+                                <div>
+                                    <input
+                                        type="text"
+                                        className="inputStyle"
+                                        id="name"
+                                        name="name"
+                                        placeholder="FullName"
+                                        value={values.name}
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}//Valida el formulario
+                                    />
+                                    {touched.name && errors.name && <div className="error">{errors.name}</div>}
+                                </div>
+                                <div>
+                                    <input
+                                        type="text"
+                                        className="inputStyle"
+                                        id="email"
+                                        name="email"
+                                        placeholder="Email"
+                                        value={values.email}
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
+                                    />
+                                    {touched.email && errors.email && <div className="error">{errors.email}</div>}
+                                </div>
+                                <div>
+                                    <input
+                                        type="password"
+                                        className="inputStyle"
+                                        id="password"
+                                        name="password"
+                                        placeholder="Password"
+                                        value={values.password}
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
+                                    />
+                                    {touched.password && errors.password && <div className="error">{errors.password}</div>}
+                                </div>
+                                <div>
+
+                                    <input
+                                        type="text"
+                                        className="inputStyle"
+                                        id="phone"
+                                        name="phone"
+                                        placeholder="Phone"
+                                        value={values.phone}
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
+                                    />
+                                    {touched.phone && errors.phone && <div className="error">{errors.phone}</div>}
+                                </div>
+                                <br />
+                                <button className="botonsubmit" type="submit">Enviar</button>
+                            </form>
+                        )}
+                    </Formik>
+                </div>
+
+            </div>
         </div>
-        <div className="form">
-            <form onSubmit={e=>handleSubmit(e)}>
-                <div>
-                    <input className="inputStyle" type="text" name="fullname"value={input.fullName} placeholder='FullName' onChange={e=>handleChangue(e)}/>
-                </div>
-                <div>
-                    <input type="text" name="email" value={input.email}  className="inputStyle" placeholder="Email"onChange={e=>handleChangue(e)} />
-                </div>
-                <div>
-                    <input  className="inputStyle" type="text" name="password"value={input.password} placeholder="Password"onChange={e=>handleChangue(e)}/>
-                </div>
-                <div>
-                    <input type="text" className="inputStyle" name="address"value={input.address}placeholder='Address'onChange={e=>handleChangue(e)} />
-                </div>
-                <div>
-                    <input type="text" className="inputStyle" name="phone" value={input.phone}placeholder="Phone"onChange={e=>handleChangue(e)} />
-                </div>
-                <br />
-                {
-                buttonError(errormessage)
-                }
-                <p className="parrafo">Ya tienes cuenta?<Link to='/login'>Inicia Sesion</Link></p>
-                {/* <p>Olvidaste tu clave?<Link to='/recuperationPassword'>Recuperala Aqui!</Link></p> */}
-            </form>
-        </div>
-    </div>
-  </div>
-</div>
-)
+    );
 }

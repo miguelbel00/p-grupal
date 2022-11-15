@@ -1,10 +1,9 @@
-
 'use strict'; 
 const { DataTypes } = require('sequelize')
 
 module.exports = {
  up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Product', {
+    await queryInterface.createTable('Transactions', {
       id:{
        type: DataTypes.UUID,
        defaultValue: DataTypes.UUIDV4,
@@ -12,25 +11,27 @@ module.exports = {
        primaryKey: true,
        allowNull: false
       },
-      name: {
-       type: DataTypes.STRING,
-       allowNull: false
-      },
-      description: {
-        type: DataTypes.TEXT,
-        allowNull: false
-       },
-      image: {
-       type: DataTypes.ARRAY(DataTypes.STRING),
-       allowNull: false
-      },
-      price: {
+      value: {
        type: DataTypes.FLOAT,
        allowNull: false
       },
-      stock: {
-       type: DataTypes.INTEGER
-      }, 
+      description: {
+       type: DataTypes.TEXT,
+       allowNull: false
+      },
+      status: {
+       type: DataTypes.ENUM('Pending', 'Completed','Canceled'),
+       defaultValue: 'Pending' 
+      },
+      userId: {
+        type: DataTypes.UUID,
+        references: {
+          model: 'Users',
+          key: 'id'
+        },
+        onDelet: 'CASCADE',
+        onUpdate: 'CASCADE'
+      },
       createdAt: {
          allowNull: false,
          type: Sequelize.DATE
@@ -41,13 +42,13 @@ module.exports = {
        },
        deletedAt: {
          type: Sequelize.DATE
-       }
+       } 
+
      });
  },
 
  down: async (queryInterface, Sequelize) => { 
-    await queryInterface.dropTable('Product');
+    await queryInterface.dropTable('Transactions');
 
  }
 };
-

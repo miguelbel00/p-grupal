@@ -7,9 +7,7 @@ module.exports = {
       id:{
        type: DataTypes.UUID,
        defaultValue: DataTypes.UUIDV4,
-       unique: true,
        primaryKey: true,
-       allowNull: false
       },
       fullName: {
        type: DataTypes.STRING,
@@ -25,6 +23,10 @@ module.exports = {
       },
       phone: {
        type: DataTypes.STRING
+      }, 
+      isAdmin: {
+       type: DataTypes.BOOLEAN,
+       defaultValue: false
       }, 
       createdAt: {
          allowNull: false,

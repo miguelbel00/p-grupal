@@ -3,8 +3,7 @@ const { userCreate } = require('../controllers/User/userCreate')
 
 const router = express.Router()
 
-// example of a route with index controller get function
-router.post('/', userCreate)
-
+router.put('/',editUser)
+router.get('/',getAllUser)
 
 module.exports = router
