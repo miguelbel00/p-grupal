@@ -11,7 +11,7 @@ import Filters from "../componets/Filters";
 
 export default function Products(){
     
-    const allProducts = useSelector((state) => state.filterProducts)
+    const allProducts = useSelector((state) => state.filterReducer.filterProducts)
     const dispatch = useDispatch()
 
     const [option, setOption] = useState('')
@@ -23,7 +23,9 @@ export default function Products(){
 
     
     useEffect(()=>{
-        dispatch(getAllProducts())
+        if (!allProducts.length) {
+            dispatch(getAllProducts())
+        }
     },[dispatch])
     
 
