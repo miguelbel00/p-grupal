@@ -13,7 +13,6 @@ export default function Products(){
     
     const allProducts = useSelector((state) => state.filterReducer.filterProducts)
     const dispatch = useDispatch()
-
     const [option, setOption] = useState('')
 
     const [page, setPage] = useState(1);
@@ -26,7 +25,8 @@ export default function Products(){
         if (!allProducts.length) {
             dispatch(getAllProducts())
         }
-    },[dispatch])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[])
     
 
 

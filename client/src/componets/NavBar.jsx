@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import astroLogo from '../assets/astrologo2.0(sin fondo).png'
 import Styles from '../styles/navbar.module.css'
-import { getNameQuery } from '../redux/actions/actionsFilter';
+import { searchProduct } from '../redux/actions/actionsFilter';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import LogOut from './LogOutButton';
@@ -22,8 +22,7 @@ const Navbar = () => {
 
     function handleSubmit(e){
         e.preventDefault();
-        console.log(input)
-        dispatch(getNameQuery(input))
+        dispatch(searchProduct(input))
         history.push('/products')
 
     }

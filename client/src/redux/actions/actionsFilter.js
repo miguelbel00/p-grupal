@@ -16,9 +16,9 @@ export function filterCategory(payload) {
         payload
     }
 }
-export function getNameQuery(payload){
+export function searchProduct(payload){
     return{
-        type: 'GET_NAME_QUERY',
+        type: 'SEARCH_PRODUCT',
         payload
     }
 }
