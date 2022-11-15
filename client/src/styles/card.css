@@ -71,3 +71,19 @@
   .card button:hover {
     background-color: #9600F4;
   }
+
+  .myOrder {
+    width: 360px;
+    padding: 24px;
+    box-sizing: border-box;
+    right: 0;
+    background-color: white;
+    top: 60px;
+    bottom: 0;
+    border-radius: 6px;
+
+  }
+.imagenCarrito{
+  width: 150px;
+  height: 150px;
+}

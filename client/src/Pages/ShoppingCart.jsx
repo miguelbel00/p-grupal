@@ -1,32 +1,36 @@
 import React from "react";
 import { useSelector, useDispatch} from "react-redux";
 import { useEffect } from "react";
-import { useParams } from "react-router-dom"
 import ItemCart from "../componets/ItemCart";
-
+import { removeAllProduct, sumaTotal } from "../redux/actions/actionShoppingCart";
 
 export default function ShoppingCart(){
     const allProducts = useSelector((state) => state.shoppingReducer.productCart)
-    console.log(allProducts)
+    const suma = useSelector((state)=> state.shoppingReducer.suma)
+
+    console.log(suma)
     const dispatch = useDispatch()
-    const { id } = useParams()
-
-
-    const addToCart = () => {
-
+  
+    const saveLocal = () => {
+        
+        localStorage.setItem("carrito", JSON.stringify(allProducts))
     }
 
-    const deleteFromCart = () => {
-
-    }
 
     const clearCart = () => {
-
+        dispatch(removeAllProduct())
+        
+        alert('Clean cart')
     }
 
+
+    // const total = () => {
+    //     allProducts.reducer((acc, p)=> acc + p.price, 0)
+    // } 
+
     useEffect(()=>{
-        
-    },[dispatch])
+        saveLocal()
+    },[allProducts])
 
 
     return(
@@ -36,9 +40,11 @@ export default function ShoppingCart(){
             <h3>Productos</h3>
             <article className="containerCardsProducts">
                 {allProducts?.map((e)=> <ItemCart 
-                    name={e.name} price={e.price} image={e.image}
+                    id={e.id} name={e.name} price={e.price} image={e.image} 
                 />)}
             </article>
+            <h3>Total $ {}</h3>
+            <button onClick={clearCart} >Remove All</button>
             </div>
 
         </div>

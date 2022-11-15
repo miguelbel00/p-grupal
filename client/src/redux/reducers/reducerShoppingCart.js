@@ -1,8 +1,9 @@
-
-
 const shoppinginitialState = {
-    productCart: []
+    productCart:  JSON.parse(localStorage.getItem('carrito')) || [],
+    suma: JSON.parse(localStorage.getItem('carrito')) || []
 }
+
+
 
 export default function shoppingReducer(state = shoppinginitialState, { type, payload }) {
     switch (type) {
@@ -11,18 +12,18 @@ export default function shoppingReducer(state = shoppinginitialState, { type, pa
                 ...state, 
                 productCart: [...state.productCart, payload]
             }
-        // case 'REMOVE_ONE_CART':
-        //     return{
+        case 'REMOVE_ONE_CART':
+            return{
+                ...state,
+                productCart: [...state.productCart].filter(i => i.id !== parseInt(payload))
+        }
+        case 'REMOVE_ALL_CART':
+            return{
+                ...state,
+                productCart: []
+        }
 
-        // }
-        // case 'REMOVE_ALL_CART':
-        //     return{
 
-        // }
-        // case 'CLEAR_CART':
-        //     return{
-
-        // }
         default: 
         return state
     }
