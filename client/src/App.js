@@ -1,4 +1,3 @@
-
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Register from "./Pages/Register";
 import Detail from "./Pages/Detail";

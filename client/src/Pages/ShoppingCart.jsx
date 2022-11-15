@@ -6,7 +6,7 @@ import ItemCart from "../componets/ItemCart";
 
 
 export default function ShoppingCart(){
-    const allProducts = useSelector((state) => state.shoppingCart.productCart)
+    const allProducts = useSelector((state) => state.shoppingReducer.productCart)
     console.log(allProducts)
     const dispatch = useDispatch()
     const { id } = useParams()

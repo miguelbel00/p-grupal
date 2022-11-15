@@ -9,7 +9,7 @@ import "../styles/Detail.css"
 export default function Detail() {
 
     const dispatch = useDispatch()
-    const product = useSelector((state) => state.petitions.detail)
+    const product = useSelector((state) => state.petitionsReducer.detail)
     const { productId } = useParams()
 
     useEffect(()=>{
