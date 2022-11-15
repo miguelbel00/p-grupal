@@ -1,4 +1,3 @@
-
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Register from "./Pages/Register";
 import Detail from "./Pages/Detail";
@@ -16,7 +15,7 @@ function App() {
     <BrowserRouter>
       <Navbar/>
       <Switch>
-        <Route exact path={"/description"} component={Profile} /> 
+        <Route exact path={"/profile"} component={Profile} /> 
         <Route exact path={"/detail/:productId"} component={Detail}/>
         <Route exact path='/' component={Home}/>
         <Route exact path='/register' component={Register}/>

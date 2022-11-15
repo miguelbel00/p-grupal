@@ -22,27 +22,7 @@ export function getDetail(id) {
 }
 
 export function postUser(payload) {
-    return async function (dispatch) {
-        let user = axios.post('Example', payload)
-        return dispatch({
-            type: 'POST-USER',
-            payload: user
-        })
-    }
+    axios.post(`${server}/users`,payload)
 }
 
-export function orderByPrice(payload) {
-    return {
-        type: 'ORDER_BY_PRICE',
-        payload
-    }
-
-}
-
-export function filterCategory(payload) {
-    return {
-        type: "FILTER_BY_CATEGORY",
-        payload
-    }
-}
 

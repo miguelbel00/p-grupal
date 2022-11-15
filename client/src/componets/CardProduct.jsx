@@ -8,11 +8,10 @@ export default function Card({ image, name, url, price, id }) {
 
   return (
         <div className="card">
-          <Link to='/'>
             <img src={image} alt='' />
-          </Link>
+          
           <div className="content">
-            <h3><Link to='/'>{name}</Link>
+            <h3>{name}
             </h3>
             <span>${price}</span>
 

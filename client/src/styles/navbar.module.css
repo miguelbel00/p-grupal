@@ -30,3 +30,9 @@ a:link, a:visited, a:active {
      background-color: transparent;
      border: none;
 }
+
+.avatar{
+    width: 45px;
+    border-radius: 50%;
+    margin-left: 15px;
+}

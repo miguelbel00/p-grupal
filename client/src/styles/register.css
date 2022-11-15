@@ -1,12 +1,14 @@
+
 .divMayorRegister{
-    width: 400px;
-    height: 520px; 
-    background-color:#FFFFF3;
-    border-radius: 3px;
-    border-radius: 5px;
-    justify-content: center;
-    align-items: center;
-    display: flex;
+  width: 450px;
+  height: 600px; 
+  background-color:#d6d6d6;
+  border-radius: 15px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  box-shadow: 0 0 0  2.8px white;
+  padding: 10px;
    }
    .titleRegister{
      margin-top: 200px;
@@ -14,16 +16,22 @@
    
    
    .inputStyle{
-     background-color: whitesmoke;
-   border-radius: 3px;
-   width: 250px;
-   height: 40px;
+  width: 300px;
+  height: 40px;
+  background-color: #00000052;
+  border-radius: .5rem;
+  padding:20px;
+  margin-bottom: 5px;
+  border: 2px solid transparent;
+  font-size: 1rem;
+  transition: border-color .3s cubic-bezier(.25,.01,.25,1) 0s, color .3s cubic-bezier(.25,.01,.25,1) 0s,background .2s cubic-bezier(.25,.01,.25,1) 0s;
    }
    
    
    
    .errorButton{
     border-color: red; 
+    overflow: hidden
    }
    
    .godButton{
@@ -38,12 +46,13 @@
 
 
   .background{
-    background-color: #E5E0AC;
+    background-color: #482857;
     width: 100%;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    word-wrap: break-word ;
   }
   .botoncito{
     width: 100px;
@@ -51,5 +60,44 @@
   }
 
   .logoRegister{
-    transform: translate(20px,30px); 
+   display: flex;
+   align-items: center;
+   justify-content: center;
+  }
+
+  .error{
+    color: #e92b2d;
+    font-weight: 600;
+    font-size: 12px;
+  }
+  ::placeholder {
+    color: rgb(20, 20, 20);
+    font-size: 20px;
+  }
+
+  .botonsubmit{
+      color: #090909;
+      padding: 0.7em 1.7em;
+      font-size: 18px;
+      border-radius: 0.5em;
+      background: #e8e8e8;
+      border: 2px solid #3f3e3e;
+      transition: all .3s;
+      box-shadow: 6px 6px 12px #c5c5c5,
+                  -6px -6px 12px #ffffff;
+                  height: 45px;
+                  text-align: center;
+                  
+  
+  }
+     botonsubmit:hover {
+      border: 1px solid rgb(99, 18, 18);
+     }
+     
+
+     
+  .image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
