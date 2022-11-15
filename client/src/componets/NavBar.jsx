@@ -9,7 +9,7 @@ import LoginButton from './LoginButton';
 
 const Navbar = () => {
 
-    const { isAuthenticated } = useAuth0()
+    const { isAuthenticated, user } = useAuth0()
 
     return (
         <nav className="navbar navbar-expand-lg navbar-dark">
@@ -52,6 +52,7 @@ const Navbar = () => {
                         <input className="form-control me-2" type="search" placeholder="Search Product..." aria-label="Search" />
                         <button className="btn btn-outline-secondary mt-0" type="submit">Search</button>
                     </form>
+                    {isAuthenticated && <Link to={"/profile"}><img className={Styles.avatar} src={user.picture} alt={user.name} /></Link>}
                 </div>
             </div>
         </nav>
