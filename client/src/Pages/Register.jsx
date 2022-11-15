@@ -1,7 +1,5 @@
-/* import React from "react";
-import { Link } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { useState } from "react";
+import React from "react";
+import { useDispatch } from "react-redux";
 import { postUser } from "../redux/actions/actionsPetitions";
 import logo from '../assets/logo.png'
 import '../styles/register.css'
@@ -37,7 +35,7 @@ export default function Register() {
                                 errores.name = 'Please enter a name'
                             } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.name)) {
                                 errores.name = 'The name can only contain letters and spaces'
-                            }//Validacion NOMBRE
+                            }
 
                             if (!valores.email) {
                                 errores.email = 'Please enter a email'
@@ -67,7 +65,7 @@ export default function Register() {
                                         placeholder="FullName"
                                         value={values.name}
                                         onChange={handleChange}
-                                        onBlur={handleBlur}//Valida el formulario
+                                        onBlur={handleBlur}
                                     />
                                     {touched.name && errors.name && <div className="error">{errors.name}</div>}
                                 </div>
@@ -122,4 +120,3 @@ export default function Register() {
         </div>
     );
 }
- */

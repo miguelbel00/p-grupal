@@ -12,7 +12,6 @@ export default function ShoppingCart(){
     const dispatch = useDispatch()
   
     const saveLocal = () => {
-        
         localStorage.setItem("carrito", JSON.stringify(allProducts))
     }
 
