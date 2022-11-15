@@ -17,9 +17,12 @@ module.exports = {
        type: DataTypes.STRING,
        allowNull: false
       },
+      avatar:{
+         type:DataTypes.TEXT
+      },
       password: {
        type: DataTypes.STRING,
-       allowNull: false
+
       },
       phone: {
        type: DataTypes.STRING
