@@ -1,4 +1,7 @@
 const express = require('express')
+const { get } = require('../controllers/index')
+const userRoutes = require("./UserRoutes")
+const transactionRoutes = require("./transactionRoutes")
 
 const reviewsRoutes  = require('./reviewRoutes')
 const userRoutes = require('./userRoutes')
@@ -6,9 +9,13 @@ const categoryRoutes = require('./categoryRoutes')
 const productRoutes = require('./productRoutes')
 const authRoutes = require('./authRoutes')
 
+
+
 const router = express.Router()
 
-//router only on plural
+// example of a route with index controller get function
+router.get('/', get)
+router.use("/transactions", transactionRoutes)
 router.use('/categories', categoryRoutes)
 router.use('/users',userRoutes)
 router.use('/products', productRoutes)
@@ -16,5 +23,11 @@ router.use('/reviews', reviewsRoutes)
 router.use('/auth',authRoutes)
 
 
+
+const  reviewsRoutes  = require('./reviewRoutes')
+
+
+
+//router only on plural
 
 module.exports = router
