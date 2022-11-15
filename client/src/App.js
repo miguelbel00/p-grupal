@@ -6,6 +6,8 @@ import Navbar from "./componets/NavBar";
 import Home from './Pages/home'
 import Products from './Pages/Products'
 import ShoppingCart from "./Pages/ShoppingCart"
+import Profile from "./componets/Profile";
+
 
 
 function App() {
@@ -13,6 +15,7 @@ function App() {
     <BrowserRouter>
       <Navbar/>
       <Switch>
+        <Route exact path={"/description"} component={Profile} /> 
         <Route exact path={"/detail/:productId"} component={Detail}/>
         <Route exact path='/' component={Home}/>
         <Route exact path='/register' component={Register}/>

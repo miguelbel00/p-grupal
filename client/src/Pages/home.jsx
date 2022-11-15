@@ -5,6 +5,7 @@ import CardProductContainer from '../componets/CardProductContainer';
 import { Link } from "react-router-dom";
 import {useDispatch} from "react-redux"
 import { getAllProducts } from "../redux/actions/actionsPetitions";
+import Profile from "../componets/Profile";
 
 export default function Home(){
     const dispatch = useDispatch()

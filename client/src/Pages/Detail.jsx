@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom"
 import { getDetail } from "../redux/actions/actionsPetitions"
+import { addProductToCart } from '../redux/actions/actionShoppingCart.js'
 import Loading from "../componets/Loading"
 import "../styles/Detail.css"
 
@@ -15,6 +16,10 @@ export default function Detail() {
         dispatch(getDetail(productId))
     },[dispatch])
      
+    const handleonClick =()=>{
+        dispatch(addProductToCart(productId))
+        alert('agrgado al carrito')
+    }
 
     if(!Object.values(product).length){ return <Loading/>}
 
@@ -60,7 +65,7 @@ export default function Detail() {
                     </div>
                     <div className="row" id="btn">
                         <div className="d-grid gap-2">
-                            <button className="btn btn-primary" type="button">Add to cart</button>
+                            <button onClick={handleonClick} className="btn btn-primary" type="button">Add to cart</button>
                             <button className="btn btn-primary" type="button">Buy now</button>
                         </div>
                     </div>
