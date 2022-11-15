@@ -5,7 +5,7 @@ import Loading from "./Loading"
 export default function Profile() {
 
     const { user, isAuthenticated } = useAuth0()
-    console.log(user)
+    console.log(user) //debe consologear la data del usuario google.
 
   
 
