@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector, useDispatch} from "react-redux";
 import { useEffect, useState } from "react";
 import Card from "../componets/CardProduct";
-import { getAllProducts } from "../redux/actions/actionsPetitions";
+import { getAllProducts } from "../redux/actions/actionsFilter";
 import '../styles/product.css'
 import Paginated from '../componets/Paginated.jsx'
 import Filters from "../componets/Filters";
@@ -11,7 +11,7 @@ import Filters from "../componets/Filters";
 
 export default function Products(){
     
-    const allProducts = useSelector((state) => state.filterProducts)
+    const allProducts = useSelector((state) => state.filterReducer.filterProducts)
     const dispatch = useDispatch()
 
     const [option, setOption] = useState('')
