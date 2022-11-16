@@ -1,6 +1,8 @@
 import React from "react"
 import { useAuth0 } from "@auth0/auth0-react"
 import Loading from "./Loading"
+import { Link } from "react-router-dom"
+import Styles from "../styles/profile.module.css"
 
 export default function Profile() {
 
@@ -12,16 +14,15 @@ export default function Profile() {
     return (
 
         isAuthenticated ?
-            <div>
+            <div className={Styles.container} >
 
                 <img src={user.picture} alt={user.name} />
                 <h2>{user.name}</h2>
-                <p>{user.email}</p>
+                <h4>{user.email}</h4>
+                <Link to={"/"}><button>Edit Profile</button></Link>
 
-                <pre>
-                    {JSON.stringify(user)}
-                </pre>
 
+             
             </div> :
             <Loading />
     )
