@@ -27,7 +27,7 @@ const Navbar = () => {
 
     }
 
-    const { isAuthenticated } = useAuth0()
+    const { isAuthenticated, user } = useAuth0()
 
     return (
         <nav className="navbar navbar-expand-lg navbar-dark">
@@ -70,6 +70,7 @@ const Navbar = () => {
                         <input onChange={handleInput} value={input}className="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search"/>
                         <button  className="btn btn-outline-secondary" type="submit" onClick={(e) => handleSubmit(e)}>Buscar</button>
                      </form> 
+                    {isAuthenticated && <Link to={"/profile"}><img className={Styles.avatar} src={user.picture} alt={user.name} /></Link>}
                 </div>
             </div>
         </nav>

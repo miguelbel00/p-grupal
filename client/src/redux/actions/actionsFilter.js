@@ -1,7 +1,3 @@
-import axios from "axios";
-
-const server = 'http://localhost:3005'
-
 
 export function orderByPrice(payload) {
     return {

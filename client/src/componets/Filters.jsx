@@ -1,6 +1,5 @@
-import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from 'react-redux'
-import {  orderByPrice, filterCategory } from "../redux/actions/actionsFilter";
+import { useDispatch } from 'react-redux'
+import {orderByPrice, filterCategory } from "../redux/actions/actionsFilter";
 import { getAllProducts } from "../redux/actions/actionsPetitions";
 
 
