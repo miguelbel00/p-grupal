@@ -12,6 +12,9 @@ const REACT_APP_AUTH0_CLIENT_ID = "k15QWR6U4DgPGbZxhVzbu76H2U81LdpH"
 const Auth0 = { domain:REACT_APP_AUTH0_DOMAIN, clientId:REACT_APP_AUTH0_CLIENT_ID} 
 console.log(process.env.REACT_APP_AUTH0_DOMAIN)
 
+
+
+
 ReactDOM.render(
   <Provider store={store} >
     <React.StrictMode>
