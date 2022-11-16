@@ -1,13 +1,31 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import astroLogo from '../assets/astrologo2.0(sin fondo).png'
 import Styles from '../styles/navbar.module.css'
+import { searchProduct } from '../redux/actions/actionsFilter';
+import { useDispatch } from 'react-redux';
+import { useState } from 'react';
 import LogOut from './LogOutButton';
 import { useAuth0 } from '@auth0/auth0-react';
 import LoginButton from './LoginButton';
 
-
 const Navbar = () => {
+    const dispatch = useDispatch()
+    const history = useHistory();
+    const [input, setInput] = useState('')
+
+    function handleInput(e){
+        e.preventDefault()
+        setInput(e.target.value)
+
+    }
+
+    function handleSubmit(e){
+        e.preventDefault();
+        dispatch(searchProduct(input))
+        history.push('/products')
+
+    }
 
     const { isAuthenticated, user } = useAuth0()
 
@@ -48,10 +66,10 @@ const Navbar = () => {
                                 <LogOut />}
                         </li>
                     </ul>
-                    <form className="d-flex" role="search">
-                        <input className="form-control me-2" type="search" placeholder="Search Product..." aria-label="Search" />
-                        <button className="btn btn-outline-secondary mt-0" type="submit">Search</button>
-                    </form>
+                     <form className="d-flex" role="search"> 
+                        <input onChange={handleInput} value={input}className="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search"/>
+                        <button  className="btn btn-outline-secondary" type="submit" onClick={(e) => handleSubmit(e)}>Buscar</button>
+                     </form> 
                     {isAuthenticated && <Link to={"/profile"}><img className={Styles.avatar} src={user.picture} alt={user.name} /></Link>}
                 </div>
             </div>

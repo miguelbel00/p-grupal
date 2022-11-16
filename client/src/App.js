@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Register from "./Pages/Register";
+import Login from "./Pages/Login";
 import Detail from "./Pages/Detail";
 import Footer from "./componets/Footer";
 import Navbar from "./componets/NavBar";
@@ -19,6 +20,7 @@ function App() {
         <Route exact path={"/detail/:productId"} component={Detail}/>
         <Route exact path='/' component={Home}/>
         <Route exact path='/register' component={Register}/>
+        <Route exact path='/login' component={Login}/>
         <Route exact path='/products' component={Products}/>
         <Route exact path='/shoppingcart' component={ShoppingCart}/>
       </Switch>

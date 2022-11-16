@@ -14,7 +14,8 @@ export default function Detail() {
 
     useEffect(()=>{
         dispatch(getDetail(productId))
-    },[dispatch])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[])
      
     const handleonClick =()=>{
         dispatch(addProductToCart(productId))

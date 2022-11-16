@@ -1,5 +1,4 @@
 
-
 export function orderByPrice(payload) {
     return {
         type: 'ORDER_BY_PRICE',
@@ -10,6 +9,12 @@ export function orderByPrice(payload) {
 export function filterCategory(payload) {
     return {
         type: "FILTER_BY_CATEGORY",
+        payload
+    }
+}
+export function searchProduct(payload){
+    return{
+        type: 'SEARCH_PRODUCT',
         payload
     }
 }

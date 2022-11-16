@@ -22,7 +22,13 @@ export function getDetail(id) {
 }
 
 export function postUser(payload) {
-    axios.post(`${server}/users`,payload)
+    axios.post(`${server}/auth/register`,payload)
 }
 
+export function getNameQuery(payload){
+    return{
+        type: 'GET_NAME_QUERY',
+        payload
+    }
+}
 
