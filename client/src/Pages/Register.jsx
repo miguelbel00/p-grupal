@@ -4,6 +4,8 @@ import { postUser } from "../redux/actions/actionsPetitions";
 import logo from '../assets/logo.png'
 import '../styles/register.css'
 import { Formik } from "formik";
+import Swal from 'sweetalert2'
+import dino from '../assets/dino.jpg'
 
 export default function Register() {
     const dispatch = useDispatch()
@@ -19,7 +21,66 @@ export default function Register() {
                         onSubmit={(valores, { resetForm }) => {
                             dispatch(postUser(valores))
                             resetForm()
-                            alert('Se creo la cuenta con exito')
+                              Swal.fire({
+         title:'Bienvenido!',
+         text:'Gracias por confiar en nosotros!',
+        // html:
+        // icon:
+        // confirmButtonText:'Lets Go',
+        footer:'Recuerda no compartir tu contraseña con nadie!',
+        // width:
+        // padding:
+        background:'#67e9ff',
+        // grow:
+        backdrop:true,
+        timer:'2500',
+        // timerProgressBar:
+        // toast:
+        // position:
+        // allowOutsideClick:
+        // allowEscapeKey:
+        // allowEnterKey:
+        // stopKeydownPropagation:
+    
+        // input:
+        // inputPlaceholder:
+        // inputValue:
+        // inputOptions:
+        
+        customClass:{ 
+            // container:'containerAlert',
+            popup:'popup-alert',
+            // header:
+            text:'titleAlert',
+            // icon:
+         //    image:'dinoVolador',
+            content:'titleAlert',
+            // input:
+            // actions:
+            // confirmButton:
+            // cancelButton:
+            footer:'titleAlert'
+         },
+    
+        // showConfirmButton:
+        // confirmButtonColor:
+        // confirmButtonAriaLabel:
+    
+        // showCancelButton:
+        // cancelButtonText:
+        // cancelButtonColor:
+        // cancelButtonAriaLabel:
+        
+        // buttonsStyling:
+        // showCloseButton:
+        // closeButtonAriaLabel:
+    
+    
+        imageUrl:'https://i.pinimg.com/564x/64/51/94/645194e8c897c7bea7a2b1f848ff3d8f.jpg',
+        imageWidth:'200px',
+        imageHeight:'200px'
+        // imageAlt:
+    });
                         }}
 
                         initialValues={{

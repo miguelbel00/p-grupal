@@ -58,12 +58,19 @@ const Navbar = () => {
                                 <i class="0bi bi-cart4 nav-link mb-3"> My Cart</i>
                             </Link>
                         </li>
+<<<<<<< HEAD
+                        <li>
+                            <Link to='/register'>
+                            <i class="bi bi-person-circle nav-link mb-3"> Register</i>
+                            </Link>
+=======
                         <li className={Styles.Login}>
                             {!isAuthenticated
                                 ?
                                 <LoginButton  />
                                 :
                                 <LogOut />}
+>>>>>>> 52606809e05cf99efe3fbbc8fa4e0bc81d92875f
                         </li>
                     </ul>
                      <form className="d-flex" role="search"> 
