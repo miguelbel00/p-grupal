@@ -14,30 +14,19 @@ export function addProductToCart(id){
         })
     }
 }
-export function getAllProductCart(){
-    return async function (dispatch){
-        
+
+export function removeOneProduct(payload){
+    return {
+        type: 'REMOVE_ONE_CART',
+        payload
+    }
+}
+
+export function removeAllProduct(payload){
+    return {
+        type: 'REMOVE_ALL_CART',
+        payload
     }
 }
 
 
-// export function removeOneProduct(){
-//     return {
-//         type: 'REMOVE_ONE_CART',
-//         payload
-//     }
-// }
-
-// export function removeAllProduct(){
-//     return {
-//         type: 'REMOVE_ALL_CART',
-//         payload
-//     }
-// }
-
-// export function clearCart(){
-//     return {
-//         type: 'CLEAR_CART',
-//         payload
-//     }
-// }

@@ -5,20 +5,27 @@ import { getDetail } from "../redux/actions/actionsPetitions"
 import { addProductToCart } from '../redux/actions/actionShoppingCart.js'
 import Loading from "../componets/Loading"
 import "../styles/Detail.css"
+import shoppingReducer from "../redux/reducers/reducerShoppingCart";
 
 export default function Detail() {
 
     const dispatch = useDispatch()
     const product = useSelector((state) => state.petitionsReducer.detail)
+    const allProducts = useSelector((state) => state.shoppingReducer.productCart)
     const { productId } = useParams()
+
+    const saveLocal = () => {
+        localStorage.setItem("carrito", JSON.stringify(allProducts))
+    }
 
     useEffect(()=>{
         dispatch(getDetail(productId))
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[])
+        saveLocal()
+    },[allProducts])
      
     const handleonClick =()=>{
         dispatch(addProductToCart(productId))
+        
         alert('agrgado al carrito')
     }
 
