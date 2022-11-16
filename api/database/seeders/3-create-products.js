@@ -17,6 +17,7 @@ module.exports = {
       "https://http2.mlstatic.com/D_NQ_NP_2X_766828-MLA50551035671_072022-F.webp"],
         price: 300,
         stock: 4,
+        sold: 50,
         updatedAt: "2022-11-10T20:47:06.072Z",
           createdAt: "2022-11-10T20:47:06.072Z",
           deletedAt: null
@@ -31,6 +32,7 @@ module.exports = {
   ],
         price: 400,
         stock: 12,
+        sold: 52,
         updatedAt: "2022-11-10T23:20:56.217Z",
         createdAt: "2022-11-10T23:20:56.217Z",
         deletedAt: null
@@ -44,6 +46,7 @@ module.exports = {
       ],
         price: 500,
         stock: 5,
+        sold: 54,
         updatedAt: "2022-11-10T20:47:06.072Z",
           createdAt: "2022-11-10T20:47:06.072Z",
           deletedAt: null
@@ -58,6 +61,7 @@ module.exports = {
       ],
         price: 800,
         stock: 7,
+        sold: 58,
         updatedAt: "2022-11-10T23:21:19.670Z",
         createdAt: "2022-11-10T23:21:19.670Z",
         deletedAt: null
@@ -71,6 +75,7 @@ module.exports = {
         ],
         price: 1000,
         stock: 64,
+        sold: 60,
         updatedAt: "2022-11-10T20:47:06.072Z",
           createdAt: "2022-11-10T20:47:06.072Z",
           deletedAt: null
@@ -88,6 +93,7 @@ module.exports = {
        ],
         price: 500,
         stock: 3,
+        sold: 40,
         updatedAt: "2022-11-10T20:47:06.072Z",
           createdAt: "2022-11-10T20:47:06.072Z",
           deletedAt: null
@@ -102,6 +108,7 @@ module.exports = {
         ],
         price: 700,
         stock: 40,
+        sold: 40,
         updatedAt: "2022-11-10T20:47:06.072Z",
           createdAt: "2022-11-10T20:47:06.072Z",
           deletedAt: null
@@ -114,6 +121,7 @@ module.exports = {
         image: ['https://http2.mlstatic.com/D_NQ_NP_2X_947590-MLA49891440341_052022-F.webp'],
         price: 450,
         stock: 9,
+        sold: 40,
         updatedAt: "2022-11-10T20:47:06.072Z",
           createdAt: "2022-11-10T20:47:06.072Z",
           deletedAt: null
@@ -127,6 +135,7 @@ module.exports = {
         ],
         price: 1500,
         stock: 39,
+        sold: 40,
         updatedAt: "2022-11-10T23:26:23.182Z",
         createdAt: "2022-11-10T23:26:23.182Z",
         deletedAt: null
@@ -143,6 +152,7 @@ module.exports = {
         ],
         price: 1500,
         stock: 1,
+        sold: 40,
         updatedAt: "2022-11-10T23:30:26.774Z",
         createdAt: "2022-11-10T23:30:26.774Z",
         deletedAt: null
@@ -161,6 +171,7 @@ module.exports = {
         ],
         price: 600,
         stock: 175,
+        sold: 40,
         updatedAt: "2022-11-12T22:53:13.771Z",
         createdAt: "2022-11-12T22:53:13.771Z",
         deletedAt: null
@@ -179,6 +190,7 @@ module.exports = {
       ],
       price: 800,
       stock: 10 ,
+      sold: 40,
       updatedAt: "2022-11-12T23:01:23.385Z",
       createdAt: "2022-11-12T23:01:23.385Z",
       deletedAt: null
@@ -197,6 +209,7 @@ module.exports = {
        ],
       price: 850,
       stock: 50,
+      sold: 40,
       updatedAt: "2022-11-12T23:09:12.357Z",
       createdAt: "2022-11-12T23:09:12.357Z",
       deletedAt: null
@@ -216,6 +229,7 @@ module.exports = {
       ],
       price: 250,
       stock: 33,
+      sold: 40,
       updatedAt: "2022-11-12T23:17:53.447Z",
       createdAt: "2022-11-12T23:17:53.447Z",
       deletedAt: null
@@ -234,6 +248,7 @@ module.exports = {
       ],
       price: 695 ,
       stock: 27,
+      sold: 40,
       updatedAt: "2022-11-12T22:53:13.771Z",
       createdAt: "2022-11-12T22:53:13.771Z",
       deletedAt: null
@@ -254,6 +269,7 @@ module.exports = {
       ],
       price: 1760,
       stock: 21 ,
+      sold: 40,
       updatedAt: "2022-11-12T23:31:49.812Z",
       createdAt: "2022-11-12T23:31:49.812Z",
       deletedAt: null
@@ -273,6 +289,7 @@ Control inteligente y navegación fácil.
       image: ['https://http2.mlstatic.com/D_NQ_NP_2X_664695-MLA49985603030_052022-F.webp'],
       price: 13,
       stock: 261,
+      sold: 40,
       updatedAt: "2022-11-12T23:59:05.182Z",
       createdAt: "2022-11-12T23:59:05.182Z",
       deletedAt: null
@@ -292,6 +309,7 @@ Control inteligente y navegación fácil.
       image: ['https://http2.mlstatic.com/D_NQ_NP_2X_779763-MLA45385615296_032021-F.webp'],
       price: 28 ,
       stock: 3 ,
+      sold: 40,
       updatedAt: "2022-11-13T00:04:04.579Z",
       createdAt: "2022-11-13T00:04:04.579Z",
       deletedAt: null
@@ -311,6 +329,7 @@ Control inteligente y navegación fácil.
       image: ['https://http2.mlstatic.com/D_NQ_NP_2X_915211-MLA43229688568_082020-F.webp'],
       price: 56 ,
       stock: 32,
+      sold: 40,
       updatedAt: "2022-11-13T00:07:26.182Z",
       createdAt: "2022-11-13T00:07:26.182Z",
       deletedAt: null
@@ -340,6 +359,7 @@ Resolución (DPI): 1000
       image: ['https://http2.mlstatic.com/D_NQ_NP_2X_608891-MLA31023920148_062019-F.webp'],
       price: 9,
       stock: 200 ,
+      sold: 40,
       updatedAt: "2022-11-13T00:10:08.856Z",
       createdAt: "2022-11-13T00:10:08.856Z",
       deletedAt: null
@@ -359,6 +379,7 @@ Control inteligente y navegación fácil.
       image: ['https://http2.mlstatic.com/D_NQ_NP_2X_775601-MLA45385615343_032021-F.webp'],
       price: 26,
       stock: 7 ,
+      sold: 40,
       updatedAt: "2022-11-12T23:31:49.812Z",
       createdAt: "2022-11-12T23:31:49.812Z",
       deletedAt: null
@@ -379,6 +400,7 @@ Control inteligente y navegación fácil.
       image: ['https://http2.mlstatic.com/D_NQ_NP_2X_898796-MLA52350355193_112022-F.webp'],
       price: 113,
       stock: 5,
+      sold: 40,
       updatedAt: "2022-11-13T00:27:23.018Z",
       createdAt: "2022-11-13T00:27:23.018Z",
       deletedAt: null
@@ -399,6 +421,7 @@ Control inteligente y navegación fácil.
       image: ['https://http2.mlstatic.com/D_NQ_NP_2X_948839-MLA46869223637_072021-F.webp'],
       price: 50 ,
       stock: 15,
+      sold: 40,
       updatedAt: "2022-11-13T00:26:54.118Z",
       createdAt: "2022-11-13T00:26:54.118Z",
       deletedAt: null
@@ -420,6 +443,7 @@ Control inteligente y navegación fácil.
       image: ['https://http2.mlstatic.com/D_NQ_NP_2X_645832-MLA50403770037_062022-F.webp'],
       price: 31,
       stock: 91,
+      sold: 40,
       "updatedAt": "2022-11-13T00:26:02.662Z",
       "createdAt": "2022-11-13T00:26:02.662Z",
       deletedAt: null
@@ -444,6 +468,7 @@ Control inteligente y navegación fácil.
       image: ['https://http2.mlstatic.com/D_NQ_NP_2X_935185-MLA46504064329_062021-F.webp'],
       price: 100,
       stock: 8,
+      sold: 40,
       updatedAt: "2022-11-13T00:25:24.446Z",
       createdAt: "2022-11-13T00:25:24.446Z",
       deletedAt: null
@@ -467,6 +492,7 @@ Las imágenes pueden ser ilustrativas.
       image: ['https://http2.mlstatic.com/D_NQ_NP_2X_975008-MLA46503943203_062021-F.webp'],
       price: 75,
       stock: 21,
+      sold: 40,
       updatedAt: "2022-11-13T00:24:43.383Z",
       createdAt: "2022-11-13T00:24:43.383Z",
       deletedAt: null
@@ -489,6 +515,7 @@ Las imágenes pueden ser ilustrativas.
       ],
       price: 119,
       stock: 42,
+      sold: 40,
       updatedAt: "2022-11-13T01:24:51.418Z",
       createdAt: "2022-11-13T01:24:51.418Z",
       deletedAt: null
@@ -510,6 +537,7 @@ Factor de forma: mATX
   "https://http2.mlstatic.com/D_NQ_NP_2X_947909-MLA47169369866_082021-F.webp"],
       price: 188,
       stock: 20,
+      sold: 40,
       updatedAt: "2022-11-13T01:25:47.618Z",
       createdAt: "2022-11-13T01:25:47.618Z",
       deletedAt: null
@@ -536,6 +564,7 @@ Realtek Gigabit LAN
       ],
       price: 214,
       stock: 9,
+      sold: 40,
       updatedAt: "2022-11-13T00:24:43.383Z",
       createdAt: "2022-11-13T00:24:43.383Z",
       deletedAt: null
@@ -565,6 +594,7 @@ SKU 413544
       ],
       price: 135,
       stock: 13,
+      sold: 40,
       updatedAt: "2022-11-13T00:24:43.383Z",
       createdAt: "2022-11-13T00:24:43.383Z",
       deletedAt: null
@@ -610,6 +640,7 @@ Puertos de E / S del panel posterior:
       ],
       price: 289,
       stock: 1,
+      sold: 40,
       updatedAt: "2022-11-13T00:24:43.383Z",
       createdAt: "2022-11-13T00:24:43.383Z",
       deletedAt: null
@@ -632,6 +663,7 @@ Compatible con Intel.
       ],
       price: 157,
       stock: 4,
+      sold: 40,
       updatedAt: "2022-11-13T00:24:43.383Z",
       createdAt: "2022-11-13T00:24:43.383Z",
       deletedAt: null
@@ -655,6 +687,7 @@ Compatible con AMD Ryzen.
       ],
       price: 81,
       stock: 347,
+      sold: 40,
       updatedAt: "2022-11-13T00:24:43.383Z",
       createdAt: "2022-11-13T00:24:43.383Z",
       deletedAt: null
@@ -679,6 +712,7 @@ Cuenta con una tasa de transferencia de 25600 MB/s.
       ],
       price: 81,
       stock: 24,
+      sold: 40,
       updatedAt: "2022-11-13T00:24:43.383Z",
       createdAt: "2022-11-13T00:24:43.383Z",
       deletedAt: null
@@ -702,6 +736,7 @@ Compatible con Intel, AMD.
       ],
       price: 182,
       stock: 3,
+      sold: 40,
       updatedAt: "2022-11-13T00:24:43.383Z",
       createdAt: "2022-11-13T00:24:43.383Z",
       deletedAt: null
@@ -724,6 +759,7 @@ Compatible con Intel.
       ],
       price: 152,
       stock: 5,
+      sold: 19,
       updatedAt: "2022-11-13T00:24:43.383Z",
       createdAt: "2022-11-13T00:24:43.383Z",
       deletedAt: null
@@ -746,6 +782,7 @@ Procesador innovador desarrollado bajo altos estándares de calidad.
     ],
     price: 471,
     stock: 2,
+    sold: 19,
     updatedAt: "2022-11-13T00:24:43.383Z",
     createdAt: "2022-11-13T00:24:43.383Z",
     deletedAt: null
@@ -768,6 +805,7 @@ Procesador innovador desarrollado bajo altos estándares de calidad.
   ],
   price: 379,
   stock: 35,
+  sold: 17,
   updatedAt: "2022-11-13T00:24:43.383Z",
   createdAt: "2022-11-13T00:24:43.383Z",
   deletedAt: null
@@ -792,6 +830,7 @@ image: [
 ],
 price: 221,
 stock: 12,
+sold: 18,
 updatedAt: "2022-11-13T00:24:43.383Z",
 createdAt: "2022-11-13T00:24:43.383Z",
 deletedAt: null
@@ -817,6 +856,7 @@ image: [
 ],
 price: 578,
 stock: 1,
+sold: 16,
 updatedAt: "2022-11-13T00:24:43.383Z",
 createdAt: "2022-11-13T00:24:43.383Z",
 deletedAt: null
@@ -850,6 +890,7 @@ image: [
 ],
 price: 775,
 stock: 2,
+sold: 15,
 updatedAt: "2022-11-13T00:24:43.383Z",
 createdAt: "2022-11-13T00:24:43.383Z",
 deletedAt: null
@@ -874,6 +915,7 @@ Las imágenes pueden ser ilustrativas.
   ],
   price: 64,
   stock: 664,
+  sold: 14,
   updatedAt: "2022-11-13T00:24:43.383Z",
   createdAt: "2022-11-13T00:24:43.383Z",
   deletedAt: null
@@ -895,6 +937,7 @@ Las imágenes pueden ser ilustrativas.
   ],
   price: 39,
   stock: 18,
+  sold: 13,
   updatedAt: "2022-11-13T00:24:43.383Z",
   createdAt: "2022-11-13T00:24:43.383Z",
   deletedAt: null
@@ -917,6 +960,7 @@ Las imágenes pueden ser ilustrativas.
   ],
   price: 28,
   stock: 71,
+  sold: 12,
   updatedAt: "2022-11-13T00:24:43.383Z",
   createdAt: "2022-11-13T00:24:43.383Z",
   deletedAt: null
@@ -938,6 +982,7 @@ Las imágenes pueden ser ilustrativas.
   ],
   price: 58,
   stock: 283,
+  sold: 87,
   updatedAt: "2022-11-13T00:24:43.383Z",
   createdAt: "2022-11-13T00:24:43.383Z",
   deletedAt: null
@@ -963,6 +1008,7 @@ Las imágenes pueden ser ilustrativas.
   ],
   price: 100,
   stock: 40,
+  sold: 96,
   updatedAt: "2022-11-13T00:24:43.383Z",
   createdAt: "2022-11-13T00:24:43.383Z",
   deletedAt: null
@@ -984,6 +1030,7 @@ De uso imprescindible para el buen funcionamiento de la PC.
   ],
   price: 15,
   stock: 126,
+  sold: 84,
   updatedAt: "2022-11-13T00:24:43.383Z",
   createdAt: "2022-11-13T00:24:43.383Z",
   deletedAt: null
@@ -1005,6 +1052,7 @@ De uso imprescindible para el buen funcionamiento de la PC.
   ],
   price: 32,
   stock: 1000,
+  sold: 13,
   updatedAt: "2022-11-13T00:24:43.383Z",
   createdAt: "2022-11-13T00:24:43.383Z",
   deletedAt: null
@@ -1027,6 +1075,7 @@ De uso imprescindible para el buen funcionamiento de la PC.
   ],
   price: 277,
   stock: 37,
+  sold: 5,
   updatedAt: "2022-11-13T00:24:43.383Z",
   createdAt: "2022-11-13T00:24:43.383Z",
   deletedAt: null
@@ -1049,6 +1098,7 @@ De uso imprescindible para el buen funcionamiento de la PC.
   ],
   price: 138,
   stock: 113,
+  sold: 1,
   updatedAt: "2022-11-13T00:24:43.383Z",
   createdAt: "2022-11-13T00:24:43.383Z",
   deletedAt: null
@@ -1072,6 +1122,7 @@ De uso imprescindible para el buen funcionamiento de la PC.
   ],
   price: 99,
   stock: 8,
+  sold: 35,
   updatedAt: "2022-11-13T00:24:43.383Z",
   createdAt: "2022-11-13T00:24:43.383Z",
   deletedAt: null
