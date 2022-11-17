@@ -1,12 +1,12 @@
-import { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+
+import { useDispatch} from 'react-redux'
 
 import { removeOneProduct } from '../redux/actions/actionShoppingCart'
 import '../styles/card.css'
 
 export default function ItemCart ({id, name, price, image}) {
 
-    const allProducts = useSelector((state) => state.shoppingReducer.productCart)
+ 
 
     const dispatch = useDispatch()
 
@@ -16,7 +16,6 @@ export default function ItemCart ({id, name, price, image}) {
         dispatch(removeOneProduct(e.target.id))
         alert('elimindo')
     }
-
 
     return(
         <div className="myOrder">

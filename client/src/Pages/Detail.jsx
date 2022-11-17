@@ -5,7 +5,6 @@ import { getDetail } from "../redux/actions/actionsPetitions"
 import { addProductToCart } from '../redux/actions/actionShoppingCart.js'
 import Loading from "../componets/Loading"
 import "../styles/Detail.css"
-import shoppingReducer from "../redux/reducers/reducerShoppingCart";
 
 export default function Detail() {
 
@@ -21,6 +20,7 @@ export default function Detail() {
     useEffect(()=>{
         dispatch(getDetail(productId))
         saveLocal()
+            // eslint-disable-next-line react-hooks/exhaustive-deps
     },[allProducts])
      
     const handleonClick =()=>{

@@ -33,7 +33,7 @@ export default function Products(){
     return(
         <div className= 'counter text-center'>
         <div className="row">
-            <div className="filtros col-2 "> <Filters setOption={setOption} setPage={setPage}/></div>
+            <div className="filtros col-2 "> <Filters setOption={setOption} option={option} setPage={setPage}/></div>
             <div className="col-10">
                 <div className="containerCardsProducts">
             {

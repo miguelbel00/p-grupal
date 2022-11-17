@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector, useDispatch} from "react-redux";
 import { useEffect } from "react";
 import ItemCart from "../componets/ItemCart";
-import { removeAllProduct, sumaTotal } from "../redux/actions/actionShoppingCart";
+import { removeAllProduct } from "../redux/actions/actionShoppingCart";
 
 export default function ShoppingCart(){
     const allProducts = useSelector((state) => state.shoppingReducer.productCart)
@@ -23,12 +23,9 @@ export default function ShoppingCart(){
     }
 
 
-    // const total = () => {
-    //     allProducts.reducer((acc, p)=> acc + p.price, 0)
-    // } 
-
     useEffect(()=>{
         saveLocal()
+            // eslint-disable-next-line react-hooks/exhaustive-deps
     },[allProducts])
 
 

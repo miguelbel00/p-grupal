@@ -35,7 +35,7 @@ const Navbar = () => {
                 <div>
                     <Link to='/' >
                         <img src={astroLogo} className={Styles.logo} alt='astro_logo' />
-                        <a className={Styles.navbar_brand} >Astro Games</a>
+                        <a href="/" className={Styles.navbar_brand} >Astro Games</a>
                     </Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
