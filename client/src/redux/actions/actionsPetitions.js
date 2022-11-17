@@ -64,9 +64,24 @@ export function loginUser(payload) {
   };
 }
 
+
+export function postProduct(payload) {
+    return async function (dispatch) {
+        const response = await axios.post(`${server}/products`, payload)
+        const data = response.data
+        return dispatch({
+            type: "POST_PRODUCT",
+            payload: data
+        })
+    }
+}
+
+
+
 export function getNameQuery(payload) {
   return {
     type: "GET_NAME_QUERY",
     payload,
   };
 }
+
