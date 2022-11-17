@@ -16,7 +16,7 @@ export default function Products(){
     const [option, setOption] = useState('')
 
     const [page, setPage] = useState(1);
-    const [forPage] = useState(5);
+    const [forPage] = useState(6);
 
     const max = Math.ceil(allProducts.length / forPage) ;
 

@@ -1,49 +1,65 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch} from "react-redux";
 import { useEffect } from "react";
 import ItemCart from "../componets/ItemCart";
-import { removeAllProduct, sumaTotal } from "../redux/actions/actionShoppingCart";
+import { removeAllProduct, plusCartTotal} from "../redux/actions/actionShoppingCart";
+import '../styles/shoppingCart.css'
+
 
 export default function ShoppingCart(){
-    const allProducts = useSelector((state) => state.shoppingReducer.productCart)
-    const suma = useSelector((state)=> state.shoppingReducer.suma)
-
-    console.log(suma)
+    const allProducts = useSelector((state) => state.shoppingReducer.productCart);
+    const totalCart = useSelector((state) => state.shoppingReducer.totalCart)
     const dispatch = useDispatch()
-  
+    const [totalShow, setTotalShow] = useState(0);
+   
+
+
+    const setTotal = () => {
+        let totalSum = 0
+            for (const product in totalCart) {
+                let multi = 1
+                    for (const property in totalCart[product]) {
+                        multi *= totalCart[product][property]
+                    }
+                    totalSum+=multi
+                    
+            }
+        setTotalShow(totalSum)
+    }
+
+
     const saveLocal = () => {
         localStorage.setItem("carrito", JSON.stringify(allProducts))
     }
 
+    const saveTotalCart = (objet) => {
+        
+        localStorage.setItem('totalCart', JSON.stringify(objet))
+    } 
 
     const clearCart = () => {
         dispatch(removeAllProduct())
-        
         alert('Clean cart')
     }
 
 
-    // const total = () => {
-    //     allProducts.reducer((acc, p)=> acc + p.price, 0)
-    // } 
-
     useEffect(()=>{
         saveLocal()
-    },[allProducts])
+        setTotal()
+    },[allProducts,totalCart,totalShow])
 
 
     return(
-        <div>
-            <div>
-            <h2>Carrito de compras</h2>
-            <h3>Productos</h3>
-            <article className="containerCardsProducts">
+        <div  >
+            <h2 className="card-title">Carrito de compras</h2>
+            <button className="btn btn-primary" onClick={clearCart}>Remove All</button>
+            <div className="row my-5">
+            <div className='col-sm-6 col-md-3'>
                 {allProducts?.map((e)=> <ItemCart 
-                    id={e.id} name={e.name} price={e.price} image={e.image} 
+                    id={e.id} name={e.name} price={e.price} image={e.image} setTotal={setTotal} saveTotalCart={saveTotalCart}
                 />)}
-            </article>
-            <h3>Total $ {}</h3>
-            <button onClick={clearCart} >Remove All</button>
+            </div>
+            <h3 className="card-text">Total $ {totalShow}</h3>
             </div>
 
         </div>

@@ -25,7 +25,6 @@ export default function Detail() {
      
     const handleonClick =()=>{
         dispatch(addProductToCart(productId))
-        
         alert('agrgado al carrito')
     }
 

@@ -29,4 +29,9 @@ export function removeAllProduct(payload){
     }
 }
 
-
+export function plusCartTotal(payload){
+    return{
+        type: 'PLUS_CART',
+        payload
+    }
+}

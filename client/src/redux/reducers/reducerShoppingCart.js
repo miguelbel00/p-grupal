@@ -1,6 +1,7 @@
 const shoppinginitialState = {
     productCart:  JSON.parse(localStorage.getItem('carrito')) || [],
-    suma: JSON.parse(localStorage.getItem('carrito')) || []
+    totalCart: JSON.parse(localStorage.getItem('totalCart')) || []
+
 }
 
 
@@ -22,7 +23,11 @@ export default function shoppingReducer(state = shoppinginitialState, { type, pa
                 ...state,
                 productCart: []
         }
-
+        case 'PLUS_CART':
+            return{
+                ...state,
+                totalCart: payload
+            }
 
         default: 
         return state
