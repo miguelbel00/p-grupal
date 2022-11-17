@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const server = 'http://localhost:3005'
+const server = 'https://p-grupal-production.up.railway.app/'
 
 export function getAllProducts() {
     return async function (dispatch) {
