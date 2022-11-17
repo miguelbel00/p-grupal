@@ -27,7 +27,7 @@ const Navbar = () => {
 
     }
 
-    const { isAuthenticated } = useAuth0()
+    const { isAuthenticated, user } = useAuth0()
 
     return (
         <nav className="navbar navbar-expand-lg navbar-dark">
@@ -58,25 +58,19 @@ const Navbar = () => {
                                 <i class="0bi bi-cart4 nav-link mb-3"> My Cart</i>
                             </Link>
                         </li>
-<<<<<<< HEAD
-                        <li>
-                            <Link to='/register'>
-                            <i class="bi bi-person-circle nav-link mb-3"> Register</i>
-                            </Link>
-=======
                         <li className={Styles.Login}>
                             {!isAuthenticated
                                 ?
                                 <LoginButton  />
                                 :
                                 <LogOut />}
->>>>>>> 52606809e05cf99efe3fbbc8fa4e0bc81d92875f
                         </li>
                     </ul>
                      <form className="d-flex" role="search"> 
                         <input onChange={handleInput} value={input}className="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search"/>
                         <button  className="btn btn-outline-secondary" type="submit" onClick={(e) => handleSubmit(e)}>Buscar</button>
                      </form> 
+                    {isAuthenticated && <Link to={"/profile"}><img className={Styles.avatar} src={user.picture} alt={user.name} /></Link>}
                 </div>
             </div>
         </nav>

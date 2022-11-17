@@ -3,15 +3,29 @@ import '../styles/home.css';
 import Carrusel from '../componets/Carrusel';
 import CardProductContainer from '../componets/CardProductContainer';
 import { Link } from "react-router-dom";
-import {useDispatch} from "react-redux"
-import { getAllProducts } from "../redux/actions/actionsPetitions";
-import Profile from "../componets/Profile";
+import {useDispatch, useSelector} from "react-redux"
+import { getAllProducts, postUser } from "../redux/actions/actionsPetitions";
+import { useAuth0 } from "@auth0/auth0-react";
 
 export default function Home(){
+   
+    const { user, isAuthenticated } = useAuth0()
     const dispatch = useDispatch()
+    const products = useSelector(state => state.products)
+    
+    const newUser = {
+        fullName: isAuthenticated && user.name,
+        email: isAuthenticated && user.email,
+        avatar:isAuthenticated && user.picture
+    }
+    
     useEffect(()=>{
-        dispatch(getAllProducts())
-    },[dispatch])
+ 
+            dispatch(getAllProducts())
+        
+    
+       isAuthenticated &&  postUser(newUser)
+    })
 
 
     return(
