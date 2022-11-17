@@ -22,6 +22,7 @@ export default function Login() {
                     <Formik
                         onSubmit={(valoresLogin, { resetForm }) => {
 
+
                             Swal.fire({
                                 title: 'Login Exitoso!',
                                 text: 'Seras redireccionado a la pagina principal!',
@@ -36,6 +37,7 @@ export default function Login() {
                                 imageWidth: '200px',
                                 imageHeight: '200px'
                             });
+                            
                             resetForm();
 
                         }}
@@ -95,8 +97,10 @@ export default function Login() {
                                         onBlur={handleBlur}
                                         className="inputStyle"
                                     />
+
                                     {touched.password && errors.password && (
                                         <div className="error">{errors.password}</div>
+
                                     )}
                                 </div>
                                 <br />

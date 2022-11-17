@@ -21,6 +21,7 @@ export default function Register() {
                         onSubmit={(valores, { resetForm }) => {
                             dispatch(postUser(valores))
                             resetForm()
+
                             Swal.fire({
                                 title: 'Bienvenido!',
                                 text: 'Gracias por confiar en nosotros!',
@@ -41,6 +42,8 @@ export default function Register() {
                                 imageWidth: '200px',
                                 imageHeight: '200px'
                             });
+
+                           
                         }}
 
                         initialValues={{
