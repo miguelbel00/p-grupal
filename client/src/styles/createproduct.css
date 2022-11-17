@@ -52,6 +52,7 @@ input[type=number] { -moz-appearance:textfield; }
 .showProduct img {
     height: 300px;
     width: auto;
+    box-shadow: 0 0 4px;
   }
 
 .boxInput {
@@ -61,20 +62,20 @@ input[type=number] { -moz-appearance:textfield; }
 
 .name {
     position: relative;
-    margin-left: 22rem;
+    margin-left: 24rem;
     margin-top: -24rem;
 }
 
 .stock {
     position: absolute;
-    margin-left: 22rem;
+    margin-left: 25rem;
     margin-top: 80px;
    
   }
 .price {
     position: absolute;
     color: black;
-    margin-left: 22rem ;
+    margin-left: 25rem ;
   }
 
 
@@ -82,7 +83,7 @@ input[type=number] { -moz-appearance:textfield; }
 .description {
     position: relative;
      margin-left: 2rem;
-     margin-top: 12rem;
+     margin-top: 18rem;
   }
 
 

@@ -25,6 +25,11 @@ export default function petitionsReducer(
         products: payload,
 
       };
+    
+      case "POST_PRODUCT":
+        return {
+          ...state
+        }
 
     default:
       return state;

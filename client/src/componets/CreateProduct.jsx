@@ -4,6 +4,9 @@
  import { useDispatch } from 'react-redux';
  import { useHistory } from 'react-router-dom';
 
+
+
+
  const CreateProduct = () => {
    const dispatch = useDispatch();
    const history = useHistory();
@@ -62,7 +65,7 @@ const validate = (product) => {
         }else {
         dispatch(postProduct(product));
         alert('producto creado correctamente') ; 
-        history.push('/products');
+        history.push('/poducts');
         }      
     };
 

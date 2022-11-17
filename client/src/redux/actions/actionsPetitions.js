@@ -32,3 +32,15 @@ export function getNameQuery(payload){
     }
 }
 
+export function postProduct(payload) {
+    return async function (dispatch) {
+        const response = await axios.post(`${server}/products`, payload)
+        const data = response.data
+        return dispatch({
+            type: "POST_PRODUCT",
+            payload: data
+        })
+    }
+}
+
+
