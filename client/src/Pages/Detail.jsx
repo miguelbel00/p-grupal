@@ -2,12 +2,12 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom"
 import { getDetail } from "../redux/actions"
-import Loading from "../componets/Loading"
+import Loading from "../components/Loading"
 import "../styles/Detail.css"
 
 export default function Detail() {
 
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
     const product = useSelector((state) => state.detail)
     const { productId } = useParams()
 

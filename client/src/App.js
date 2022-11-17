@@ -1,11 +1,12 @@
-
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Register from "./Pages/Register";
 import Detail from "./Pages/Detail";
-import Footer from "./componets/Footer";
-import Navbar from "./componets/NavBar";
-import Home from './Pages/home'
-import Products from './Pages/Products'
+import Footer from "./components/Footer";
+import Navbar from "./components/NavBar";
+import Home from './Pages/home';
+import Products from './Pages/Products';
+import CreateProduct from './components/CreateProduct';
+
 
 
 
@@ -18,6 +19,8 @@ function App() {
         <Route exact path='/' component={Home}/>
         <Route exact path='/register' component={Register}/>
         <Route exact path='/products' component={Products}/>
+        <Route exact path='/products' component={Products}/>
+        <Route exact path='/create' component={CreateProduct}/>
       </Switch>
       <Footer/>  
     </BrowserRouter>

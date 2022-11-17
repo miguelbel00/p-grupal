@@ -12,10 +12,10 @@
   }
 
   .card img {
-    max-width: 300px;
     max-height: 300px;
-    width: 100%;
+    min-width: 300px;
     height: 100%;
+    width: 100%;
     display: block;
     object-fit: cover;
   }
@@ -71,3 +71,4 @@
   .card button:hover {
     background-color: #9600F4;
   }
+

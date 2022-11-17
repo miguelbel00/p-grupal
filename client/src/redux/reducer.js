@@ -49,6 +49,12 @@ export default function rootReducer(state = initialState, { type, payload }) {
                 ...state,
                 filterProducts: categoryFiltered
             }
+        
+        case "POST_PRODUCT": {
+            return {
+                ...state
+            }
+        }
         default:
             return state
     }

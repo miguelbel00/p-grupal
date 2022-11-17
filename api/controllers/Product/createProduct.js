@@ -17,18 +17,14 @@ module.exports = {
                   const allproduct = await Product.findAll();
                   const productCheck = allproduct.find(data => data.name === name);
 
-                  if (!productCheck) {  
-                    console.log(1);     
+                  if (!productCheck) {     
                   const createProducts = await Product.create({
                     name,
                     description,
                     image,
                     price,
                     stock,    
-                });
-
-                console.log(2);
-
+                });            
                 const dbCategory = await Category.findAll({
                     where: {
                         name: categories

@@ -1,11 +1,11 @@
 import React from "react";
 import { useSelector, useDispatch} from "react-redux";
 import { useEffect, useState } from "react";
-import Card from "../componets/CardProduct";
+import Card from "../components/CardProduct";
 import { getAllProducts } from "../redux/actions";
 import '../styles/product.css'
-import Paginated from '../componets/Paginated.jsx'
-import Filters from "../componets/Filters";
+import Paginated from '../components/Paginated.jsx'
+import Filters from "../components/Filters";
 
 
 
@@ -14,7 +14,7 @@ export default function Products(){
     const allProducts = useSelector((state) => state.filterProducts)
     const dispatch = useDispatch()
 
-    const [option, setOption] = useState('')
+    const [, setOption] = useState('')
 
     const [page, setPage] = useState(1);
     const [forPage] = useState(5);

@@ -44,4 +44,17 @@ export function filterCategory(payload) {
         type: "FILTER_BY_CATEGORY",
         payload
     }
+};
+
+export const postProduct= (payload) => {
+    return async (dispatch) => {
+        const res = await axios.post(`${server}/products`, payload)
+        const data = res.data;
+
+        return dispatch({
+            type: 'POST_PRODUCT',
+            payload: data
+        })
+    }
+
 }

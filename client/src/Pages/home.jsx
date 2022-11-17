@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import '../styles/home.css';
-import Carrusel from '../componets/Carrusel';
-import CardProductContainer from '../componets/CardProductContainer';
+import Carrusel from '../components/Carrusel';
+import CardProductContainer from '../components/CardProductContainer';
 import { Link } from "react-router-dom";
 import {useDispatch} from "react-redux"
 import { getAllProducts } from "../redux/actions";
