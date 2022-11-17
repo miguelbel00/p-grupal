@@ -1,7 +1,7 @@
 import axios from "axios";
 
 
-const server = 'https://p-grupal-production.up.railway.app/'
+const server = 'https://p-grupal-production.up.railway.app'
 
 
 export function addProductToCart(id){
