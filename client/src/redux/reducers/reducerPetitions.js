@@ -1,6 +1,7 @@
 const initialState = {
   detail: {},
   products: [],
+  user: JSON.parse(localStorage.getItem('user')) ||  {},
 };
 
 export default function petitionsReducer(
@@ -8,11 +9,6 @@ export default function petitionsReducer(
   { type, payload }
 ) {
   switch (type) {
-    case "POST_USER":
-      return {
-        ...state,
-      };
-
     case "GET_DETAIL":
       return {
         ...state,
@@ -30,6 +26,20 @@ export default function petitionsReducer(
         return {
           ...state
         }
+
+    case "REGISTER_USER":
+      return {
+        ...state,
+        user: payload,
+
+      };
+    case "LOGIN_USER":
+      return {
+        ...state,
+        user: payload,
+
+      };
+
 
     default:
       return state;

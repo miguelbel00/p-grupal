@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux'
-import {orderByPrice, filterCategory, orderMostSold } from "../redux/actions/actionsFilter";
+import {orderByPrice, filterCategory } from "../redux/actions/actionsFilter";
 import { getAllProducts } from "../redux/actions/actionsPetitions";
 
 
@@ -26,21 +26,6 @@ export default function Filters({ setOption, setPage }) {
         dispatch(filterCategory(e.target.value))
     }
 
-    function handleOrderMostSeller(e){
-        e.preventDefault()
-        if (e.target.value === 'All') {
-            dispatch(getAllProducts())
-
-        } else {
-            dispatch(orderMostSold(e.target.value))
-            setOption(e.target.value)
-
-        }
-        setPage(1)
-    }
-
-    
-
     return (
         <div>
             <div>
@@ -48,13 +33,6 @@ export default function Filters({ setOption, setPage }) {
                     <option value='All'>Price</option>
                     <option value='Min'>Min-Price</option>
                     <option value='Max'>Max-Price</option>
-                </select>
-            </div>
-            <div>
-            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" onChange={(e) => handleOrderMostSeller(e)}>
-                    <option value='All'>Sold</option>
-                    <option value='Less Sold'>Less Sold</option>
-                    <option value='Best Seller'>Best Seller</option>
                 </select>
             </div>
             <div>

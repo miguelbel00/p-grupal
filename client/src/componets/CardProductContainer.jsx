@@ -10,7 +10,7 @@ import image4 from '../assets/nt-lenovo.png'
 const notbooks = [
   {
     id: 1,
-    name: "Notbook Asusssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss",
+    name: "Notebook Dell Inspiron 3515 plateada 15.5, AMD Ryzen 5 3450U 8GB de RAM 256GB SSD, AMD Radeon RX Vega 8 (Ryzen 2000/3000) 1366x768px Windows 11 Home",
     image: image1,
     url: "",
     description: 'Esta es una breve descripción del producto',
@@ -18,7 +18,7 @@ const notbooks = [
   },
   {
     id: 2,
-    name: "Notbook HPpppppppppp",
+    name: "Notebook Dell Inspiron 3515 plateada 15.5, AMD Ryzen 5 3450U 8GB de RAM 256GB SSD, AMD Radeon RX Vega 8 (Ryzen 2000/3000) 1366x768px Windows 11 Home",
     image: image2,
     url: "",
     description: 'Esta es una breve descripción del producto',
@@ -26,7 +26,7 @@ const notbooks = [
   },
   {
     id: 3,
-    name: "Notbook Dell",
+    name: "Notebook Dell Inspiron 3515 plateada 15.5, AMD Ryzen 5 3450U 8GB de RAM 256GB SSD, AMD Radeon RX Vega 8 (Ryzen 2000/3000) 1366x768px Windows 11 Home",
     image: image3,
     url: "",
     description: 'Esta es una breve descripción del producto',
@@ -35,7 +35,7 @@ const notbooks = [
   },
   {
     id: 1,
-    name: "Notbook Lenovoooooooooo",
+    name: "Notebook Dell Inspiron 3515 plateada 15.5, AMD Ryzen 5 3450U 8GB de RAM 256GB SSD, AMD Radeon RX Vega 8 (Ryzen 2000/3000) 1366x768px Windows 11 Home",
     image: image4,
     url: "",
     description: 'Esta es una breve descripción del producto',
