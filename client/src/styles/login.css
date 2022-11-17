@@ -47,3 +47,11 @@
             justify-content: center;
             align-items: center;
           }
+
+          .titleAlert{
+           font-weight: bold;
+           color: #2c2c2c;
+          }
+          .dinoVolador{
+           background-image: url('../assets/dinoVolador.png'); 
+          }
