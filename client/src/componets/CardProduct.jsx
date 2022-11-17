@@ -5,23 +5,20 @@ import "../styles/card.css";
 
 export default function Card({ image, name, url, price, id }) {
 
-
   return (
-        <div className="card">
-            <img src={image} alt='' />
-          
-          <div className="content">
-            <h3>{name}
-            </h3>
-            <span>${price}</span>
+    <div className="card">
+      <img src={image} alt='' />
 
-            <Link className="text-decoration-none text-white link" to={`/detail/${id}`}>
-              <button>
-                Ver más
-              </button>
-            </Link>
+      <div className="content">
+        <h3>{name}
+        </h3>
+        <span>${price}</span>
 
-          </div>
-        </div>
+        <Link className="text-decoration-none text-white link" to={`/detail/${id}`}>
+          Ver más
+        </Link>
+
+      </div>
+    </div>
   );
 }

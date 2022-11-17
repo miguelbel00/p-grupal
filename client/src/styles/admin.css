@@ -1,0 +1,40 @@
+
+.ulAdmin{
+    display: flex;
+		background-color: rgb(114, 113, 113); 
+
+}
+.liAdmin{
+    font-size: 10px;
+    color: rgb(255, 255, 255);
+    margin: 20px;
+    padding: 0px;
+    font-size: 15px;
+
+}
+
+
+.controllers{
+	justify-content: center;
+	text-align: center;
+	justify-items: center;
+width:auto;
+
+}
+
+.button {
+	justify-content: center;
+
+	padding: 5px;
+	width: 100px;
+	background-color: aquamarine;
+    
+}
+.containerSupremo {
+	display: grid;
+
+
+	column-count: 2;
+	
+	
+}
