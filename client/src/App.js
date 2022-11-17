@@ -8,6 +8,8 @@ import Home from './Pages/home'
 import Products from './Pages/Products'
 import ShoppingCart from "./Pages/ShoppingCart"
 import Profile from "./componets/Profile";
+import ProteccionRoutes from "./componets/proteccionRoutes";
+import { useSelector } from "react-redux";
 import CreateProduct from "./Pages/CreateProduct";
 import AdminPage from "./AdminPage/Admin";
 import ProductsAdmin from "./AdminPage/ProductsAdmin";
@@ -20,6 +22,7 @@ import TransactionAdmin from "./AdminPage/TransactionAdmin";
 
 
 function App() {
+  const user = useSelector(state => state.petitionsReducer.user)
   return (
     <BrowserRouter>
       <Navbar/>
@@ -30,7 +33,11 @@ function App() {
         <Route exact path='/register' component={Register}/>
         <Route exact path='/login' component={Login}/>
         <Route exact path='/products' component={Products}/>
-        <Route exact path='/shoppingcart' component={ShoppingCart}/>
+        <Route exact path='/shoppingcart'>
+          <ProteccionRoutes user={user}>
+          <ShoppingCart/>
+          </ProteccionRoutes>
+        </Route>
         <Route exact path='/create' component={CreateProduct}/>
         <Route exact path='/admin' component={AdminPage}/>
         <Route exact path='/admin/users' component={UserAdmin}/>
@@ -38,6 +45,7 @@ function App() {
         <Route exact path='/admin/reviews' component={ReviewsAdmin}/>
         <Route exact path='/admin/categories' component={CategoryAdmin}/>
         <Route exact path='/admin/transactions' component={TransactionAdmin}/>
+
       </Switch>
       <Footer/>  
     </BrowserRouter>
