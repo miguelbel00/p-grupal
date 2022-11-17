@@ -47,12 +47,13 @@ export default function Login() {
            imageHeight:'200px'
         });
     }
+    
     const logged = () => {
         if (user?.message) {
             successAlert(user.message)
             localStorage.setItem("user", JSON.stringify(user.body.token))
             history.push('/')
-        }else if(!(user.search(/[\d]/)>=0) && typeof user == 'string' ){
+        }else if(typeof user == 'string' && !(user?.search(/[\d]/)>=0)  ){
             errorAlert(user)
         }
     }
