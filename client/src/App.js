@@ -8,7 +8,7 @@ import Home from './Pages/home'
 import Products from './Pages/Products'
 import ShoppingCart from "./Pages/ShoppingCart"
 import Profile from "./componets/Profile";
-import CreateProduct from "./componets/CreateProduct";
+import CreateProduct from "./Pages/CreateProduct";
 
 
 
