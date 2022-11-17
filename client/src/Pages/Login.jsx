@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "../styles/login.css";
 import { Formik} from "formik";
 import logo2 from "./../assets/logo.png";
+import Swal from 'sweetalert2'
 
 export default function Login() {
     return (
@@ -21,7 +22,66 @@ export default function Login() {
                     <Formik
                         onSubmit={(valoresLogin, { resetForm }) => {
                             
-                            alert("login success")   
+                            Swal.fire({
+                                title:'Login Exitoso!',
+                                text:'Seras redireccionado a la pagina principal!',
+                               // html:
+                               // icon:
+                               confirmButtonText:'Lets Go',
+                               // footer:
+                               // width:
+                               // padding:
+                               background:'#67e9ff',
+                               // grow:
+                               // backdrop:
+                            //    timer:'3000'
+                               // timerProgressBar:
+                               // toast:
+                               // position:
+                               // allowOutsideClick:
+                               // allowEscapeKey:
+                               // allowEnterKey:
+                               // stopKeydownPropagation:
+                           
+                               // input:
+                               // inputPlaceholder:
+                               // inputValue:
+                               // inputOptions:
+                               
+                                    customClass:{ 
+                                       // container:'containerAlert',
+                                       popup:'popup-alert',
+                                       // header:
+                                       text:'titleAlert',
+                                       // icon:
+                                    //    image:'dinoVolador',
+                                       content:'titleAlert'
+                                       // input:
+                                       // actions:
+                                       // confirmButton:
+                                       // cancelButton:
+                                       // footer:	
+                                    },
+                           
+                               // showConfirmButton:
+                               // confirmButtonColor:
+                               // confirmButtonAriaLabel:
+                           
+                               // showCancelButton:
+                               // cancelButtonText:
+                               // cancelButtonColor:
+                               // cancelButtonAriaLabel:
+                               
+                               // buttonsStyling:
+                               // showCloseButton:
+                               // closeButtonAriaLabel:
+                           
+                           
+                               imageUrl:'https://o.remove.bg/downloads/7f0dd709-8af6-44b3-a66d-bdd1442eb287/185cebd90c1b1c4bec61d05fca1e9fc4-removebg-preview__1_-removebg-preview.png',
+                               imageWidth:'200px',
+                               imageHeight:'200px'
+                               // imageAlt:
+                           });  
                             resetForm();
    
                         }}
@@ -82,7 +142,7 @@ export default function Login() {
                                         className="inputStyle"
                                     />
                                         {touched.password && errors.password && (
-                                        <div className="error">{errors.password}</div>
+                                       <div className="error">{errors.password}</div>
                                     )}
                                 </div>
                                 <br />
