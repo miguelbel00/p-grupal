@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../styles/login.css";
-import { Formik} from "formik";
+import { Formik } from "formik";
 import logo2 from "./../assets/logo.png";
 import Swal from 'sweetalert2'
 
@@ -21,68 +21,23 @@ export default function Login() {
                     </div>
                     <Formik
                         onSubmit={(valoresLogin, { resetForm }) => {
-                            
+
                             Swal.fire({
-                                title:'Login Exitoso!',
-                                text:'Seras redireccionado a la pagina principal!',
-                               // html:
-                               // icon:
-                               confirmButtonText:'Lets Go',
-                               // footer:
-                               // width:
-                               // padding:
-                               background:'#67e9ff',
-                               // grow:
-                               // backdrop:
-                            //    timer:'3000'
-                               // timerProgressBar:
-                               // toast:
-                               // position:
-                               // allowOutsideClick:
-                               // allowEscapeKey:
-                               // allowEnterKey:
-                               // stopKeydownPropagation:
-                           
-                               // input:
-                               // inputPlaceholder:
-                               // inputValue:
-                               // inputOptions:
-                               
-                                    customClass:{ 
-                                       // container:'containerAlert',
-                                       popup:'popup-alert',
-                                       // header:
-                                       text:'titleAlert',
-                                       // icon:
-                                    //    image:'dinoVolador',
-                                       content:'titleAlert'
-                                       // input:
-                                       // actions:
-                                       // confirmButton:
-                                       // cancelButton:
-                                       // footer:	
-                                    },
-                           
-                               // showConfirmButton:
-                               // confirmButtonColor:
-                               // confirmButtonAriaLabel:
-                           
-                               // showCancelButton:
-                               // cancelButtonText:
-                               // cancelButtonColor:
-                               // cancelButtonAriaLabel:
-                               
-                               // buttonsStyling:
-                               // showCloseButton:
-                               // closeButtonAriaLabel:
-                           
-                           
-                               imageUrl:'https://o.remove.bg/downloads/7f0dd709-8af6-44b3-a66d-bdd1442eb287/185cebd90c1b1c4bec61d05fca1e9fc4-removebg-preview__1_-removebg-preview.png',
-                               imageWidth:'200px',
-                               imageHeight:'200px'
-                           });  
+                                title: 'Login Exitoso!',
+                                text: 'Seras redireccionado a la pagina principal!',
+                                confirmButtonText: 'Lets Go',
+                                background: '#67e9ff',
+                                customClass: {
+                                    popup: 'popup-alert',
+                                    text: 'titleAlert',
+                                    content: 'titleAlert'
+                                },
+                                imageUrl: 'https://o.remove.bg/downloads/7f0dd709-8af6-44b3-a66d-bdd1442eb287/185cebd90c1b1c4bec61d05fca1e9fc4-removebg-preview__1_-removebg-preview.png',
+                                imageWidth: '200px',
+                                imageHeight: '200px'
+                            });
                             resetForm();
-   
+
                         }}
                         initialValues={{
                             email: "",
@@ -92,9 +47,9 @@ export default function Login() {
                             let errores = {};
                             if (!valoresLogin.email) {
                                 errores.email = "Complete this field to continue"
-                            } else if (!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(valoresLogin.email)){
-                                errores.email="Enter a valid email address";
-                            } 
+                            } else if (!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(valoresLogin.email)) {
+                                errores.email = "Enter a valid email address";
+                            }
                             if (!valoresLogin.password) {
                                 errores.password = 'Please enter a valid password'
                             }
@@ -109,7 +64,7 @@ export default function Login() {
                             errors,
                             touched,
                             isSubmitting,
-                            
+
                         }) => (
                             <form onSubmit={handleSubmit}>
                                 <div>
@@ -140,8 +95,8 @@ export default function Login() {
                                         onBlur={handleBlur}
                                         className="inputStyle"
                                     />
-                                        {touched.password && errors.password && (
-                                       <div className="error">{errors.password}</div>
+                                    {touched.password && errors.password && (
+                                        <div className="error">{errors.password}</div>
                                     )}
                                 </div>
                                 <br />
@@ -151,7 +106,7 @@ export default function Login() {
                             </form>
                         )}
                     </Formik>
-                <p className="parrafo">Did you forget your password?<Link>Click here</Link></p>
+                    <p className="parrafo">Did you forget your password?<Link>Click here</Link></p>
                 </div>
             </div>
         </div>
