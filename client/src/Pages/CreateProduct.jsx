@@ -1,5 +1,5 @@
  import '../styles/createproduct.css';
- import { useState, useEffect } from 'react';
+ import { useState } from 'react';
  import { postProduct } from '../redux/actions/actionsPetitions';
  import { useDispatch } from 'react-redux';
  import { useHistory } from 'react-router-dom';
