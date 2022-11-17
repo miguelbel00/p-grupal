@@ -1,11 +1,83 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React,{useEffect} from "react";
+import {useSelector,useDispatch} from 'react-redux'
+import { Link, useHistory } from "react-router-dom";
 import "../styles/login.css";
+
+import logo2 from "./../assets/logo.png";
+import Swal from 'sweetalert2'
+import { loginUser } from "../redux/actions/actionsPetitions";
 import { Formik } from "formik";
 import logo2 from "./../assets/logo.png";
 import Swal from 'sweetalert2'
 
 export default function Login() {
+
+    const user = useSelector((state) => state.petitionsReducer.user)
+    const dispatch = useDispatch()
+    const history = useHistory()
+
+    const handleSubmit= (valoresLogin,  resetForm ) => {
+        dispatch(loginUser(valoresLogin))   
+        resetForm();
+    }
+    const errorAlert = (message) => {
+        Swal.fire({
+            title:'Error!',
+            text:`${message}`,
+            confirmButtonText:'Try Again',
+            background:'#67e9ff',
+            icon:'error',
+            customClass:{ 
+                popup:'popup-alert',
+                text:'titleAlert',
+                content:'titleAlert'
+            },
+        }); 
+    }
+    const successAlert =(message) => {
+        Swal.fire({
+            title:'Login Exitoso!',
+            text:`${message}`,
+            confirmButtonText:'Lets Go',
+            background:'#67e9ff',
+            customClass:{ 
+                popup:'popup-alert',
+                text:'titleAlert',
+                content:'titleAlert'
+            },
+           imageUrl:'https://o.remove.bg/downloads/7f0dd709-8af6-44b3-a66d-bdd1442eb287/185cebd90c1b1c4bec61d05fca1e9fc4-removebg-preview__1_-removebg-preview.png',
+           imageWidth:'200px',
+           imageHeight:'200px'
+        });
+    }
+    
+    const logged = () => {
+        if (user?.message) {
+            successAlert(user.message)
+            localStorage.setItem("user", JSON.stringify(user.body.token))
+            history.push('/')
+        }else if(typeof user == 'string' && !(user?.search(/[\d]/)>=0)  ){
+            errorAlert(user)
+        }
+    }
+
+    const validation = (valoresLogin) => {
+        let errores = {};
+        if (!valoresLogin.email) {
+            errores.email = "Complete this field to continue"
+        } else if (!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(valoresLogin.email)){
+            errores.email="Enter a valid email address";
+        } 
+        if (!valoresLogin.password) {
+            errores.password = 'Please enter a valid password'
+        }
+        return errores
+    }
+
+    useEffect(() => {
+        logged()
+    }, [user]);
+
     return (
         <div className="background">
             <div className="divMayorLogin">
@@ -20,43 +92,12 @@ export default function Login() {
                         />
                     </div>
                     <Formik
-                        onSubmit={(valoresLogin, { resetForm }) => {
-
-
-                            Swal.fire({
-                                title: 'Login Exitoso!',
-                                text: 'Seras redireccionado a la pagina principal!',
-                                confirmButtonText: 'Lets Go',
-                                background: '#67e9ff',
-                                customClass: {
-                                    popup: 'popup-alert',
-                                    text: 'titleAlert',
-                                    content: 'titleAlert'
-                                },
-                                imageUrl: 'https://o.remove.bg/downloads/7f0dd709-8af6-44b3-a66d-bdd1442eb287/185cebd90c1b1c4bec61d05fca1e9fc4-removebg-preview__1_-removebg-preview.png',
-                                imageWidth: '200px',
-                                imageHeight: '200px'
-                            });
-                            
-                            resetForm();
-
-                        }}
+                        onSubmit={(valoresLogin, { resetForm }) => handleSubmit(valoresLogin,resetForm)}
                         initialValues={{
                             email: "",
                             password: "",
                         }}
-                        validate={(valoresLogin) => {
-                            let errores = {};
-                            if (!valoresLogin.email) {
-                                errores.email = "Complete this field to continue"
-                            } else if (!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(valoresLogin.email)) {
-                                errores.email = "Enter a valid email address";
-                            }
-                            if (!valoresLogin.password) {
-                                errores.password = 'Please enter a valid password'
-                            }
-                            return errores
-                        }}
+                        validate={(valoresLogin) => validation(valoresLogin)}   
                     >
                         {({
                             handleSubmit,
@@ -66,7 +107,6 @@ export default function Login() {
                             errors,
                             touched,
                             isSubmitting,
-
                         }) => (
                             <form onSubmit={handleSubmit}>
                                 <div>
