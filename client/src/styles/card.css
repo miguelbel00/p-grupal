@@ -2,13 +2,13 @@
     border: 1px solid #eee;
     overflow: hidden;
     padding: 10px;
-    box-shadow: 2px 8px 20px rgb(197, 197, 197);
     margin: 10px;
-    transition: 0.5s linear;
-  }
-
-  .card:hover {
     box-shadow: none;
+  }
+  
+  .card:hover {
+    box-shadow: 2px 8px 20px rgb(197, 197, 197);
+    transition: 0.2s linear;
   }
 
   .card img {
@@ -21,7 +21,7 @@
   }
 
   .card h3 {
-    height: 150px;
+    min-height: 90px;
     font-size: 15px;
     margin: 10px 0;
   }
@@ -34,6 +34,7 @@
   .card span{
     color: crimson;
     font-weight: bold;
+    font-size: 20px;
   }
 
   .card p{
@@ -83,7 +84,8 @@
     border-radius: 6px;
 
   }
-.imagenCarrito{
-  width: 150px;
-  height: 150px;
-}
+
+  .imagenCarrito{
+    width: 150px;
+    height: 150px;
+  }
