@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom"
+import { useParams,useHistory } from "react-router-dom"
 import { getDetail } from "../redux/actions/actionsPetitions"
 import { addProductToCart } from '../redux/actions/actionShoppingCart.js'
 import Loading from "../componets/Loading"
 import "../styles/Detail.css"
+
 import shoppingReducer from "../redux/reducers/reducerShoppingCart";
 
 export default function Detail() {
@@ -13,6 +14,8 @@ export default function Detail() {
     const product = useSelector((state) => state.petitionsReducer.detail)
     const allProducts = useSelector((state) => state.shoppingReducer.productCart)
     const { productId } = useParams()
+
+    const history = useHistory()
 
     const saveLocal = () => {
         localStorage.setItem("carrito", JSON.stringify(allProducts))
@@ -26,6 +29,7 @@ export default function Detail() {
     const handleonClick =()=>{
         dispatch(addProductToCart(productId))
         alert('agrgado al carrito')
+        history.push('/products')
     }
 
     if(!Object.values(product).length){ return <Loading/>}

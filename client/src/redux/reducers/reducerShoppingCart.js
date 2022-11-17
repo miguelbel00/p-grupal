@@ -1,5 +1,5 @@
 const shoppinginitialState = {
-    productCart:  JSON.parse(localStorage.getItem('carrito')) || [],
+    productCart: JSON.parse(localStorage.getItem('carrito')) || [],
     totalCart: JSON.parse(localStorage.getItem('totalCart')) || []
 
 }
@@ -10,26 +10,26 @@ export default function shoppingReducer(state = shoppinginitialState, { type, pa
     switch (type) {
         case 'ADD_TO_CART':
             return {
-                ...state, 
+                ...state,
                 productCart: [...state.productCart, payload]
             }
         case 'REMOVE_ONE_CART':
-            return{
+            return {
                 ...state,
                 productCart: [...state.productCart].filter(i => i.id !== parseInt(payload))
-        }
+            }
         case 'REMOVE_ALL_CART':
-            return{
+            return {
                 ...state,
                 productCart: []
-        }
+            }
         case 'PLUS_CART':
-            return{
+            return {
                 ...state,
                 totalCart: payload
             }
 
-        default: 
-        return state
+        default:
+            return state
     }
 }
