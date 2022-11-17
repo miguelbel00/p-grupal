@@ -80,7 +80,6 @@ export default function Login() {
                                imageUrl:'https://o.remove.bg/downloads/7f0dd709-8af6-44b3-a66d-bdd1442eb287/185cebd90c1b1c4bec61d05fca1e9fc4-removebg-preview__1_-removebg-preview.png',
                                imageWidth:'200px',
                                imageHeight:'200px'
-                               // imageAlt:
                            });  
                             resetForm();
    
