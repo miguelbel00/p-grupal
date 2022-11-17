@@ -2,6 +2,7 @@ import React, { useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { getUsers } from "../redux/actions/actionsAdmin"
 import "../adminStyles/usersAdmin.css"
+import eliminar from "../assets/eliminar.png"
 
 
 export default function UserAdmin() {
@@ -12,23 +13,34 @@ export default function UserAdmin() {
   }, [dispatch])
 
   const users = useSelector(state => state.reducerAdmin.users)
-  const usersMap = users.map((user) => (
-    <div className="ulProductsAdmin">
-      <ul className="ulAdmin">
-        <li className="liAdmin">UserID:{user.id}</li>
-        <li className="liAdmin">Avatar:{user.avatar ? user.avatar : 'Not Avatar'}</li>
-        <li className="liAdmin">FullName:{user.fullName}</li>
-        <li className="liAdmin">Email:{user.email}</li>
-        <li className="liAdmin">Password:{user.password}</li>
-        <li className="liAdmin">Phone:{user.phone}</li>
-        <button>Editar</button>
-        <button>Eliminar</button>
-      </ul>
-    </div>
-  ))
+
   return (
     <div>
-      {usersMap}
+      <div id="container">
+        <div className="btn1"><button className="btnn" >New User</button></div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th className="id">UserID</th>
+              <th>FullName</th>
+              <th>Email</th>
+              <th>Edit</th>
+              <th>Eliminar</th>
+            </tr>
+          </thead>
+          <tbody>
+            {users.map((user) =>
+              <tr>
+                <td className="id">{user.id}</td>
+                <td data-label="fullName">{user.fullName}</td>
+                <td data-label="email">{user.email}</td>
+                <td data-label="editar"><button>Edit</button></td>
+                <td data-label="eliminar"><button><img src={eliminar} alt="Eliminar" width={"18px"}/> </button></td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
     </div>
   )
 }

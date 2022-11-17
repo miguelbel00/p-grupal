@@ -2,6 +2,8 @@ const initialState = {
     users: [],
     products: [],
     adminList: "",
+    reviews:[],
+    categories:[]
 };
 
 export default function reducerAdmin(
@@ -23,6 +25,16 @@ export default function reducerAdmin(
             return {
                 ...state,
                 adminList: payload
+            }
+        case "GET_ALL_REVIEWS":
+            return{
+                ...state,
+                reviews: payload
+            }
+        case "GET_ALL_CATEGORY":
+            return{
+                ...state,
+                categories: payload
             }
         default:
             return state;
