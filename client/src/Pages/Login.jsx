@@ -2,10 +2,13 @@ import React,{useEffect} from "react";
 import {useSelector,useDispatch} from 'react-redux'
 import { Link, useHistory } from "react-router-dom";
 import "../styles/login.css";
-import { Form, Formik} from "formik";
+
 import logo2 from "./../assets/logo.png";
 import Swal from 'sweetalert2'
 import { loginUser } from "../redux/actions/actionsPetitions";
+import { Formik } from "formik";
+import logo2 from "./../assets/logo.png";
+import Swal from 'sweetalert2'
 
 export default function Login() {
 
@@ -134,8 +137,10 @@ export default function Login() {
                                         onBlur={handleBlur}
                                         className="inputStyle"
                                     />
-                                        {touched.password && errors.password && (
+
+                                    {touched.password && errors.password && (
                                         <div className="error">{errors.password}</div>
+
                                     )}
                                 </div>
                                 <br />
@@ -145,7 +150,7 @@ export default function Login() {
                             </form>
                         )}
                     </Formik>
-                <p className="parrafo">Did you forget your password?<Link>Click here</Link></p>
+                    <p className="parrafo">Did you forget your password?<Link>Click here</Link></p>
                 </div>
             </div>
         </div>

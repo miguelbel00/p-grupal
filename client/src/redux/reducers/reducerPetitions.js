@@ -21,6 +21,12 @@ export default function petitionsReducer(
         products: payload,
 
       };
+    
+      case "POST_PRODUCT":
+        return {
+          ...state
+        }
+
     case "REGISTER_USER":
       return {
         ...state,
@@ -33,6 +39,7 @@ export default function petitionsReducer(
         user: payload,
 
       };
+
 
     default:
       return state;

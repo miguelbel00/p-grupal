@@ -10,6 +10,15 @@ import ShoppingCart from "./Pages/ShoppingCart"
 import Profile from "./componets/Profile";
 import ProteccionRoutes from "./componets/proteccionRoutes";
 import { useSelector } from "react-redux";
+import CreateProduct from "./Pages/CreateProduct";
+import AdminPage from "./AdminPage/Admin";
+import ProductsAdmin from "./AdminPage/ProductsAdmin";
+import ReviewsAdmin from "./AdminPage/ReviewsAdmin";
+import UserAdmin from "./AdminPage/UserAdmin";
+import CategoryAdmin from "./AdminPage/CategoryAdmin";
+import TransactionAdmin from "./AdminPage/TransactionAdmin";
+
+
 
 
 function App() {
@@ -27,11 +36,16 @@ function App() {
         <Route exact path='/shoppingcart'>
           <ProteccionRoutes user={user}>
           <ShoppingCart/>
-
           </ProteccionRoutes>
-
         </Route>
-        
+        <Route exact path='/create' component={CreateProduct}/>
+        <Route exact path='/admin' component={AdminPage}/>
+        <Route exact path='/admin/users' component={UserAdmin}/>
+        <Route exact path='/admin/products' component={ProductsAdmin}/>
+        <Route exact path='/admin/reviews' component={ReviewsAdmin}/>
+        <Route exact path='/admin/categories' component={CategoryAdmin}/>
+        <Route exact path='/admin/transactions' component={TransactionAdmin}/>
+
       </Switch>
       <Footer/>  
     </BrowserRouter>
