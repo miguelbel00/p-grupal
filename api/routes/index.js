@@ -4,7 +4,7 @@ const express = require('express')
 const transactionRoutes = require("./transactionRoutes")
 
 const reviewsRoutes  = require('./reviewRoutes')
-const userRoutes = require('./UserRoutes')
+const userRoutes = require('./userRoutes')
 const categoryRoutes = require('./categoryRoutes')
 const productRoutes = require('./productRoutes')
 const authRoutes = require('./authRoutes')
