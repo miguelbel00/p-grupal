@@ -7,7 +7,7 @@ export default function ProteccionRoutes({user,children}){
     if(user){
         try {
             
-            const decoded = jwt.verify(user, 'thisissalt');
+            const decoded = jwt.verify(user, 'thisissalts');
             if (decoded.isAdmin === true) {
                 return children
             }
