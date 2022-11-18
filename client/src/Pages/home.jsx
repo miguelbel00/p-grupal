@@ -4,7 +4,7 @@ import Carrusel from '../componets/Carrusel';
 import CardProductContainer from '../componets/CardProductContainer';
 import { Link } from "react-router-dom";
 import {useDispatch} from "react-redux"
-import { getAllProducts, postUser } from "../redux/actions/actionsPetitions";
+import { getAllProducts, registerUser } from "../redux/actions/actionsPetitions";
 import { useAuth0 } from "@auth0/auth0-react";
 
 export default function Home(){
@@ -19,11 +19,10 @@ export default function Home(){
     }
     
     useEffect(()=>{
- 
             dispatch(getAllProducts())
         
     
-       isAuthenticated &&  postUser(newUser)
+       isAuthenticated &&  registerUser(newUser)
     })
 
 

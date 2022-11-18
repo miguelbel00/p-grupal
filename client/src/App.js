@@ -8,10 +8,14 @@ import Home from './Pages/home'
 import Products from './Pages/Products'
 import ShoppingCart from "./Pages/ShoppingCart"
 import Profile from "./componets/Profile";
-
+import ProteccionRoutes from "./componets/proteccionRoutes";
+import { useSelector } from "react-redux";
+import CreateProduct from "./Pages/CreateProduct";
+import AdminPage from "./AdminPage/Admin";
 
 
 function App() {
+  const user = useSelector(state => state.petitionsReducer.user)
   return (
     <BrowserRouter>
       <Navbar/>
@@ -23,6 +27,18 @@ function App() {
         <Route exact path='/login' component={Login}/>
         <Route exact path='/products' component={Products}/>
         <Route exact path='/shoppingcart' component={ShoppingCart}/>
+        <Route exact path='/admin' component={AdminPage}>
+          <ProteccionRoutes user={user}>
+           <AdminPage/>
+          </ProteccionRoutes>
+        </Route>
+        <Route exact path='/admin/createproduct' component={CreateProduct}>
+          <ProteccionRoutes user={user}>
+           <CreateProduct/>
+          </ProteccionRoutes>
+        </Route>
+      
+
       </Switch>
       <Footer/>  
     </BrowserRouter>

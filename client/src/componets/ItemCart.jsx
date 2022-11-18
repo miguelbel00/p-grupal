@@ -1,12 +1,11 @@
 
-import { useDispatch} from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 import { removeOneProduct } from '../redux/actions/actionShoppingCart'
 import '../styles/card.css'
 
 export default function ItemCart ({id, name, price, image}) {
 
- 
 
     const dispatch = useDispatch()
 

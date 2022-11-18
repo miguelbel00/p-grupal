@@ -20,7 +20,7 @@ export default function Detail() {
     useEffect(()=>{
         dispatch(getDetail(productId))
         saveLocal()
-            // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[allProducts])
      
     const handleonClick =()=>{

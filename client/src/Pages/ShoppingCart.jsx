@@ -25,7 +25,7 @@ export default function ShoppingCart(){
 
     useEffect(()=>{
         saveLocal()
-            // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[allProducts])
 
 

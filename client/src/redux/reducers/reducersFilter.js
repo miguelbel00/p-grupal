@@ -25,7 +25,6 @@ export default function filterReducer(state = initialState, { type, payload }) {
         ...state,
         filterProducts: orderedProducts,
       };
-
       case 'ORDER_MOST_SOLD':
       let sold = state.filterProducts
             if(payload === 'All'){
@@ -56,8 +55,8 @@ export default function filterReducer(state = initialState, { type, payload }) {
           payload === "Todo"
             ? state.filterProducts
             : state.filterProducts.filter((product) =>
-            product.Categories.find((category) => category.name === payload)
-              )
+                product.Categories.find((category) => category.name === payload)
+              ),
       };
     case "SEARCH_PRODUCT":
       return {
@@ -70,4 +69,3 @@ export default function filterReducer(state = initialState, { type, payload }) {
       return state;
   }
 }
-
