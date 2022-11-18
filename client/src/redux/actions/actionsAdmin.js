@@ -1,9 +1,10 @@
 import axios from "axios";
-const server = 'http://localhost:3005'
+const {REACT_APP_SERVER_BACK} = process.env
+
 
 export function getUsers() {
     return async function (dispatch) {
-        let json = await axios.get(`${server}/users`)
+        let json = await axios.get(`${REACT_APP_SERVER_BACK}/users`)
         console.log(json.data)
         return dispatch({
             type: 'GET_ALL_USERS',
@@ -14,7 +15,7 @@ export function getUsers() {
 
 export function getProducts() {
     return async function (dispatch) {
-        let json = await axios.get(`${server}/products`)
+        let json = await axios.get(`${REACT_APP_SERVER_BACK}/products`)
         return dispatch({
             type: "GET_ALL_PRODUCTS",
             payload: json.data.body
@@ -34,7 +35,7 @@ export function adminList(payload) {
 
 export function getReviews(){
     return async function(dispatch){
-        let json = await axios.get(`${server}/reviews`)
+        let json = await axios.get(`${REACT_APP_SERVER_BACK}/reviews`)
         return dispatch({
             type: "GET_ALL_REVIEWS",
             payload: json.data.body
@@ -44,7 +45,7 @@ export function getReviews(){
 
 export function getCategory(){
     return async function(dispatch){
-        let json = await axios.get(`${server}/categories`)
+        let json = await axios.get(`${REACT_APP_SERVER_BACK}/categories`)
         return dispatch({
             type: "GET_ALL_CATEGORY",
             payload: json.data.body
