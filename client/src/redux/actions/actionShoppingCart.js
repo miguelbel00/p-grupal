@@ -1,13 +1,11 @@
 import axios from "axios";
-
-
-const server = 'https://p-grupal-production.up.railway.app'
+const {REACT_APP_SERVER_BACK} = process.env
 
 
 export function addProductToCart(id) {
     console.log(id)
     return async function (dispatch) {
-        const response = await axios.get(`${server}/products/${id}`)
+        const response = await axios.get(`${REACT_APP_SERVER_BACK}/products/${id}`)
         return dispatch({
             type: "ADD_TO_CART",
             payload: response.data.body
