@@ -7,7 +7,6 @@ import '../styles/card.css'
 export default function ItemCart ({id, name, price, image}) {
 
 
-
     const dispatch = useDispatch()
 
 
@@ -16,7 +15,6 @@ export default function ItemCart ({id, name, price, image}) {
         dispatch(removeOneProduct(e.target.id))
         alert('elimindo')
     }
-
 
     return(
         <div className="myOrder">

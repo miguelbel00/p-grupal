@@ -23,10 +23,6 @@ export default function ShoppingCart(){
     }
 
 
-    // const total = () => {
-    //     allProducts.reducer((acc, p)=> acc + p.price, 0)
-    // } 
-
     useEffect(()=>{
         saveLocal()
         // eslint-disable-next-line react-hooks/exhaustive-deps

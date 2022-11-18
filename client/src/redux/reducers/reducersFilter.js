@@ -26,28 +26,28 @@ export default function filterReducer(state = initialState, { type, payload }) {
         filterProducts: orderedProducts,
       };
       case 'ORDER_MOST_SOLD':
-        let sold = state.filterProducts
-              if(payload === 'All'){
-                  sold = state.filterProducts
+      let sold = state.filterProducts
+            if(payload === 'All'){
+                sold = state.filterProducts
+            }
+            
+            sold = sold.sort((a,b) => {
+              const soldA = a.sold
+              const soldB = b.sold
+              const validate = () => {
+                if(payload === 'Less Sold'){
+                  return soldA - soldB
+              }else if(payload === 'Best Seller'){
+                  return soldB - soldA
               }
-              
-              sold = sold.sort((a,b) => {
-                const soldA = a.sold
-                const soldB = b.sold
-                const validate = () => {
-                  if(payload === 'Less Sold'){
-                    return soldA - soldB
-                }else if(payload === 'Best Seller'){
-                    return soldB - soldA
-                }
-                }
-                return validate()
-                       
-              })
-              return{
-                ...state,
-                   filterProducts: sold
               }
+              return validate()
+                     
+            })
+            return{
+              ...state,
+                 filterProducts: sold
+            }
     case "FILTER_BY_CATEGORY":
       return {
         ...state,
