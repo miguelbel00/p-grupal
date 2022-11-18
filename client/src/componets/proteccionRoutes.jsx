@@ -17,4 +17,5 @@ export default function ProteccionRoutes({user,children}){
         }
     }   
     history.push('/')
+    return<>NOT ALLOWED</>
 }
