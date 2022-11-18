@@ -21,7 +21,7 @@ export default function CategoryAdmin() {
                             <th className="id">N°</th>
                             <th>Categories</th>
                             
-                            {/* <th>Eliminar</th> */}
+                             <th>Eliminar</th> 
                         </tr>
                     </thead>
                     <tbody>

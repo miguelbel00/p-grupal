@@ -20,7 +20,7 @@ export default function ReviewsAdmin() {
               <th className="id">N°</th>
               <th>Comment</th>
               <th>Reviews</th>
-              {/* <th>Eliminar</th> */}
+               <th>Eliminar</th> 
             </tr>
           </thead>
           <tbody>

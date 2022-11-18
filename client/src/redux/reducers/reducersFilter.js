@@ -25,7 +25,26 @@ export default function filterReducer(state = initialState, { type, payload }) {
         ...state,
         filterProducts: orderedProducts,
       };
-
+      case 'ORDER_MOST_SOLD':
+        let sold = state.filterProducts
+              if(payload === 'All'){
+                  sold = state.filterProducts
+              }
+              
+              sold = sold.sort((a,b) => {
+                  const soldA = a.sold
+                  const soldB = b.sold
+  
+                  if(payload === 'Less Sold'){
+                      return soldA - soldB
+                  }if(payload === 'Best Seller'){
+                      return soldB - soldA
+                  }
+              })
+              return{
+                ...state,
+                   filterProducts: sold
+              }
     case "FILTER_BY_CATEGORY":
       return {
         ...state,
@@ -33,8 +52,8 @@ export default function filterReducer(state = initialState, { type, payload }) {
           payload === "Todo"
             ? state.filterProducts
             : state.filterProducts.filter((product) =>
-            product.Categories.find((category) => category.name === payload)
-              )
+                product.Categories.find((category) => category.name === payload)
+              ),
       };
     case "SEARCH_PRODUCT":
       return {
@@ -47,4 +66,3 @@ export default function filterReducer(state = initialState, { type, payload }) {
       return state;
   }
 }
-

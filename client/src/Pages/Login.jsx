@@ -2,13 +2,10 @@ import React,{useEffect} from "react";
 import {useSelector,useDispatch} from 'react-redux'
 import { Link, useHistory } from "react-router-dom";
 import "../styles/login.css";
-
 import logo2 from "./../assets/logo.png";
 import Swal from 'sweetalert2'
 import { loginUser } from "../redux/actions/actionsPetitions";
 import { Formik } from "formik";
-import logo2 from "./../assets/logo.png";
-import Swal from 'sweetalert2'
 
 export default function Login() {
 

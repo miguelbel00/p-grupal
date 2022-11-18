@@ -18,3 +18,9 @@ export function searchProduct(payload){
         payload
     }
 }
+export function orderMostSold(payload){
+    return{
+        type: 'ORDER_MOST_SOLD',
+        payload
+    }
+}
