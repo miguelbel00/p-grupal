@@ -37,8 +37,9 @@ function App() {
            <CreateProduct/>
           </ProteccionRoutes>
         </Route>
-      
 
+      
+        
       </Switch>
       <Footer/>  
     </BrowserRouter>

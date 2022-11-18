@@ -1,6 +1,7 @@
 const initialState = {
   detail: {},
   products: [],
+  userOne: [],
   user: JSON.parse(localStorage.getItem('user')) ||  {},
 };
 
@@ -39,6 +40,12 @@ export default function petitionsReducer(
         user: payload,
 
       };
+
+    case "GET_ONE_USER": 
+    return {
+      ...state,
+      userOne: payload
+    }
 
 
     default:

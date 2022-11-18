@@ -3,6 +3,7 @@ import { useAuth0 } from "@auth0/auth0-react"
 import Loading from "./Loading"
 import { Link } from "react-router-dom"
 import Styles from "../styles/profile.module.css"
+import CardUser from "./CardUser"
 
 export default function Profile() {
 
@@ -11,18 +12,12 @@ export default function Profile() {
 
 
 
-    return (
-
-        isAuthenticated ?
-            <div className={Styles.container} >
-
-                <img src={user.picture} alt={user.name} />
-                <h2>{user.name}</h2>
-                <h4>{user.email}</h4>
+    return (     
+       isAuthenticated ?
+            <div className={Styles.container} >           
+            <CardUser/>
+        
                 <Link to={"/"}><button>Edit Profile</button></Link>
-
-
-             
             </div> :
             <Loading />
     )

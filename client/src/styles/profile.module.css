@@ -2,26 +2,15 @@
 .container{
     display: flex;
     flex-direction: column;
-    background-color: rgb(173, 145, 198);
-    color: rgba(255, 255, 255, 0.878);
     border-radius: 20px;
     max-width: 400px;
     margin: auto;
     margin-top: 50px;
     margin-bottom: 50px;
     text-align: center;
-    border: solid 1.5px rgb(77, 23, 126);
-    box-shadow: 10px 5px 5px 2px;
-
-
+    box-shadow: 0 0 4px black
 }
-.container img{
-    margin: auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    width: 150px;
-    border-radius: 15px;
-}
+
 
 .container button{
     margin-top: 20px;

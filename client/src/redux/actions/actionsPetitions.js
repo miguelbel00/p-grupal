@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const server = 'https://p-grupal-production.up.railway.app'
+const server = "http://localhost:3005" /* 'https://p-grupal-production.up.railway.app'  */
 
 export function getAllProducts() {
   return async function (dispatch) {
@@ -43,7 +43,9 @@ export function registerUser(payload) {
   };
 }
 export function loginUser(payload) {
+
   return async function (dispatch) {
+   
     return axios
       .post(`${server}/auth/login`, payload)
       .then((result) =>
@@ -59,8 +61,8 @@ export function loginUser(payload) {
             payload: error.response.data.split('<')[9].split(':')[2]
     
         })
-
       });
+       
   };
 }
 
@@ -74,7 +76,7 @@ export function postProduct(payload) {
             payload: data
         })
     }
-}
+};
 
 
 
@@ -84,4 +86,21 @@ export function getNameQuery(payload) {
     payload,
   };
 }
+
+export function getUser(userId) {
+  return async function (dispatch) {
+    return axios
+    .get(`${server}/users/${userId}`)
+    .then((result) =>
+      dispatch({
+        type: "GET_ONE_USER",
+        payload: result.data.body
+      })
+    )
+    .catch((error) => { 
+    });
+  }
+}
+
+
 
