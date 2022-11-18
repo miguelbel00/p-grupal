@@ -2,11 +2,12 @@ import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import '../styles/shoppingCart.css'
 import { removeOneProduct } from '../redux/actions/actionShoppingCart'
+import '../styles/shoppingCart.css'
 
-
-export default function ItemCart({ id, name, price, image, setTotal, saveTotalCart }) {
+export default function ItemCart({ id, name, price, image, setTotal }) {
 
     const totalCart = useSelector((state) => state.shoppingReducer.totalCart)
+    const allProducts = useSelector((state) => state.shoppingReducer.productCart);
     const [cont, setCont] = useState(1)
     const dispatch = useDispatch()
 
@@ -27,6 +28,16 @@ export default function ItemCart({ id, name, price, image, setTotal, saveTotalCa
         saveTotalCart(nuevoCart)
     }
 
+    const deleteProduct = () => {
+        delete totalCart[id]
+        let nuevoCart = {}
+        for (const key in totalCart) {
+            if (totalCart[key] !== null) {
+                nuevoCart[key] = totalCart[key]
+            }
+        }
+        return nuevoCart
+    }
 
     const handleClickPlus = () => {
         setCont(cont + 1);
@@ -35,26 +46,33 @@ export default function ItemCart({ id, name, price, image, setTotal, saveTotalCa
         setCont(cont - 1);
     }
 
+    const saveTotalCart = (nuevoCarrito) => {
+        localStorage.setItem('totalCart', JSON.stringify(nuevoCarrito))
+    }
+
+    const removeOneCart = () => {
+        localStorage.setItem("carrito", JSON.stringify(allProducts.filter(e => e.id !== id)))
+        localStorage.setItem('totalCart', JSON.stringify(deleteProduct()))
+    }
+
     const deleteFromCart = (e) => {
         dispatch(removeOneProduct(e.target.id))
+        removeOneCart()
         alert('Clean')
-        
     }
 
 
     useEffect(() => {
-
+        //Recorre el carrito
         for (const product in totalCart) {
-            if (totalCart[product] !== null) {
-                if (totalCart.hasOwnProperty(`${id}`)) {
-                    const values = Object.values(totalCart[product])
-                    if (values[values.length - 1] !== cont) {
-                        setCont(values[values.length - 1])
-                    }
-                }
+            //se evalua si el producto del carrito es igual al ID correspondiente
+            if (product == id) {
+                //se obtiene el precio y el cantidad que el usuario quiere con el producto ID
+                const priceCont = Object.values(totalCart[product])
+                // setea la cantidad del producto segun este en el carrito guardado 
+                setCont(priceCont[priceCont.length - 1])
             }
         }
-
     }, [])
 
     useEffect(() => {

@@ -22,7 +22,6 @@ export default function ShoppingCart() {
                 multi *= totalCart[product][property]
             }
             totalSum += multi
-
         }
         setTotalShow(totalSum)
     }
@@ -32,25 +31,23 @@ export default function ShoppingCart() {
         localStorage.setItem("carrito", JSON.stringify(allProducts))
     }
 
-    const saveTotalCart = (objet) => {
-        localStorage.setItem('totalCart', JSON.stringify(objet))
-    }
-
     const removeLocal = () => {
+        localStorage.removeItem('carrito', JSON.stringify(allProducts))
         localStorage.removeItem('totalCart', JSON.stringify(totalCart))
     }
 
+
     const clearCart = () => {
         dispatch(removeAllProduct())
-        alert('Clean cart')
         removeLocal()
         setTotalShow(0)
+        alert('Clean cart')
     }
 
 
     useEffect(() => {
         saveLocal()
-        // setTotal()
+        setTotal()
     }, [allProducts, totalCart, totalShow])
 
 
@@ -61,7 +58,7 @@ export default function ShoppingCart() {
             <div >
                 <div className="contenedor-cart">
                     {allProducts?.map((e) => <ItemCart
-                        id={e.id} name={e.name} price={e.price} image={e.image} setTotal={setTotal} saveTotalCart={saveTotalCart}
+                        id={e.id} name={e.name} price={e.price} image={e.image} setTotal={setTotal} 
                     />)}
                 </div>
                 <h3 className="card-title">Total to pay $ {totalShow}</h3>

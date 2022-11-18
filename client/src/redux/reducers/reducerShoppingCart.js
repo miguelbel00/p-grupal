@@ -21,7 +21,8 @@ export default function shoppingReducer(state = shoppinginitialState, { type, pa
         case 'REMOVE_ALL_CART':
             return {
                 ...state,
-                productCart: []
+                productCart: [],
+                totalCart: []
             }
         case 'PLUS_CART':
             return {
