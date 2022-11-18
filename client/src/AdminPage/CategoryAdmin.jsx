@@ -15,7 +15,7 @@ export default function CategoryAdmin() {
     return (
         <div>
             <div id="container">
-                <table class="table">
+                <table className="table">
                     <thead>
                         <tr>
                             <th className="id">N°</th>

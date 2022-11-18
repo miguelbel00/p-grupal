@@ -25,7 +25,7 @@ module.exports = {
             endpointResponse({
                 res,
                 code: 200,
-                message: 'se cumplio con exitos',
+                message: 'All products',
                 body: allproducts
             })
 

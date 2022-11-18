@@ -1,7 +1,7 @@
 const initialState = {
   detail: {},
   products: [],
-  userOne: [],
+  userOne: null,
   user: JSON.parse(localStorage.getItem('user')) ||  {},
 };
 

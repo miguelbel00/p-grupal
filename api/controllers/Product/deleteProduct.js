@@ -7,14 +7,14 @@ module.exports = {
     deleteProduct: async (req, res, next) => {
         const { productId } = req.params;
         try {
-            if(!productId)throw new ErrorObject("missing params", 404)
+            if(!productId)throw new ErrorObject("Missing params", 404)
             const deleteProduct = await Product.destroy({ where: { id: productId } })
-            if(deleteProduct === null) throw new ErrorObject("product not found", 404)
+            if(deleteProduct === null) throw new ErrorObject("Product not found", 404)
             endpointResponse({
                 res,
                 code: 204,
-                message: 'the product was deleted',
-                body: {msj: `${deleteProduct} were eliminated`},
+                message: 'The product was deleted',
+                body: `${deleteProduct} was deleted`,
             })  
         } catch (error) {
             const httpError = createHttpError(

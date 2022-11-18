@@ -6,6 +6,7 @@ import style from '../styles/carduser.module.css';
 import { FaUser } from 'react-icons/fa';
 import { AiOutlineMail } from 'react-icons/ai'; 
 import { GiSmartphone } from 'react-icons/gi'; 
+const {REACT_APP_JWT_SECRETO} = process.env
 const jwt = require('jsonwebtoken');
 
 
@@ -15,17 +16,14 @@ function CardUser({userId}){
     const user = useSelector(state => state.petitionsReducer.userOne);
     const history = useHistory()
 
-    useEffect(() => {
-        dispatch(getUser(userId))
-    }, []);
-
-
     if(userJWT){
         try {
             
-            const decoded = jwt.verify(userJWT, 'thisissalt');
-            if (decoded.isAdmin === true) {
+            const decoded = jwt.verify(userJWT, REACT_APP_JWT_SECRETO);
+            if (parseInt(decoded.id) === userId || decoded.isAdmin === true) {
                 dispatch(getUser(userId))
+            }else{
+                history.push('/login')
             }
            
         } catch (error) {

@@ -6,6 +6,7 @@ import logo2 from "./../assets/logo.png";
 import Swal from 'sweetalert2'
 import { loginUser } from "../redux/actions/actionsPetitions";
 import { Formik } from "formik";
+import dino from '../assets/dino.jpg'
 
 export default function Login() {
 
@@ -33,7 +34,7 @@ export default function Login() {
     }
     const successAlert =(message) => {
         Swal.fire({
-            title:'Login Exitoso!',
+            title:'Success Login!',
             text:`${message}`,
             confirmButtonText:'Lets Go',
             background:'#67e9ff',
@@ -42,7 +43,7 @@ export default function Login() {
                 text:'titleAlert',
                 content:'titleAlert'
             },
-           imageUrl:'https://o.remove.bg/downloads/7f0dd709-8af6-44b3-a66d-bdd1442eb287/185cebd90c1b1c4bec61d05fca1e9fc4-removebg-preview__1_-removebg-preview.png',
+           imageUrl: dino,
            imageWidth:'200px',
            imageHeight:'200px'
         });

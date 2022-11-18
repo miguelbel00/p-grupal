@@ -44,21 +44,21 @@ export default function Filters({ setOption, setPage }) {
     return (
         <div>
             <div>
-                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" onChange={(e) => handleOrderByPrice(e)}>
+                <select className="form-select form-select-lg mb-3" aria-label=".form-select-lg example" onChange={(e) => handleOrderByPrice(e)}>
                     <option value='All'>Price</option>
                     <option value='Min'>Min-Price</option>
                     <option value='Max'>Max-Price</option>
                 </select>
             </div>
             <div>
-            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" onChange={(e) => handleOrderMostSeller(e)}>
+            <select className="form-select form-select-lg mb-3" aria-label=".form-select-lg example" onChange={(e) => handleOrderMostSeller(e)}>
                     <option value='All'>Sold</option>
                     <option value='Less Sold'>Less Sold</option>
                     <option value='Best Seller'>Best Seller</option>
                 </select>
             </div>
             <div>
-                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" onChange={e => handleFilterCategory(e)}>
+                <select className="form-select form-select-lg mb-3" aria-label=".form-select-lg example" onChange={e => handleFilterCategory(e)}>
                     <option selected>Categorias</option>
                     <option value="Todo">Todas las categorias</option>
                     <option value="Computadores">Computadores</option>
