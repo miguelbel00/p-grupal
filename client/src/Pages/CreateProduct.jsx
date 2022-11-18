@@ -65,7 +65,7 @@ const validate = (product) => {
         }else {
         dispatch(postProduct(product));
         alert('producto creado correctamente') ; 
-        history.push('/poducts');
+        history.push('/products');
         }      
     };
 
@@ -97,7 +97,7 @@ const validate = (product) => {
       })  
   
     };
-
+/* 
     const moreImage = (e) => {
       e.preventDefault();
              let img = []
@@ -106,12 +106,8 @@ const validate = (product) => {
           image: [...product.image],
           
         })
-
         
-
-  
-        
-    }
+    } */
 
     const handleDelete = (e) => {
       setProduct({

@@ -6,7 +6,7 @@ import logo from '../assets/logo.png'
 import '../styles/register.css'
 import { Formik } from "formik";
 import Swal from 'sweetalert2'
-import dino from '../assets/dino.jpg'
+
 
 export default function Register() {
     
@@ -85,6 +85,7 @@ export default function Register() {
     useEffect(() => {
      
        logged()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [user]);
     return (
         <div className="background">

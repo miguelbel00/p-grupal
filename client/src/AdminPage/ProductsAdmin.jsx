@@ -3,11 +3,17 @@ import { useSelector, useDispatch } from "react-redux"
 import { getProducts } from "../redux/actions/actionsAdmin"
 import '../styles/admin.css'
 import eliminar from "../assets/eliminar.png"
+import { useHistory } from "react-router-dom"
+
 
 export default function ProductsAdmin() {
   const products = useSelector(state => state.reducerAdmin.products)
   const dispatch = useDispatch()
-
+  const history = useHistory()
+  const handleClick = (e) => {
+    e.preventDefault()
+    history.push('/admin/createproduct')
+  }
   useEffect(() => {
     dispatch(getProducts())
   }, [dispatch])
@@ -19,7 +25,7 @@ export default function ProductsAdmin() {
   return (
     <div>
       <div id="container">
-        <div className="btn1"><button className="btnn" >New Product </button></div>
+        <div className="btn1"><button onClick={handleClick} className="btnn" >New Product </button></div>
         <table class="table">
           <thead>
             <tr>
