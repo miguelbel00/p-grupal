@@ -25,7 +25,7 @@ module.exports = {
         fullName, email, avatar, password:hasedPass, phone,
       })
 
-      const token = jwt.sign( {user:userCreated} , process.env.SECRETO, {expiresIn: '1h'})
+      const token = jwt.sign( {user:userCreated} , process.env.JWT_SECRETO, {expiresIn: '1h'})
       endpointResponse({
         res,
         code:201,

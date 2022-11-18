@@ -152,7 +152,7 @@ const validate = (product) => {
     
 return (
   <div className='createContainer'> 
-<form onSubmit={(e) => handleSubmit(e)} class="needs-validation"> 
+<form onSubmit={(e) => handleSubmit(e)} className="needs-validation"> 
 <div className='boxInput'> 
     <h4 ><strong>Artículo en venta</strong></h4>
     {product.image && product.image.map((image) => (
@@ -162,30 +162,30 @@ return (
       </div>
     ))}
      <div >
-      <input onChange={(e) => handleImage(e)}  type="text" class="form-control"  name='image' placeholder='Imagen Url..' value={product.image} />   
+      <input onChange={(e) => handleImage(e)}  type="text" className="form-control"  name='image' placeholder='Imagen Url..' value={product.image} />   
       <p className='errors'><strong>{errors.image}</strong></p>
 
      {/* <button onClick={(e) => moreImage(e)}>Añadir mas imagen</button> */}
     </div>
     <div className='inputsError'>
-      <input  onChange={(e) => handleChange(e)} value= {product.name}  type="text" class="form-control" name='name' placeholder='Titulo' />  
+      <input  onChange={(e) => handleChange(e)} value= {product.name}  type="text" className="form-control" name='name' placeholder='Titulo' />  
       <p className='errors'><strong>{errors.name}</strong></p> 
     </div>
     <div>
-      <input  onChange={(e) => handleChange(e)} type="number" class="form-control" name='price' value={product.price} placeholder= 'Precio' />
+      <input  onChange={(e) => handleChange(e)} type="number" className="form-control" name='price' value={product.price} placeholder= 'Precio' />
       <p className='errors'><strong>{errors.price}</strong></p> 
     </div>
     <div >
-      <input  onChange={(e) => handleChange(e)} type="number" class="form-control" name='stock' value={product.stock}  placeholder= 'Stock' />
+      <input  onChange={(e) => handleChange(e)} type="number" className="form-control" name='stock' value={product.stock}  placeholder= 'Stock' />
       <p className='errors'><strong>{errors.stock}</strong></p>
     </div>
     <div>
-      <input  onChange={(e) => handleChange(e)} type="text" class="form-control" name='description' value={product.description} placeholder='Descripcion'  />
+      <input  onChange={(e) => handleChange(e)} type="text" className="form-control" name='description' value={product.description} placeholder='Descripcion'  />
       <p className='errors'><strong>{errors.description}</strong></p>
     </div>
     <div >
 
-      <select class="form-control" onChange = {handleCategory}  value = {product.categories}>
+      <select className="form-control" onChange = {handleCategory}  value = {product.categories}>
         <option value="">Elija su categoria...</option>
         {listCategory.map && listCategory?.map(category => (
           <option key={category} value={category}>{category}</option>
@@ -199,7 +199,7 @@ return (
       ))}
     </div>
     <div className='btn'>
-  <button  class="btn btn-primary" type="submit">Publicar</button>
+  <button  className="btn btn-primary" type="submit">Publicar</button>
   </div>
   </div>
   <div className='product'>

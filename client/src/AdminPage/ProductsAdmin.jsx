@@ -26,7 +26,7 @@ export default function ProductsAdmin() {
     <div>
       <div id="container">
         <div className="btn1"><button onClick={handleClick} className="btnn" >New Product </button></div>
-        <table class="table">
+        <table className="table">
           <thead>
             <tr>
               <th className="id">N°</th>
@@ -52,38 +52,5 @@ export default function ProductsAdmin() {
         </table>
       </div>
     </div>
-     /*     <div className="containerSupremo">
-
-      <div className="controllers ">
-        <button className="row button">Create</button>
-        <button className="row button">Edit</button>
-        <button className="row button">Delete</button>
-      </div>
-        <div className="products "> {products.map((producto) => (
-            <ul className="ulAdmin">
-              <li className="liAdmin">Name:{producto.name}</li>
-              <li className="liAdmin">Price:{producto.price}</li>
-              <li className="liAdmin">Stock:{producto.stock}</li>
-            </ul>
-        ))}</div>
-
-    </div> */
-          
-    /* <div className="containerSupremo">
-      <div className="row">
-      <div className="col-2 justify-center">
-        <button className="row button">Create</button>
-        <button className="row button">Edit</button>
-        <button className="row button">Delete</button>
-      </div>
-        <div className="col-10 "> {products.map((producto) => (
-            <ul className="ulAdmin">
-              <li className="liAdmin">Name:{producto.name}</li>
-              <li className="liAdmin">Price:{producto.price}</li>
-              <li className="liAdmin">Stock:{producto.stock}</li>
-            </ul>
-        ))}</div>
-      </div>
-    </div> */
   )
 }

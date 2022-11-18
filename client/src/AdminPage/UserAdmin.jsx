@@ -18,7 +18,7 @@ export default function UserAdmin() {
     <div>
       <div id="container">
         <div className="btn1"><button className="btnn" >New User</button></div>
-        <table class="table">
+        <table className="table">
           <thead>
             <tr>
               <th className="id">UserID</th>

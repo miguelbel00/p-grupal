@@ -66,18 +66,20 @@ export default function ItemCart({ id, name, price, image, setTotal }) {
         //Recorre el carrito
         for (const product in totalCart) {
             //se evalua si el producto del carrito es igual al ID correspondiente
-            if (product == id) {
+            if (parseInt( product) === id) {
                 //se obtiene el precio y el cantidad que el usuario quiere con el producto ID
                 const priceCont = Object.values(totalCart[product])
                 // setea la cantidad del producto segun este en el carrito guardado 
                 setCont(priceCont[priceCont.length - 1])
             }
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     useEffect(() => {
         addPriceAndContLocal()
         setTotal()
+        // eslint-disable-next-line react-hooks/exhaustive-deps        
     }, [cont, totalCart])
 
     return (

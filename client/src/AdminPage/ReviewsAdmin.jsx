@@ -14,7 +14,7 @@ export default function ReviewsAdmin() {
   return (
     <div>
       <div id="container">
-        <table class="table">
+        <table className="table">
           <thead>
             <tr>
               <th className="id">N°</th>

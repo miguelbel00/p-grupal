@@ -44,17 +44,17 @@ const Navbar = () => {
                     <ul className="navbar-nav me-auto mt-3 mb-lg-0">
                         <li className="nav-item">
                             <Link to='/' >
-                                <i class="bi bi-house nav-link mb-3"> Home</i>
+                                <i className="bi bi-house nav-link mb-3"> Home</i>
                             </Link>
                         </li>
                         <li className="nav-item">
                             <Link to='/' >
-                                <i class="bi bi-person-circle nav-link mb-3"> My Account</i>
+                                <i className="bi bi-person-circle nav-link mb-3"> My Account</i>
                             </Link>
                         </li>
                         <li className="nav-item">
                             <Link to='/shoppingcart' >
-                                <i class="0bi bi-cart4 nav-link mb-3"> My Cart</i>
+                                <i className="0bi bi-cart4 nav-link mb-3"> My Cart</i>
                             </Link>
                         </li>
                         <li className={Styles.Login}>

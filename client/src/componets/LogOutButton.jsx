@@ -9,5 +9,5 @@ export default function LogOut (){
 
 
 
-    return <button onClick={()=> logout()}><i class="bi bi-person-circle nav-link mb-3"> Log Out</i></button>
+    return <button onClick={()=> logout()}><i className="bi bi-person-circle nav-link mb-3"> Log Out</i></button>
 }

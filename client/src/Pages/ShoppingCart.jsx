@@ -43,10 +43,10 @@ export default function ShoppingCart() {
         alert('Clean cart')
     }
 
-
     useEffect(() => {
         saveLocal()
         setTotal()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [allProducts, totalCart, totalShow])
 
 
@@ -56,8 +56,8 @@ export default function ShoppingCart() {
             <button className="btn btn-primary boton" onClick={clearCart}>Remove All</button>
             <div >
                 <div className="contenedor-cart-hijo">
-                    {allProducts?.map((e) => <ItemCart
-                        id={e.id} name={e.name} price={e.price} image={e.image} setTotal={setTotal} 
+                    {allProducts?.map((e,i) => <ItemCart
+                        key={i} id={e.id} name={e.name} price={e.price} image={e.image} setTotal={setTotal} 
                     />)}
                 </div>
                 <h3 className="card-title">Total to pay $ {totalShow}</h3>
