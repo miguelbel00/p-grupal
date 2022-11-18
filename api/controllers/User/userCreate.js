@@ -20,14 +20,12 @@ module.exports = {
       if(userEmail.length){
           throw new ErrorObject("That email is already in use", 400)
       }
-
       const hasedPass = password ? await bcrypt.hash(password,10) : false
       const userCreated = await User.create({
         fullName, email, avatar, password:hasedPass, phone,
       })
 
-      const token = jwt.sign( userCreated , process.env.SECRETO, {expiresIn: '1h'})
-      
+      const token = jwt.sign( {user:userCreated} , process.env.SECRETO, {expiresIn: '1h'})
       endpointResponse({
         res,
         code:201,

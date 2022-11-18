@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import ItemCart from "../componets/ItemCart";
-import { removeAllProduct, plusCartTotal } from "../redux/actions/actionShoppingCart";
+import { removeAllProduct } from "../redux/actions/actionShoppingCart";
 import '../styles/shoppingCart.css'
-
 
 export default function ShoppingCart() {
     const allProducts = useSelector((state) => state.shoppingReducer.productCart);
@@ -52,11 +51,11 @@ export default function ShoppingCart() {
 
 
     return (
-        <div className="total" >
+        <div className="total-cart" >
             <h2 className="card-title">Shopping Cart</h2>
             <button className="btn btn-primary boton" onClick={clearCart}>Remove All</button>
             <div >
-                <div className="contenedor-cart">
+                <div className="contenedor-cart-hijo">
                     {allProducts?.map((e) => <ItemCart
                         id={e.id} name={e.name} price={e.price} image={e.image} setTotal={setTotal} 
                     />)}

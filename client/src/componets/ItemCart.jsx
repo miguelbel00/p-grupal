@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import '../styles/shoppingCart.css'
+import '../styles/itemCard.css'
 import { removeOneProduct } from '../redux/actions/actionShoppingCart'
-import '../styles/shoppingCart.css'
+
 
 export default function ItemCart({ id, name, price, image, setTotal }) {
 
@@ -81,21 +81,21 @@ export default function ItemCart({ id, name, price, image, setTotal }) {
     }, [cont, totalCart])
 
     return (
-        <div className='contenedor'>
-            <div className='contenedor-hijo' >
-                <img className="card-img-top" src={image} alt={name} />
-                <div className='informacion'>
-                    <h2 className='name'>{name}</h2>
-                    <h2 className='name'>${price} x {cont} = ${price * cont}</h2>
+        <div className='shopping' >
+            <div className='contenedor-cart'>
+                <img className="card-img-top-cart" src={image} alt={name} />
+                <div className='informacion-cart'>
+                    <h2 className='name-cart'>{name}</h2>
+                    <h2 className='name-cart'>${price} x {cont} = ${price * cont}</h2>
                 </div>
-                <div className='d-grid gap-2 d-md-flex justify-content-md-center'>
-                    <button className='btn btn-primary btn-sm' onClick={handleClickRest} > - </button>
+                <div className='d-grid gap-2 d-md-flex justify-content-md-center '>
+                    <button className='btn btn-primary btn-sm ' onClick={handleClickRest} > - </button>
                     <br />
-                    <h3 className='name'>Cantidad: {cont}</h3>
+                    <h3 className='name-cart'>Cantidad: {cont}</h3>
                     <br />
-                    <button className='btn btn-primary btn-sm' onClick={handleClickPlus} > + </button>
+                    <button className='btn btn-primary btn-sm ' onClick={handleClickPlus} > + </button>
                 </div>
-                <div className='d-flex justify-content-center'>
+                <div className='d-flex justify-content-center '>
                     <button className='btn btn-primary' id={id} onClick={deleteFromCart}>Clear Item</button>
                 </div>
             </div>
