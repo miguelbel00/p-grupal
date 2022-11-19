@@ -4,15 +4,11 @@ import { useEffect } from "react";
 import '../styles/paginated.css'
 
 
-export default function Paginated({ page, setPage, max }) {
+export default function Paginated({ page, setPage, max, input, setInpunt}) {
 
 
-    const [input, setInpunt] = useState(1);
+    
 
-
-    useEffect(() => {
-        setInpunt(1)
-    }, [max])
 
     const nextPage = () => {
         setInpunt(parseInt(input) + 1);
