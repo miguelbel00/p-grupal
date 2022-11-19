@@ -6,7 +6,6 @@ import eliminar from "../assets/eliminar.png"
 
 export default function ReviewsAdmin() {
   const reviews = useSelector((state) => state.reducerAdmin.reviews)
-  console.log(reviews)
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(getReviews())
@@ -24,8 +23,8 @@ export default function ReviewsAdmin() {
             </tr>
           </thead>
           <tbody>
-            {reviews.map((rev) =>
-              <tr>
+            {reviews.map((rev,i) =>
+              <tr key={i}>
                 <td >{rev.id}</td>
                 <td >{rev.comment}</td>
                 <td >{rev.rating}</td>

@@ -1,4 +1,4 @@
-import React,{useEffect} from "react";
+import React,{useEffect, useState} from "react";
 import {useSelector,useDispatch} from 'react-redux'
 import { useHistory } from "react-router-dom";
 import { registerUser } from "../redux/actions/actionsPetitions";
@@ -14,11 +14,13 @@ export default function Register() {
     const user = useSelector((state) => state.petitionsReducer.user)
     const dispatch = useDispatch()
     const history = useHistory()
+    const [submit,setSubmit] = useState(false)
 
-    const handleSubmit= (valoresLogin,  resetForm ) => {
-        dispatch(registerUser(valoresLogin))   
+    const handleSubmit= async(valoresLogin,  resetForm ) => {
+        setSubmit(true)
+        await dispatch(registerUser(valoresLogin))   
         resetForm();
-    }
+   }
 
     const validation = (valores) => {
         
@@ -75,19 +77,23 @@ export default function Register() {
     }
 
     const logged = () => {
+
         if (user?.message) {
+            if (!submit) {
+                return
+            }
             successAlert(user.message)
             localStorage.setItem("user", JSON.stringify(user.body.token))
             history.push('/')
-        }else if(!(user.search(/[\d]/)>=0) && typeof user == 'string' ){
+        }else if(typeof user == 'string' &&!(user.search(/[\d]/)>=0) ) {
             errorAlert(user)
         }
     }
-    useEffect(() => {
-     
-       logged()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [user]);
+    useEffect(()=>{
+        logged()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[user])
+
     return (
         <div className="background">
             <div className="divMayorRegister">

@@ -1,4 +1,4 @@
-import React,{useEffect} from "react";
+import React,{useEffect, useState} from "react";
 import {useSelector,useDispatch} from 'react-redux'
 import { Link, useHistory } from "react-router-dom";
 import "../styles/login.css";
@@ -11,12 +11,17 @@ import dino from '../assets/dino.jpg'
 export default function Login() {
 
     const user = useSelector((state) => state.petitionsReducer.user)
+    
     const dispatch = useDispatch()
+    const [submit,setSubmit] = useState(false)
     const history = useHistory()
 
-    const handleSubmit= (valoresLogin,  resetForm ) => {
-        dispatch(loginUser(valoresLogin))   
+    const handleSubmit= async (valoresLogin,  resetForm ) => {
+        setSubmit(true)
+        await dispatch(loginUser(valoresLogin))  
         resetForm();
+
+
     }
     const errorAlert = (message) => {
         Swal.fire({
@@ -50,7 +55,11 @@ export default function Login() {
     }
     
     const logged = () => {
+
         if (user?.message) {
+            if (!submit) {
+                return
+            }
             successAlert(user.message)
             localStorage.setItem("user", JSON.stringify(user.body.token))
             history.push('/')
@@ -72,10 +81,10 @@ export default function Login() {
         return errores
     }
 
-    useEffect(() => {
-        logged()
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [user]);
+useEffect(()=> {
+    logged()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+},[user])
 
     return (
         <div className="background">

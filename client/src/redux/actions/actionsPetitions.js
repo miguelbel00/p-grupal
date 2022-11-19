@@ -23,7 +23,6 @@ export function getDetail(id) {
 
 export function registerUser(payload) {
   return async function (dispatch) {
-
     return axios
       .post(`${REACT_APP_SERVER_BACK}/auth/register`, payload)
       .then((result) =>
@@ -44,9 +43,7 @@ export function registerUser(payload) {
   };
 }
 export function loginUser(payload) {
-
   return async function (dispatch) {
-   
     return axios
       .post(`${REACT_APP_SERVER_BACK}/auth/login`, payload)
       .then((result) =>

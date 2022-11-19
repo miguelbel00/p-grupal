@@ -1,28 +1,40 @@
 import React, {useEffect} from "react";
+import {useDispatch,useSelector} from "react-redux"
 import '../styles/home.css';
 import Carrusel from '../componets/Carrusel';
 import CardProductContainer from '../componets/CardProductContainer';
 import { Link } from "react-router-dom";
-import {useDispatch} from "react-redux"
+
 import { getAllProducts, registerUser } from "../redux/actions/actionsPetitions";
 import { useAuth0 } from "@auth0/auth0-react";
+import { getUser } from "../redux/actions/actionsPetitions"
+
+const {REACT_APP_JWT_SECRETO} = process.env
+const jwt = require('jsonwebtoken');
 
 export default function Home(){
-   
-    const { user, isAuthenticated } = useAuth0()
+    const dispatch = useDispatch()
+    const userJWT = useSelector(state => state.petitionsReducer.user);
+    if(userJWT){
+        try {
+            const decoded = jwt.verify(userJWT?.body?.token ? userJWT.body.token :userJWT, REACT_APP_JWT_SECRETO);
+            dispatch(getUser(decoded?.id ?decoded.id :decoded.user.id  ))
+        } catch (error) {}
+    }
+/*     const { user, isAuthenticated } = useAuth0()
     const dispatch = useDispatch()
     
     const newUser = {
         fullName: isAuthenticated && user.name,
         email: isAuthenticated && user.email,
         avatar:isAuthenticated && user.picture
-    }
+    } */
     
     useEffect(()=>{
             dispatch(getAllProducts())
         
     
-       isAuthenticated &&  registerUser(newUser)
+       /* isAuthenticated &&  registerUser(newUser) */
     })
 
 

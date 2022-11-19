@@ -1,40 +1,17 @@
-import { getUser } from '../redux/actions/actionsPetitions'
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import React from 'react';
 import style from '../styles/carduser.module.css';
 import { FaUser } from 'react-icons/fa';
 import { AiOutlineMail } from 'react-icons/ai'; 
 import { GiSmartphone } from 'react-icons/gi'; 
-const {REACT_APP_JWT_SECRETO} = process.env
-const jwt = require('jsonwebtoken');
 
 
-function CardUser({userId}){
-    const dispatch = useDispatch();
-    const userJWT = useSelector(state => state.petitionsReducer.user);
-    const user = useSelector(state => state.petitionsReducer.userOne);
-    const history = useHistory()
+function CardUser({user}){
 
-    if(userJWT){
-        try {
-            
-            const decoded = jwt.verify(userJWT, REACT_APP_JWT_SECRETO);
-            if (parseInt(decoded.id) === userId || decoded.isAdmin === true) {
-                dispatch(getUser(userId))
-            }else{
-                history.push('/login')
-            }
-           
-        } catch (error) {
-            console.log(error)
-        }
-    }   
 
-    return (
-        <div className={style.container}>
-            { user 
-                ?<div className='card'>
+return (
+   
+           <div className={style.container}>
+                <div className='card'>
                         <div className={style.containerImg}>
                             {user.avatar 
                             ?<img src={user.avatar} alt="avatar_user"/>
@@ -59,11 +36,8 @@ function CardUser({userId}){
                             </div>*/}
                         </div>
                 </div>
-                : history.push('/login') 
-            }
-        </div>
-    )
-};
+            </div>
+)};
 
 
 export default CardUser;
