@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import '../styles/itemCard.css'
 import { removeOneProduct } from '../redux/actions/actionShoppingCart'
-
+import Swal from 'sweetalert2'
 
 export default function ItemCart({ id, name, price, image, setTotal }) {
 
@@ -10,6 +10,15 @@ export default function ItemCart({ id, name, price, image, setTotal }) {
     const allProducts = useSelector((state) => state.shoppingReducer.productCart);
     const [cont, setCont] = useState(1)
     const dispatch = useDispatch()
+
+    const successAlert =() => {
+        Swal.fire({
+            title:'Product removed!',
+            confirmButtonText:"Ok",
+            timer:3000,
+           icon:"success"
+        });
+    }
 
     const addPriceAndContLocal = () => {
         ///se rellena el cart pero este se rellena tambien con nulls(no sabes por que) 
@@ -58,7 +67,7 @@ export default function ItemCart({ id, name, price, image, setTotal }) {
     const deleteFromCart = (e) => {
         dispatch(removeOneProduct(e.target.id))
         removeOneCart()
-        alert('Clean')
+        successAlert()
     }
 
 
