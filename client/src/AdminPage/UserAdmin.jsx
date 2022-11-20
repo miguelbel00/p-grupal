@@ -29,8 +29,8 @@ export default function UserAdmin() {
             </tr>
           </thead>
           <tbody>
-            {users.map((user) =>
-              <tr>
+            {users.map((user,i) =>
+              <tr key={i}>
                 <td className="id">{user.id}</td>
                 <td data-label="fullName">{user.fullName}</td>
                 <td data-label="email">{user.email}</td>

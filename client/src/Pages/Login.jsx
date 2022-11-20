@@ -1,21 +1,26 @@
-import React,{useEffect} from "react";
+import React,{useEffect, useState} from "react";
 import {useSelector,useDispatch} from 'react-redux'
 import { Link, useHistory } from "react-router-dom";
 import "../styles/login.css";
 import logo2 from "./../assets/logo.png";
 import Swal from 'sweetalert2'
-import { loginUser } from "../redux/actions/actionsPetitions";
+import { loginUser} from "../redux/actions/actionsPetitions";
 import { Formik } from "formik";
 import dino from '../assets/dino.jpg'
+const {REACT_APP_GOOGLE_CLIENT_ID} = process.env
+const jwt = require('jsonwebtoken');
 
 export default function Login() {
 
     const user = useSelector((state) => state.petitionsReducer.user)
+    
     const dispatch = useDispatch()
+    const [submit,setSubmit] = useState(false)
     const history = useHistory()
 
-    const handleSubmit= (valoresLogin,  resetForm ) => {
-        dispatch(loginUser(valoresLogin))   
+    const handleSubmit= async (valoresLogin,  resetForm ) => {
+        setSubmit(true)
+        await dispatch(loginUser(valoresLogin))  
         resetForm();
     }
     const errorAlert = (message) => {
@@ -51,6 +56,9 @@ export default function Login() {
     
     const logged = () => {
         if (user?.message) {
+            if (!submit) {
+                return
+            }
             successAlert(user.message)
             localStorage.setItem("user", JSON.stringify(user.body.token))
             history.push('/')
@@ -72,10 +80,43 @@ export default function Login() {
         return errores
     }
 
-    useEffect(() => {
+    //Google Auth start
+    const handleCallBackResponse = async (response) => {
+        const user =response.credential
+        try {
+            const decoded = jwt.decode(user)
+            const newUser = {
+                email: decoded.email,
+                google:true
+            }
+           await  dispatch(loginUser(newUser))   
+           setSubmit(true)
+           successAlert("Login Success")
+           localStorage.setItem("user", JSON.stringify(user))
+           history.push('/')
+        } catch (error) {
+            console.log(error)
+        }
+      }
+  
+    useEffect(()=> {
+        /* global google */
+        google.accounts.id.initialize({
+            client_id: REACT_APP_GOOGLE_CLIENT_ID,
+            callback: handleCallBackResponse
+        })
+        google.accounts.id.renderButton(
+            document.getElementById("singInDiv"),
+            {theme:"outline",size:"large"}
+        )
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[])
+    //Google Auth End
+
+    useEffect(()=> {
         logged()
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [user]);
+    },[user])
 
     return (
         <div className="background">
@@ -146,6 +187,9 @@ export default function Login() {
                                 <button type="submit" className="botonsubmit">
                                     <p className="loginBoton">Login</p>
                                 </button>
+                                <div id="singInDiv">
+
+                                </div>
                             </form>
                         )}
                     </Formik>

@@ -5,7 +5,6 @@ const {REACT_APP_SERVER_BACK} = process.env
 export function getUsers() {
     return async function (dispatch) {
         let json = await axios.get(`${REACT_APP_SERVER_BACK}/users`)
-        console.log(json.data)
         return dispatch({
             type: 'GET_ALL_USERS',
             payload: json.data.body

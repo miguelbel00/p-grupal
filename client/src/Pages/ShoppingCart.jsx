@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import ItemCart from "../componets/ItemCart";
 import { removeAllProduct } from "../redux/actions/actionShoppingCart";
 import '../styles/shoppingCart.css'
+import Swal from 'sweetalert2'
 
 export default function ShoppingCart() {
     const allProducts = useSelector((state) => state.shoppingReducer.productCart);
@@ -11,7 +12,14 @@ export default function ShoppingCart() {
     const dispatch = useDispatch()
     const [totalShow, setTotalShow] = useState(0);
 
-
+    const successAlert =() => {
+        Swal.fire({
+            title:'All Products Removed!',
+            confirmButtonText:"Ok",
+            timer:3000,
+           icon:"success"
+        });
+    }
 
     const setTotal = () => {
         let totalSum = 0
@@ -40,7 +48,7 @@ export default function ShoppingCart() {
         dispatch(removeAllProduct())
         removeLocal()
         setTotalShow(0)
-        alert('Clean cart')
+        successAlert()
     }
 
     useEffect(() => {

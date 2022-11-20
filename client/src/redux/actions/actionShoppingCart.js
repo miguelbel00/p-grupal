@@ -3,7 +3,6 @@ const {REACT_APP_SERVER_BACK} = process.env
 
 
 export function addProductToCart(id) {
-    console.log(id)
     return async function (dispatch) {
         const response = await axios.get(`${REACT_APP_SERVER_BACK}/products/${id}`)
         return dispatch({

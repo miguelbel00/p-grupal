@@ -23,7 +23,6 @@ export function getDetail(id) {
 
 export function registerUser(payload) {
   return async function (dispatch) {
-
     return axios
       .post(`${REACT_APP_SERVER_BACK}/auth/register`, payload)
       .then((result) =>
@@ -60,8 +59,8 @@ export function loginUser(payload) {
             payload: error.response.data.split('<')[9].split(':')[2]
     
         })
-
       });
+       
   };
 }
 
@@ -75,7 +74,7 @@ export function postProduct(payload) {
             payload: data
         })
     }
-}
+};
 
 export function postImage(payload) {
   return async function (dispatch) {
@@ -95,4 +94,28 @@ export function getNameQuery(payload) {
     payload,
   };
 }
+
+export function LogOut(payload) {
+  return {
+    type: "LOG_OUT",
+    payload,
+  };
+}
+
+export function getUser(userId) {
+  return async function (dispatch) {
+    return axios
+    .get(`${REACT_APP_SERVER_BACK}/users/${userId}`)
+    .then((result) =>
+      dispatch({
+        type: "GET_ONE_USER",
+        payload: result.data.body
+      })
+    )
+    .catch((error) => { 
+    });
+  }
+}
+
+
 

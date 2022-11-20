@@ -5,6 +5,7 @@ import { getDetail } from "../redux/actions/actionsPetitions"
 import { addProductToCart } from '../redux/actions/actionShoppingCart.js'
 import Loading from "../componets/Loading"
 import "../styles/Detail.css"
+import Swal from 'sweetalert2'
 
 export default function Detail() {
 
@@ -25,9 +26,18 @@ export default function Detail() {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[allProducts])
      
+    const successAlert =() => {
+        Swal.fire({
+            title:'Product Added to cart!',
+            confirmButtonText:"Les't buy more products",
+            timer:3000,
+           icon:"success"
+        });
+    }
+
     const handleonClick =()=>{
         dispatch(addProductToCart(productId))
-        alert('agrgado al carrito')
+        successAlert()
         history.push('/products')
     }
 
@@ -65,10 +75,10 @@ export default function Detail() {
                 </div>
                 <div className="col-sm-12 col-md-4 col-lg-4 col-xl-4" id="containerTwo">
                     <div className="row" id="title">
-                        <h2 className="title">{product.name} </h2>
+                        <h2 className="detail-title">{product.name} </h2>
                     </div>
                     <div className="row" id="price">
-                        <h3 className="price">${product.price}</h3>
+                        <h3 className="detail-price">${product.price}</h3>
                     </div>
                     <div className="row" id="stock">
                         <p>Stock: {product.stock}</p>

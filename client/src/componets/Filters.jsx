@@ -4,7 +4,7 @@ import { getAllProducts } from "../redux/actions/actionsPetitions";
 
 
 
-export default function Filters({ setOption, setPage }) {
+export default function Filters({ setOption, setPage, setInpunt }) {
     const dispatch = useDispatch()
 
 
@@ -20,10 +20,13 @@ export default function Filters({ setOption, setPage }) {
 
         }
         setPage(1)
+        setInpunt(1)
     }
     function handleFilterCategory(e){
         e.preventDefault();
         dispatch(filterCategory(e.target.value))
+        setPage(1)
+        setInpunt(1)
     }
 
     function handleOrderMostSeller(e){
@@ -37,6 +40,7 @@ export default function Filters({ setOption, setPage }) {
 
         }
         setPage(1)
+        setInpunt(1)
     }
 
     
