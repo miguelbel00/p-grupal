@@ -12,13 +12,21 @@ module.exports = {
   loginUser: async (req, res, next) => {
     try {
       const user = await User.findOne({ where: { email: req.body.email } });
+      if (!user) throw new ErrorObject(`User with email: ${req.body.email} does not exist`, 404);
+      let token 
+      if (!req.body?.google) {
+        const validatePass = await bcrypt.compare(req.body.password, user.password)
+        if(!validatePass) throw new ErrorObject("You have entered an invalid password", 404);
+         token = jwt.sign({ id: user.id,email:user.email,isAdmin:user.isAdmin }, process.env.JWT_SECRETO, {expiresIn: '20h'})
+  
+      }else{
+        token = jwt.sign({ id: user.id,email:user.email,isAdmin:user.isAdmin }, process.env.JWT_SECRETO, {expiresIn: '20h'})
 
-      if (!user) throw new ErrorObject(`error user with email ${req.body.email} does not exist`, 404);
+      }
+     
 
-      const validatePass = await bcrypt.compare(req.body.password, user.password)
-      if(!validatePass) throw new ErrorObject("You have entered an invalid password", 404);
-      const token = jwt.sign({ id: user.id,email:user.email,isAdmin:user.isAdmin }, process.env.SECRETO, {expiresIn: '1h'})
-
+    
+    
       endpointResponse({
         res,
         code: 200,

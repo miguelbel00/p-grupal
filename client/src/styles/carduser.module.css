@@ -1,0 +1,41 @@
+.container {
+    text-align: center;
+    background: white;
+    color: black;
+}
+
+.img {
+    background:rgb(158, 158, 158);
+    margin-right: 310px;
+    margin-top: 20px;
+    border-radius: 10px;
+    height: 40px;
+    width: auto;
+}
+
+.boxDetail{
+    box-shadow: 0 0 1px;
+    margin-top: 40px;
+}
+
+.boxEmail {
+    display: flex;
+    gap: 10px;
+    margin-left: 20px;
+}
+
+.name{
+    margin-top: -50px;
+    margin-right: 130px;
+}
+.contact {
+    color: rgb(135, 135, 135);
+    margin-right: 320px;
+    font-size: 14px;  
+}
+
+.boxPhone {
+   display: flex;
+    gap: 10px;
+    margin-left: 20px;
+}
