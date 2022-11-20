@@ -46,6 +46,11 @@ export default function petitionsReducer(
       ...state,
       userOne: payload
     }
+    case "LOG_OUT": 
+    return {
+      ...state,
+      user: payload
+    }
 
 
     default:

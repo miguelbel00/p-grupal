@@ -16,11 +16,10 @@ module.exports = {
           email: email
             }
       })
-    
       if(userEmail.length){
           throw new ErrorObject("That email is already in use", 400)
       }
-      const hasedPass = password ? await bcrypt.hash(password,10) : false
+      const hasedPass = password ? await bcrypt.hash(password,10) : ""
       const userCreated = await User.create({
         fullName, email, avatar, password:hasedPass, phone,
       })

@@ -16,6 +16,8 @@ import AdminPage from "./AdminPage/Admin";
 
 function App() {
   const user = useSelector(state => state.petitionsReducer.user)
+
+
   return (
     <BrowserRouter>
       <Navbar/>
@@ -37,9 +39,6 @@ function App() {
            <CreateProduct/>
           </ProteccionRoutes>
         </Route>
-
-      
-        
       </Switch>
       <Footer/>  
     </BrowserRouter>

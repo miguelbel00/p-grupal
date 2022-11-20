@@ -85,6 +85,13 @@ export function getNameQuery(payload) {
   };
 }
 
+export function LogOut(payload) {
+  return {
+    type: "LOG_OUT",
+    payload,
+  };
+}
+
 export function getUser(userId) {
   return async function (dispatch) {
     return axios

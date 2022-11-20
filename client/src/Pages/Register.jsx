@@ -7,7 +7,8 @@ import '../styles/register.css'
 import { Formik } from "formik";
 import Swal from 'sweetalert2'
 import dino from '../assets/dinoVolador.png'
-
+const {REACT_APP_GOOGLE_CLIENT_ID} = process.env
+const jwt = require('jsonwebtoken');
 
 export default function Register() {
     
@@ -75,7 +76,37 @@ export default function Register() {
            imageHeight:'200px'
         });
     }
-
+    //Google Auth start
+    const handleCallBackResponse = async (response) => {
+        const user =response.credential
+        try {
+            const decoded = jwt.decode(user)
+            const newUser = {
+                fullName: decoded.name,
+                email: decoded.email,
+                phone: "000 0000 000",
+                avatar: decoded.picture
+            }
+           await  dispatch(registerUser(newUser))   
+        } catch (error) {
+            console.log(error)
+        }
+        history.push('/')
+      }
+  
+    useEffect(()=> {
+        /* global google */
+        google.accounts.id.initialize({
+            client_id: REACT_APP_GOOGLE_CLIENT_ID,
+            callback: handleCallBackResponse
+        })
+        google.accounts.id.renderButton(
+            document.getElementById("singInDiv"),
+            {theme:"outline",size:"large"}
+        )
+    
+    },[])
+    //Google Auth End
     const logged = () => {
 
         if (user?.message) {
@@ -172,6 +203,8 @@ export default function Register() {
                                 </div>
                                 <br />
                                 <button className="botonsubmit" type="submit">Enviar</button>
+                                <div id="singInDiv">
+                                </div>
                             </form>
                         )}
                     </Formik>

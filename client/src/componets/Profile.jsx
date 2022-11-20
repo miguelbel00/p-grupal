@@ -8,21 +8,13 @@ import { useHistory } from "react-router-dom";
 
 export default function Profile() {
   const user = useSelector((state) => state.petitionsReducer.userOne);
-  const { userAuth0, isAuthenticated } = useAuth0();
-  const history = useHistory();
-
 
   return (
-    <>
-      {user !== null 
-       ?    <div className={Styles.container}>
-               <CardUser user={user ? user : null} />
+        <div className={Styles.container}>
+                <CardUser user={user ? user : null} />
                 <Link to={"/"}>
-                    <button>Edit Profile</button>
+                  <button>Edit Profile</button>
                 </Link>
             </div>
-       : <>{history.push("/")}</>
-      }
-    </>
   );
 }
