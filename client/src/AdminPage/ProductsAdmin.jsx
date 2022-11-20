@@ -18,10 +18,6 @@ export default function ProductsAdmin() {
     dispatch(getProducts())
   }, [dispatch])
 
-
-  console.log(products)
-
-
   return (
     <div>
       <div id="container">
@@ -38,8 +34,8 @@ export default function ProductsAdmin() {
             </tr>
           </thead>
           <tbody>
-            {products.map((prod) =>
-              <tr>
+            {products.map((prod,i) =>
+              <tr key={i}>
                 <td className="id">{prod.id}</td>
                 <td data-label="fullName">{prod.name}</td>
                 <td data-label="email">${prod.price}</td>
