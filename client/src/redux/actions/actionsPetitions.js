@@ -77,6 +77,16 @@ export function postProduct(payload) {
     }
 }
 
+export function postImage(payload) {
+  return async function (dispatch) {
+      const response = await axios.post(`${REACT_APP_SERVER_BACK}/upload`, payload)
+      const data = response.data
+      return dispatch({
+          type: "POST_IMAGE",
+          payload: data
+      })
+  }
+}
 
 
 export function getNameQuery(payload) {
