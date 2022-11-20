@@ -65,10 +65,10 @@ export default function Detail() {
                 </div>
                 <div className="col-sm-12 col-md-4 col-lg-4 col-xl-4" id="containerTwo">
                     <div className="row" id="title">
-                        <h2 className="title">{product.name} </h2>
+                        <h2 className="detail-title">{product.name} </h2>
                     </div>
                     <div className="row" id="price">
-                        <h3 className="price">${product.price}</h3>
+                        <h3 className="detail-price">${product.price}</h3>
                     </div>
                     <div className="row" id="stock">
                         <p>Stock: {product.stock}</p>
