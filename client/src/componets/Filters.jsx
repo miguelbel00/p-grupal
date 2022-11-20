@@ -42,6 +42,8 @@ export default function Filters({ setOption, setPage }) {
         dispatch(deleteFilter(e.target.name))
         setCategories([...categiries.filter(cat => cat  !== e.target.name)])
         dispatch(filterCategory())
+        dispatch(filterCategory(e.target.value))
+        setPage(1)
     }
 
     function handleOrderMostSeller(e){

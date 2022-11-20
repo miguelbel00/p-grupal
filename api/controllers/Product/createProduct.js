@@ -17,8 +17,7 @@ module.exports = {
                   const allproduct = await Product.findAll();
                   const productCheck = allproduct.find(data => data.name === name);
 
-                  if (!productCheck) {  
-                    console.log(1);     
+                  if (!productCheck) {      
                   const createProducts = await Product.create({
                     name,
                     description,
@@ -26,8 +25,6 @@ module.exports = {
                     price,
                     stock,    
                 });
-
-                console.log(2);
 
                 const dbCategory = await Category.findAll({
                     where: {
@@ -44,7 +41,7 @@ module.exports = {
                   
 
               } else {
-                    throw new ErrorObject("the product already exists", 404)
+                    throw new ErrorObject("The product already exists", 404)
                 }  
 
             }; 

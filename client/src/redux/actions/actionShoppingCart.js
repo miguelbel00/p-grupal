@@ -1,13 +1,10 @@
 import axios from "axios";
+const {REACT_APP_SERVER_BACK} = process.env
 
 
-const server = 'https://p-grupal-production.up.railway.app'
-
-
-export function addProductToCart(id){
-    console.log(id)
+export function addProductToCart(id) {
     return async function (dispatch) {
-        const response = await axios.get(`${server}/products/${id}`)
+        const response = await axios.get(`${REACT_APP_SERVER_BACK}/products/${id}`)
         return dispatch({
             type: "ADD_TO_CART",
             payload: response.data.body
@@ -15,18 +12,23 @@ export function addProductToCart(id){
     }
 }
 
-export function removeOneProduct(payload){
+export function removeOneProduct(payload) {
     return {
         type: 'REMOVE_ONE_CART',
         payload
     }
 }
 
-export function removeAllProduct(payload){
+export function removeAllProduct(payload) {
     return {
         type: 'REMOVE_ALL_CART',
         payload
     }
 }
 
-
+export function plusCartTotal(payload) {
+    return {
+        type: 'PLUS_CART',
+        payload
+    }
+}

@@ -4,28 +4,23 @@ const { endpointResponse } = require("../../helpers/success");
 const { ErrorObject } = require("../../helpers/error");
 
 module.exports = {
-  editUser: async (req, res, next) => {
+  getOneUser: async (req, res, next) => {
     try {
-      const { userId, fullName, password, phone } = req.body;
-      if (!userId || !fullName || !password || !phone)
-        throw new ErrorObject("Missing parameters", 404);
+      const { userId } = req.params;
 
       const userFound = await User.findByPk(userId);
-
       if (!userFound) throw new ErrorObject("User not found", 400);
 
-      const responce = await userFound.update({ fullName, password, phone });
-      await userFound.save();
       endpointResponse({
         res,
         code: 200,
-        message: "User successfully edit",
-        body: responce,
+        message: "User Found",
+        body: userFound,
       });
     } catch (error) {
       const httpError = createHttpError(
         error.statusCode,
-        `[Error Edit User] - [UserEditController - PUT]: ${error.message}`
+        `[Error Get One User] - [getOneUserController - GET]: ${error.message}`
       );
       next(httpError);
     }
