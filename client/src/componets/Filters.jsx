@@ -1,12 +1,15 @@
-import { useDispatch } from 'react-redux'
-import {orderByPrice, filterCategory, orderMostSold } from "../redux/actions/actionsFilter";
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux'
+import {orderByPrice, filterCategory, orderMostSold, addCategorieFilter, deleteFilter } from "../redux/actions/actionsFilter";
 import { getAllProducts } from "../redux/actions/actionsPetitions";
-
+import Styles from "../styles/filters.module.css"
 
 
 export default function Filters({ setOption, setPage }) {
     const dispatch = useDispatch()
 
+    const [categiries , setCategories] = useState([])
+    const stateCategories = useSelector(state => state.filterReducer.categoriesSelected) 
 
 
     function handleOrderByPrice(e) {
@@ -21,9 +24,24 @@ export default function Filters({ setOption, setPage }) {
         }
         setPage(1)
     }
+
+    function state (value){
+       setCategories(value)
+    }
+
     function handleFilterCategory(e){
         e.preventDefault();
-        dispatch(filterCategory(e.target.value))
+        state([...categiries,e.target.value])
+
+        console.log([...categiries, e.target.value])
+        dispatch(addCategorieFilter([...categiries, e.target.value]))
+        dispatch(filterCategory())
+    }
+
+    function deleteCategory (e){
+        dispatch(deleteFilter(e.target.name))
+        setCategories([...categiries.filter(cat => cat  !== e.target.name)])
+        dispatch(filterCategory())
     }
 
     function handleOrderMostSeller(e){
@@ -60,7 +78,6 @@ export default function Filters({ setOption, setPage }) {
             <div>
                 <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" onChange={e => handleFilterCategory(e)}>
                     <option selected>Categorias</option>
-                    <option value="Todo">Todas las categorias</option>
                     <option value="Computadores">Computadores</option>
                     <option value="Perifericos">Perifericos</option>
                     <option value="Componentes">Componentes</option>
@@ -82,6 +99,11 @@ export default function Filters({ setOption, setPage }) {
                     <option value="Auricular">Auricular</option>
                     <option value="Mouse">Mouse</option>     
                 </select>
+            </div>
+            <div className={Styles.containerFilters}>
+                {stateCategories.length > 0 && stateCategories.map(categ => {
+                    return <button className={Styles.categButton} name={categ} onClick={deleteCategory}>{categ}</button>}
+                )} 
             </div>
         </div>
     )
