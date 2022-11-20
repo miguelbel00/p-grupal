@@ -20,7 +20,7 @@ module.exports = {
 
                   if (!productCheck) { 
                   const result = await cloudinary.uploader.upload  (image[0], {
-                    folder: 'pf_media',
+                    upload_preset: 'pf_grupal_preset',
                     width: 300,
                     height: 300,
                     crop: 'pad'
