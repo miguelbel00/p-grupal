@@ -104,7 +104,7 @@ export default function Register() {
             document.getElementById("singInDiv"),
             {theme:"outline",size:"large"}
         )
-    
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
     //Google Auth End
     const logged = () => {
