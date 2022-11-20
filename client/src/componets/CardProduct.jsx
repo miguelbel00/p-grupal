@@ -3,15 +3,14 @@ import { Link } from 'react-router-dom';
 
 import "../styles/card.css";
 
-export default function Card({ image, name, url, price, id }) {
+export default function Card({ image, name, price, id }) {
 
   return (
     <div className="card">
-      <img src={image} alt='' />
+      <img src={image[0]} alt='Img not found' />
 
       <div className="content">
-        <h3>{name}
-        </h3>
+        <h3>{name}</h3>
         <span>${price}</span>
 
         <Link className="text-decoration-none text-white link" to={`/detail/${id}`}>
