@@ -38,7 +38,7 @@ export default function Products(){
             <div className="col-10">
                 <div className="containerCardsProducts">
             {
-                allProducts.length > 1 ? allProducts.slice((page - 1) * forPage, (page - 1) * forPage + forPage).map((e,i) => (
+                allProducts.length > 0 ? allProducts.slice((page - 1) * forPage, (page - 1) * forPage + forPage).map((e,i) => (
                     <Card 
                     key={i}
                     id={e.id} 
