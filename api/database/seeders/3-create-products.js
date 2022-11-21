@@ -987,8 +987,8 @@ Accesorios incluidos: cable usb, manual.
 Las imágenes pueden ser ilustrativas.
   `,
           image: [
-            "https://http2.mlstatic.com/D_NQ_NP_2X_660846-MLA48157646449_112021-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_970799-MLA48157585691_112021-F.webp",
+            "https://http2.mlstatic.com/D_NQ_NP_2X_660846-MLA48157646449_112021-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_689728-MLA48157585709_112021-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_780518-MLA48157767042_112021-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_712189-MLA48157585726_112021-F.webp",
@@ -1011,6 +1011,7 @@ Transforma la energía.
 De uso imprescindible para el buen funcionamiento de la PC.
   `,
           image: [
+            "https://res.cloudinary.com/di8j5hytq/image/upload/b_rgb:ffffff,c_pad,h_300,w_300/v1668984026/pf_grupal_folder/D_NQ_NP_2X_824426-MLA40183015404_122019-F_v1pxou.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_824426-MLA40183015404_122019-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_642441-MLA40183015411_122019-F.webp",
             "https://http2.mlstatic.com/D_NQ_NP_2X_894797-MLA43358416079_092020-F.webp",

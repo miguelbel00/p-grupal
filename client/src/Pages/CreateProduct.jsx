@@ -1,6 +1,7 @@
  import '../styles/createproduct.css';
  import { useState } from 'react';
  import { postProduct } from '../redux/actions/actionsPetitions';
+ import { getAllProducts } from '../redux/actions/actionsFilter';
  import { useDispatch } from 'react-redux';
  import { useHistory } from 'react-router-dom';
 
@@ -48,7 +49,7 @@ const validate = (product) => {
 
 }
    
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         if (
@@ -63,7 +64,8 @@ const validate = (product) => {
             ...product
           }))
         }else {
-        dispatch(postProduct(product));
+        await dispatch(postProduct(product));
+        await dispatch((getAllProducts()))
         alert('producto creado correctamente') ; 
         history.push('/products');
         }      
@@ -92,7 +94,6 @@ const validate = (product) => {
       setProduct({
         ...product,
         image: [ ...product.image, e.target.value],
-        
        
       })  
   
