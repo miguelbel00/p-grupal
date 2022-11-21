@@ -1,0 +1,19 @@
+
+.containerFilters{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    
+}
+
+
+.categButton{
+    font-size: 10px;
+    background-color: blueviolet;
+    color: white;
+    margin-bottom: 5px;
+    font-weight: 800;
+    padding: 5px;
+    
+}

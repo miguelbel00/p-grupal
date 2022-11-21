@@ -6,10 +6,23 @@ export function orderByPrice(payload) {
     }
 }
 
-export function filterCategory(payload) {
+export function addCategorieFilter (categoryArray){
+    return {
+        type: "ADD_CATEGORY_FILTER",
+        payload: categoryArray
+    }
+}
+
+export function filterCategory() {
     return {
         type: "FILTER_BY_CATEGORY",
-        payload
+    }
+}
+
+export function deleteFilter(category){
+    return {
+        type:"DELET_FILTER",
+        payload: category
     }
 }
 export function searchProduct(payload){
