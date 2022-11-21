@@ -1,6 +1,9 @@
+import { filterData } from "../../functions/functions";
+
 const initialState = {
   filterProducts: [],
   productos1: [],
+  categoriesSelected: []
 };
 
 export default function filterReducer(state = initialState, { type, payload }) {
@@ -25,39 +28,48 @@ export default function filterReducer(state = initialState, { type, payload }) {
         ...state,
         filterProducts: orderedProducts,
       };
-      case 'ORDER_MOST_SOLD':
+    case 'ORDER_MOST_SOLD':
       let sold = state.filterProducts
-            if(payload === 'All'){
-                sold = state.filterProducts
-            }
-            
-            sold = sold.sort((a,b) => {
-              const soldA = a.sold
-              const soldB = b.sold
-              const validate = () => {
-                if(payload === 'Less Sold'){
-                  return soldA - soldB
-              }else if(payload === 'Best Seller'){
-                  return soldB - soldA
-              }
-              }
-              return validate()
-                     
-            })
-            return{
-              ...state,
-                 filterProducts: sold
-            }
+      if (payload === 'All') {
+        sold = state.filterProducts
+      }
+
+      sold = sold.sort((a, b) => {
+        const soldA = a.sold
+        const soldB = b.sold
+        const validate = () => {
+          if (payload === 'Less Sold') {
+            return soldA - soldB
+          } else if (payload === 'Best Seller') {
+            return soldB - soldA
+          }
+        }
+        return validate()
+
+      })
+      return {
+        ...state,
+        filterProducts: sold
+      }
+    case "ADD_CATEGORY_FILTER":
+      return {
+        ...state,
+        categoriesSelected: payload
+      }
+
     case "FILTER_BY_CATEGORY":
       return {
         ...state,
-        filterProducts:
-          payload === "Todo"
-            ? state.filterProducts
-            : state.filterProducts.filter((product) =>
-                product.Categories.find((category) => category.name === payload)
-              ),
+        filterProducts: 
+          !state.categoriesSelected.length
+            ? state.productos1
+            : filterData([...state.productos1], state.categoriesSelected)
       };
+      case "DELET_FILTER":
+        return{
+          ...state,
+          categoriesSelected: [...state.categoriesSelected.filter(category => category !== payload)]
+        }
     case "SEARCH_PRODUCT":
       return {
         ...state,
