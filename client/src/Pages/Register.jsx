@@ -79,6 +79,7 @@ export default function Register() {
     //Google Auth start
     const handleCallBackResponse = async (response) => {
         const user =response.credential
+        setSubmit(true)
         try {
             const decoded = jwt.decode(user)
             const newUser = {
@@ -87,14 +88,16 @@ export default function Register() {
                 phone: "000 0000 000",
                 avatar: decoded.picture
             }
-           await  dispatch(registerUser(newUser))   
+           await  dispatch(registerUser(newUser))
+   
         } catch (error) {
             console.log(error)
         }
-        history.push('/')
       }
   
     useEffect(()=> {
+        localStorage.setItem("user", JSON.stringify({}))
+        
         /* global google */
         google.accounts.id.initialize({
             client_id: REACT_APP_GOOGLE_CLIENT_ID,

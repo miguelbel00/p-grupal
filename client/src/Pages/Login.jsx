@@ -83,23 +83,23 @@ export default function Login() {
     //Google Auth start
     const handleCallBackResponse = async (response) => {
         const user =response.credential
+        setSubmit(true)
         try {
             const decoded = jwt.decode(user)
             const newUser = {
                 email: decoded.email,
                 google:true
             }
-           await  dispatch(loginUser(newUser))   
-           setSubmit(true)
-           successAlert("Login Success")
-           localStorage.setItem("user", JSON.stringify(user))
-           history.push('/')
+           await  dispatch(loginUser(newUser)) 
+             
         } catch (error) {
             console.log(error)
         }
+
       }
   
     useEffect(()=> {
+        localStorage.setItem("userOne", JSON.stringify({}))
         /* global google */
         google.accounts.id.initialize({
             client_id: REACT_APP_GOOGLE_CLIENT_ID,
