@@ -104,6 +104,12 @@ export function LogOut(payload) {
 
 export function getUser(userId) {
   return async function (dispatch) {
+    if (userId===null) {
+      return dispatch({
+        type: "GET_ONE_USER",
+        payload: null
+      })
+    }
     return axios
     .get(`${REACT_APP_SERVER_BACK}/users/${userId}`)
     .then((result) =>

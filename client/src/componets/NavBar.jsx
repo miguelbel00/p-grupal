@@ -71,7 +71,7 @@ const Navbar = () => {
                                 <i className="bi bi-house nav-link mb-3"> &nbsp;Home</i>
                             </Link>
                         </li>
-                        {Object.keys(user).length !== 0
+                        {Object.keys(user).length !== 0 && userOne !==null
                         ?   <li className="nav-item">
                                 <Link to='/profile' >
                                     <i className="bi bi-person-circle nav-link mb-3"> &nbsp;My Account</i>
@@ -84,24 +84,25 @@ const Navbar = () => {
                                 <i className="0bi bi-cart4 nav-link mb-3"> &nbsp;My Cart</i>
                             </Link>
                         </li>
-                        {Object.keys(user).length === 0
-                        ?   <>  
-                                <li className="nav-item">
-                                    <Link to='/login' >
-                                        <i className="bi bi-box-arrow-in-right nav-link mb-3"> &nbsp;Login</i>
-                                    </Link>
-                                </li>
-                                <li className="nav-item">
-                                    <Link to='/register' >
-                                        <i className="bi bi-box-arrow-in-right nav-link mb-3"> &nbsp;Register</i>
-                                    </Link>
-                                </li>
-                            </>
-                        :   <li className="nav-item">
-                                <Link to='/' onClick={handleLogOut}>
-                                  <i className="bi bi-box-arrow-right nav-link mb-3"> &nbsp;Log Out</i>
-                                </Link>
-                            </li>
+                        {}
+                        {Object.keys(user).length !== 0 && userOne !==null
+                        ?  <li className="nav-item">
+                        <Link to='/' onClick={handleLogOut}>
+                          <i className="bi bi-box-arrow-right nav-link mb-3"> &nbsp;Log Out</i>
+                        </Link>
+                    </li>
+                        :    <>  
+                        <li className="nav-item">
+                            <Link to='/login' >
+                                <i className="bi bi-box-arrow-in-right nav-link mb-3"> &nbsp;Login</i>
+                            </Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link to='/register' >
+                                <i className="bi bi-box-arrow-in-right nav-link mb-3"> &nbsp;Register</i>
+                            </Link>
+                        </li>
+                    </>
                         }
                         {Object.keys(user).length !== 0 && userOne?.isAdmin === true
                         ?   
