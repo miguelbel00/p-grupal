@@ -1,0 +1,75 @@
+.container {
+    display: flex;
+    margin-left: 150px;
+}
+
+.form {
+    display: grid;
+    gap: 10px;
+}
+
+.profileContainer {
+    display:grid;
+   justify-content: center;
+    box-shadow: 0 0 4px black;
+    width: 400px;
+    margin: auto;
+    margin-bottom: 50px;
+    margin-top: 50px;   
+}
+
+.cardUser{
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-align: center;
+    box-shadow: 0 0 4px black 
+}
+
+.inputIdBox {
+    margin-right: 50px;
+}
+
+.inputId{
+    font-size: 10px;
+}
+
+.btn {
+    margin-left: 250px;
+    margin-bottom: 10px;
+}
+
+
+
+.input::placeholder { 
+    font-size: 13px;
+    color: rgb(94, 94, 94);
+ }
+
+.email{
+    margin-top: 20px;
+    font-size: 15px;
+}
+
+.containerName {
+    display: grid;
+    margin-top: 20px;
+}
+.containerEmail {
+    display: grid;
+    margin-top: 20px;
+}
+
+.containerPhone{
+    display: grid;
+    margin-top: 20px;
+}
+
+.containerPassword{
+    display: grid;
+    margin-top: 20px;
+}
+
