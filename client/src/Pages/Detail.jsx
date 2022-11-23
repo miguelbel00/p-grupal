@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams,useHistory } from "react-router-dom"
@@ -29,6 +30,17 @@ export default function Detail() {
         dispatch(addProductToCart(productId))
         alert('agrgado al carrito')
         history.push('/products')
+    }
+
+    const handleBuyNow = (e) => {
+        const value = e.target.parentNode.parentNode.parentNode.children
+        const result = Array.from(value).map(e => e)
+        const objResult = { 
+            description: result[0].outerText, 
+            price: result[1].outerText.slice(1)
+        }
+        axios.post(`http://localhost:3005/checkout/checkout-order`, objResult)
+        .then(response =>  window.location.href = response.data.links[1].href )
     }
 
     if(!Object.values(product).length){ return <Loading/>}
@@ -76,7 +88,7 @@ export default function Detail() {
                     <div className="row" id="btn">
                         <div className="d-grid gap-2">
                             <button onClick={handleonClick} className="btn btn-primary" type="button">Add to cart</button>
-                            <button className="btn btn-primary" type="button">Buy now</button>
+                            <button onClick={handleBuyNow}  className="btn btn-primary" type="button">Buy now</button>
                         </div>
                     </div>
                     <div className="row" id="containerTree">
