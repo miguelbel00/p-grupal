@@ -1,0 +1,16 @@
+.container {
+    background-color: whitesmoke;
+}
+
+.button {
+    text-decoration: none;
+    color: whitesmoke;
+    background-color: #350069;
+    cursor: pointer;
+    text-transform: uppercase;
+    margin: 15px 0;
+  }
+
+  .button:hover {
+    background-color: #9600F4;
+  }
