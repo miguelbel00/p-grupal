@@ -49,14 +49,7 @@ module.exports = {
         },
         {
          
-          name: "Trabajo",
-          updatedAt: "2022-11-10T20:47:06.072Z",
-          createdAt: "2022-11-10T20:47:06.072Z",
-          deletedAt: null
-        },
-        {
-        
-          name: "Estudio",
+          name: "Office",
           updatedAt: "2022-11-10T20:47:06.072Z",
           createdAt: "2022-11-10T20:47:06.072Z",
           deletedAt: null
@@ -77,7 +70,7 @@ module.exports = {
         },
         {
           
-          name: "Disco Duro",
+          name: "Disco HDD",
           updatedAt: "2022-11-10T20:47:06.072Z",
           createdAt: "2022-11-10T20:47:06.072Z",
           deletedAt: null
@@ -85,6 +78,13 @@ module.exports = {
         {
          
           name: "Disco SSD",
+          updatedAt: "2022-11-10T20:47:06.072Z",
+          createdAt: "2022-11-10T20:47:06.072Z",
+          deletedAt: null
+        },
+        {
+         
+          name: "Disco M2",
           updatedAt: "2022-11-10T20:47:06.072Z",
           createdAt: "2022-11-10T20:47:06.072Z",
           deletedAt: null
@@ -119,14 +119,14 @@ module.exports = {
         },
         {
        
-          name: "Gabinet",
+          name: "Gabinete",
           updatedAt: "2022-11-10T20:47:06.072Z",
           createdAt: "2022-11-10T20:47:06.072Z",
           deletedAt: null
         },
         {
     
-          name: "Teclad",
+          name: "Teclado",
           updatedAt: "2022-11-10T20:47:06.072Z",
           createdAt: "2022-11-10T20:47:06.072Z",
           deletedAt: null
@@ -141,6 +141,13 @@ module.exports = {
         {
    
           name: "Mouse",
+          updatedAt: "2022-11-10T20:47:06.072Z",
+          createdAt: "2022-11-10T20:47:06.072Z",
+          deletedAt: null
+        },
+        {
+   
+          name: "Disco Duro",
           updatedAt: "2022-11-10T20:47:06.072Z",
           createdAt: "2022-11-10T20:47:06.072Z",
           deletedAt: null
