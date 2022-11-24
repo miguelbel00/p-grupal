@@ -1,9 +1,9 @@
 import axios from "axios";
 const {REACT_APP_SERVER_BACK} = process.env
 
-export function orderByPrice(payload) {
+export function orderProducts(payload) {
     return {
-        type: 'ORDER_BY_PRICE',
+        type: 'ORDER_PRODUCTS',
         payload
     }
 }

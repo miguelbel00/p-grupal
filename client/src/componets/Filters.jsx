@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import {orderByPrice, filterCategory, orderMostSold, addCategorieFilter, deleteFilter } from "../redux/actions/actionsFilter";
+import { orederOption } from '../functions/functions';
+import { orderByPrice, filterCategory, orderMostSold, addCategorieFilter, deleteFilter, orderProducts } from "../redux/actions/actionsFilter";
 import { getAllProducts } from "../redux/actions/actionsPetitions";
 import Styles from "../styles/filters.module.css"
 
@@ -8,45 +9,42 @@ import Styles from "../styles/filters.module.css"
 export default function Filters({ setOption, setPage }) {
     const dispatch = useDispatch()
 
-    const [categiries , setCategories] = useState([])
-    const stateCategories = useSelector(state => state.filterReducer.categoriesSelected) 
+    const [categories, setCategories] = useState([])
+    const stateCategories = useSelector(state => state.filterReducer.categoriesSelected)
 
 
-    function handleOrderByPrice(e) {
-        e.preventDefault()
-        if (e.target.value === 'All') {
-            dispatch(getAllProducts())
-
-        } else {
-            dispatch(orderByPrice(e.target.value))
-            setOption(e.target.value)
-
-        }
+    function handleOrder(e) {
+       dispatch(orderProducts(e.target.value))
         setPage(1)
     }
 
-    function state (value){
-       setCategories(value)
+    function state(value) {
+        setCategories(value)
     }
 
-    function handleFilterCategory(e){
+    function handleFilterCategory(e) {
         e.preventDefault();
-        state([...categiries,e.target.value])
+        if(!categories.includes(e.target.value) && e.target.value !==  "Categorias"){
+        state([...categories, e.target.value])
 
-        console.log([...categiries, e.target.value])
-        dispatch(addCategorieFilter([...categiries, e.target.value]))
+        console.log([...categories, e.target.value])
+
+        dispatch(addCategorieFilter([...categories, e.target.value]))
+
+
         dispatch(filterCategory())
+        }
     }
 
-    function deleteCategory (e){
+    function deleteCategory(e) {
         dispatch(deleteFilter(e.target.name))
-        setCategories([...categiries.filter(cat => cat  !== e.target.name)])
+        setCategories([...categories.filter(cat => cat !== e.target.name)])
         dispatch(filterCategory())
-        dispatch(filterCategory(e.target.value))
-        setPage(1)
+       
+        
     }
 
-    function handleOrderMostSeller(e){
+    function handleOrderMostSeller(e) {
         e.preventDefault()
         if (e.target.value === 'All') {
             dispatch(getAllProducts())
@@ -59,19 +57,19 @@ export default function Filters({ setOption, setPage }) {
         setPage(1)
     }
 
-    
+
 
     return (
         <div>
             <div>
-                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" onChange={(e) => handleOrderByPrice(e)}>
+                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" onChange={(e) => handleOrder(e)}>
                     <option value='All'>Price</option>
                     <option value='Min'>Min-Price</option>
                     <option value='Max'>Max-Price</option>
                 </select>
             </div>
             <div>
-            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" onChange={(e) => handleOrderMostSeller(e)}>
+                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" onChange={(e) => handleOrder(e)}>
                     <option value='All'>Sold</option>
                     <option value='Less Sold'>Less Sold</option>
                     <option value='Best Seller'>Best Seller</option>
@@ -99,13 +97,14 @@ export default function Filters({ setOption, setPage }) {
                     <option value="Gabinet">Gabinet</option>
                     <option value="Teclad">Teclad</option>
                     <option value="Auricular">Auricular</option>
-                    <option value="Mouse">Mouse</option>     
+                    <option value="Mouse">Mouse</option>
                 </select>
             </div>
             <div className={Styles.containerFilters}>
                 {stateCategories.length > 0 && stateCategories.map(categ => {
-                    return <button className={Styles.categButton} name={categ} onClick={deleteCategory}>{categ}</button>}
-                )} 
+                    return <button className={Styles.categButton} name={categ} onClick={deleteCategory}>{categ}</button>
+                }
+                )}
             </div>
         </div>
     )
