@@ -6,6 +6,8 @@ import { addProductToCart } from '../redux/actions/actionShoppingCart.js'
 import Loading from "../componets/Loading"
 import "../styles/Detail.css"
 import Swal from 'sweetalert2'
+import ReviewContainer from "../componets/ReviewContainer";
+import AddReview from "../componets/AddReview";
 
 export default function Detail() {
 
@@ -105,6 +107,12 @@ export default function Detail() {
                 <div id="description">
                     <p>{product.description}</p>
                 </div>
+            </div>
+            <div>
+                <AddReview productId={productId} />
+            </div>
+            <div>
+                <ReviewContainer />
             </div>
         </div>
     )
