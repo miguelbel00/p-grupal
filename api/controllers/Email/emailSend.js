@@ -5,19 +5,27 @@ const { endpointResponse } = require('../../helpers/success');
 
 module.exports = {
     sendEmail: async (req, res, next) => {
+        const { email, fullName, description, value }= req.body
         try {
             await transporter.sendMail({
-                from: '"Compra Realizada" <finalp439@gmail.com>', // sender address
-                to: "agustinhummel7@gmail.com", // list of receivers
-                subject: "Hello ✔", // Subject line
-                text: "Hello world?", // plain text body
-                html: `<h1>GRACIAS POR TU COMPRA</h1>`, // html body
+                from: '"ASTRO GAMER" <finalp439@gmail.com>', 
+                to: email, 
+                subject: "Purchase Made ✔", 
+                html: 
+                `<h1>Hi! ${fullName}...</h1>
+                <h2>Thanks for you Purchase</h2>
+                <h3>Purchase detail</h3>
+                <ul>
+                    ${description.split('|').map((e)=> `<li>${e}</li>`)}
+                </ul>
+                <h2>Total: U$D ${value}</h2>
+                ` 
               }); 
               endpointResponse({
                   res,
                   code: 201,
                   message: 'Email enviado',
-                  //body: sendEmail,
+
                 });  
         } catch (error) {
             const httpError = createHttpError(
