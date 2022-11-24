@@ -7,6 +7,7 @@ import ReviewsAdmin from '../AdminPage/ReviewsAdmin'
 import CategoryAdmin from '../AdminPage/CategoryAdmin'
 import TransactionAdmin from '../AdminPage/TransactionAdmin'
 import '../adminStyles/admin.css'
+import AdminTestAntDesign from "../Pages/AdminTestAntDesign";
 
 export default function AdminPage() {
 
@@ -17,7 +18,7 @@ export default function AdminPage() {
             <Sidebar />
             <div className="adminContainer">
                 <div className="selected-component">
-                    {adminListState === 'user' ? <UserAdmin /> :
+                    {adminListState === 'user' ? <UserAdmin/> :
                         adminListState === 'product' ? <ProductsAdmin /> :
                             adminListState === 'review' ? <ReviewsAdmin /> :
                                 adminListState === 'category' ? <CategoryAdmin /> :
