@@ -7,7 +7,8 @@ const { ErrorObject } = require('../../helpers/error');
 
 module.exports = {
     orderCreate: async (req, res, next) => {
-        const { description, price } = req.body
+        const { description, price, userId, productsId } = req.body
+        
         try {
             //modelo ejemplo 
             const order = {
@@ -25,11 +26,11 @@ module.exports = {
                     brand_name: 'astro gamer',
                     landing_page: 'LOGIN',
                     user_action: 'PAY_NOW',
-                    return_url: `http://localhost:3005/checkout/capture-order?description=${encodeURI(description)}`,
+                    return_url: `http://localhost:3005/checkout/capture-order?description=${encodeURI(description)}&productsId=${encodeURI(productsId)}&userId=${userId}`,
                     cancel_url: 'http://localhost:3005/checkout/cancel-order'
                 },
             };
-            console.log(description)
+            
             const response = await axios.post(`${process.env.PAYPAL_API}/v2/checkout/orders`, order, {
                 auth: {
                     username: process.env.PAYPAL_API_CLIENT,

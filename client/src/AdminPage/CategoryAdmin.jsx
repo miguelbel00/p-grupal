@@ -6,7 +6,6 @@ import eliminar from "../assets/eliminar.png"
 export default function CategoryAdmin() {
     const dispatch = useDispatch()
     const categories = useSelector((state) => state.reducerAdmin.categories)
-    console.log(categories)
 
     useEffect(() => {
         dispatch(getCategory())
@@ -15,7 +14,7 @@ export default function CategoryAdmin() {
     return (
         <div>
             <div id="container">
-                <table class="table">
+                <table className="table">
                     <thead>
                         <tr>
                             <th className="id">N°</th>
@@ -25,8 +24,8 @@ export default function CategoryAdmin() {
                         </tr>
                     </thead>
                     <tbody>
-                        {categories.map((cat) =>
-                            <tr>
+                        {categories.map((cat,i) =>
+                            <tr key={i}>
                                 <td >{cat.id}</td>
                                 <td >{cat.name}</td>
                                 

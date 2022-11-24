@@ -18,7 +18,7 @@ export default function UserAdmin() {
     <div>
       <div id="container">
         <div className="btn1"><button className="btnn" >New User</button></div>
-        <table class="table">
+        <table className="table">
           <thead>
             <tr>
               <th className="id">UserID</th>
@@ -29,8 +29,8 @@ export default function UserAdmin() {
             </tr>
           </thead>
           <tbody>
-            {users.map((user) =>
-              <tr>
+            {users.map((user,i) =>
+              <tr key={i}>
                 <td className="id">{user.id}</td>
                 <td data-label="fullName">{user.fullName}</td>
                 <td data-label="email">{user.email}</td>

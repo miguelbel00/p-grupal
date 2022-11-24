@@ -1,12 +1,13 @@
 // CAMPTURADOR DE ORDER
 const axios = require('axios')
+const createHttpError = require('http-errors');
 const { Transaction, Product } = require('../../database/models');
 module.exports = {
     orderCapture: async (req, res, next) => {
 
         try {
-            const { token, description } = req.query
-
+            const { token, description, userId, productsId } = req.query
+            
             const response = await axios.post(`${process.env.PAYPAL_API}/v2/checkout/orders/${token}/capture`, {}, {
                 auth: {
                     username: process.env.PAYPAL_API_CLIENT,
@@ -15,36 +16,33 @@ module.exports = {
             })
 
             const detailTrans = {
+                userId,
                 description: description,
                 value: parseFloat(response.data.purchase_units[0].payments.captures[0].amount.value),
                 status: 'Completed'
             }
 
-            const product = await Product.findOne({ where: { name: description } })
+            const products_ID = productsId.split(',')
+
+            console.log('ACA ESTA', products_ID)
+
+            //const product = await Product.findOne({ where: { name: description } })
 
             const createTransaction = await Transaction.create(detailTrans)
 
-            createTransaction.addProduct(product.id)
+            products_ID.map( (e)=>  createTransaction.addProducts(parseInt(e)))
+            
+            setTimeout(async ()=> {
+                const getTrasnsaction =  await Transaction.findAll({
+                    include: {
+                        model: Product
+                    }
+                })
+                res.json(getTrasnsaction)
+            }, 200)
 
-            res.json(await Transaction.findAll({
-                include: {
-                    model: Product
-                }
-            }))
 
-            //modelo 
-            // const dbTransaction = await Category.findAll({
-            //     where: {
-            //         name: categories
-            //     }
-            // });
-            // createProducts.addCategory(dbCategory);
-            // endpointResponse({
-            //     res,
-            //     code: 201,
-            //     message: 'Product created successfully',
-            //     body: createProducts,
-            // });
+            
 
         } catch (error) {
             const httpError = createHttpError(

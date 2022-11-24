@@ -6,14 +6,16 @@ import { getDetail } from "../redux/actions/actionsPetitions"
 import { addProductToCart } from '../redux/actions/actionShoppingCart.js'
 import Loading from "../componets/Loading"
 import "../styles/Detail.css"
+import Swal from 'sweetalert2'
 
 export default function Detail() {
 
     const dispatch = useDispatch()
     const product = useSelector((state) => state.petitionsReducer.detail)
     const allProducts = useSelector((state) => state.shoppingReducer.productCart)
+    const user = useSelector((state) => state.petitionsReducer.userOne);
     const { productId } = useParams()
-
+    
     const history = useHistory()
 
     const saveLocal = () => {
@@ -26,21 +28,35 @@ export default function Detail() {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[allProducts])
      
+    const successAlert =() => {
+        Swal.fire({
+            title:'Product Added to cart!',
+            confirmButtonText:"Les't buy more products",
+            timer:3000,
+           icon:"success"
+        });
+    }
+
     const handleonClick =()=>{
         dispatch(addProductToCart(productId))
-        alert('agrgado al carrito')
+        successAlert()
         history.push('/products')
     }
 
     const handleBuyNow = (e) => {
+        const userId = user.id
         const value = e.target.parentNode.parentNode.parentNode.children
         const result = Array.from(value).map(e => e)
         const objResult = { 
             description: result[0].outerText, 
-            price: result[1].outerText.slice(1)
+            price: result[1].outerText.slice(1),
+            userId: userId,
+            productsId: productId,
         }
+        
         axios.post(`http://localhost:3005/checkout/checkout-order`, objResult)
         .then(response =>  window.location.href = response.data.links[1].href )
+   
     }
 
     if(!Object.values(product).length){ return <Loading/>}

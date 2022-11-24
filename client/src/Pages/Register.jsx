@@ -1,4 +1,4 @@
-import React,{useEffect} from "react";
+import React,{useEffect, useState} from "react";
 import {useSelector,useDispatch} from 'react-redux'
 import { useHistory } from "react-router-dom";
 import { registerUser } from "../redux/actions/actionsPetitions";
@@ -6,18 +6,22 @@ import logo from '../assets/logo.png'
 import '../styles/register.css'
 import { Formik } from "formik";
 import Swal from 'sweetalert2'
-
+import dino from '../assets/dinoVolador.png'
+const {REACT_APP_GOOGLE_CLIENT_ID} = process.env
+const jwt = require('jsonwebtoken');
 
 export default function Register() {
     
     const user = useSelector((state) => state.petitionsReducer.user)
     const dispatch = useDispatch()
     const history = useHistory()
+    const [submit,setSubmit] = useState(false)
 
-    const handleSubmit= (valoresLogin,  resetForm ) => {
-        dispatch(registerUser(valoresLogin))   
+    const handleSubmit= async(valoresLogin,  resetForm ) => {
+        setSubmit(true)
+        await dispatch(registerUser(valoresLogin))   
         resetForm();
-    }
+   }
 
     const validation = (valores) => {
         
@@ -58,7 +62,7 @@ export default function Register() {
     }
     const successAlert =(message) => {
         Swal.fire({
-            title:'Login Exitoso!',
+            title:'Success Register!',
             text:`${message}`,
             confirmButtonText:'Lets Go',
             background:'#67e9ff',
@@ -67,26 +71,63 @@ export default function Register() {
                 text:'titleAlert',
                 content:'titleAlert'
             },
-           imageUrl:'https://o.remove.bg/downloads/7f0dd709-8af6-44b3-a66d-bdd1442eb287/185cebd90c1b1c4bec61d05fca1e9fc4-removebg-preview__1_-removebg-preview.png',
+           imageUrl:dino,
            imageWidth:'200px',
            imageHeight:'200px'
         });
     }
-
+    //Google Auth start
+    const handleCallBackResponse = async (response) => {
+        const user =response.credential
+        setSubmit(true)
+        try {
+            const decoded = jwt.decode(user)
+            const newUser = {
+                fullName: decoded.name,
+                email: decoded.email,
+                phone: "000 0000 000",
+                avatar: decoded.picture
+            }
+           await  dispatch(registerUser(newUser))
+   
+        } catch (error) {
+            console.log(error)
+        }
+      }
+  
+    useEffect(()=> {
+        localStorage.setItem("user", JSON.stringify({}))
+        
+        /* global google */
+        google.accounts.id.initialize({
+            client_id: REACT_APP_GOOGLE_CLIENT_ID,
+            callback: handleCallBackResponse
+        })
+        google.accounts.id.renderButton(
+            document.getElementById("singInDiv"),
+            {theme:"outline",size:"large"}
+        )
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[])
+    //Google Auth End
     const logged = () => {
+
         if (user?.message) {
+            if (!submit) {
+                return
+            }
             successAlert(user.message)
             localStorage.setItem("user", JSON.stringify(user.body.token))
             history.push('/')
-        }else if(!(user.search(/[\d]/)>=0) && typeof user == 'string' ){
+        }else if(typeof user == 'string' &&!(user.search(/[\d]/)>=0) ) {
             errorAlert(user)
         }
     }
-    useEffect(() => {
-     
-       logged()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [user]);
+    useEffect(()=>{
+        logged()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[user])
+
     return (
         <div className="background">
             <div className="divMayorRegister">
@@ -165,6 +206,8 @@ export default function Register() {
                                 </div>
                                 <br />
                                 <button className="botonsubmit" type="submit">Enviar</button>
+                                <div id="singInDiv">
+                                </div>
                             </form>
                         )}
                     </Formik>
