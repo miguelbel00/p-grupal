@@ -1,11 +1,11 @@
 import React from "react";
-import '../styles/paginated.css'
+import s from '../styles/paginated.module.css'
 
 
-export default function Paginated({ page, setPage, max, input, setInpunt}) {
+export default function Paginated({ page, setPage, max, input, setInpunt }) {
 
 
-    
+
 
 
     const nextPage = () => {
@@ -35,12 +35,11 @@ export default function Paginated({ page, setPage, max, input, setInpunt}) {
     }
 
     return (
-        <div className="pagination ">
-            <button className="pageBtn" disabled={page === 1 || page < 1} onClick={backPage}>Back</button>
-            <input className="pages" onChange={(e) => onChange(e)} onKeyDown={(e) => onKeyDown(e)} name='page' autoComplete="off" value={input}></input>
-            <h5 className="pages1">de {max}</h5>
-            <button className="pageBtn" disabled={page === max || page > max} onClick={nextPage}>Next</button>
+        <div className={s.pagination}>
+            <button className={s.pageBtn} disabled={page === 1 || page < 1} onClick={backPage}>Back</button>
+            <input className={s.pages} onChange={(e) => onChange(e)} onKeyDown={(e) => onKeyDown(e)} name='page' autoComplete="off" value={input}></input>
+            <h5 className={s.pages1}>de {max}</h5>
+            <button className={s.pageBtn} disabled={page === max || page > max} onClick={nextPage}>Next</button>
         </div>
     )
-
 }

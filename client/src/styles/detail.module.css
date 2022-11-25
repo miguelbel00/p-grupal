@@ -1,0 +1,114 @@
+
+.container{
+    width: 90%;
+    max-width: 1000px;
+    margin: 20px auto;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto);
+    grid-template-areas: "carousel carousel sidebar"
+                         "description description description";
+}
+.container > div,
+.container .carousel,
+.container .sidebar,
+.container .description{   
+    padding: 20px;
+    border-radius: 4px;   
+}
+.container .carousel{
+    grid-area: carousel;  
+    background-color: white;    
+}
+.imgcarousel{  
+    height: 370px;
+}
+#card{    
+    text-align: center;
+}
+
+.container .sidebar{
+    grid-area: sidebar;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: white;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 10%);
+    border-radius: 5px; 
+}
+.container .sidebar h2{
+    font-size: 18px!important;
+    color: #2b2b2b;
+    font-weight: 700;
+    text-align: center;
+}
+.container .sidebar h3{
+    font-size: 30px;
+    font-weight: 700;
+    color: #3f3f40;
+}
+.container .sidebar p{
+    font-family: Play, sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+}
+.container .sidebar button{
+    background-color: #9600F4;
+    border: none;
+    color: white;
+    border-radius: 16px;
+    width: 50%;
+    height: 43px;
+    transition: background-color, 2s;
+    margin-bottom: 5px;
+    font-family: Play,sans-serif;
+    font-weight: 600;
+}
+.container .sidebar button:hover{
+    background-color: #ae38f7;
+}
+.container .sidebar label{
+    font-family: Play, sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+}
+.img{
+    width: 60px;
+}
+
+.container .description{
+    grid-area: description;
+}
+.container .description .label{
+    border-bottom: 2px solid #e5e6e8;
+    margin-bottom: 30px;
+}
+.container .description label{
+    font-size: 1.5625rem;
+    font-weight: 700;
+    color: #000;
+    
+}
+
+@media screen and (max-width: 758px){
+    .container{
+        grid-template-areas: "carousel carousel carousel"
+                             "sidebar sidebar sidebar"
+                         "description description description";
+    }
+    .imgcarousel{  
+        max-height: 220px;
+    }
+    #card{    
+        text-align: center;
+    }
+    .container .sidebar button{
+        margin-bottom: 10px;
+    }
+    .img{
+        width: 45px;
+    }
+
+}
