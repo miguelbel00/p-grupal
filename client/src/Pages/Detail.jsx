@@ -27,6 +27,10 @@ export default function Detail() {
         saveLocal()
         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[allProducts])
+
+    useEffect(()=>{
+        saveLocal()
+    },[product.Reviews])
      
     const successAlert =() => {
         Swal.fire({
@@ -112,7 +116,7 @@ export default function Detail() {
                 <AddReview productId={productId} />
             </div>
             <div>
-                <ReviewContainer />
+                <ReviewContainer reviews={product.Reviews} />
             </div>
         </div>
     )

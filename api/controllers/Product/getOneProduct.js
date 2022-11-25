@@ -10,7 +10,6 @@ module.exports = {
         const { productId } = req.params;
         try {
             if(!productId)throw new ErrorObject("Missing params", 404)
-            console.log("1")
             const productFound = await Product.findByPk(productId,{
                 include: [{
                     model: Category,
@@ -21,6 +20,10 @@ module.exports = {
                     model: Transaction,
                     attributes: ["id","description","status","value"],
                     through: { attributes: [] }
+                },
+                {
+                    model: Review,
+                    attributes: ["id","comment", "rating", "createdAt"],
                 }]
             })
 

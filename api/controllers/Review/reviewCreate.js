@@ -6,16 +6,16 @@ const { endpointResponse } = require('../../helpers/success')
 // example of a controller. First call the service, then build the controller method
 module.exports = {
   reviewCreate: async (req, res, next) => {
-    const { comment, rating } = req.body;
+    const { comment, rating, productId, userId } = req.body;
     
     try{
         
-      if(!comment || !rating ){
+      if(!comment || !rating || !productId || !userId){
           throw new ErrorObject("missing parameters", 404)
       }
     
       const response = await Review.create({
-        comment, rating
+        productId, userId, comment, rating
       })
       
       endpointResponse({

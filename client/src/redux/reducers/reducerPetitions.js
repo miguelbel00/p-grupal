@@ -52,7 +52,6 @@ export default function petitionsReducer(
       user: payload
     }
 
-
     default:
       return state;
   }
