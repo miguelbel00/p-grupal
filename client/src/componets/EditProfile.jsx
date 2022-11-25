@@ -3,6 +3,8 @@ import {useDispatch, useSelector} from 'react-redux';
 import {useState} from 'react';
 import {updateUser} from '../redux/actions/actionsPetitions';
 import CardUser from './CardUser';
+import { Link } from 'react-router-dom';
+
 
 
 
@@ -10,30 +12,62 @@ function EditProfile () {
     const dispatch = useDispatch();
     const user = useSelector((state) => state.petitionsReducer.userOne);
     const [editUser, setEditUser] = useState({
-        userId: user.id  ? user.id : null,
+        userId: user ? user.id : null,
         fullName: "", 
         password:"", 
         phone: "",
-        email: ""
+        email: user ? user.email : null,
     });
+    const [errors, setErrors] = useState({});
+    const validate = (input) => {
+        let error = {};
+
+        if (!input.fullName) {
+            error.fullName = 'Introduce el nombre'
+        }
+
+        if (!input.phone) {
+            error.phone = 'Introduce el numero'
+        }
+
+        if (isNaN(input.phone)) {
+            error.phone = 'Introduce solo numeros'
+        }
+        return error
+    }
 
     const handelSubmit = (e) => {
         e.preventDefault();
-        console.log(editUser);
-
-        dispatch(updateUser(editUser))
-        alert('creado')
-        
+      
+        if (!editUser.userId ||
+            !editUser.fullName ||
+            !editUser.password ||
+            !editUser.phone ||
+            !editUser.email ) {
+            alert('Llene los campos correctamente')
+           setErrors(validate({
+            ...editUser
+          }))
+        } else {   
+        dispatch(updateUser(editUser));
+        alert('Perfil actualizado');
+        }  
     };
 
     const handleChange = (e) => {
         e.preventDefault();
-
         setEditUser({
             ...editUser,
             [e.target.name]: e.target.value
         });
+
+        setErrors(validate({
+            ...editUser,
+            [e.target.name]: e.target.value
+        }))
     };
+
+
     return (
 <div className={styles.container}>
     <div className={styles.cardUser}>
@@ -50,16 +84,17 @@ function EditProfile () {
                 placeholder='full name... ' 
                  name='fullName' 
                  value={editUser.fullName}/>
+                 <label className={styles.error}>{errors.fullName}</label>
      </div>
             <div className={styles.containerEmail}>
                <label>Email</label>
                <input
                  onChange={handleChange}
                   type="text"
-                   className={styles.input} 
+                   className={styles.inputEmail} 
                    placeholder='name@example.com  ' 
                    name='email' 
-                   value={editUser.email} />
+                   value={user.email} />
             </div>
             <div className={styles.containerPhone}>
                <label>Phone</label>
@@ -70,6 +105,7 @@ function EditProfile () {
                 placeholder='ej:+54 1163259874 ' 
                 name='phone' 
                 value={editUser.phone}/>
+                <label className={styles.error}>{errors.phone}</label>
             </div>
             <div className={styles.containerPassword}>
                <label>Password</label>
@@ -89,8 +125,12 @@ function EditProfile () {
                 name='userId' 
                 value= {user.id}/>
             </div>
-            <button className={styles.btn} type='submit'>update</button>
-         </form>         
+            <button className={styles.btn} type='submit'>Update</button>
+         </form>    
+         <Link  to='/'>     
+         <button className={styles.btnCancel}>Cancel</button>
+        </Link>
+
      </div>
 </div>
     )

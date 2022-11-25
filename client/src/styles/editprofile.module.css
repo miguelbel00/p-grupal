@@ -7,6 +7,16 @@
     display: grid;
     gap: 10px;
 }
+.inputEmail{
+    background: rgb(101, 101, 101);
+    cursor: default;
+}
+
+.inputId {
+    background: rgb(101, 101, 101);
+    cursor: default;
+
+}
 
 .profileContainer {
     display:grid;
@@ -37,12 +47,6 @@
     font-size: 10px;
 }
 
-.btn {
-    margin-left: 250px;
-    margin-bottom: 10px;
-}
-
-
 
 .input::placeholder { 
     font-size: 13px;
@@ -71,5 +75,40 @@
 .containerPassword{
     display: grid;
     margin-top: 20px;
+}
+
+.error {
+    font-size: 12px;
+    color: red;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+.btn {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    background-color: rgb(77, 23, 126);
+    color: white;
+    padding:5px 10px 5px;
+}
+.btn:hover{
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.btnCancel {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    background-color: rgb(77, 23, 126);
+    color: white;
+    padding:5px 10px 5px;
+    width: 250px;
+}
+
+.btnCancel:hover{
+    opacity: 0.8;
+    cursor: pointer;
 }
 
