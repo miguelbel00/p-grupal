@@ -8,7 +8,7 @@ const colors = {
 };
 
 function Review({rating, comment, createdAt}) {
-  // USE EFFECT QUE ESCUCHE A LAS REVIEW
+
   const stars = Array(5).fill(0)
 
   return (
