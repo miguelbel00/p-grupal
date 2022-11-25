@@ -123,5 +123,17 @@ export function getUser(userId) {
   }
 }
 
-
-
+export const addReview = (payload) => {
+  return async function (dispatch) {
+      try {
+          const response = await axios.post(`${REACT_APP_SERVER_BACK}/reviews`, payload)
+  
+          return response
+      } catch (error) {
+          dispatch({
+              type: 'ERROR',
+              payload: error
+          })     
+      }
+  }
+}
