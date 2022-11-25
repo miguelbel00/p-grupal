@@ -58,7 +58,6 @@ export default function petitionsReducer(
       ...state,
     }
 
-
     default:
       return state;
   }

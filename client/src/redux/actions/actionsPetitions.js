@@ -141,7 +141,10 @@ export const addReview = (payload) => {
       try {
           const response = await axios.post(`${REACT_APP_SERVER_BACK}/reviews`, payload)
   
-          return response
+          return dispatch ({
+            type: "ADD_REVIEW",
+            payload: response.data.body
+          })
       } catch (error) {
           dispatch({
               type: 'ERROR',
