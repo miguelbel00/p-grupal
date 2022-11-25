@@ -24,19 +24,16 @@ module.exports = {
             const value = detailTrans.value
             const {email, fullName} = await User.findByPk(userId)
 
-            
             const products_ID = productsId.split(',')
-
-
 
             const createTransaction = await Transaction.create(detailTrans)
 
             products_ID.map( (e)=>  createTransaction.addProducts(parseInt(e)))
             
-            axios.post('http://localhost:3005/email',{email, fullName, description, value})
+            axios.post(`${process.env.BACK_URL}/email`,{email, fullName, description, value})
 
 
-            res.redirect('http://localhost:3000')
+            res.redirect(process.env.FRONT_URL)
 
 
             
@@ -44,7 +41,7 @@ module.exports = {
         } catch (error) {
             const httpError = createHttpError(
                 error.statusCode,
-                `[Error post order] - [order - POST]: ${error.message}`,
+                `[Error post order] - [orderCapture - POST]: ${error.message}`,
             )
             next(httpError)
         }

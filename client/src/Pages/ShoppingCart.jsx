@@ -13,7 +13,7 @@ export default function ShoppingCart() {
     const user = useSelector((state) => state.petitionsReducer.userOne);
     const dispatch = useDispatch()
     const [totalShow, setTotalShow] = useState(0);
-    console.log(allProducts, '---', totalCart)
+    
 
 
 
@@ -71,7 +71,7 @@ export default function ShoppingCart() {
                 productsId: allProducts.map((e)=> e.id).join(','), 
                 price: totalShow.toString()
             }
-            axios.post(`http://localhost:3005/checkout/checkout-order`, objCart)
+            axios.post(`${process.env.REACT_APP_SERVER_BACK}/checkout/checkout-order`, objCart)
             .then(response =>  window.location.href = response.data.links[1].href )
             .then(()=> clearCartWithOutAlert())
         },200)

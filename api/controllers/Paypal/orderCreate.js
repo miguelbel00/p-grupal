@@ -25,8 +25,8 @@ module.exports = {
                     brand_name: 'astro gamer',
                     landing_page: 'LOGIN',
                     user_action: 'PAY_NOW',
-                    return_url: `http://localhost:3005/checkout/capture-order?description=${encodeURI(description)}&productsId=${encodeURI(productsId)}&userId=${userId}`,
-                    cancel_url: 'http://localhost:3005/checkout/cancel-order'
+                    return_url: `${process.env.BACK_URL}/checkout/capture-order?description=${encodeURI(description)}&productsId=${encodeURI(productsId)}&userId=${userId}`,
+                    cancel_url: `${process.env.BACK_URL}/checkout/cancel-order`
                 },
             };
             
@@ -43,7 +43,7 @@ module.exports = {
         } catch (error) {
             const httpError = createHttpError(
                 error.statusCode,
-                `[Error post order] - [order - POST]: ${error.message}`,
+                `[Error post order] - [orderCreate - POST]: ${error.message}`,
               )
               next(httpError)    
 

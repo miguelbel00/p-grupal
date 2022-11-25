@@ -54,7 +54,7 @@ export default function Detail() {
             productsId: productId,
         }
         
-        axios.post(`http://localhost:3005/checkout/checkout-order`, objResult)
+        axios.post(`${process.env.REACT_APP_SERVER_BACK}/checkout/checkout-order`, objResult)
         .then(response =>  window.location.href = response.data.links[1].href )
    
     }
