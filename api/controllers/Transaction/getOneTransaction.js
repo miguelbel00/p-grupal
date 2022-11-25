@@ -1,0 +1,1 @@
+// traer la transaccion 
