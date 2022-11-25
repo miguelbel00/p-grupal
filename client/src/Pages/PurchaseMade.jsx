@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import styles from '../styles/purchasemade.module.css';
-import { AiFillHome } from 'react-icons/ai'
 
 
 function PurchaseMade() {

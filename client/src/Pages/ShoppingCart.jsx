@@ -88,7 +88,7 @@ export default function ShoppingCart() {
                 timer: 2000,
                 icon: "success"
             });
-            history.push('/congratulations')
+            history.push('/congratulations');
         }
     
     };
