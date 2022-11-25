@@ -51,6 +51,12 @@ export default function petitionsReducer(
       ...state,
       user: payload
     }
+    
+    case "EDIT_USER": 
+
+    return {
+      ...state,
+    }
 
 
     default:

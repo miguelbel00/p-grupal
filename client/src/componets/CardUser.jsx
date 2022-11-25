@@ -11,7 +11,7 @@ function CardUser({user}){
 return (
    
            <div className={style.container}>
-                <div className='card'>
+                <div>
                         <div className={style.containerImg}>
                             {user.avatar 
                             ?<img src={user.avatar} alt="avatar_user"/>
@@ -30,10 +30,6 @@ return (
                                 <p><GiSmartphone/></p>
                                 <p>{user.phone}</p>
                             </div>
-                            {/* <div className={style.address}>
-                                <p><GiSmartphone/></p>
-                                <p>{user.address}</p>
-                            </div>*/}
                         </div>
                 </div>
             </div>

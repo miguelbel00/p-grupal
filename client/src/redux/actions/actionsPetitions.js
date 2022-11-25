@@ -85,7 +85,7 @@ export function postImage(payload) {
           payload: data
       })
   }
-}
+};
 
 
 export function getNameQuery(payload) {
@@ -121,7 +121,20 @@ export function getUser(userId) {
     .catch((error) => { 
     });
   }
-}
+};
+
+
+
+export function updateUser(payload) {
+  return async function (dispatch) {
+      const response = await axios.put(`${REACT_APP_SERVER_BACK}/users`, payload)
+      const data = response.data.body
+      return dispatch({
+          type: "EDIT_USER",
+          payload: data
+      })
+  }
+};
 
 export const addReview = (payload) => {
   return async function (dispatch) {
