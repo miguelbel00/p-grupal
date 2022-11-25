@@ -16,7 +16,6 @@ export default function ShoppingCart() {
     
 
 
-
     const successAlert = () => {
         Swal.fire({
             title: 'All Products Removed!',
@@ -62,18 +61,19 @@ export default function ShoppingCart() {
         setTotalShow(0)
     }
 
-
     const handleBuyNow = () => {
         setTimeout( ()=> {
             const objCart = {
                 userId: user.id && user.id,
                 description: allProducts.length && allProducts.map((e) =>  `producto: ${e.name} cantidad: ${totalCart[e.id][1]} total: U$D ${totalCart[e.id][0] * totalCart[e.id][1]}`  ).join(' | '),
                 productsId: allProducts.map((e)=> e.id).join(','), 
-                price: totalShow.toString()
+                price: totalShow.toString(),
+                totalCart:localStorage.getItem('totalCart'),
             }
             axios.post(`${process.env.REACT_APP_SERVER_BACK}/checkout/checkout-order`, objCart)
             .then(response =>  window.location.href = response.data.links[1].href )
             .then(()=> clearCartWithOutAlert())
+            
         },200)
     }
 
