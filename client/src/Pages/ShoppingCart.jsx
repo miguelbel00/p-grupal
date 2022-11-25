@@ -5,23 +5,24 @@ import { useEffect } from "react";
 import ItemCart from "../componets/ItemCart";
 import { removeAllProduct } from "../redux/actions/actionShoppingCart";
 import '../styles/shoppingCart.css'
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
+import {useHistory} from 'react-router-dom';
 
 export default function ShoppingCart() {
     const allProducts = useSelector((state) => state.shoppingReducer.productCart);
     const totalCart = useSelector((state) => state.shoppingReducer.totalCart)
     const user = useSelector((state) => state.petitionsReducer.userOne);
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
+    const history = useHistory();
     const [totalShow, setTotalShow] = useState(0);
+
     
-
-
 
     const successAlert = () => {
         Swal.fire({
             title: 'All Products Removed!',
             confirmButtonText: "Ok",
-            timer: 3000,
+            timer: 2000,
             icon: "success"
         });
     }
@@ -62,7 +63,7 @@ export default function ShoppingCart() {
         setTotalShow(0)
     }
 
-
+   
     const handleBuyNow = () => {
         setTimeout( ()=> {
             const objCart = {
@@ -70,12 +71,28 @@ export default function ShoppingCart() {
                 description: allProducts.length && allProducts.map((e) =>  `producto: ${e.name} cantidad: ${totalCart[e.id][1]} total: U$D ${totalCart[e.id][0] * totalCart[e.id][1]}`  ).join(' | '),
                 productsId: allProducts.map((e)=> e.id).join(','), 
                 price: totalShow.toString()
-            }
-            axios.post(`${process.env.REACT_APP_SERVER_BACK}/checkout/checkout-order`, objCart)
-            .then(response =>  window.location.href = response.data.links[1].href )
-            .then(()=> clearCartWithOutAlert())
-        },200)
-    }
+            }          
+                axios.post(`${process.env.REACT_APP_SERVER_BACK}/checkout/checkout-order`, objCart)
+                .then(response =>  window.location.href = response.data.links[1].href )
+                .then(()=> clearCartWithOutAlert())
+        
+        },200)     
+        
+        if (!totalCart || !allProducts || !totalShow) {
+            alert('Agregue productos a su carrito!')
+         
+        } else {
+            Swal.fire({
+                title: 'Compra exitosa!',
+                confirmButtonText: "Ok",
+                timer: 2000,
+                icon: "success"
+            });
+            history.push('/congratulations')
+        }
+    
+    };
+ 
 
     useEffect(() => {
         saveLocal()

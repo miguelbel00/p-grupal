@@ -55,10 +55,9 @@ export default function Detail() {
             userId: userId,
             productsId: productId,
         }
-        
-        axios.post(`${process.env.REACT_APP_SERVER_BACK}/checkout/checkout-order`, objResult)
-        .then(response =>  window.location.href = response.data.links[1].href )
-   
+            axios.post(`${process.env.REACT_APP_SERVER_BACK}/checkout/checkout-order`, objResult)
+            .then(response =>  window.location.href = response.data.links[1].href )    
+       
     }
 
     if(!Object.values(product).length){ return <Loading/>}
