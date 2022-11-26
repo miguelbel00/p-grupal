@@ -151,24 +151,33 @@ export default function AdminTestAntDesign() {
           title: 'Id',
           datIndex: 'id',
           key: 'id',
-          sorter: (a, b) => a.id - b.id,
+          ...getColumnSearchProps('id'),
           render: (value) => <Text strong>{value.id}</Text>,
       },
       {
-        title: 'Comment',
-        datIndex:'comment',
-        key: 'comment',
-        ...getColumnSearchProps('comment'),
-        render: (value) => <Text strong>{value.comment}</Text>,
+          title: 'Value',
+          datIndex: 'value',
+          key: 'value',
+          sorter: (a, b) => a.value - b.value,
+          render: (value) => <Text strong>{value.value}</Text>,
       },
       {
-          title: 'Product ID',
-          datIndex: 'productId',
-          key: 'productId',
-          sorter: (a, b) => a.productId - b.productId,
-          filters: filtros,
-          onFilter: (value, record) => (record.productId == value),
-          render: (value) => <Text strong>{value.productId}</Text>,
+          title: 'Description',
+          datIndex: 'description',
+          key: 'description',
+          render: (value) => <Text strong>{value.description}</Text>,
+      },
+      {
+        title: 'Status',
+        datIndex:'status',
+        key: 'status',
+        filters: [
+          {text:'Completed',value:'Completed'},
+          {text: 'Canceled',value: 'Canceled'},
+          {text:'Pending',value:'Pending'},
+        ],
+        onFilter: (value, record) => (record.status == value),
+        render: (value) => <Text strong>{value.status}</Text>,
       },
       {
           title: 'User ID',
@@ -177,14 +186,6 @@ export default function AdminTestAntDesign() {
           sorter: (a, b) => a.userId.localeCompare(b.userId),
           render: (value) => <Text strong>{value.userId}</Text>,
       },
-
-      {
-        title:'Rating',
-        datIndex:'rating',
-        key:'rating',
-        sorter: (a, b) => a.rating - b.rating,
-        render:(value)=><Text strong>{value.rating}</Text>,
-      },
       
       {
           title: 'Actions',
@@ -192,7 +193,7 @@ export default function AdminTestAntDesign() {
           key: 'actionButon',
           render: () => {
               return <div>
-                  <Button onClick={showModal} danger type="primary">Edit Review</Button>
+                  <Button onClick={showModal} danger type="primary">Edit Transaction</Button>
                   <Modal
                       title="Cuidado!"
                       open={open}
@@ -211,7 +212,7 @@ export default function AdminTestAntDesign() {
 
   return (
       <div>
-          <Table key='adminProcuctTables' dataSource={data} columns={columns} />
+          <Table key='adminTransactionTables' dataSource={data} columns={columns} />
       </div>
   )
 }
