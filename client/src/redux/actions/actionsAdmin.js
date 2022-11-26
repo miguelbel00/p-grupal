@@ -51,3 +51,12 @@ export function getCategory(){
         })
     }
 }
+export function getTransactions(){
+    return async function(dispatch){
+        let json = await axios.get(`${REACT_APP_SERVER_BACK}/transactions`)
+        return dispatch({
+            type: "GET_ALL_TRANSACTION",
+            payload: json.data.body
+        })
+    }
+}
