@@ -19,7 +19,7 @@ function CardProduct_Container() {
       <div className="container">
         <div className="row my-5">
           <h3 className="category_container">MOST SELLED:</h3>
-          {mostSelled.map(({ name, image, url, id, description, price },i) => (
+          {mostSelled.map(({ name, image, url, id, description, price }, i) => (
             <div className="col-sm-6 col-md-3" key={i}>
               <CardProduct image={image} name={name} url={url} description={description} price={price} id={id} />
             </div>

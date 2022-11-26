@@ -1,9 +1,8 @@
 import React, { useState, useEffect }from 'react'
 import { FaStar } from "react-icons/fa"
-import { addReview } from '../redux/actions/actionsPetitions'
+import { addReview, getDetail } from '../redux/actions/actionsPetitions'
 import { useDispatch, useSelector } from 'react-redux';
 import Styles from "../styles/addReview.module.css"
-
 
 const colors = {
   orange: "#FFBA5A",
@@ -55,14 +54,14 @@ function AddReview( {productId} ) {
     })
   }
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
+  const handleSubmit = () => {
     if (!review.rating) {return alert('The rating field is required') }
     if (!review.comment) {return alert('The comment field is required') }
     if (!review.userId) {return alert('You must log in') }
     dispatch(addReview(review))
     alert(`Review created successfully`)
     setReview({ ...initialState})
+    dispatch(getDetail(productId))
   }
 
   return (
@@ -93,7 +92,7 @@ function AddReview( {productId} ) {
           name='comment' 
           onChange={handleOnChange}
         />
-        <button className={Styles.button} type='button' onClick={handleSubmit} >Submit</button>
+        <button className={Styles.button} type='button' onClick={handleSubmit}>Submit</button>
     </div>
   );
 };
