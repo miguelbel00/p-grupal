@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams,useHistory } from "react-router-dom"
@@ -6,14 +7,17 @@ import { addProductToCart } from '../redux/actions/actionShoppingCart.js'
 import Loading from "../componets/Loading"
 import "../styles/Detail.css"
 import Swal from 'sweetalert2'
+import ReviewContainer from "../componets/ReviewContainer";
+import AddReview from "../componets/AddReview";
 
 export default function Detail() {
 
     const dispatch = useDispatch()
     const product = useSelector((state) => state.petitionsReducer.detail)
     const allProducts = useSelector((state) => state.shoppingReducer.productCart)
+    const user = useSelector((state) => state.petitionsReducer.userOne);
     const { productId } = useParams()
-
+    
     const history = useHistory()
 
     const saveLocal = () => {
@@ -25,6 +29,10 @@ export default function Detail() {
         saveLocal()
         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[allProducts])
+
+    useEffect(()=>{
+        saveLocal()
+    },[product.Reviews])
      
     const successAlert =() => {
         Swal.fire({
@@ -39,6 +47,22 @@ export default function Detail() {
         dispatch(addProductToCart(productId))
         successAlert()
         history.push('/products')
+    }
+
+    const handleBuyNow = (e) => {
+        const userId = user.id
+        const value = e.target.parentNode.parentNode.parentNode.children
+        const result = Array.from(value).map(e => e)
+        const objResult = { 
+            description: result[0].outerText, 
+            price: result[1].outerText.slice(1),
+            userId: userId,
+            productsId: productId,
+        }
+        
+        axios.post(`${process.env.REACT_APP_SERVER_BACK}/checkout/checkout-order`, objResult)
+        .then(response =>  window.location.href = response.data.links[1].href )
+   
     }
 
     if(!Object.values(product).length){ return <Loading/>}
@@ -86,7 +110,7 @@ export default function Detail() {
                     <div className="row" id="btn">
                         <div className="d-grid gap-2">
                             <button onClick={handleonClick} className="btn btn-primary" type="button">Add to cart</button>
-                            <button className="btn btn-primary" type="button">Buy now</button>
+                            <button onClick={handleBuyNow}  className="btn btn-primary" type="button">Buy now</button>
                         </div>
                     </div>
                     <div className="row" id="containerTree">
@@ -105,6 +129,12 @@ export default function Detail() {
                 <div id="description">
                     <p>{product.description}</p>
                 </div>
+            </div>
+            <div>
+                <AddReview productId={productId} />
+            </div>
+            <div>
+                <ReviewContainer reviews={product.Reviews} />
             </div>
         </div>
     )
