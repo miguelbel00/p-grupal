@@ -15,6 +15,7 @@ export default function Detail() {
     const dispatch = useDispatch()
     const product = useSelector((state) => state.petitionsReducer.detail)
     const allProducts = useSelector((state) => state.shoppingReducer.productCart)
+    const totalCart = useSelector((state) => state.shoppingReducer.totalCart)
     const user = useSelector((state) => state.petitionsReducer.userOne);
     const { productId } = useParams()
     
@@ -29,20 +30,43 @@ export default function Detail() {
         saveLocal()
         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[allProducts])
+
+    useEffect(()=>{
+        saveLocal()
+    },[product.Reviews])
      
     const successAlert =() => {
         Swal.fire({
             title:'Product Added to cart!',
             confirmButtonText:"Les't buy more products",
-            timer:3000,
+            showDenyButton: true,
+            denyButtonText: `No, Go to my Cart`,
            icon:"success"
-        });
+        }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                history.push('/products')
+            } else if (result.isDenied) {
+                history.push('/shoppingcart')
+            }
+          })
     }
 
     const handleonClick =()=>{
-        dispatch(addProductToCart(productId))
+        if(totalCart.hasOwnProperty(productId)){
+            for (const key in totalCart) {
+                if (key === productId){
+                    let priceCont = totalCart[key] 
+                    totalCart[key] = [priceCont[0], priceCont[priceCont.length - 1 ]  + 1 ]
+                }
+            }
+            localStorage.setItem('totalCart', JSON.stringify(totalCart))
+        }
+        else{
+            dispatch(addProductToCart(productId))
+        }
         successAlert()
-        history.push('/products')
+        history.push('/shoppingcart')
     }
 
     const handleBuyNow = (e) => {
@@ -55,10 +79,8 @@ export default function Detail() {
             userId: userId,
             productsId: productId,
         }
-        
         axios.post(`${process.env.REACT_APP_SERVER_BACK}/checkout/checkout-order`, objResult)
         .then(response =>  window.location.href = response.data.links[1].href )
-   
     }
 
     if(!Object.values(product).length){ return <Loading/>}
@@ -130,7 +152,7 @@ export default function Detail() {
                 <AddReview productId={productId} />
             </div>
             <div>
-                <ReviewContainer />
+                <ReviewContainer reviews={product.Reviews} />
             </div>
         </div>
     )

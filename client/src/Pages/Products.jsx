@@ -6,7 +6,7 @@ import { getAllProducts } from "../redux/actions/actionsPetitions";
 import '../styles/product.css'
 import Paginated from '../componets/Paginated.jsx'
 import Filters from "../componets/Filters";
-
+import Loading from "../componets/Loading"
 
 
 export default function Products(){
@@ -48,7 +48,7 @@ export default function Products(){
                     price={e.price} 
                     stock={e.stock} 
                     Categories={e.Categories} Transactions={e.Transactions} Reviews={e.Reviews} />
-                    )):<h1>ERROR</h1> }
+                    )):<Loading/>}
                 </div>
                 <div className="paginado">
                 <Paginated page={page} setPage={setPage} max={max} setInpunt={setInpunt} input={input}/>
