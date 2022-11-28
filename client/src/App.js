@@ -15,7 +15,7 @@ import CreateCategory from "./Pages/CreateCategory";
 import CreateUser from "./Pages/CreateUser";
 import AdminPage from "./AdminPage/Admin";
 import EditProfile from "./componets/EditProfile";
-
+import EditUser from "./Pages/EditUser"
 
 
 function App() {
@@ -52,6 +52,11 @@ function App() {
           </ProteccionRoutes>
         </Route>
         <Route exact path='/admin/createuser' component={CreateUser}>
+          <ProteccionRoutes user={user}>
+           <CreateUser/>
+          </ProteccionRoutes>
+        </Route>
+        <Route exact path='/admin/edituser' component={EditUser}>
           <ProteccionRoutes user={user}>
            <CreateUser/>
           </ProteccionRoutes>

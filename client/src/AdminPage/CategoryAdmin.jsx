@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react"
 import { Table, Button, Modal,Alert,Space,Input,Typography } from 'antd'
 import { useSelector, useDispatch } from 'react-redux'
 import { useEffect } from "react"
-import { getCategory } from "../redux/actions/actionsAdmin"
+import { deleteCategory, getCategory } from "../redux/actions/actionsAdmin"
 import '../adminStyles/AdminTestAntDesign.css'
 import { SearchOutlined } from '@ant-design/icons';
 
@@ -17,8 +17,10 @@ export default function AdminTestAntDesign() {
     const [open, setOpen] = useState(false);
     const [confirmLoading, setConfirmLoading] = useState(false);
     const [modalText, setModalText] = useState(<Alert message="Estas seguro de que deseas acceder a estos datos?" type="error" />);
+    
     const editHandle = (e) => {
-      e.preventDefault()
+      
+      console.log(e.id)
     }
 
 
@@ -27,9 +29,10 @@ export default function AdminTestAntDesign() {
         setOpen(true);
     };
 
-    const handleOk = () => {
+    const handleOk = (value) => {
         setModalText(<Alert message="Aguarde unos segundos..." type="success" />);
         setConfirmLoading(true);
+        dispatch(deleteCategory(value.id))
         setTimeout(() => {
             setOpen(false);
             setConfirmLoading(false);
@@ -164,15 +167,15 @@ export default function AdminTestAntDesign() {
             title: 'Actions',
             datIndex: '',
             key: 'actionButon',
-            render: () => {
+            render: (value) => {
                 return <div>
-                    <Button onClick={editHandle} success type="primary">Edit Category</Button>
+                    <Button onClick={()=>editHandle(value)} success type="primary">Edit Category</Button>
                     &nbsp;&nbsp;&nbsp;
-                    <Button onClick={showModal} danger type="primary">Delete Category</Button>
+                    <Button onClick={()=>showModal(value)} danger type="primary">Delete Category</Button>
                     <Modal
                         title="Cuidado!"
                         open={open}
-                        onOk={handleOk}
+                        onOk={()=>handleOk(value)}
                         confirmLoading={confirmLoading}
                         onCancel={handleCancel}
                     >

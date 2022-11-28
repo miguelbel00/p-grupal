@@ -52,6 +52,11 @@ export default function reducerAdmin(
                 ...state,
                 categories: payload,
             }
+        case "DELETE_CATEGORY":
+            return {
+                ...state,
+                categories: payload,
+            }
         default:
             return state;
     }

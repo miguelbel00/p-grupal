@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react"
 import { Table, Button, Modal,Alert,Typography,Input, Space } from 'antd'
 import { useSelector, useDispatch } from 'react-redux'
 import { useEffect } from "react"
-import {  getReviews, getTransactions } from "../redux/actions/actionsAdmin"
+import {  deleteTransaction, getTransactions } from "../redux/actions/actionsAdmin"
 import { SearchOutlined } from '@ant-design/icons';
 import '../adminStyles/AdminTestAntDesign.css'
 
@@ -17,20 +17,18 @@ export default function AdminTestAntDesign() {
   const [confirmLoading, setConfirmLoading] = useState(false);
   const [modalText, setModalText] = useState(<Alert message="Estas seguro de que deseas acceder a estos datos?" type="error" />);
 
-  const editHandle = (e) => {
-    e.preventDefault()
+  const editHandle = (value) => {
+    console.log(value)
   }
-
-
-
 
   const showModal = () => {
       setOpen(true);
   };
 
-  const handleOk = () => {
+  const handleOk = (value) => {
       setModalText(<Alert message="Aguarde unos segundos..." type="success" />);
       setConfirmLoading(true);
+      dispatch(deleteTransaction(value.id))
       setTimeout(() => {
           setOpen(false);
           setConfirmLoading(false);
@@ -39,7 +37,6 @@ export default function AdminTestAntDesign() {
   };
 
   const handleCancel = () => {
-      console.log('Clicked cancel button');
       setOpen(false);
   };
 
@@ -139,17 +136,9 @@ export default function AdminTestAntDesign() {
       dispatch(getTransactions())
   }, [dispatch])
 
-  console.log(transactionsSelector)
   const data = transactionsSelector
 
-  let productsIds =[... new Set (data.map(r => {
-      return r.productId
-  }))]
 
-  let filtros = productsIds.map(productID => {
-
-      return {text:`${productID}`,value:productID}
-  })
 
 
 
@@ -198,15 +187,15 @@ export default function AdminTestAntDesign() {
           title: 'Actions',
           datIndex: '',
           key: 'actionButon',
-          render: () => {
+          render: (value) => {
               return <div>
-                    <Button onClick={editHandle} success type="primary">Edit Transaction</Button>
+                    <Button onClick={()=>editHandle(value)} success type="primary">Edit Transaction</Button>
                     &nbsp;&nbsp;&nbsp;
-                    <Button onClick={showModal} danger type="primary">Delete Transaction</Button>
+                    <Button onClick={()=>showModal(value)} danger type="primary">Delete Transaction</Button>
                   <Modal
                       title="Cuidado!"
                       open={open}
-                      onOk={handleOk}
+                      onOk={()=>handleOk(value)}
                       confirmLoading={confirmLoading}
                       onCancel={handleCancel}
                   >

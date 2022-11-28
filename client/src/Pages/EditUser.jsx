@@ -2,15 +2,13 @@ import styles from '../styles/editprofile.module.css';
 import {useDispatch, useSelector} from 'react-redux';
 import {useState} from 'react';
 import {updateUser} from '../redux/actions/actionsPetitions';
-import CardUser from './CardUser';
+import CardUser from './../componets/CardUser';
 import { Link } from 'react-router-dom';
 
 
-
-
-function EditProfile () {
+function EditUser () {
+    const user = {}
     const dispatch = useDispatch();
-    const user = useSelector((state) => state.petitionsReducer.userOne);
     const [editUser, setEditUser] = useState({
         userId: user ? user.id : null,
         fullName: "", 
@@ -22,8 +20,16 @@ function EditProfile () {
     const validate = (input) => {
         let error = {};
 
+        if (!input.email) {
+            error.email = 'Introduce el email'
+        }
+
         if (!input.fullName) {
             error.fullName = 'Introduce el nombre'
+        }
+
+        if (!input.password) {
+            error.password = 'Introduce la contrasena'
         }
 
         if (!input.phone) {
@@ -43,7 +49,9 @@ function EditProfile () {
             !editUser.fullName ||
             !editUser.password ||
             !editUser.phone ||
-            !editUser.email ) {
+            !editUser.email ||
+            !editUser.isAdmin
+            ) {
             alert('Llene los campos correctamente')
            setErrors(validate({
             ...editUser
@@ -127,9 +135,9 @@ function EditProfile () {
             </div>
             <button className={styles.btn} type='submit'>Update</button>
          </form>    
-         <Link  to='/'>     
+         {/* <Link  to='/'>     
          <button className={styles.btnCancel}>Cancel</button>
-        </Link>
+        </Link> */}
 
      </div>
 </div>
@@ -137,4 +145,4 @@ function EditProfile () {
 };
 
 
-export default EditProfile;
+export default EditUser;

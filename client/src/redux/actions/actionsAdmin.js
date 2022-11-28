@@ -49,6 +49,14 @@ export function getCategory() {
     });
   };
 }
+
+export function getOneUser() {
+  return async function (dispatch) {
+    let json = await axios.get(`${REACT_APP_SERVER_BACK}/:userId`)
+  }
+}
+
+
 export function getTransactions() {
   return async function (dispatch) {
     let json = await axios.get(`${REACT_APP_SERVER_BACK}/transactions`);
@@ -69,6 +77,7 @@ export function registerUserAdmin(payload) {
     });
   };
 }
+
 export function createCategory(payload) {
   return async function (dispatch) {
 
@@ -81,3 +90,29 @@ export function createCategory(payload) {
     });
   };
 }
+
+export function deleteCategory(payload) {
+  return async function (dispatch) {
+
+    await axios.delete(`${REACT_APP_SERVER_BACK}/categories/${payload}`);
+    const response  = await axios.get(`${REACT_APP_SERVER_BACK}/categories`);
+
+    return dispatch({
+      type: "DELETE_CATEGORY",
+      payload: response.data.body,
+    });
+  };
+}
+export function deleteTransaction(payload) {
+  return async function (dispatch) {
+
+    await axios.delete(`${REACT_APP_SERVER_BACK}/transactions/${payload}`);
+    const response  = await axios.get(`${REACT_APP_SERVER_BACK}/transactions`);
+
+    return dispatch({
+      type: "DELETE_TRANSACTION",
+      payload: response.data.body,
+    });
+  };
+}
+

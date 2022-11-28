@@ -13,7 +13,7 @@ return (
            <div className={style.container}>
                 <div>
                         <div className={style.containerImg}>
-                            {user.avatar 
+                            {user?.avatar 
                             ?<img src={user.avatar} alt="avatar_user"/>
                             :<h1><FaUser className={style.img}/></h1>}      
                         </div>

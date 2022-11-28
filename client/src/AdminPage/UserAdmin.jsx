@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react"
 import { Table, Button, Modal,Alert,Typography, Input, Space} from 'antd'
 import { useSelector, useDispatch } from 'react-redux'
 import { useEffect } from "react"
+import { useHistory } from "react-router-dom"
 import { getUsers } from "../redux/actions/actionsAdmin"
 import '../adminStyles/AdminTestAntDesign.css'
 import { SearchOutlined } from '@ant-design/icons';
@@ -11,13 +12,15 @@ import { SearchOutlined } from '@ant-design/icons';
 export default function AdminTestAntDesign() {
     const [searchText, setSearchText] = useState('');
     const [searchedColumn, setSearchedColumn] = useState('');
+    const history = useHistory()
     const searchInput = useRef(null);
 
     const createHandle = (e) => {
       e.preventDefault()
     }
-    const editHandle = (e) => {
-      e.preventDefault()
+    const editHandle = (value) => {
+      history.push(`/editProfile/${value.id}`)
+      console.log(value)
     }
   const {Text} = Typography;
     const [open, setOpen] = useState(false);
@@ -177,10 +180,10 @@ export default function AdminTestAntDesign() {
             title: 'Actions',
             dataIndex: '',
             key: 'actionButon',
-            render: () => {
+            render: (value) => {
                 return <div>
                     &nbsp;&nbsp;&nbsp;
-                    <Button onClick={editHandle} success type="primary">Edit Account</Button>
+                    <Button onClick={()=>editHandle(value)} success type="primary">Edit Account</Button>
                     &nbsp;&nbsp;&nbsp;
                     <Button onClick={showModal} danger type="primary">Delete Account</Button>
                     <Modal

@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react"
 import { Table, Button, Modal,Alert,Typography,Input, Space } from 'antd'
 import { useSelector, useDispatch } from 'react-redux'
 import { useEffect } from "react"
-import {  getReviews } from "../redux/actions/actionsAdmin"
+import {  deleteCategory, getReviews } from "../redux/actions/actionsAdmin"
 import { SearchOutlined } from '@ant-design/icons';
 import '../adminStyles/AdminTestAntDesign.css'
 
@@ -24,9 +24,10 @@ export default function AdminTestAntDesign() {
         setOpen(true);
     };
 
-    const handleOk = () => {
+    const handleOk = (value) => {
         setModalText(<Alert message="Aguarde unos segundos..." type="success" />);
         setConfirmLoading(true);
+        dispatch(deleteCategory(value.id))
         setTimeout(() => {
             setOpen(false);
             setConfirmLoading(false);
@@ -35,7 +36,6 @@ export default function AdminTestAntDesign() {
     };
 
     const handleCancel = () => {
-        console.log('Clicked cancel button');
         setOpen(false);
     };
 
@@ -135,7 +135,6 @@ export default function AdminTestAntDesign() {
         dispatch(getReviews())
     }, [dispatch])
 
-    console.log(reviewsSelector)
     const data = reviewsSelector
 
     let productsIds =[... new Set (data.map(r => {
@@ -193,13 +192,13 @@ export default function AdminTestAntDesign() {
             title: 'Actions',
             datIndex: '',
             key: 'actionButon',
-            render: () => {
+            render: (value) => {
                 return <div>
                     <Button onClick={showModal} danger type="primary">Delete Review</Button>
                     <Modal
                         title="Cuidado!"
                         open={open}
-                        onOk={handleOk}
+                        onOk={()=>handleOk(value)}
                         confirmLoading={confirmLoading}
                         onCancel={handleCancel}
                     >
