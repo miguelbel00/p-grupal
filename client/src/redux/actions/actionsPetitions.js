@@ -107,7 +107,7 @@ export function getUser(userId) {
     if (userId===null) {
       return dispatch({
         type: "GET_ONE_USER",
-        payload: null
+        payload: userId
       })
     }
     return axios

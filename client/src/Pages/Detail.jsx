@@ -1,18 +1,28 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams,useHistory } from "react-router-dom"
-import { getDetail } from "../redux/actions/actionsPetitions"
+import { getDetail, getUser } from "../redux/actions/actionsPetitions"
 import { addProductToCart } from '../redux/actions/actionShoppingCart.js'
 import Loading from "../componets/Loading"
 import "../styles/Detail.css"
 import Swal from 'sweetalert2'
+const jwt = require('jsonwebtoken');
 
 export default function Detail() {
-
+    const userJWT = useSelector(state => state.petitionsReducer.user);
     const dispatch = useDispatch()
     const product = useSelector((state) => state.petitionsReducer.detail)
     const allProducts = useSelector((state) => state.shoppingReducer.productCart)
     const { productId } = useParams()
+
+    if(userJWT){
+        try {
+            const decoded = jwt.verify(userJWT?.body?.token ? userJWT.body.token :userJWT, process.env.REACT_APP_JWT_SECRETO);
+            dispatch(getUser(decoded?.id ?decoded.id :decoded.user.id  ))
+        } catch (error) {}
+    }
+
+
 
     const history = useHistory()
 

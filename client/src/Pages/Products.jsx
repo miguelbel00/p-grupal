@@ -2,15 +2,16 @@ import React from "react";
 import { useSelector, useDispatch} from "react-redux";
 import { useEffect, useState } from "react";
 import Card from "../componets/CardProduct";
-import { getAllProducts } from "../redux/actions/actionsPetitions";
+import { getAllProducts, getUser } from "../redux/actions/actionsPetitions";
 import '../styles/product.css'
 import Paginated from '../componets/Paginated.jsx'
 import Filters from "../componets/Filters";
-
+const jwt = require('jsonwebtoken');
 
 
 export default function Products(){
     
+    const userJWT = useSelector(state => state.petitionsReducer.user);
     const allProducts = useSelector((state) => state.filterReducer.filterProducts)
     const dispatch = useDispatch()
     const [option, setOption] = useState('')
@@ -18,6 +19,15 @@ export default function Products(){
     const [input, setInpunt] = useState(1);
     const [page, setPage] = useState(1);
     const [forPage] = useState(6);
+
+
+    if(userJWT){
+        try {
+            const decoded = jwt.verify(userJWT?.body?.token ? userJWT.body.token :userJWT, process.env.REACT_APP_JWT_SECRETO);
+            dispatch(getUser(decoded?.id ?decoded.id :decoded.user.id  ))
+        } catch (error) {}
+    }
+
 
     const max = Math.ceil(allProducts.length / forPage) ;
 

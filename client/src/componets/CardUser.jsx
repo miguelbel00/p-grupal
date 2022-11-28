@@ -3,15 +3,17 @@ import style from '../styles/carduser.module.css';
 import { FaUser } from 'react-icons/fa';
 import { AiOutlineMail } from 'react-icons/ai'; 
 import { GiSmartphone } from 'react-icons/gi'; 
+import { useSelector } from 'react-redux';
 
 
 function CardUser({user}){
-
-
+    const userJWT = useSelector(state => state.petitionsReducer.user);
+   
+    console.log(userJWT)
 return (
    
            <div className={style.container}>
-                <div className='card'>
+              { user && <div className='card'>
                         <div className={style.containerImg}>
                             {user.avatar 
                             ?<img src={user.avatar} alt="avatar_user"/>
@@ -35,7 +37,7 @@ return (
                                 <p>{user.address}</p>
                             </div>*/}
                         </div>
-                </div>
+                </div>}
             </div>
 )};
 

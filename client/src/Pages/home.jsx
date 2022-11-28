@@ -10,7 +10,11 @@ import { getUser } from "../redux/actions/actionsPetitions"
 const {REACT_APP_JWT_SECRETO} = process.env
 const jwt = require('jsonwebtoken');
 
+
+
 export default function Home(){
+
+    
     const dispatch = useDispatch()
     const userJWT = useSelector(state => state.petitionsReducer.user);
     const nullUser = async() => {

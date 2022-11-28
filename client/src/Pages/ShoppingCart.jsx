@@ -5,11 +5,26 @@ import ItemCart from "../componets/ItemCart";
 import { removeAllProduct } from "../redux/actions/actionShoppingCart";
 import '../styles/shoppingCart.css'
 import Swal from 'sweetalert2'
+import { getUser } from "../redux/actions/actionsPetitions";
+const jwt = require('jsonwebtoken');
+const {REACT_APP_JWT_SECRETO} = process.env
 
 export default function ShoppingCart() {
+    const dispatch = useDispatch()
+
+    const userJWT = useSelector(state => state.petitionsReducer.user);
+    const nullUser = async() => {
+        await dispatch(getUser(null))
+    }
+    nullUser()
+    if(userJWT){
+        try {
+            const decoded = jwt.verify(userJWT?.body?.token ? userJWT.body.token :userJWT, REACT_APP_JWT_SECRETO);
+            dispatch(getUser(decoded?.id ?decoded.id :decoded.user.id  ))
+        } catch (error) {}
+    }
     const allProducts = useSelector((state) => state.shoppingReducer.productCart);
     const totalCart = useSelector((state) => state.shoppingReducer.totalCart)
-    const dispatch = useDispatch()
     const [totalShow, setTotalShow] = useState(0);
 
     const successAlert =() => {
