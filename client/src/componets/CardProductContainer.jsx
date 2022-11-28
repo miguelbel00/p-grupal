@@ -1,8 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import CardProduct from "./CardProduct";
-//import "../styles/cardcontainer.css";
-import s from "../styles/cardcontainer.module.css"
+import Styles from "../styles/cardcontainer.module.css"
 
 
 function CardProduct_Container() {
@@ -16,9 +15,9 @@ function CardProduct_Container() {
 
 
   return (
-    <div className={s.container}>
+    <div className={Styles.container}>
       <h4>MOST SELLED:</h4>
-      <div className={s.cards}>
+      <div className={Styles.cards}>
       {mostSelled.map(({ name, image, url, id, description, price }, i) => (       
           <CardProduct image={image} name={name} url={url} description={description} price={price} id={id} />
       ))}

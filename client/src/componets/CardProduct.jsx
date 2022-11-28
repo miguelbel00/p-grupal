@@ -1,12 +1,11 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-
-import s from "../styles/card.module.css";
+import Styles from "../styles/card.module.css";
 
 export default function Card({ image, name, price, id }) {
 
   return (
-    <div className={s.container}>
+    <div className={Styles.container}>
       <img src={image[0]} alt='Img not found' />
       <h3>{name}</h3>
       <span>${price}</span>

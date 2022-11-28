@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux"
-//import '../styles/home.css';
-import s from "../styles/home.module.css"
+import Styles from "../styles/home.module.css"
 import Carrusel from '../componets/Carrusel';
 import CardProductContainer from '../componets/CardProductContainer';
 import { Link } from "react-router-dom";
@@ -32,12 +31,12 @@ export default function Home() {
 
 
     return (
-        <div className={s.container}>
-            <div className={s.carousel}>
+        <div className={Styles.container}>
+            <div className={Styles.carousel}>
                 <Carrusel />
             </div>
             
-            <div className={s.category}>
+            <div className={Styles.category}>
                 <div>
                     <Link to={'/products'} className="text-reset text-decoration-none" >
                         <h3>Computadoras</h3>
@@ -57,7 +56,7 @@ export default function Home() {
                     </Link>
                 </div>
             </div>
-            <div className={s.products}>
+            <div className={Styles.products}>
                 <CardProductContainer />
             </div>
         </div>

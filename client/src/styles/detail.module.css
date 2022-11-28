@@ -1,8 +1,12 @@
-
+.body{
+    background-color: #ececec;
+}
 .container{
+    background-color: #ececec;
     width: 90%;
     max-width: 1000px;
-    margin: 20px auto;
+    padding: 20px 0;
+    margin: auto;
     display: grid;
     grid-gap: 20px;
     grid-template-columns: repeat(3, 1fr);

@@ -3,8 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import Card from "../componets/CardProduct";
 import { getAllProducts } from "../redux/actions/actionsPetitions";
-//import '../styles/product.css'
-import s from '../styles/products.module.css'
+import Styles from '../styles/products.module.css'
 import Paginated from '../componets/Paginated.jsx'
 import Filters from "../componets/Filters";
 
@@ -33,12 +32,12 @@ export default function Products() {
 
 
     return (
-        <div className={s.container}>
-            <div className={s.filters}>
+        <div className={Styles.container}>
+            <div className={Styles.filters}>
                 <Filters setOption={setOption} option={option} setPage={setPage} setInpunt={setInpunt} />
             </div>
-            <div className={s.contenedor}>
-            <div className={s.products}>
+            <div className={Styles.contenedor}>
+            <div className={Styles.products}>
                 {
                     allProducts.length > 1 ? allProducts.slice((page - 1) * forPage, (page - 1) * forPage + forPage).map((e, i) => (
                         <Card
@@ -53,7 +52,7 @@ export default function Products() {
                     )) : <h1>ERROR</h1>}
             </div>
 
-            <div className={s.paginado}>
+            <div className={Styles.paginado}>
                 <Paginated page={page} setPage={setPage} max={max} setInpunt={setInpunt} input={input} />
             </div>
             </div>
