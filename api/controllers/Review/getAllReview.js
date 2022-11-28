@@ -7,7 +7,6 @@ module.exports = {
   getAllReview: async (req, res, next) => {
     
     try{
-        
       const response = await Review.findAll()
       
       endpointResponse({

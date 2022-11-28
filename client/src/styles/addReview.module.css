@@ -3,6 +3,9 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        margin: auto;
+        background-color: white;
+        border: 1px solid #c4c4c4;
     }
 
     .stars {
@@ -22,8 +25,8 @@
     .button {
         border: 1px solid #a9a9a9;
         text-decoration: none;
-        font-weight: bold;
-        background-color: #a9a9a9;
+        background-color: #350069;
+        color: white;
         border: none;
         outline: none;
         width: 100%;
@@ -37,4 +40,4 @@
 
     .button:hover {
         background-color: #9600F4;
-      }
+    }

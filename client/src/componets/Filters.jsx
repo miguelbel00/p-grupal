@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { orederOption } from '../functions/functions';
-import { orderByPrice, filterCategory, orderMostSold, addCategorieFilter, deleteFilter, orderProducts } from "../redux/actions/actionsFilter";
+import {  filterCategory, orderMostSold, addCategorieFilter, deleteFilter, orderProducts } from "../redux/actions/actionsFilter";
 import { getAllProducts } from "../redux/actions/actionsPetitions";
 import Styles from "../styles/filters.module.css"
 
@@ -60,24 +59,25 @@ export default function Filters({ setOption, setPage }) {
 
 
     return (
-        <div>
-            <div>
-                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" onChange={(e) => handleOrder(e)}>
+        <div className={Styles.container}>
+            <p>Order product</p>
+            <div className={Styles.price}>
+                <select class="form-select form-select-lg" aria-label=".form-select-lg example" onChange={(e) => handleOrder(e)}>
                     <option value='All'>Price</option>
                     <option value='Min'>Min-Price</option>
                     <option value='Max'>Max-Price</option>
                 </select>
             </div>
-            <div>
-                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" onChange={(e) => handleOrder(e)}>
+            <div className={Styles.sold}>
+                <select class="form-select form-select-lg" aria-label=".form-select-lg example" onChange={(e) => handleOrder(e)}>
                     <option value='All'>Sold</option>
                     <option value='Less Sold'>Less Sold</option>
                     <option value='Best Seller'>Best Seller</option>
                 </select>
             </div>
-            <div>
-                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" onChange={e => handleFilterCategory(e)}>
-                    <option selected>Categorias</option>
+            <div className={Styles.filter}>
+                <select class="form-select form-select-lg " aria-label=".form-select-lg example" onChange={e => handleFilterCategory(e)}>
+                    <option selected>Filter</option>
                     <option value="Computadores">Computadores</option>
                     <option value="Perifericos">Perifericos</option>
                     <option value="Componentes">Componentes</option>

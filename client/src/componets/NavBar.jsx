@@ -54,7 +54,7 @@ const Navbar = () => {
     }
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark">
+        <nav className="navbar navbar-expand-lg navbar-dark" id={Styles.nav}>
             <div className="container-fluid">
                 <div>
                     <Link to='/' >
@@ -116,7 +116,7 @@ const Navbar = () => {
                         }
 
                     </ul>
-                     <form className="d-flex" role="search"> 
+                     <form className="d-flex" id={Styles.search} role="search"> 
                         <input onChange={handleInput} value={input}className="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search"/>
                         <button  className="btn btn-outline-secondary" type="submit" onClick={(e) => handleSubmit(e)}>Buscar</button>
                      </form> 
