@@ -10,9 +10,11 @@
     display: grid;
     grid-gap: 20px;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, auto);
+    grid-template-rows: repeat(4, auto);
     grid-template-areas: "carousel carousel sidebar"
-                         "description description description";
+                         "description description description"
+                         "addReview addReview addReview"
+                         "reviewContainer reviewContainer reviewContainer";
 }
 .container > div,
 .container .carousel,
@@ -23,7 +25,8 @@
 }
 .container .carousel{
     grid-area: carousel;  
-    background-color: white;    
+    background-color: white;  
+    border: 1px solid #c4c4c4;  
 }
 .imgcarousel{  
     height: 370px;
@@ -41,6 +44,7 @@
     background-color: white;
     box-shadow: 0 3px 10px rgb(0 0 0 / 10%);
     border-radius: 5px; 
+    border: 1px solid #c4c4c4;
 }
 .container .sidebar h2{
     font-size: 18px!important;
@@ -84,6 +88,9 @@
 
 .container .description{
     grid-area: description;
+    background-color: #fff;
+    border-radius: 5px;
+    border: 1px solid #c4c4c4;
 }
 .container .description .label{
     border-bottom: 2px solid #e5e6e8;
@@ -95,12 +102,20 @@
     color: #000;
     
 }
+.container .addReview{
+    grid-area: addReview;
+}
+.container .reviewContainer{
+    grid-area: reviewContainer;
+}
 
 @media screen and (max-width: 758px){
     .container{
         grid-template-areas: "carousel carousel carousel"
                              "sidebar sidebar sidebar"
-                         "description description description";
+                         "description description description"
+                         "addReview addReview addReview"
+                         "reviewContainer reviewContainer reviewContainer";
     }
     .imgcarousel{  
         max-height: 220px;
