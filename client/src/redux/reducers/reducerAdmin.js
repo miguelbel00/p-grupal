@@ -42,6 +42,16 @@ export default function reducerAdmin(
                 ...state,
                 transactions: payload
             }
+        case "CREATE_USER_ADMIN":
+            return {
+                ...state,
+                users: payload,
+            }
+        case "CREATE_CATEGORY":
+            return {
+                ...state,
+                categories: payload,
+            }
         default:
             return state;
     }

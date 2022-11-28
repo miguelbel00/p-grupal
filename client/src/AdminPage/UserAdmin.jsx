@@ -13,10 +13,17 @@ export default function AdminTestAntDesign() {
     const [searchedColumn, setSearchedColumn] = useState('');
     const searchInput = useRef(null);
 
+    const createHandle = (e) => {
+      e.preventDefault()
+    }
+    const editHandle = (e) => {
+      e.preventDefault()
+    }
   const {Text} = Typography;
     const [open, setOpen] = useState(false);
     const [confirmLoading, setConfirmLoading] = useState(false);
     const [modalText, setModalText] = useState(<Alert message="Estas seguro de que deseas acceder a estos datos?" type="error" />);
+
 
     const handleSearch = (
         selectedKeys,
@@ -172,7 +179,10 @@ export default function AdminTestAntDesign() {
             key: 'actionButon',
             render: () => {
                 return <div>
-                    <Button onClick={showModal} danger type="primary">Edit Account</Button>
+                    &nbsp;&nbsp;&nbsp;
+                    <Button onClick={editHandle} success type="primary">Edit Account</Button>
+                    &nbsp;&nbsp;&nbsp;
+                    <Button onClick={showModal} danger type="primary">Delete Account</Button>
                     <Modal
                         title="Cuidado!"
                         open={open}

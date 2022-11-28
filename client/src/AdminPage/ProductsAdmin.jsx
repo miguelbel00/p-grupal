@@ -16,6 +16,17 @@ export default function AdminTestAntDesign() {
     const [confirmLoading, setConfirmLoading] = useState(false);
     const [modalText, setModalText] = useState(<Alert message="Estas seguro de que deseas acceder a estos datos?" type="error" />);
 
+
+    const createHandle = (e) => {
+      e.preventDefault()
+    }
+    const editHandle = (e) => {
+      e.preventDefault()
+    }
+
+
+
+
     const showModal = () => {
         setOpen(true);
     };
@@ -178,7 +189,11 @@ export default function AdminTestAntDesign() {
             key: 'actionButon',
             render: () => {
                 return <div>
-                    <Button onClick={showModal} danger type="primary">Edit Product</Button>
+                    <Button onClick={createHandle} success type="primary">Create Product</Button>
+                    &nbsp;&nbsp;&nbsp;
+                    <Button onClick={editHandle} success type="primary">Edit Product</Button>
+                    &nbsp;&nbsp;&nbsp;
+                    <Button onClick={showModal} danger type="primary">Delete Product</Button>
                     <Modal
                         title="Cuidado!"
                         open={open}

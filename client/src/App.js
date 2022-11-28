@@ -11,6 +11,8 @@ import Profile from "./componets/Profile";
 import ProteccionRoutes from "./componets/proteccionRoutes";
 import { useSelector } from "react-redux";
 import CreateProduct from "./Pages/CreateProduct";
+import CreateCategory from "./Pages/CreateCategory";
+import CreateUser from "./Pages/CreateUser";
 import AdminPage from "./AdminPage/Admin";
 import EditProfile from "./componets/EditProfile";
 
@@ -42,6 +44,16 @@ function App() {
         <Route exact path='/admin/createproduct' component={CreateProduct}>
           <ProteccionRoutes user={user}>
            <CreateProduct/>
+          </ProteccionRoutes>
+        </Route>
+        <Route exact path='/admin/createcategory' component={CreateCategory}>
+          <ProteccionRoutes user={user}>
+           <CreateCategory/>
+          </ProteccionRoutes>
+        </Route>
+        <Route exact path='/admin/createuser' component={CreateUser}>
+          <ProteccionRoutes user={user}>
+           <CreateUser/>
           </ProteccionRoutes>
         </Route>
       </Switch>

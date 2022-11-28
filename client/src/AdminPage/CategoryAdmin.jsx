@@ -17,6 +17,11 @@ export default function AdminTestAntDesign() {
     const [open, setOpen] = useState(false);
     const [confirmLoading, setConfirmLoading] = useState(false);
     const [modalText, setModalText] = useState(<Alert message="Estas seguro de que deseas acceder a estos datos?" type="error" />);
+    const editHandle = (e) => {
+      e.preventDefault()
+    }
+
+
 
     const showModal = () => {
         setOpen(true);
@@ -36,11 +41,6 @@ export default function AdminTestAntDesign() {
         console.log('Clicked cancel button');
         setOpen(false);
     };
-
-
-
-
-
 
 
 
@@ -166,7 +166,9 @@ export default function AdminTestAntDesign() {
             key: 'actionButon',
             render: () => {
                 return <div>
-                    <Button onClick={showModal} danger type="primary">Edit Category</Button>
+                    <Button onClick={editHandle} success type="primary">Edit Category</Button>
+                    &nbsp;&nbsp;&nbsp;
+                    <Button onClick={showModal} danger type="primary">Delete Category</Button>
                     <Modal
                         title="Cuidado!"
                         open={open}
