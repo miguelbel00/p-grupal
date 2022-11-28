@@ -1,4 +1,4 @@
-import { filterData, orederOption } from "../../functions/functions";
+import { filterData, orederOption } from "../../redux/actions/actionsFilter";
 
 const initialState = {
   filterProducts: [],
@@ -52,3 +52,4 @@ export default function filterReducer(state = initialState, { type, payload }) {
       return state;
   }
 }
+
