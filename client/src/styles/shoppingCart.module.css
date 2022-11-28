@@ -1,0 +1,123 @@
+.container{
+  background-color: #ececec;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto);
+    grid-template-areas: "title title title"
+                         "product product totalProduct";
+}
+
+.container .title{
+  grid-area: title;
+  text-align: center;
+  padding-top: 10px;
+}
+.container .product{
+  grid-area: product;
+  background-color: #ececec;
+  margin: 30px auto;
+  width: 100%;
+}
+.container .product .trolley{
+  background-color: #fff;
+  text-align: center;
+  width: 70%;
+  margin: auto;
+  padding: 15px 0;
+  border-radius: 10px;
+  border: 2px solid rgba(42, 42, 44, 0.15);
+}
+.container .product .trolley p{
+  font-size: 22px;
+  font-weight: 700;
+}
+.container .totalProduct{
+  grid-area: totalProduct;
+  width: 80%;
+  height: 200px;
+  margin: 35px auto;
+}
+.container .totalProduct .containerOne{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  background: #fff;
+  border: 1px solid #c4c4c4;
+  border-radius: 5px;
+}
+.container .totalProduct .containerOne p{
+  margin: 10px 10px 10px 10px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #c4c4c4;
+  font-size: 18px;
+  color: #000;
+  font-weight: 600;
+}
+.container .totalProduct .containerOne .total{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 10px;
+  margin: 10px 0;
+  text-align: center;
+  background: rgb(246, 246, 246);
+}
+.container .totalProduct .containerOne .total span{
+  text-align: center;
+  font-size: 25px;
+}
+.container .totalProduct .containerOne .total .price{
+  font-size: 20px;
+  text-align: center;
+  padding-top: 5px;
+}
+
+.container .totalProduct .containerTwo{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin: 10px;
+}
+.container .totalProduct .containerTwo .btn1{
+  width: 70px;
+  height: 40px;
+  background-color: #f35757;
+  box-shadow: inset 0 -2px 0 0 #9e3434;
+  border-radius: 10px;
+  border: none;
+}
+.container .totalProduct .containerTwo .btn1 img{
+  width: 30px;
+  color: #ececec;
+}
+.container .totalProduct .containerTwo .btn2{
+  width: 100px;
+  color: #fff;
+  background-color: #9600F4;
+  border-radius: 10px;
+  border: none;
+}
+
+@media screen and (max-width: 768px) {
+  .container{
+    background-color: #ececec;
+    grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, auto);
+      grid-template-areas: "title title title"
+                           "product product product"
+                           "totalProduct totalProduct totalProduct";
+  }
+  .container .title{
+    padding-top: 10px;
+  }
+  .container .title h2{
+    margin: 0;
+  }
+  .container .product{
+    grid-area: product;
+    background-color: #ececec;
+    margin: 10px auto;
+    width: 100%;
+  }
+}
