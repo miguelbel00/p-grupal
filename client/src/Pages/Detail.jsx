@@ -28,9 +28,13 @@ export default function Detail() {
         dispatch(getDetail(productId))
         saveLocal()
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [allProducts])
+    },[allProducts])
 
-    const successAlert = () => {
+    useEffect(()=>{
+        saveLocal()
+    },[product.Reviews])
+     
+    const successAlert =() => {
         Swal.fire({
             title: 'Product Added to cart!',
             confirmButtonText: "Les't buy more products",
@@ -109,13 +113,13 @@ export default function Detail() {
                         <label htmlFor="description" >Description</label>
                     </div>
                     <p>{product.description}</p>
-                    <div>
-                        <AddReview productId={productId} />
-                    </div>
-                    <div>
-                        <ReviewContainer />
-                    </div>
                 </div>
+            </div>
+            <div>
+                <AddReview productId={productId} />
+            </div>
+            <div>
+                <ReviewContainer reviews={product.Reviews} />
             </div>
         </div>
     )

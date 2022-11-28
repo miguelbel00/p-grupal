@@ -6,8 +6,8 @@ const createHttpError = require('http-errors');
 
 module.exports = {
     orderCreate: async (req, res, next) => {
-        const { description, price, userId, productsId } = req.body
-        
+        const { description, price, userId, productsId, totalCart} = req.body
+
         try {
             //modelo ejemplo 
             const order = {
@@ -25,7 +25,7 @@ module.exports = {
                     brand_name: 'astro gamer',
                     landing_page: 'LOGIN',
                     user_action: 'PAY_NOW',
-                    return_url: `${process.env.BACK_URL}/checkout/capture-order?description=${encodeURI(description)}&productsId=${encodeURI(productsId)}&userId=${userId}`,
+                    return_url: `${process.env.BACK_URL}/checkout/capture-order?description=${encodeURI(description)}&productsId=${encodeURI(productsId)}&userId=${userId}&totalCart=${encodeURI(totalCart)}`,
                     cancel_url: `${process.env.BACK_URL}/checkout/cancel-order`
                 },
             };
@@ -37,7 +37,6 @@ module.exports = {
                 }
             })
  
-
             res.json(response.data)
 
         } catch (error) {

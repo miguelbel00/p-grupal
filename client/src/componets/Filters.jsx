@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { orederOption } from '../functions/functions';
-import { orderByPrice, filterCategory, orderMostSold, addCategorieFilter, deleteFilter, orderProducts } from "../redux/actions/actionsFilter";
+import {  filterCategory, orderMostSold, addCategorieFilter, deleteFilter, orderProducts } from "../redux/actions/actionsFilter";
 import { getAllProducts } from "../redux/actions/actionsPetitions";
 import Styles from "../styles/filters.module.css"
 
