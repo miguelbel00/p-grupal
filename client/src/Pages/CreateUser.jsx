@@ -47,9 +47,6 @@ const validate = (user) => {
  if(!user.isAdmin){
  error.isAdmin="Introduzca el Rol del User" 
  }
-//  if(user.isAdmin!=='False'||user.isAdmin!=='True'){
-// error.isAdmin="Introduzca True o False"
-//  }
 
  return error;
 
