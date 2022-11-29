@@ -14,15 +14,14 @@ const {REACT_APP_JWT_SECRETO} = process.env
 
 export default function ShoppingCart() {
     const dispatch = useDispatch()
-
+    const userOne = useSelector( (state) =>  state.petitionsReducer.userOne);
     const userJWT = useSelector(state => state.petitionsReducer.user);
-    const nullUser = async() => {
-        await dispatch(getUser(null))
-    }
-    nullUser()
+  
+   
     if(userJWT){
         try {
             const decoded = jwt.verify(userJWT?.body?.token ? userJWT.body.token :userJWT, REACT_APP_JWT_SECRETO);
+            userOne === null &&
             dispatch(getUser(decoded?.id ?decoded.id :decoded.user.id  ))
         } catch (error) {}
     }
@@ -98,7 +97,8 @@ export default function ShoppingCart() {
         saveLocal()
         setTotal()
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [allProducts, totalCart, totalShow])
+
+    },[setTotal, totalCart, allProducts])
 
     /* if (!Object.values(product).length) { return <Loading /> } */
     return (

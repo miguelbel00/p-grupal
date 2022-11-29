@@ -4,17 +4,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams,useHistory } from "react-router-dom"
 import { getDetail, getUser } from "../redux/actions/actionsPetitions"
 import ReviewContainer from "../componets/ReviewContainer";
+
+
 import AddReview from "../componets/AddReview";
-import Swal from 'sweetalert2'
 import { addProductToCart } from '../redux/actions/actionShoppingCart.js'
 import Loading from "../componets/Loading"
 import Styles from "../styles/detail.module.css"
-
-
+import Swal from 'sweetalert2'
 const jwt = require('jsonwebtoken');
 
 export default function Detail() {
     const userJWT = useSelector(state => state.petitionsReducer.user);
+    const userOne = useSelector( (state) =>  state.petitionsReducer.userOne);
     const dispatch = useDispatch()
     const product = useSelector((state) => state.petitionsReducer.detail)
     const allProducts = useSelector((state) => state.shoppingReducer.productCart)
@@ -24,6 +25,7 @@ export default function Detail() {
     if(userJWT){
         try {
             const decoded = jwt.verify(userJWT?.body?.token ? userJWT.body.token :userJWT, process.env.REACT_APP_JWT_SECRETO);
+            userOne === null &&
             dispatch(getUser(decoded?.id ?decoded.id :decoded.user.id  ))
         } catch (error) {}
     }

@@ -13,6 +13,7 @@ export default function Products(){
     
     const userJWT = useSelector(state => state.petitionsReducer.user);
     const allProducts = useSelector((state) => state.filterReducer.filterProducts)
+    const userOne = useSelector(state => state.petitionsReducer.userOne)
     const dispatch = useDispatch()
     const [option, setOption] = useState('')
 
@@ -24,6 +25,7 @@ export default function Products(){
     if(userJWT){
         try {
             const decoded = jwt.verify(userJWT?.body?.token ? userJWT.body.token :userJWT, process.env.REACT_APP_JWT_SECRETO);
+            userOne === null &&
             dispatch(getUser(decoded?.id ?decoded.id :decoded.user.id  ))
         } catch (error) {}
     }
