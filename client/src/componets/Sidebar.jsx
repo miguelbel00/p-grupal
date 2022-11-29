@@ -4,7 +4,7 @@ import "../adminStyles/sidebar.css"
 import { useDispatch } from "react-redux";
 import '../adminStyles/sidebar.css'
 import { adminList } from "../redux/actions/actionsAdmin";
-import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
+import { AppstoreOutlined, MailOutlined, SettingOutlined,UserOutlined,WalletOutlined,SmileOutlined,ProfileOutlined,TransactionOutlined} from '@ant-design/icons';
 import { Menu } from 'antd';
 
 const Sidebar = () => {
@@ -58,22 +58,22 @@ function getItem(label, key, icon, children, type) {
   };
 }
 const items = [
-  getItem("Users", "sub1", <SettingOutlined />, [
+  getItem("Users", "sub1", <UserOutlined />, [
     getItem("List Users", "user"),
     getItem("Create User", "createUser")
   ]),
-  getItem("Products", "sub2", <SettingOutlined />, [
+  getItem("Products", "sub2", <WalletOutlined />, [
     getItem("List Products", "product"),
     getItem("Create Product", "createProduct")
   ]),
-  getItem("Reviews", "sub3", <SettingOutlined />, [
+  getItem("Reviews", "sub3", <SmileOutlined />, [
     getItem("List Reviews", "review")
   ]),
-  getItem("Categories", "sub4", <SettingOutlined />, [
+  getItem("Categories", "sub4", <ProfileOutlined />, [
     getItem("List Categories", "category"),
     getItem("Create Category", "createCategory")
   ]),
-  getItem("Transactions", "sub5", <SettingOutlined />, [
+  getItem("Transactions", "sub5", <TransactionOutlined />, [
     getItem("List Transactions", "transaction")
   ])
 ];
