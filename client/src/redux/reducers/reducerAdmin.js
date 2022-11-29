@@ -59,6 +59,11 @@ export default function reducerAdmin(
                 ...state, 
                 user: payload
             }
+        case "CLEAR_ONE_USER":
+            return {
+                ...state, 
+                user: {}
+            }
         case "CREATE_CATEGORY":
             return {
                 ...state,

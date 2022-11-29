@@ -59,6 +59,13 @@ export function getOneUser(id) {
     })
   }
 }
+export function clearOneUser() {
+  return async function (dispatch) {
+    return dispatch({
+      type: "CLEAR_ONE_USER"
+    })
+  }
+}
 
 
 export function getTransactions() {

@@ -2,18 +2,21 @@ import styles from '../styles/editprofile.module.css';
 import {useDispatch, useSelector} from 'react-redux';
 import {useState, useEffect} from 'react';
 import {updateUser} from '../redux/actions/actionsPetitions';
-import CardUser from './../componets/CardUser';
-import { Link, useHistory, useParams } from 'react-router-dom';
-import {getOneUser} from '../redux/actions/actionsAdmin';
+import {  useHistory, useParams } from 'react-router-dom';
+import {getOneUser,clearOneUser} from '../redux/actions/actionsAdmin';
 import Swal from 'sweetalert2'
 
 function EditUser () {
+    const dispatch = useDispatch();
     const userState = useSelector((state)=> state.reducerAdmin.user)
         const { userId } = useParams()
         const history = useHistory
         useEffect(() => {
         
             dispatch(getOneUser(userId))
+            return ()=> {
+                dispatch(clearOneUser())
+            }
         }, []);
     
         const successAlert =() => {
@@ -32,7 +35,7 @@ function EditUser () {
                imageHeight:'200px'
             });
         }
-    const dispatch = useDispatch();
+
 
     const [editUser, setEditUser] = useState({
         userId: userState ? userState.id : null,

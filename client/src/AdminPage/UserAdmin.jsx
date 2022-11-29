@@ -1,210 +1,224 @@
-import React, { useRef, useState } from "react"
-import { Table, Button, Modal,Alert,Typography, Input, Space} from 'antd'
-import { useSelector, useDispatch } from 'react-redux'
-import { useEffect } from "react"
-import { useHistory } from "react-router-dom"
-import { deleteUser, getUsers } from "../redux/actions/actionsAdmin"
-import '../adminStyles/AdminTestAntDesign.css'
-import { SearchOutlined } from '@ant-design/icons';
-
-
+import React, { useRef, useState } from "react";
+import { Table, Button, Modal, Alert, Typography, Input, Space } from "antd";
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { useHistory } from "react-router-dom";
+import { deleteUser, getUsers } from "../redux/actions/actionsAdmin";
+import "../adminStyles/AdminTestAntDesign.css";
+import { SearchOutlined } from "@ant-design/icons";
 
 export default function AdminTestAntDesign() {
-    const [searchText, setSearchText] = useState('');
-    const [searchedColumn, setSearchedColumn] = useState('');
-    const history = useHistory()
-    const searchInput = useRef(null);
+  const [searchText, setSearchText] = useState("");
+  const [searchedColumn, setSearchedColumn] = useState("");
+  const history = useHistory();
+  const searchInput = useRef(null);
+  const [userValue, setUserValue] = useState({});
 
-    
+  const dispatch = useDispatch();
+  const userSelector = useSelector((state) => state.reducerAdmin.users);
 
-    const dispatch = useDispatch()
-    const userSelector = useSelector((state) => state.reducerAdmin.users)
+  useEffect(() => {
+    dispatch(getUsers());
+  }, [dispatch]);
 
-    useEffect(() => {
-        dispatch(getUsers())
-    }, [dispatch])
+  const data = userSelector;
 
-    const data = userSelector
+  const createHandle = (value) => {
+    console.log(value);
+  };
+  const editHandle = (value) => {
+    history.push(`/admin/edituser/${value.id}`);
+  };
+  const { Text } = Typography;
+  const [open, setOpen] = useState(false);
+  const [confirmLoading, setConfirmLoading] = useState(false);
+  const [modalText, setModalText] = useState(
+    <Alert
+      message="Estas seguro de que deseas acceder a estos datos?"
+      type="error"
+    />
+  );
 
-    const createHandle = (e) => {
-      e.preventDefault()
-    }
-    const editHandle = (value) => {
-      history.push(`/admin/edituser/${value.id}`)
-    }
-  const {Text} = Typography;
-    const [open, setOpen] = useState(false);
-    const [confirmLoading, setConfirmLoading] = useState(false);
-    const [modalText, setModalText] = useState(<Alert message="Estas seguro de que deseas acceder a estos datos?" type="error" />);
+  const handleSearch = (selectedKeys, confirm, dataIndex) => {
+    confirm();
+    setSearchText(selectedKeys[0]);
+    setSearchedColumn(dataIndex);
+  };
 
-
-    const handleSearch = (
-        selectedKeys,
-        confirm,
-        dataIndex,
-      ) => {
-        confirm();
-        setSearchText(selectedKeys[0]);
-        setSearchedColumn(dataIndex);
-      };
-
-      const handleReset = (clearFilters) => {
-        clearFilters();
-        setSearchText('');
-      };
-      const getColumnSearchProps = (dataIndex) => ({
-        filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters, close }) => (
-          <div style={{ padding: 8 }} onKeyDown={(e) => e.stopPropagation()}>
-            <Input
-              ref={searchInput}
-              placeholder={`Search ${dataIndex}`}
-              value={selectedKeys[0]}
-              onChange={(e) => setSelectedKeys(e.target.value ? [e.target.value] : [])}
-              onPressEnter={() => handleSearch(selectedKeys, confirm, dataIndex)}
-              style={{ marginBottom: 8, display: 'block' }}
-            />
-            <Space>
-              <Button
-                type="primary"
-                onClick={() => handleSearch(selectedKeys, confirm, dataIndex)}
-                icon={<SearchOutlined />}
-                size="small"
-                style={{ width: 90 }}
-              >
-                Search
-              </Button>
-              <Button
-                onClick={() => handleReset(clearFilters)}
-                size="small"
-                style={{ width: 90 }}
-              >
-                Reset
-              </Button>
-              <Button
-                type="link"
-                size="small"
-                onClick={() => {
-                  confirm({ closeDropdown: false });
-                  setSearchText((selectedKeys)[0]);
-                  setSearchedColumn(dataIndex);
-                }}
-              >
-                Filter
-              </Button>
-              <Button
-                type="link"
-                size="small"
-                onClick={() => {
-                  close();
-                }}
-              >
-                close
-              </Button>
-            </Space>
-          </div>
-        ),
-        filterIcon: (filtered) => (
-          <SearchOutlined style={{ color: filtered ? '#1890ff' : undefined }} />
-        ),
-        onFilter: (value, record) =>
-
-    record[dataIndex]
-            .toString()
-            .toLowerCase()
-            .includes((value).toLowerCase()),
-        onFilterDropdownOpenChange: (visible) => {
-          if (visible) {
-            setTimeout(() => searchInput.current?.select(), 100);
+  const handleReset = (clearFilters) => {
+    clearFilters();
+    setSearchText("");
+  };
+  const getColumnSearchProps = (dataIndex) => ({
+    filterDropdown: ({
+      setSelectedKeys,
+      selectedKeys,
+      confirm,
+      clearFilters,
+      close,
+    }) => (
+      <div style={{ padding: 8 }} onKeyDown={(e) => e.stopPropagation()}>
+        <Input
+          ref={searchInput}
+          placeholder={`Search ${dataIndex}`}
+          value={selectedKeys[0]}
+          onChange={(e) =>
+            setSelectedKeys(e.target.value ? [e.target.value] : [])
           }
-        },
-        render: (text) => text
-      });
-    const showModal = () => {
-        setOpen(true);
-    };
+          onPressEnter={() => handleSearch(selectedKeys, confirm, dataIndex)}
+          style={{ marginBottom: 8, display: "block" }}
+        />
+        <Space>
+          <Button
+            type="primary"
+            onClick={() => handleSearch(selectedKeys, confirm, dataIndex)}
+            icon={<SearchOutlined />}
+            size="small"
+            style={{ width: 90 }}
+          >
+            Search
+          </Button>
+          <Button
+            onClick={() => handleReset(clearFilters)}
+            size="small"
+            style={{ width: 90 }}
+          >
+            Reset
+          </Button>
+          <Button
+            type="link"
+            size="small"
+            onClick={() => {
+              confirm({ closeDropdown: false });
+              setSearchText(selectedKeys[0]);
+              setSearchedColumn(dataIndex);
+            }}
+          >
+            Filter
+          </Button>
+          <Button
+            type="link"
+            size="small"
+            onClick={() => {
+              close();
+            }}
+          >
+            close
+          </Button>
+        </Space>
+      </div>
+    ),
+    filterIcon: (filtered) => (
+      <SearchOutlined style={{ color: filtered ? "#1890ff" : undefined }} />
+    ),
+    onFilter: (value, record) =>
+      record[dataIndex].toString().toLowerCase().includes(value.toLowerCase()),
+    onFilterDropdownOpenChange: (visible) => {
+      if (visible) {
+        setTimeout(() => searchInput.current?.select(), 100);
+      }
+    },
+    render: (text) => text,
+  });
+  const showModal = (value) => {
+    setUserValue(value);
+    setOpen(true);
+  };
 
-    const handleOk = (value) => {
-        setModalText(<Alert message="Aguarde unos segundos..." type="success" />);
-        setConfirmLoading(true);
-        dispatch(deleteUser(value.id))
-        setTimeout(() => {
-            setOpen(false);
-            setConfirmLoading(false);
-            setModalText(<Alert message="Estas seguro de que deseas acceder a estos datos?" type="error" />)
-        }, 2000);
-    };
+  const handleOk = () => {
+    setModalText(<Alert message="Aguarde unos segundos..." type="success" />);
+    setConfirmLoading(true);
+    dispatch(deleteUser(userValue.id));
+    setTimeout(() => {
+      setOpen(false);
+      setConfirmLoading(false);
+      setModalText(
+        <Alert
+          message="Estas seguro de que deseas acceder a estos datos?"
+          type="error"
+        />
+      );
+    }, 2000);
+  };
 
-    const handleCancel = () => {
-        setOpen(false);
-    };
+  const handleCancel = () => {
+    setOpen(false);
+  };
 
-
-
-    const columns = [
+  const columns = [
+    {
+      title: "FullName",
+      datIndex: "fullName",
+      key: "fullName",
+      sorter: (a, b) => a.email.localeCompare(b.email),
+      ...getColumnSearchProps("fullName"),
+      render: (value) => <Text strong>{value.fullName}</Text>,
+    },
+    {
+      title: "Email",
+      datIndex: "email",
+      key: "email",
+      ...getColumnSearchProps("email"),
+      sorter: (a, b) => a.email.localeCompare(b.email),
+      render: (value) => <Text strong>{value.email}</Text>,
+    },
+    {
+      title: "Rol",
+      datIndex: "isAdmin",
+      key: "isAdmin",
+      filters: [
         {
-            title: 'FullName',
-            datIndex: 'fullName',
-            key: 'fullName',
-            sorter: (a, b) => a.email.localeCompare(b.email),
-            ...getColumnSearchProps('fullName'),
-            render: (value) => <Text strong>{value.fullName}</Text>,
+          text: "Admin",
+          value: true,
         },
         {
-            title: 'Email',
-            datIndex: 'email',
-            key: 'email',
-            ...getColumnSearchProps('email'),
-            sorter: (a, b) => a.email.localeCompare(b.email),
-            render: (value) => <Text strong>{value.email}</Text>,
+          text: "User",
+          value: false,
         },
-        {
-            title: 'Rol',
-            datIndex: 'isAdmin',
-            key: 'isAdmin',
-            render: (value) => {
-                if (value.isAdmin === true) { return <Text type="success">Admin</Text>} else { return <Text type="danger">User</Text>}
-            },
-            filters: [
-                {
-                    text: 'Admin',
-                    value: true,
-                },
-                {
-                    text: 'User',
-                    value: false
-                }
-
-            ],
-            onFilter: (value, record) => (record.isAdmin == value),
-        },
-        {
-            title: 'Actions',
-            dataIndex: '',
-            key: 'actionButon',
-            render: (value) => {
-                return <div>
-                    &nbsp;&nbsp;&nbsp;
-                    <Button onClick={()=>editHandle(value)} success type="primary">Edit Account</Button>
-                    &nbsp;&nbsp;&nbsp;
-                    <Button onClick={showModal} danger type="primary">Delete Account</Button>
-                    <Modal
-                        title="Cuidado!"
-                        open={open}
-                        onOk={()=>handleOk(value)}
-                        confirmLoading={confirmLoading}
-                        onCancel={handleCancel}
-                    >
-                        <p>{modalText}</p>
-                    </Modal>
-                </div>
-
-            }
+      ],
+      onFilter: (value, record) => record.isAdmin == value,
+      render: (value) => {
+        if (value.isAdmin === true) {
+          return <Text type="success">Admin</Text>;
+        } else {
+          return <Text type="danger">User</Text>;
         }
-    ]
+      },
+    },
+    {
+      title: "Actions",
+      dataIndex: "",
+      key: "actionButon",
+      render: (value) => {
+        return (
+          <div>
+            <Button onClick={() => editHandle(value)} success type="primary">
+              Edit Account
+            </Button>
+            &nbsp;&nbsp;&nbsp;
+            <Button onClick={() => showModal(value)} danger type="primary">
+              Delete Account
+            </Button>
+          </div>
+        );
+      },
+    },
+  ];
 
-    return (
-        <div>
-            <Table key='adminUserTables' dataSource={data} columns={columns} />
-        </div>
-    )
+  return (
+    <>
+      <Modal
+        title="Cuidado!"
+        open={open}
+        onOk={handleOk}
+        confirmLoading={confirmLoading}
+        onCancel={handleCancel}
+      >
+        <p>{modalText}</p>
+      </Modal>
+      <div>
+        <Table key="adminUserTables" dataSource={data} columns={columns} />
+      </div>
+    </>
+  );
 }
