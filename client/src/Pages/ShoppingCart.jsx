@@ -8,12 +8,26 @@ import Styles from '../styles/shoppingCart.module.css'
 import basura from "../assets/eliminar.png"
 import carrito from "../assets/carrito.gif"
 import Swal from 'sweetalert2'
+import { getUser } from "../redux/actions/actionsPetitions";
+const jwt = require('jsonwebtoken');
+const {REACT_APP_JWT_SECRETO} = process.env
 
 export default function ShoppingCart() {
+    const dispatch = useDispatch()
+    const userOne = useSelector( (state) =>  state.petitionsReducer.userOne);
+    const userJWT = useSelector(state => state.petitionsReducer.user);
+  
+   
+    if(userJWT){
+        try {
+            const decoded = jwt.verify(userJWT?.body?.token ? userJWT.body.token :userJWT, REACT_APP_JWT_SECRETO);
+            userOne === null &&
+            dispatch(getUser(decoded?.id ?decoded.id :decoded.user.id  ))
+        } catch (error) {}
+    }
     const allProducts = useSelector((state) => state.shoppingReducer.productCart);
     const totalCart = useSelector((state) => state.shoppingReducer.totalCart)
     const user = useSelector((state) => state.petitionsReducer.userOne);
-    const dispatch = useDispatch()
     const [totalShow, setTotalShow] = useState(0);
 
 
@@ -83,7 +97,8 @@ export default function ShoppingCart() {
         saveLocal()
         setTotal()
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [allProducts, totalCart, totalShow])
+
+    },[setTotal, totalCart, allProducts])
 
     /* if (!Object.values(product).length) { return <Loading /> } */
     return (

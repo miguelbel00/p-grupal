@@ -29,6 +29,8 @@ module.exports = {
 
             const products_ID = productsId.split(',')
 
+            console.log(detailTrans)
+
             const createTransaction = await Transaction.create(detailTrans)
             if (totalCart != 'undefined') {
                 
