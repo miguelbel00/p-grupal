@@ -4,8 +4,7 @@ import Styles from "../styles/home.module.css"
 import Carrusel from '../componets/Carrusel';
 import CardProductContainer from '../componets/CardProductContainer';
 import { Link } from "react-router-dom";
-import { getAllProducts, /* registerUser */ } from "../redux/actions/actionsPetitions";
-/* import { useAuth0 } from "@auth0/auth0-react"; */
+import { getAllProducts} from "../redux/actions/actionsPetitions";
 import { getUser } from "../redux/actions/actionsPetitions"
 const { REACT_APP_JWT_SECRETO } = process.env
 const jwt = require('jsonwebtoken');
@@ -13,13 +12,12 @@ const jwt = require('jsonwebtoken');
 export default function Home() {
     const dispatch = useDispatch()
     const userJWT = useSelector(state => state.petitionsReducer.user);
-    const nullUser = async () => {
-        await dispatch(getUser(null))
-    }
-    nullUser()
+    const userOne = useSelector(state => state.petitionsReducer.userOne)
+ 
     if (userJWT) {
         try {
             const decoded = jwt.verify(userJWT?.body?.token ? userJWT.body.token : userJWT, REACT_APP_JWT_SECRETO);
+            userOne === null &&
             dispatch(getUser(decoded?.id ? decoded.id : decoded.user.id))
         } catch (error) { }
     }
