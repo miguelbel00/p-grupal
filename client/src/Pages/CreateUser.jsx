@@ -17,7 +17,8 @@ const CreateUser = () => {
     email:"",
     password:"",
     phone:"",
-    avatar:""
+    avatar:"",
+    isAdmin:""
    });
    
    const [errors, setErrors] = useState({});
@@ -43,6 +44,12 @@ const validate = (user) => {
  if (!user.phone) {
    error.phone = 'Introduce el phone del Usuario.'
  }
+ if(!user.isAdmin){
+ error.isAdmin="Introduzca el Rol del User" 
+ }
+//  if(user.isAdmin!=='False'||user.isAdmin!=='True'){
+// error.isAdmin="Introduzca True o False"
+//  }
 
  return error;
 
@@ -107,8 +114,8 @@ return (
      <p className='errors'><strong>{errors.description}</strong></p>
    </div>
    <div>
-     <input  onChange={(e) => handleChange(e)} type="text" className="form-control" name='rol' value={user.rol} placeholder='Rol:"True"or"False'  />
-     <p className='errors'><strong>{errors.rol}</strong></p>
+     <input  onChange={(e) => handleChange(e)} type="text" className="form-control" name='isAdmin' value={user.isAdmin} placeholder='Rol:"True"or"False'  />
+     <p className='errors'><strong>{errors.isAdmin}</strong></p>
    </div>
    <div className='btn'>
  <button  className="btn btn-primary" type="submit">Crear</button>

@@ -14,10 +14,10 @@ module.exports = {
             await transporter.sendMail({
                 from: '"ASTRO GAMER" <finalp439@gmail.com>', 
                 to: email, 
-                subject: "Email-Registred 📧✔", 
+                subject: "Email-Registered 📧✔", 
                 html: 
                 `<h1>Hi! ${fullName}...</h1>
-                <h2>your email was successfully registered.</h2>
+                <h2>Your email was successfully registered.</h2>
                 <img width={200} src="https://i.pinimg.com/originals/ca/9c/d3/ca9cd37ececba2e35ea0c63349d5921f.gif" alt="" />
                 ` 
               })
