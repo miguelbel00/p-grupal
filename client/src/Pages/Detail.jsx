@@ -18,8 +18,10 @@ export default function Detail() {
     const userOne = useSelector( (state) =>  state.petitionsReducer.userOne);
     const dispatch = useDispatch()
     const product = useSelector((state) => state.petitionsReducer.detail)
+    console.log(product)
     const allProducts = useSelector((state) => state.shoppingReducer.productCart)
     const user = useSelector((state) => state.petitionsReducer.userOne);
+    console.log(user)
     const { productId } = useParams()
 
     if(userJWT){
@@ -65,14 +67,16 @@ export default function Detail() {
 
     const handleBuyNow = (e) => {
         const userId = user.id
-        const value = e.target.parentNode.parentNode.parentNode.children
-        const result = Array.from(value).map(e => e)
+        const value = Array.from(e.target.parentNode.children)
+       
+        console.log(value)
         const objResult = {
-            description: result[0].outerText,
-            price: result[1].outerText.slice(1),
+            description: value[0].outerText,
+            price:value[1].outerText.slice(1)            ,
             userId: userId,
             productsId: productId,
         }
+        console.log(objResult)
 
         axios.post(`${process.env.REACT_APP_SERVER_BACK}/checkout/checkout-order`, objResult)
             .then(response => window.location.href = response.data.links[1].href)
