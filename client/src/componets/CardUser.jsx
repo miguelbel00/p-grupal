@@ -8,8 +8,6 @@ import { useSelector } from 'react-redux';
 
 function CardUser({user}){
     const userJWT = useSelector(state => state.petitionsReducer.user);
-   
-    console.log(userJWT)
 return (
    
            <div className={Styles.container}>
@@ -32,10 +30,6 @@ return (
                                 <p><GiSmartphone/></p>
                                 <p>{user.phone}</p>
                             </div>
-                            {/* <div className={Styles.address}>
-                                <p><GiSmartphone/></p>
-                                <p>{user.address}</p>
-                            </div>*/}
                         </div>
                 </div>}
             </div>

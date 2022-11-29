@@ -29,7 +29,7 @@ export default function Profile() {
       <div className={Styles.container}>
 
         <CardUser user={ userOne } />
-        <Link to={"/"}>
+        <Link to={`/editProfile/${userOne?.id}`}>
           <button>Edit Profile</button>
         </Link>
 

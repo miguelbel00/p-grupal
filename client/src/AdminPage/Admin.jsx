@@ -27,7 +27,7 @@ export default function AdminPage() {
             <Sidebar />
             <div className="adminContainer">
                 <div className="selected-component">
-                    {adminListState === 'user' ? <UserAdmin /> :
+                    {adminListState === 'user' ? <UserAdmin/> :
                         adminListState === 'product' ? <ProductsAdmin /> :
                             adminListState === 'review' ? <ReviewsAdmin /> :
                                 adminListState === 'category' ? <CategoryAdmin /> :

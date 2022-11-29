@@ -4,8 +4,7 @@ import Styles from "../styles/home.module.css"
 import Carrusel from '../componets/Carrusel';
 import CardProductContainer from '../componets/CardProductContainer';
 import { Link } from "react-router-dom";
-import { getAllProducts, /* registerUser */ } from "../redux/actions/actionsPetitions";
-/* import { useAuth0 } from "@auth0/auth0-react"; */
+import { getAllProducts} from "../redux/actions/actionsPetitions";
 import { getUser } from "../redux/actions/actionsPetitions"
 const { REACT_APP_JWT_SECRETO } = process.env
 const jwt = require('jsonwebtoken');
