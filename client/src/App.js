@@ -15,8 +15,8 @@ import CreateCategory from "./Pages/CreateCategory";
 import CreateUser from "./Pages/CreateUser";
 import AdminPage from "./AdminPage/Admin";
 import EditProfile from "./componets/EditProfile";
-import EditUser from "./Pages/EditUser"
-
+import EditUser from "./Pages/EditUser";
+import EditTrasnsaction from "./Pages/EditTransaction";
 
 function App() {
   const user = useSelector(state => state.petitionsReducer.user)
@@ -56,9 +56,14 @@ function App() {
            <CreateUser/>
           </ProteccionRoutes>
         </Route>
-        <Route exact path='/admin/edituser' component={EditUser}>
+        <Route exact path='/admin/edituser/:userId' component={EditUser}>
           <ProteccionRoutes user={user}>
-           <CreateUser/>
+           <EditUser/>
+          </ProteccionRoutes>
+        </Route>
+        <Route exact path='/admin/editTransaction/:transactionId' component={EditTrasnsaction}>
+          <ProteccionRoutes user={user}>
+           <EditTrasnsaction/>
           </ProteccionRoutes>
         </Route>
       </Switch>

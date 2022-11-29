@@ -1,4 +1,4 @@
- import '../styles/createproduct.css';
+ import '../styles/createCategory.css';
  import { useState } from 'react';
  import { getAllProducts } from '../redux/actions/actionsFilter';
  import {useDispatch} from "react-redux"
@@ -92,7 +92,7 @@ return (
   <div className='createContainer'> 
     <form onSubmit={(e) => handleSubmit(e)} className="needs-validation"> 
     <div className='boxInput'>
-    <h4 ><strong>Create Category</strong></h4>
+      <h4 ><strong>Create Category</strong></h4>
             <div className='inputsError'>
                 <input  onChange={(e) => handleChange(e)} value= {category.name}  type="text" className="form-control" name='name' placeholder="Categories name" />  
                 <p className='errors'><strong>{errors.name}</strong></p> 

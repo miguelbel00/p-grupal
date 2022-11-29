@@ -73,7 +73,7 @@ const items = [
     getItem("List Categories", "category"),
     getItem("Create Category", "createCategory")
   ]),
-  getItem("Trasactions", "sub5", <SettingOutlined />, [
+  getItem("Transactions", "sub5", <SettingOutlined />, [
     getItem("List Transactions", "transaction")
   ])
 ];

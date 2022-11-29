@@ -17,12 +17,6 @@ export default function AdminTestAntDesign() {
     const [open, setOpen] = useState(false);
     const [confirmLoading, setConfirmLoading] = useState(false);
     const [modalText, setModalText] = useState(<Alert message="Estas seguro de que deseas acceder a estos datos?" type="error" />);
-    
-    const editHandle = (e) => {
-      
-      console.log(e.id)
-    }
-
 
 
     const showModal = () => {
@@ -41,7 +35,6 @@ export default function AdminTestAntDesign() {
     };
 
     const handleCancel = () => {
-        console.log('Clicked cancel button');
         setOpen(false);
     };
 
@@ -53,9 +46,8 @@ export default function AdminTestAntDesign() {
 
     useEffect(() => {
         dispatch(getCategory())
-    }, [dispatch])
+    }, [])
 
-    console.log(categorySelector)
     const data = categorySelector
 
 
@@ -169,8 +161,6 @@ export default function AdminTestAntDesign() {
             key: 'actionButon',
             render: (value) => {
                 return <div>
-                    <Button onClick={()=>editHandle(value)} success type="primary">Edit Category</Button>
-                    &nbsp;&nbsp;&nbsp;
                     <Button onClick={()=>showModal(value)} danger type="primary">Delete Category</Button>
                     <Modal
                         title="Cuidado!"
@@ -190,7 +180,7 @@ export default function AdminTestAntDesign() {
 
     return (
         <div>
-            <Table key='adminProcuctTables' dataSource={data} columns={columns} />
+            <Table key='adminCategoriesTables' dataSource={data} columns={columns} />
         </div>
     )
 }

@@ -4,7 +4,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import ItemCart from "../componets/ItemCart";
 import { removeAllProduct } from "../redux/actions/actionShoppingCart";
-import '../styles/shoppingCart.css'
+import Styles from '../styles/shoppingCart.module.css'
+import basura from "../assets/eliminar.png"
+import carrito from "../assets/carrito.gif"
 import Swal from 'sweetalert2'
 
 export default function ShoppingCart() {
@@ -13,7 +15,7 @@ export default function ShoppingCart() {
     const user = useSelector((state) => state.petitionsReducer.userOne);
     const dispatch = useDispatch()
     const [totalShow, setTotalShow] = useState(0);
-    
+
 
 
     const successAlert = () => {
@@ -62,7 +64,7 @@ export default function ShoppingCart() {
     }
 
     const handleBuyNow = () => {
-        setTimeout( ()=> {
+        setTimeout(() => {
             const objCart = {
                 userId: user.id && user.id,
                 description: allProducts.length && allProducts.map((e) =>  `producto: ${e.name} cantidad: ${totalCart[e.id][1]} total: U$D ${totalCart[e.id][0] * totalCart[e.id][1]}`  ).join(' | '),
@@ -83,21 +85,33 @@ export default function ShoppingCart() {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [allProducts, totalCart, totalShow])
 
-
+    /* if (!Object.values(product).length) { return <Loading /> } */
     return (
-        <div className="total-cart" >
-            <h2 className="card-title">Shopping Cart</h2>
-            <button className="btn btn-primary boton" onClick={clearCart}>Remove All</button>
-            <button className="btn btn-primary" type="button" onClick={handleBuyNow} >Buy now</button>
-            <div >
-                <div className="contenedor-cart-hijo">
-                    {allProducts?.map((e, i) => <ItemCart
+        <div className={Styles.container}>
+            <div className={Styles.title}><h2 >Shopping Cart</h2></div>
+            <div className={Styles.product}>
+                {!allProducts.length ?
+                    (<div className={Styles.trolley}>
+                        <img src={carrito} alt="not found" />
+                        <p>There are no products in the cart yet!</p>
+                    </div>) :
+                    allProducts?.map((e, i) => <ItemCart
                         key={i} id={e.id} name={e.name} price={e.price} image={e.image} setTotal={setTotal}
                     />)}
-                </div>
-                <h3 className="card-title">Total to pay $ {totalShow}</h3>
             </div>
-
+            <div className={Styles.totalProduct}>
+                <div className={Styles.containerOne}>
+                    <p>ORDER SUMMARY</p>
+                    <div className={Styles.total}>
+                        <span>Total: </span>
+                        <span className={Styles.price}> $ {totalShow}</span>
+                    </div>
+                </div>
+                <div className={Styles.containerTwo}>
+                    <button className={Styles.btn1} onClick={clearCart}><img src={basura} alt={"eliminar"} /></button>
+                    <button className={Styles.btn2} type="button" onClick={handleBuyNow} >Buy now</button>
+                </div>
+            </div>
         </div>
     )
 }

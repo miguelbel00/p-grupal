@@ -1,0 +1,23 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 30px auto;
+}
+.container h4{
+    font-size: 20px;   
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #e5e6e8;
+    
+}
+.container .cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: auto;
+    gap: 15px;
+    width: 100%;
+}
+

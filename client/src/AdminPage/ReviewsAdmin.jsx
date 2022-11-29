@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react"
 import { Table, Button, Modal,Alert,Typography,Input, Space } from 'antd'
 import { useSelector, useDispatch } from 'react-redux'
 import { useEffect } from "react"
-import {  deleteCategory, getReviews } from "../redux/actions/actionsAdmin"
+import {   deleteReview, getReviews } from "../redux/actions/actionsAdmin"
 import { SearchOutlined } from '@ant-design/icons';
 import '../adminStyles/AdminTestAntDesign.css'
 
@@ -27,7 +27,7 @@ export default function AdminTestAntDesign() {
     const handleOk = (value) => {
         setModalText(<Alert message="Aguarde unos segundos..." type="success" />);
         setConfirmLoading(true);
-        dispatch(deleteCategory(value.id))
+        dispatch(deleteReview(value.id))
         setTimeout(() => {
             setOpen(false);
             setConfirmLoading(false);
@@ -133,7 +133,7 @@ export default function AdminTestAntDesign() {
 
     useEffect(() => {
         dispatch(getReviews())
-    }, [dispatch])
+    }, [])
 
     const data = reviewsSelector
 
@@ -213,7 +213,7 @@ export default function AdminTestAntDesign() {
 
     return (
         <div>
-            <Table key='adminProcuctTables' dataSource={data} columns={columns} />
+            <Table key='adminReviewsTables' dataSource={data} columns={columns} />
         </div>
     )
 }

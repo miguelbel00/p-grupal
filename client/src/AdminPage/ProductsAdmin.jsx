@@ -2,9 +2,10 @@ import React, { useRef, useState } from "react"
 import { Table, Button, Modal,Alert,Typography,Input, Space } from 'antd'
 import { useSelector, useDispatch } from 'react-redux'
 import { useEffect } from "react"
-import { getProducts } from "../redux/actions/actionsAdmin"
+import { deleteProduct, getProducts } from "../redux/actions/actionsAdmin"
 import '../adminStyles/AdminTestAntDesign.css'
 import { SearchOutlined } from '@ant-design/icons';
+import { useHistory } from "react-router-dom"
 
 export default function AdminTestAntDesign() {
 
@@ -16,12 +17,19 @@ export default function AdminTestAntDesign() {
     const [confirmLoading, setConfirmLoading] = useState(false);
     const [modalText, setModalText] = useState(<Alert message="Estas seguro de que deseas acceder a estos datos?" type="error" />);
 
+    const history = useHistory()
+    const dispatch = useDispatch()
+    const productsSelector = useSelector((state) => state.reducerAdmin.products)
 
-    const createHandle = (e) => {
-      e.preventDefault()
-    }
-    const editHandle = (e) => {
-      e.preventDefault()
+    useEffect(() => {
+        dispatch(getProducts())
+    }, [dispatch])
+
+    const data = productsSelector
+
+
+    const editHandle = (value) => {
+      history.push(`/admin/editproduct/${value.id}`)
     }
 
 
@@ -31,9 +39,10 @@ export default function AdminTestAntDesign() {
         setOpen(true);
     };
 
-    const handleOk = () => {
+    const handleOk = (value) => {
         setModalText(<Alert message="Aguarde unos segundos..." type="success" />);
         setConfirmLoading(true);
+        dispatch(deleteProduct(value.id))
         setTimeout(() => {
             setOpen(false);
             setConfirmLoading(false);
@@ -42,7 +51,6 @@ export default function AdminTestAntDesign() {
     };
 
     const handleCancel = () => {
-        console.log('Clicked cancel button');
         setOpen(false);
     };
 
@@ -134,20 +142,6 @@ export default function AdminTestAntDesign() {
 
 
 
-    const dispatch = useDispatch()
-    const productsSelector = useSelector((state) => state.reducerAdmin.products)
-
-    useEffect(() => {
-        dispatch(getProducts())
-    }, [dispatch])
-
-    console.log(productsSelector)
-    const data = productsSelector
-
-
-
-
-
 
     const columns = [
         {
@@ -187,17 +181,15 @@ export default function AdminTestAntDesign() {
             title: 'Actions',
             dataIndex: '',
             key: 'actionButon',
-            render: () => {
+            render: (value) => {
                 return <div>
-                    <Button onClick={createHandle} success type="primary">Create Product</Button>
-                    &nbsp;&nbsp;&nbsp;
-                    <Button onClick={editHandle} success type="primary">Edit Product</Button>
+                    <Button onClick={()=>editHandle(value)} success type="primary">Edit Product</Button>
                     &nbsp;&nbsp;&nbsp;
                     <Button onClick={showModal} danger type="primary">Delete Product</Button>
                     <Modal
                         title="Cuidado!"
                         open={open}
-                        onOk={handleOk}
+                        onOk={()=>handleOk(value)}
                         confirmLoading={confirmLoading}
                         onCancel={handleCancel}
                     >

@@ -7,7 +7,6 @@ import ReviewsAdmin from '../AdminPage/ReviewsAdmin'
 import CategoryAdmin from '../AdminPage/CategoryAdmin'
 import TransactionAdmin from '../AdminPage/TransactionAdmin'
 import '../adminStyles/admin.css'
-import AdminTestAntDesign from "../Pages/AdminTestAntDesign";
 
 export default function AdminPage() {
 

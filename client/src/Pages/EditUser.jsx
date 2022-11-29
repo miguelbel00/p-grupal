@@ -1,21 +1,48 @@
 import styles from '../styles/editprofile.module.css';
 import {useDispatch, useSelector} from 'react-redux';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import {updateUser} from '../redux/actions/actionsPetitions';
 import CardUser from './../componets/CardUser';
-import { Link } from 'react-router-dom';
-
+import { Link, useHistory, useParams } from 'react-router-dom';
+import {getOneUser} from '../redux/actions/actionsAdmin';
+import Swal from 'sweetalert2'
 
 function EditUser () {
-    const user = {}
+    const userState = useSelector((state)=> state.reducerAdmin.user)
+        const { userId } = useParams()
+        const history = useHistory
+        useEffect(() => {
+        
+            dispatch(getOneUser(userId))
+        }, []);
+    
+        const successAlert =() => {
+            Swal.fire({
+                title:'Success!',
+                text:`User Edited `,
+                confirmButtonText:'Lets Go',
+                background:'#67e9ff',
+                customClass:{ 
+                    popup:'popup-alert',
+                    text:'titleAlert',
+                    content:'titleAlert'
+                },
+               imageUrl: 'ss',
+               imageWidth:'200px',
+               imageHeight:'200px'
+            });
+        }
     const dispatch = useDispatch();
+
     const [editUser, setEditUser] = useState({
-        userId: user ? user.id : null,
-        fullName: "", 
+        userId: userState ? userState.id : null,
+        fullName: userState ? userState.fullName : "", 
         password:"", 
         phone: "",
-        email: user ? user.email : null,
+        email: userState ? userState.email : null,
+        isAdmin: userState ? userState.isAdmin : false
     });
+
     const [errors, setErrors] = useState({});
     const validate = (input) => {
         let error = {};
@@ -36,9 +63,10 @@ function EditUser () {
             error.phone = 'Introduce el numero'
         }
 
-        if (isNaN(input.phone)) {
-            error.phone = 'Introduce solo numeros'
+        if (!input.isAdmin) {
+            error.isAdmin = 'Introduce el Admin'
         }
+
         return error
     }
 
@@ -58,7 +86,8 @@ function EditUser () {
           }))
         } else {   
         dispatch(updateUser(editUser));
-        alert('Perfil actualizado');
+        successAlert()
+        history.push('/admin')
         }  
     };
 
@@ -78,9 +107,6 @@ function EditUser () {
 
     return (
 <div className={styles.container}>
-    <div className={styles.cardUser}>
-        <CardUser user = {user}/>
-    </div> 
     <div className={styles.profileContainer}>
             <h4>Edit</h4>
             <form onSubmit={handelSubmit} className={styles.form}>         
@@ -89,7 +115,7 @@ function EditUser () {
                <input onChange={handleChange}
                 type="text" 
                 className={styles.input} 
-                placeholder='full name... ' 
+                placeholder={`${userState.fullName}`} 
                  name='fullName' 
                  value={editUser?.fullName}/>
                  <label className={styles.error}>{errors.fullName}</label>
@@ -97,12 +123,11 @@ function EditUser () {
             <div className={styles.containerEmail}>
                <label>Email</label>
                <input
-                 onChange={handleChange}
                   type="text"
                    className={styles.inputEmail} 
                    placeholder='name@example.com  ' 
                    name='email' 
-                   value={user?.email} />
+                   value={userState?.email} />
             </div>
             <div className={styles.containerPhone}>
                <label>Phone</label>
@@ -110,11 +135,21 @@ function EditUser () {
                 onChange={handleChange} 
                 type="text" 
                 className={styles.input} 
-                placeholder='ej:+54 1163259874 ' 
+                placeholder={`${userState.phone}`}
                 name='phone' 
                 value={editUser?.phone}/>
                 <label className={styles.error}>{errors.phone}</label>
             </div>
+            <div className={styles.containerName}>
+               <label>Admin</label>
+               <input onChange={handleChange}
+                type="text" 
+                className={styles.input} 
+                placeholder={`${userState.isAdmin}`}
+                 name='isAdmin' 
+                 value={editUser?.isAdmin}/>
+                 <label className={styles.error}>{errors.isAdmin}</label>
+     </div>
             <div className={styles.containerPassword}>
                <label>Password</label>
                 <input 
@@ -127,17 +162,15 @@ function EditUser () {
             </div> 
             <div className={styles.inputIdBox}>
                <input 
-               onChange={handleChange}
                 type="text"  
                 className={styles.inputId}  
                 name='userId' 
-                value= {user?.id}/>
+                value= {userState?.id}/>
             </div>
+            
             <button className={styles.btn} type='submit'>Update</button>
          </form>    
-         {/* <Link  to='/'>     
-         <button className={styles.btnCancel}>Cancel</button>
-        </Link> */}
+
 
      </div>
 </div>

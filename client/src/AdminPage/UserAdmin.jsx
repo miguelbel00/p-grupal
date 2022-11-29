@@ -3,7 +3,7 @@ import { Table, Button, Modal,Alert,Typography, Input, Space} from 'antd'
 import { useSelector, useDispatch } from 'react-redux'
 import { useEffect } from "react"
 import { useHistory } from "react-router-dom"
-import { getUsers } from "../redux/actions/actionsAdmin"
+import { deleteUser, getUsers } from "../redux/actions/actionsAdmin"
 import '../adminStyles/AdminTestAntDesign.css'
 import { SearchOutlined } from '@ant-design/icons';
 
@@ -15,12 +15,22 @@ export default function AdminTestAntDesign() {
     const history = useHistory()
     const searchInput = useRef(null);
 
+    
+
+    const dispatch = useDispatch()
+    const userSelector = useSelector((state) => state.reducerAdmin.users)
+
+    useEffect(() => {
+        dispatch(getUsers())
+    }, [dispatch])
+
+    const data = userSelector
+
     const createHandle = (e) => {
       e.preventDefault()
     }
     const editHandle = (value) => {
-      history.push(`/editProfile/${value.id}`)
-      console.log(value)
+      history.push(`/admin/edituser/${value.id}`)
     }
   const {Text} = Typography;
     const [open, setOpen] = useState(false);
@@ -113,9 +123,10 @@ export default function AdminTestAntDesign() {
         setOpen(true);
     };
 
-    const handleOk = () => {
+    const handleOk = (value) => {
         setModalText(<Alert message="Aguarde unos segundos..." type="success" />);
         setConfirmLoading(true);
+        dispatch(deleteUser(value.id))
         setTimeout(() => {
             setOpen(false);
             setConfirmLoading(false);
@@ -124,20 +135,10 @@ export default function AdminTestAntDesign() {
     };
 
     const handleCancel = () => {
-        console.log('Clicked cancel button');
         setOpen(false);
     };
 
 
-
-    const dispatch = useDispatch()
-    const userSelector = useSelector((state) => state.reducerAdmin.users)
-
-    useEffect(() => {
-        dispatch(getUsers())
-    }, [dispatch])
-
-    const data = userSelector
 
     const columns = [
         {
@@ -189,7 +190,7 @@ export default function AdminTestAntDesign() {
                     <Modal
                         title="Cuidado!"
                         open={open}
-                        onOk={handleOk}
+                        onOk={()=>handleOk(value)}
                         confirmLoading={confirmLoading}
                         onCancel={handleCancel}
                     >

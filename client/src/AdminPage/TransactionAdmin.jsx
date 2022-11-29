@@ -5,6 +5,7 @@ import { useEffect } from "react"
 import {  deleteTransaction, getTransactions } from "../redux/actions/actionsAdmin"
 import { SearchOutlined } from '@ant-design/icons';
 import '../adminStyles/AdminTestAntDesign.css'
+import { useHistory } from "react-router-dom"
 
 
 export default function AdminTestAntDesign() {
@@ -16,9 +17,9 @@ export default function AdminTestAntDesign() {
   const [open, setOpen] = useState(false);
   const [confirmLoading, setConfirmLoading] = useState(false);
   const [modalText, setModalText] = useState(<Alert message="Estas seguro de que deseas acceder a estos datos?" type="error" />);
-
+  const history = useHistory()
   const editHandle = (value) => {
-    console.log(value)
+    history.push(`admin/editTransaction/${value.id}`)
   }
 
   const showModal = () => {
@@ -26,21 +27,31 @@ export default function AdminTestAntDesign() {
   };
 
   const handleOk = (value) => {
-      setModalText(<Alert message="Aguarde unos segundos..." type="success" />);
-      setConfirmLoading(true);
-      dispatch(deleteTransaction(value.id))
-      setTimeout(() => {
-          setOpen(false);
-          setConfirmLoading(false);
-          setModalText(<Alert message="Estas seguro de que deseas acceder a estos datos?" type="error" />)
-      }, 2000);
-  };
+    setModalText(<Alert message="Aguarde unos segundos..." type="success" />);
+    setConfirmLoading(true);
+    dispatch(deleteTransaction(value.id))
+    setTimeout(() => {
+        setOpen(false);
+        setConfirmLoading(false);
+        setModalText(<Alert message="Estas seguro de que deseas acceder a estos datos?" type="error" />)
+    }, 2000);
+};
 
   const handleCancel = () => {
       setOpen(false);
   };
 
 
+
+  const dispatch = useDispatch()
+  const transactionsSelector = useSelector((state) => state.reducerAdmin.transactions)
+
+  useEffect(() => {
+      dispatch(getTransactions())
+  }, [])
+
+  
+  const data = transactionsSelector
 
 
   const handleSearch = (
@@ -124,22 +135,6 @@ export default function AdminTestAntDesign() {
       },
       render: (text) => text
     });
-
-
-
-
-
-  const dispatch = useDispatch()
-  const transactionsSelector = useSelector((state) => state.reducerAdmin.transactions)
-
-  useEffect(() => {
-      dispatch(getTransactions())
-  }, [dispatch])
-
-  const data = transactionsSelector
-
-
-
 
 
   const columns = [

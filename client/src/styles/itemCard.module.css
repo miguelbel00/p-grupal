@@ -1,0 +1,123 @@
+.container{
+  background-color: white;
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  height: 80px;
+  margin: 10px auto;
+  border: 1px solid #c4c4c4;
+  border-radius: 5px;
+}
+
+.container .containerOne{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 60%;
+  gap: 5px;
+  padding: 5px;
+}
+.container .containerOne .img{
+  width: 20%;
+  text-align: center; 
+}
+.container .containerOne .img img{
+  width: 50px;
+  object-fit: cover;
+}
+.container .containerOne .name{
+  width: 80%;
+  display: flex;
+}
+.container .containerOne .name h3{
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+.containerTwo{
+  width: 20%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0 5px;
+}
+.container .containerTwo .amount{ 
+  border: 2px solid rgba(126, 126, 131, .15);
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+}
+.container .containerTwo .amount h3{
+  font-size: 15px;
+  color: #7e7e83;
+  padding: 7.5px 0;
+  appearance: textfield;
+  margin: 0;
+}
+.container .containerTwo .amount .btn1{
+  background-color: rgba(126, 126, 131, .15);
+  border-radius: 10px 0 0 10px ;
+  border: none;
+  width: 25px;
+  height: 35px;
+  text-align: center;
+}
+.container .containerTwo .amount .btn2{
+  background-color: rgba(126, 126, 131, .15);
+  border-radius: 0 10px 10px 0;
+  border: none;
+  width: 25px;
+  height: 35px;
+  text-align: center;
+}
+
+.container .containerThree{
+  width: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container .containerThree h3{
+  font-size: 17px;
+  font-weight: 700;
+  color: #000;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.container .containerFour{
+  width: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container .containerFour img{
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+
+@media screen and (max-width: 768px) {
+  .container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 250px;
+    margin: 10px auto;
+    padding: 10px 0;
+    gap: 10px;
+  }
+  .container .containerOne{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 95%;
+    text-align: center; 
+  }
+}

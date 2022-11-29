@@ -3,8 +3,9 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        margin: 50px;
+        margin: auto;
         background-color: white;
+        border: 1px solid #c4c4c4;
     }
 
     .stars {
