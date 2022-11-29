@@ -27,6 +27,7 @@ module.exports = {
                     message: 'Product edit successful',
                     body: response
                 })
+                
             }
         catch (error) {
            const httpError = createHttpError(

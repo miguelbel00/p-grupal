@@ -16,26 +16,9 @@ import Swal from 'sweetalert2'
 const Navbar = () => {
     const dispatch = useDispatch()
     const history = useHistory();
-    const [input, setInput] = useState('')
     const user = useSelector(state => state.petitionsReducer.user)
-    const products = useSelector(state => state.reducerAdmin.products)
     const userOne = useSelector(state => state.petitionsReducer.userOne)
 
-    function handleInput(e){
-        e.preventDefault()
-        setInput(e.target.value)
-
-    }
-
-    function handleSubmit(e){
-        e.preventDefault();
-        dispatch(searchProduct(input))
-        history.push('/products')
-
-    }
-
-    
-    
     const handleLogOut = () => {
         localStorage.setItem("user", JSON.stringify({}))
         dispatch(LogOut({}))
@@ -123,28 +106,10 @@ const Navbar = () => {
                         }
 
                     </ul>
-                    <div>
+                    <div className={Search.SearchBar}>
 
                         <SearchBar/>
                     </div>
-                     {/* <form className="d-flex" role="search"> 
-                        <input onChange={handleInput} value={input} className="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search"
-                        /> 
-                        <button  className="btn btn-outline-secondary" type="submit" onClick={(e) => handleSubmit(e)}>Buscar</button>
-                     </form> 
-                     <div  className={Search.dropdown}>
-                        {products.filter(p => {
-                            let searchProduct = input?.charAt(0).toUpperCase() + input?.toLowerCase().slice(1);
-                            console.log(input)
-                            return searchProduct && p.name.startsWith(searchProduct) && p.name !== searchProduct
-                        }).slice(0,4)
-                        .map(p=>(
-                            <div className={Search.dropdownRow} key={p.id} onClick={handleInput} id={p.name}>
-                                <img src={p.image} alt={p.name} />
-                                {p.name}
-                            </div>
-                        ))}
-                     </div> */}
                 </div>
             </div>
         </nav>

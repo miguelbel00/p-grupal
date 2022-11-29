@@ -20,17 +20,18 @@
     font-family: 'Roboto Flex', sans-serif;
     font-weight: 400;
     border-radius: 20px;
-    background-color: #e0aeff;
+    background-color: #f3e8fa;
+    border: none;
 }
 
 .pages1 {
     text-align: center;
-    height: auto;
+    height: 20px;
     width: 100px;
     margin-top: 5px;
     font-family: 'Roboto Flex', sans-serif;
     font-weight: 400;
-    background-color: #e0aeff;
+    background-color: #f3e8fa;
 
     padding: auto;
     border-radius: 20px;
@@ -52,7 +53,7 @@
     justify-content: center;
     background-color: #B59C6D;
 
-    background-color: #e0aeff;
+    background-color: #f3e8fa;
 
     color: rgb(0, 0, 0);
     margin-bottom: 2px;
@@ -62,7 +63,7 @@
 
     padding: auto;
     border-radius: 20px;
-    height: auto;
+    height: 20px;
     width: 50px;
     font-size: 13px;
 }

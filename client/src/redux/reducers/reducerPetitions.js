@@ -34,6 +34,23 @@ export default function petitionsReducer(
 
       };
 
+    case "GET_ONE_USER": 
+    return {
+      ...state,
+      userOne: payload
+    }
+    case "LOG_OUT": 
+    return {
+      ...state,
+      user: payload
+    }
+    
+    case "EDIT_USER": 
+
+    return {
+      ...state,
+    }
+
     default:
       return state;
   }

@@ -36,23 +36,9 @@ a:link, a:visited, a:active {
     border-radius: 50%;
     margin-left: 15px;
 }
-.dropdown-row {
-    cursor: pointer;
-    text-align: start;
-    margin: 2px 0;
+#nav{
+    padding: 0;
 }
-
-
-.dropdown{
-    width: 18vh;
-    background-color: aliceblue;
-    position:fixed;
-    border-radius: 8px;
-
-
-}
-
-.dropdown img{
-height: 20px;
-padding: 2% 10% 2% 2%;
+#search{
+    margin-bottom: 15px;
 }
