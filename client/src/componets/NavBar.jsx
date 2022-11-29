@@ -54,7 +54,7 @@ const Navbar = () => {
     }
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark">
+        <nav className="navbar navbar-expand-lg navbar-dark" id={Styles.nav}>
             <div className="container-fluid">
                 <div>
                     <Link to='/' >
@@ -71,7 +71,7 @@ const Navbar = () => {
                                 <i className="bi bi-house nav-link mb-3"> &nbsp;Home</i>
                             </Link>
                         </li>
-                        {Object.keys(user).length !== 0
+                        {Object.keys(user).length !== 0 && userOne !==null
                         ?   <li className="nav-item">
                                 <Link to='/profile' >
                                     <i className="bi bi-person-circle nav-link mb-3"> &nbsp;My Account</i>
@@ -84,24 +84,25 @@ const Navbar = () => {
                                 <i className="0bi bi-cart4 nav-link mb-3"> &nbsp;My Cart</i>
                             </Link>
                         </li>
-                        {Object.keys(user).length === 0
-                        ?   <>  
-                                <li className="nav-item">
-                                    <Link to='/login' >
-                                        <i className="bi bi-box-arrow-in-right nav-link mb-3"> &nbsp;Login</i>
-                                    </Link>
-                                </li>
-                                <li className="nav-item">
-                                    <Link to='/register' >
-                                        <i className="bi bi-box-arrow-in-right nav-link mb-3"> &nbsp;Register</i>
-                                    </Link>
-                                </li>
-                            </>
-                        :   <li className="nav-item">
-                                <Link to='/' onClick={handleLogOut}>
-                                  <i className="bi bi-box-arrow-right nav-link mb-3"> &nbsp;Log Out</i>
-                                </Link>
-                            </li>
+                        {}
+                        {Object.keys(user).length !== 0 && userOne !==null
+                        ?  <li className="nav-item">
+                        <Link to='/' onClick={handleLogOut}>
+                          <i className="bi bi-box-arrow-right nav-link mb-3"> &nbsp;Log Out</i>
+                        </Link>
+                    </li>
+                        :    <>  
+                        <li className="nav-item">
+                            <Link to='/login' >
+                                <i className="bi bi-box-arrow-in-right nav-link mb-3"> &nbsp;Login</i>
+                            </Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link to='/register' >
+                                <i className="bi bi-box-arrow-in-right nav-link mb-3"> &nbsp;Register</i>
+                            </Link>
+                        </li>
+                    </>
                         }
                         {Object.keys(user).length !== 0 && userOne?.isAdmin === true
                         ?   
@@ -115,7 +116,7 @@ const Navbar = () => {
                         }
 
                     </ul>
-                     <form className="d-flex" role="search"> 
+                     <form className="d-flex" id={Styles.search} role="search"> 
                         <input onChange={handleInput} value={input}className="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search"/>
                         <button  className="btn btn-outline-secondary" type="submit" onClick={(e) => handleSubmit(e)}>Buscar</button>
                      </form> 

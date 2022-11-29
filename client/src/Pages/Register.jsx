@@ -7,6 +7,7 @@ import '../styles/register.css'
 import { Formik } from "formik";
 import Swal from 'sweetalert2'
 import dino from '../assets/dinoVolador.png'
+import axios from "axios";
 const {REACT_APP_GOOGLE_CLIENT_ID} = process.env
 const jwt = require('jsonwebtoken');
 
@@ -57,6 +58,7 @@ export default function Register() {
                 popup:'popup-alert',
                 text:'titleAlert',
                 content:'titleAlert'
+                
             },
         }); 
     }
@@ -79,6 +81,7 @@ export default function Register() {
     //Google Auth start
     const handleCallBackResponse = async (response) => {
         const user =response.credential
+        setSubmit(true)
         try {
             const decoded = jwt.decode(user)
             const newUser = {
@@ -86,15 +89,18 @@ export default function Register() {
                 email: decoded.email,
                 phone: "000 0000 000",
                 avatar: decoded.picture
+                
             }
-           await  dispatch(registerUser(newUser))   
+           await  dispatch(registerUser(newUser))
+   
         } catch (error) {
             console.log(error)
         }
-        history.push('/')
       }
   
     useEffect(()=> {
+        localStorage.setItem("user", JSON.stringify({}))
+        
         /* global google */
         google.accounts.id.initialize({
             client_id: REACT_APP_GOOGLE_CLIENT_ID,

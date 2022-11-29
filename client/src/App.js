@@ -11,8 +11,12 @@ import Profile from "./componets/Profile";
 import ProteccionRoutes from "./componets/proteccionRoutes";
 import { useSelector } from "react-redux";
 import CreateProduct from "./Pages/CreateProduct";
+import CreateCategory from "./Pages/CreateCategory";
+import CreateUser from "./Pages/CreateUser";
 import AdminPage from "./AdminPage/Admin";
-
+import EditProfile from "./componets/EditProfile";
+import EditUser from "./Pages/EditUser";
+import EditTrasnsaction from "./Pages/EditTransaction";
 
 function App() {
   const user = useSelector(state => state.petitionsReducer.user)
@@ -29,7 +33,10 @@ function App() {
         <Route exact path='/login' component={Login}/>
         <Route exact path='/products' component={Products}/>
         <Route exact path='/shoppingcart' component={ShoppingCart}/>
+        <Route exact path={'/editProfile/:userId'} component={EditProfile}/>
+
         <Route exact path='/admin' component={AdminPage}>
+
           <ProteccionRoutes user={user}>
            <AdminPage/>
           </ProteccionRoutes>
@@ -37,6 +44,26 @@ function App() {
         <Route exact path='/admin/createproduct' component={CreateProduct}>
           <ProteccionRoutes user={user}>
            <CreateProduct/>
+          </ProteccionRoutes>
+        </Route>
+        <Route exact path='/admin/createcategory' component={CreateCategory}>
+          <ProteccionRoutes user={user}>
+           <CreateCategory/>
+          </ProteccionRoutes>
+        </Route>
+        <Route exact path='/admin/createuser' component={CreateUser}>
+          <ProteccionRoutes user={user}>
+           <CreateUser/>
+          </ProteccionRoutes>
+        </Route>
+        <Route exact path='/admin/edituser/:userId' component={EditUser}>
+          <ProteccionRoutes user={user}>
+           <EditUser/>
+          </ProteccionRoutes>
+        </Route>
+        <Route exact path='/admin/editTransaction/:transactionId' component={EditTrasnsaction}>
+          <ProteccionRoutes user={user}>
+           <EditTrasnsaction/>
           </ProteccionRoutes>
         </Route>
       </Switch>

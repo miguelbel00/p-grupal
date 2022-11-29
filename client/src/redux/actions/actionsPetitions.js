@@ -76,6 +76,16 @@ export function postProduct(payload) {
     }
 };
 
+export function postImage(payload) {
+  return async function (dispatch) {
+      const response = await axios.post(`${REACT_APP_SERVER_BACK}/upload`, payload)
+      const data = response.data
+      return dispatch({
+          type: "POST_IMAGE",
+          payload: data
+      })
+  }
+};
 
 
 export function getNameQuery(payload) {
@@ -94,6 +104,12 @@ export function LogOut(payload) {
 
 export function getUser(userId) {
   return async function (dispatch) {
+    if (userId===null) {
+      return dispatch({
+        type: "GET_ONE_USER",
+        payload: userId
+      })
+    }
     return axios
     .get(`${REACT_APP_SERVER_BACK}/users/${userId}`)
     .then((result) =>
@@ -105,7 +121,35 @@ export function getUser(userId) {
     .catch((error) => { 
     });
   }
+};
+
+
+
+export function updateUser(payload) {
+  return async function (dispatch) {
+      const response = await axios.put(`${REACT_APP_SERVER_BACK}/users`, payload)
+      const data = response.data.body
+      return dispatch({
+          type: "EDIT_USER",
+          payload: data
+      })
+  }
+};
+
+export const addReview = (payload) => {
+  return async function (dispatch) {
+      try {
+          const response = await axios.post(`${REACT_APP_SERVER_BACK}/reviews`, payload)
+  
+          return dispatch ({
+            type: "ADD_REVIEW",
+            payload: response.data.body
+          })
+      } catch (error) {
+          dispatch({
+              type: 'ERROR',
+              payload: error
+          })     
+      }
+  }
 }
-
-
-

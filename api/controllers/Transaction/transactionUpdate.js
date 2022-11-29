@@ -5,15 +5,16 @@ const { endpointResponse } = require('../../helpers/success')
 
 module.exports = {
   transactionUpdate: async (req, res, next) => {
-    const { transactionId} = req.body;
+    const { transactionId,status} = req.body;
     try{
-      const IdTransaction = await Transaction.findByPk(transactionId)
 
-      if(!IdTransaction.length){
+      const transactionFound = await Transaction.findByPk(transactionId)
+
+      if(!transactionFound){
           throw new ErrorObject("Transaction not found", 400)
       }
 
-      const response = await Transaction.update(req.body, {where:{id: transactionId}})
+      const response = await Transaction.update({status}, {where:{id: transactionId}})
 
       endpointResponse({
         res,

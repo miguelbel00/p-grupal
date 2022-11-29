@@ -1,35 +1,49 @@
-import { useDispatch } from 'react-redux'
-import {orderByPrice, filterCategory, orderMostSold } from "../redux/actions/actionsFilter";
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux'
+import {  filterCategory, orderMostSold, addCategorieFilter, deleteFilter, orderProducts } from "../redux/actions/actionsFilter";
 import { getAllProducts } from "../redux/actions/actionsPetitions";
+import Styles from "../styles/filters.module.css"
 
 
-
-export default function Filters({ setOption, setPage, setInpunt }) {
+export default function Filters({ setOption, setPage }) {
     const dispatch = useDispatch()
 
+    const [categories, setCategories] = useState([])
+    const stateCategories = useSelector(state => state.filterReducer.categoriesSelected)
 
 
-    function handleOrderByPrice(e) {
-        e.preventDefault()
-        if (e.target.value === 'All') {
-            dispatch(getAllProducts())
-
-        } else {
-            dispatch(orderByPrice(e.target.value))
-            setOption(e.target.value)
-
-        }
+    function handleOrder(e) {
+       dispatch(orderProducts(e.target.value))
         setPage(1)
-        setInpunt(1)
     }
-    function handleFilterCategory(e){
+
+    function state(value) {
+        setCategories(value)
+    }
+
+    function handleFilterCategory(e) {
         e.preventDefault();
-        dispatch(filterCategory(e.target.value))
-        setPage(1)
-        setInpunt(1)
+        if(!categories.includes(e.target.value) && e.target.value !==  "Categorias"){
+        state([...categories, e.target.value])
+
+        console.log([...categories, e.target.value])
+
+        dispatch(addCategorieFilter([...categories, e.target.value]))
+
+
+        dispatch(filterCategory())
+        }
     }
 
-    function handleOrderMostSeller(e){
+    function deleteCategory(e) {
+        dispatch(deleteFilter(e.target.name))
+        setCategories([...categories.filter(cat => cat !== e.target.name)])
+        dispatch(filterCategory())
+       
+        
+    }
+
+    function handleOrderMostSeller(e) {
         e.preventDefault()
         if (e.target.value === 'All') {
             dispatch(getAllProducts())
@@ -40,31 +54,30 @@ export default function Filters({ setOption, setPage, setInpunt }) {
 
         }
         setPage(1)
-        setInpunt(1)
     }
 
-    
+
 
     return (
-        <div>
-            <div>
-                <select className="form-select form-select-lg mb-3" aria-label=".form-select-lg example" onChange={(e) => handleOrderByPrice(e)}>
+        <div className={Styles.container}>
+            <p>Order product</p>
+            <div className={Styles.price}>
+                <select class="form-select form-select-lg" aria-label=".form-select-lg example" onChange={(e) => handleOrder(e)}>
                     <option value='All'>Price</option>
                     <option value='Min'>Min-Price</option>
                     <option value='Max'>Max-Price</option>
                 </select>
             </div>
-            <div>
-            <select className="form-select form-select-lg mb-3" aria-label=".form-select-lg example" onChange={(e) => handleOrderMostSeller(e)}>
+            <div className={Styles.sold}>
+                <select class="form-select form-select-lg" aria-label=".form-select-lg example" onChange={(e) => handleOrder(e)}>
                     <option value='All'>Sold</option>
                     <option value='Less Sold'>Less Sold</option>
                     <option value='Best Seller'>Best Seller</option>
                 </select>
             </div>
-            <div>
-                <select className="form-select form-select-lg mb-3" aria-label=".form-select-lg example" onChange={e => handleFilterCategory(e)}>
-                    <option selected>Categorias</option>
-                    <option value="Todo">Todas las categorias</option>
+            <div className={Styles.filter}>
+                <select class="form-select form-select-lg " aria-label=".form-select-lg example" onChange={e => handleFilterCategory(e)}>
+                    <option selected>Filter</option>
                     <option value="Computadores">Computadores</option>
                     <option value="Perifericos">Perifericos</option>
                     <option value="Componentes">Componentes</option>
@@ -84,8 +97,14 @@ export default function Filters({ setOption, setPage, setInpunt }) {
                     <option value="Gabinet">Gabinet</option>
                     <option value="Teclad">Teclad</option>
                     <option value="Auricular">Auricular</option>
-                    <option value="Mouse">Mouse</option>     
+                    <option value="Mouse">Mouse</option>
                 </select>
+            </div>
+            <div className={Styles.containerFilters}>
+                {stateCategories.length > 0 && stateCategories.map(categ => {
+                    return <button className={Styles.categButton} name={categ} onClick={deleteCategory}>{categ}</button>
+                }
+                )}
             </div>
         </div>
     )
