@@ -12,6 +12,8 @@ import ProteccionRoutes from "./componets/proteccionRoutes";
 import { useSelector } from "react-redux";
 import CreateProduct from "./Pages/CreateProduct";
 import AdminPage from "./AdminPage/Admin";
+import EditProfile from "./componets/EditProfile";
+
 
 
 function App() {
@@ -29,7 +31,10 @@ function App() {
         <Route exact path='/login' component={Login}/>
         <Route exact path='/products' component={Products}/>
         <Route exact path='/shoppingcart' component={ShoppingCart}/>
+        <Route exact path={'/editProfile/:userId'} component={EditProfile}/>
+
         <Route exact path='/admin' component={AdminPage}>
+
           <ProteccionRoutes user={user}>
            <AdminPage/>
           </ProteccionRoutes>

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import '../styles/itemCard.css'
+import Styles from '../styles/itemCard.module.css'
+import basura from "../assets/basura.png"
 import { removeOneProduct } from '../redux/actions/actionShoppingCart'
 import Swal from 'sweetalert2'
 
@@ -11,12 +12,12 @@ export default function ItemCart({ id, name, price, image, setTotal }) {
     const [cont, setCont] = useState(1)
     const dispatch = useDispatch()
 
-    const successAlert =() => {
+    const successAlert = () => {
         Swal.fire({
-            title:'Product removed!',
-            confirmButtonText:"Ok",
-            timer:3000,
-           icon:"success"
+            title: 'Product removed!',
+            confirmButtonText: "Ok",
+            timer: 3000,
+            icon: "success"
         });
     }
 
@@ -75,7 +76,7 @@ export default function ItemCart({ id, name, price, image, setTotal }) {
         //Recorre el carrito
         for (const product in totalCart) {
             //se evalua si el producto del carrito es igual al ID correspondiente
-            if (parseInt( product) === id) {
+            if (parseInt(product) === id) {
                 //se obtiene el precio y el cantidad que el usuario quiere con el producto ID
                 const priceCont = Object.values(totalCart[product])
                 // setea la cantidad del producto segun este en el carrito guardado 
@@ -91,25 +92,25 @@ export default function ItemCart({ id, name, price, image, setTotal }) {
         // eslint-disable-next-line react-hooks/exhaustive-deps        
     }, [cont, totalCart])
 
+
+
     return (
-        <div className='shopping' >
-            <div className='contenedor-cart'>
-                <img className="card-img-top-cart" src={image} alt={name} />
-                <div className='informacion-cart'>
-                    <h2 className='name-cart'>{name}</h2>
-                    <h2 className='name-cart'>${price} x {cont} = ${price * cont}</h2>
-                </div>
-                <div className='d-grid gap-2 d-md-flex justify-content-md-center '>
-                    <button className='btn btn-primary btn-sm ' onClick={handleClickRest} > - </button>
-                    <br />
-                    <h3 className='name-cart'>Cantidad: {cont}</h3>
-                    <br />
-                    <button className='btn btn-primary btn-sm ' onClick={handleClickPlus} > + </button>
-                </div>
-                <div className='d-flex justify-content-center '>
-                    <button className='btn btn-primary' id={id} onClick={deleteFromCart}>Clear Item</button>
+        <div className={Styles.container} >
+            <div className={Styles.containerOne}>
+                <div className={Styles.img}><img src={image} alt="Not found" /></div>
+                <div className={Styles.name}><h3>{name}</h3></div>
+            </div>
+
+            <div className={Styles.containerTwo}>
+                <div className={Styles.amount}>
+                    <button className={Styles.btn1} onClick={handleClickRest} > - </button>
+                    <h3>{cont}</h3>
+                    <button className={Styles.btn2} onClick={handleClickPlus} > + </button>
                 </div>
             </div>
+
+            <div className={Styles.containerThree}><h3>${price * cont}</h3></div>
+            <div className={Styles.containerFour}><img id={id} onClick={deleteFromCart} src={basura} alt={"eliminar"} /></div>
         </div>
     )
 }

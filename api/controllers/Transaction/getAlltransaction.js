@@ -1,25 +1,26 @@
 const {ErrorObject} = require("../../helpers/error")
 const createHttpError = require('http-errors')
-const { Review } = require('../../database/models')
+const { Transaction } = require('../../database/models')
 const { endpointResponse } = require('../../helpers/success')
 
+
+// example of a controller. First call the service, then build the controller method
 module.exports = {
-  getAllReview: async (req, res, next) => {
-    
-    try{
-      const response = await Review.findAll()
-      
+  getAllTransaction: async (req, res, next) => {
+
+      try {
+        const response = await Transaction.findAll();
       endpointResponse({
         res,
         code:201,
-        message: 'All Reviews',
+        message: 'All Transactions',
         body: response,
       })
 
     }catch(error){
         const httpError = createHttpError(
             error.statusCode,
-            `[Error Get All Reviews] - [GetAllReviewControllers - GET]: ${error.message}`,
+            `[Error All transaction] - [getAlltransaction - GET]: ${error.message}`,
           )
           next(httpError)
     }

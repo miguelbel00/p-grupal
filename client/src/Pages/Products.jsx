@@ -1,9 +1,9 @@
 import React from "react";
-import { useSelector, useDispatch} from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import Card from "../componets/CardProduct";
 import { getAllProducts, getUser } from "../redux/actions/actionsPetitions";
-import '../styles/product.css'
+import Styles from '../styles/products.module.css'
 import Paginated from '../componets/Paginated.jsx'
 import Filters from "../componets/Filters";
 const jwt = require('jsonwebtoken');
@@ -31,43 +31,42 @@ export default function Products(){
 
     const max = Math.ceil(allProducts.length / forPage) ;
 
-    
-    useEffect(()=>{
+
+    useEffect(() => {
         if (!allProducts.length) {
             dispatch(getAllProducts())
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[])
-    
+    }, [])
 
 
-    return(
-        <div className= 'counter text-center'>
-        <div className="row">
-            <div className="filtros col-2 "> <Filters setOption={setOption} option={option} setPage={setPage} setInpunt={setInpunt} /></div>
-            <div className="col-10">
-                <div className="containerCardsProducts">
-            {
-                allProducts.length > 1 ? allProducts.slice((page - 1) * forPage, (page - 1) * forPage + forPage).map((e,i) => (
-                    <Card 
-                    key={i}
-                    id={e.id} 
-                    name={e.name} 
-                    description={e.description} 
-                    image={e.image} 
-                    price={e.price} 
-                    stock={e.stock} 
-                    Categories={e.Categories} Transactions={e.Transactions} Reviews={e.Reviews} />
-                    )):<h1>ERROR</h1> }
-                </div>
-                <div className="paginado">
-                <Paginated page={page} setPage={setPage} max={max} setInpunt={setInpunt} input={input}/>
-                </div>
-                </div>
+
+    return (
+        <div className={Styles.container}>
+            <div className={Styles.filters}>
+                <Filters setOption={setOption} option={option} setPage={setPage} setInpunt={setInpunt} />
+            </div>
+            <div className={Styles.contenedor}>
+            <div className={Styles.products}>
+                {
+                    allProducts.length > 1 ? allProducts.slice((page - 1) * forPage, (page - 1) * forPage + forPage).map((e, i) => (
+                        <Card
+                            key={i}
+                            id={e.id}
+                            name={e.name}
+                            description={e.description}
+                            image={e.image}
+                            price={e.price}
+                            stock={e.stock}
+                            Categories={e.Categories} Transactions={e.Transactions} Reviews={e.Reviews} />
+                    )) : <h1>ERROR</h1>}
+            </div>
+
+            <div className={Styles.paginado}>
+                <Paginated page={page} setPage={setPage} max={max} setInpunt={setInpunt} input={input} />
+            </div>
+            </div>
         </div>
-        
-        </div>
-                   
-    ) 
-    
+    )
+
 }

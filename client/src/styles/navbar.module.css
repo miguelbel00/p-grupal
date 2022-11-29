@@ -36,3 +36,9 @@ a:link, a:visited, a:active {
     border-radius: 50%;
     margin-left: 15px;
 }
+#nav{
+    padding: 0;
+}
+#search{
+    margin-bottom: 15px;
+}

@@ -1,19 +1,81 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: auto;
+    width: 100%;
+    gap: 15px;
+}
 
-.containerFilters{
+.container p {
+    margin-bottom: 0;
+    text-align: center;
+    width: 100%;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.container .price {
+    width: 80%;
+    margin: auto;
+}
+
+.container .sold {
+    width: 80%;
+    margin: auto;
+}
+
+.container .filter {
+    width: 80%;
+    margin: auto;
+}
+
+.containerFilters {
     margin: auto;
     display: flex;
     flex-direction: column;
     width: 60%;
-    
+
 }
 
 
-.categButton{
-    font-size: 10px;
-    background-color: blueviolet;
-    color: white;
+.categButton {
+    font-size: 15px;
+    background-color: rgb(203, 221, 241);
+    color: rgb(73, 72, 72);
     margin-bottom: 5px;
     font-weight: 800;
     padding: 5px;
-    
+    border: none;
+    border-radius: 5px;
+
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        margin: auto;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .container P {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 0;
+        font-size: 22px;
+        font-weight: 700;
+    }
+
+    .container .price .sold {
+        width: 50%;
+    }
+
+    .container .filter {
+        width: 82%;
+        margin-top: 15px;
+    }
+
 }
