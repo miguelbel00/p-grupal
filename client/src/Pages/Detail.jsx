@@ -19,6 +19,7 @@ export default function Detail() {
     const dispatch = useDispatch()
     const product = useSelector((state) => state.petitionsReducer.detail)
     const allProducts = useSelector((state) => state.shoppingReducer.productCart)
+    const totalCart = useSelector((state) => state.shoppingReducer.totalCart)
     const user = useSelector((state) => state.petitionsReducer.userOne);
     const { productId } = useParams()
 
@@ -42,25 +43,44 @@ export default function Detail() {
         dispatch(getDetail(productId))
         saveLocal()
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [allProducts])
+    },[allProducts])
 
-    useEffect(() => {
+    useEffect(()=>{
         saveLocal()
-    }, [product.Reviews])
-
-    const successAlert = () => {
+    },[product.Reviews])
+     
+    const successAlert =() => {
         Swal.fire({
-            title: 'Product Added to cart!',
-            confirmButtonText: "Les't buy more products",
-            timer: 3000,
-            icon: "success"
-        });
+            title:'Product Added to cart!',
+            confirmButtonText:"Les't buy more products",
+            showDenyButton: true,
+            denyButtonText: `No, Go to my Cart`,
+           icon:"success"
+        }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                history.push('/products')
+            } else if (result.isDenied) {
+                history.push('/shoppingcart')
+            }
+          })
     }
 
-    const handleonClick = () => {
-        dispatch(addProductToCart(productId))
+    const handleonClick =()=>{
+        if(totalCart.hasOwnProperty(productId)){
+            for (const key in totalCart) {
+                if (key === productId){
+                    let priceCont = totalCart[key] 
+                    totalCart[key] = [priceCont[0], priceCont[priceCont.length - 1 ]  + 1 ]
+                }
+            }
+            localStorage.setItem('totalCart', JSON.stringify(totalCart))
+        }
+        else{
+            dispatch(addProductToCart(productId))
+        }
         successAlert()
-        history.push('/products')
+        history.push('/shoppingcart')
     }
 
     const handleBuyNow = (e) => {
@@ -135,7 +155,6 @@ export default function Detail() {
                     <ReviewContainer reviews={product.Reviews} />
                 </div>
             </div>
-
         </div>
     )
 }

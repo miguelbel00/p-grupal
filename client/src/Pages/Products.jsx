@@ -6,6 +6,7 @@ import { getAllProducts, getUser } from "../redux/actions/actionsPetitions";
 import Styles from '../styles/products.module.css'
 import Paginated from '../componets/Paginated.jsx'
 import Filters from "../componets/Filters";
+import Loading from "../componets/Loading"
 const jwt = require('jsonwebtoken');
 
 
@@ -61,7 +62,7 @@ export default function Products(){
                             price={e.price}
                             stock={e.stock}
                             Categories={e.Categories} Transactions={e.Transactions} Reviews={e.Reviews} />
-                    )) : <h1>ERROR</h1>}
+                    )) : <Loading/>}
             </div>
 
             <div className={Styles.paginado}>

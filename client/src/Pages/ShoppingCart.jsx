@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
+import { useHistory } from "react-router-dom"
 import ItemCart from "../componets/ItemCart";
 import { removeAllProduct } from "../redux/actions/actionShoppingCart";
 import Styles from '../styles/shoppingCart.module.css'
@@ -28,9 +29,26 @@ export default function ShoppingCart() {
     const allProducts = useSelector((state) => state.shoppingReducer.productCart);
     const totalCart = useSelector((state) => state.shoppingReducer.totalCart)
     const user = useSelector((state) => state.petitionsReducer.userOne);
+    const history = useHistory()
     const [totalShow, setTotalShow] = useState(0);
 
-
+    const emptyCart = () => {
+        Swal.fire({
+            title:'Error!',
+            text:`ShoppingCart is empty`,
+            confirmButtonText:"Let's buy products",
+            background:'#67e9ff',
+            icon:'error',
+            customClass:{ 
+                popup:'popup-alert',
+                text:'titleAlert',
+                content:'titleAlert'
+            },
+        }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+                history.push('/products')
+        });
+    }
 
     const successAlert = () => {
         Swal.fire({
@@ -78,19 +96,23 @@ export default function ShoppingCart() {
     }
 
     const handleBuyNow = () => {
-        setTimeout(() => {
-            const objCart = {
-                userId: user.id && user.id,
-                description: allProducts.length && allProducts.map((e) =>  `producto: ${e.name} cantidad: ${totalCart[e.id][1]} total: U$D ${totalCart[e.id][0] * totalCart[e.id][1]}`  ).join(' | '),
-                productsId: allProducts.map((e)=> e.id).join(','), 
-                price: totalShow.toString(),
-                totalCart:localStorage.getItem('totalCart'),
-            }
-            axios.post(`${process.env.REACT_APP_SERVER_BACK}/checkout/checkout-order`, objCart)
-            .then(response =>  window.location.href = response.data.links[1].href )
-            .then(()=> clearCartWithOutAlert())
-            
-        },200)
+        if(Object.keys(totalCart).length > 0 ){
+            setTimeout(() => {
+                const objCart = {
+                    userId: user.id && user.id,
+                    description: allProducts.length && allProducts.map((e) =>  `producto: ${e.name} cantidad: ${totalCart[e.id][1]} total: U$D ${totalCart[e.id][0] * totalCart[e.id][1]}`  ).join(' | '),
+                    productsId: allProducts.map((e)=> e.id).join(','), 
+                    price: totalShow.toString(),
+                    totalCart:localStorage.getItem('totalCart'),
+                }
+                axios.post(`${process.env.REACT_APP_SERVER_BACK}/checkout/checkout-order`, objCart)
+                .then(response =>  window.location.href = response.data.links[1].href )
+                .then(()=> clearCartWithOutAlert())
+                
+            },200)
+        }else{
+            emptyCart()
+        }
     }
 
     useEffect(() => {
