@@ -20,16 +20,15 @@ export default function Profile() {
         dispatch(getUser(decoded?.id ? decoded.id : decoded.user.id))
     } catch (error) { }
 }
-console.log(userJWT + 'este es el usuario')
 
   return (
     <>{ 
       userOne && 
 
       <div className={Styles.container}>
-      
+
         <CardUser user={ userOne } />
-        <Link to={`/editProfile/${userOne?.id}`}>
+        <Link to={"/"}>
           <button>Edit Profile</button>
         </Link>
 
