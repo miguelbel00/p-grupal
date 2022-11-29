@@ -1,7 +1,6 @@
 const initialState = {
   detail: {},
   products: [],
-  userOne: null,
   user: JSON.parse(localStorage.getItem('user')) ||  {},
 };
 
@@ -22,12 +21,6 @@ export default function petitionsReducer(
         products: payload,
 
       };
-    
-      case "POST_PRODUCT":
-        return {
-          ...state
-        }
-
     case "REGISTER_USER":
       return {
         ...state,
@@ -40,18 +33,6 @@ export default function petitionsReducer(
         user: payload,
 
       };
-
-    case "GET_ONE_USER": 
-    return {
-      ...state,
-      userOne: payload
-    }
-    case "LOG_OUT": 
-    return {
-      ...state,
-      user: payload
-    }
-
 
     default:
       return state;

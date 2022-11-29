@@ -2,18 +2,23 @@ import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import astroLogo from '../assets/astrologo2.0(sin fondo).png'
 import Styles from '../styles/navbar.module.css'
+import Search from '../styles/search.module.css'
 import { searchProduct } from '../redux/actions/actionsFilter';
+import { getProducts } from '../redux/actions/actionsAdmin';
 import { LogOut } from '../redux/actions/actionsPetitions';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
+import SearchBar from './SearchBar';
 import dino from '../assets/dino.jpg'
 import Swal from 'sweetalert2'
+
 
 const Navbar = () => {
     const dispatch = useDispatch()
     const history = useHistory();
     const [input, setInput] = useState('')
     const user = useSelector(state => state.petitionsReducer.user)
+    const products = useSelector(state => state.reducerAdmin.products)
     const userOne = useSelector(state => state.petitionsReducer.userOne)
 
     function handleInput(e){
@@ -28,6 +33,8 @@ const Navbar = () => {
         history.push('/products')
 
     }
+
+    
     
     const handleLogOut = () => {
         localStorage.setItem("user", JSON.stringify({}))
@@ -116,10 +123,28 @@ const Navbar = () => {
                         }
 
                     </ul>
-                     <form className="d-flex" role="search"> 
-                        <input onChange={handleInput} value={input}className="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search"/>
+                    <div>
+
+                        <SearchBar/>
+                    </div>
+                     {/* <form className="d-flex" role="search"> 
+                        <input onChange={handleInput} value={input} className="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search"
+                        /> 
                         <button  className="btn btn-outline-secondary" type="submit" onClick={(e) => handleSubmit(e)}>Buscar</button>
                      </form> 
+                     <div  className={Search.dropdown}>
+                        {products.filter(p => {
+                            let searchProduct = input?.charAt(0).toUpperCase() + input?.toLowerCase().slice(1);
+                            console.log(input)
+                            return searchProduct && p.name.startsWith(searchProduct) && p.name !== searchProduct
+                        }).slice(0,4)
+                        .map(p=>(
+                            <div className={Search.dropdownRow} key={p.id} onClick={handleInput} id={p.name}>
+                                <img src={p.image} alt={p.name} />
+                                {p.name}
+                            </div>
+                        ))}
+                     </div> */}
                 </div>
             </div>
         </nav>

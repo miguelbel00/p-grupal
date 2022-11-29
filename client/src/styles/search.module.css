@@ -1,0 +1,42 @@
+.dropdownRow {
+    cursor: pointer;
+    text-align: start;
+    margin: 2px 0;
+    display: flex;
+    border-bottom: 2px solid black;
+    border-radius: 5px;
+
+}
+.dropdownRow:hover{
+    background-color: #350069;
+    color: white;
+}
+
+
+.dropdown{
+    width: 250px;
+    background-color: white;
+    position: fixed;
+    margin-top: 30px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    z-index: 100;
+}
+
+.dropdown img{
+height: 20px;
+padding: 2% 10% 2% 2%;
+}
+
+.dropdownHidden{
+    display: none;
+}
+
+.button1{
+    border: none;
+    outline: none;
+    background-color: transparent;
+
+}
