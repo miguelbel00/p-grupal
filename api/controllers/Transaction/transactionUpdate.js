@@ -13,7 +13,7 @@ module.exports = {
       if(!transactionFound){
           throw new ErrorObject("Transaction not found", 400)
       }
-      console.log(status)
+
       const response = await Transaction.update({status}, {where:{id: transactionId}})
 
       endpointResponse({
