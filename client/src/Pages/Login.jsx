@@ -41,9 +41,9 @@ export default function Login() {
         });
     }
 
-    const successAlert = (message) => {
+    const successAlert = (message, title = 'Success Login!') => {
         Swal.fire({
-            title: 'Success Login!',
+            title: `${title}`,
             text: `${message}`,
             confirmButtonText: 'Lets Go',
             background: '#67e9ff',
@@ -112,7 +112,7 @@ export default function Login() {
         else{
         axios.post(`${process.env.REACT_APP_SERVER_BACK}/email/recoverPass`, {email: e.target.parentNode.firstChild.value})
         e.target.parentNode.firstChild.value = ""
-        successAlert("password reset, check your email!")
+        successAlert("password reset, check your email!", "Password restored successfully!")
         e.target.parentNode.className = "forgotPass"}
     }
     
