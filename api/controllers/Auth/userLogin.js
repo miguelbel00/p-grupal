@@ -13,12 +13,12 @@ module.exports = {
     try {
       const user = await User.findOne({ where: { email: req.body.email } });
       if (!user) /* throw new ErrorObject(`User with email ${req.body.email} does not exist`, 404);
-       */return  res.send(`User with email ${req.body.email} does not exist`)
+       */return  res.json({error:`User with email ${req.body.email} does not exist`})
       let token 
       if (!req.body?.google) {
         const validatePass = await bcrypt.compare(req.body.password, user.password)
         if(!validatePass) /* throw new ErrorObject("You have entered an invalid password", 404); */
-        return res.send("You have entered an invalid password")
+        return res.json({error:"You have entered an invalid password"})
          token = jwt.sign({ id: user.id,email:user.email,isAdmin:user.isAdmin }, process.env.JWT_SECRETO, {expiresIn: '20h'})
   
       }else{
