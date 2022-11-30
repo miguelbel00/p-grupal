@@ -53,6 +53,14 @@ const Navbar = () => {
         });
     }
 
+
+    useEffect(() => {
+        
+        
+    }, [user]);
+
+
+
     return (
         <nav className="navbar navbar-expand-lg navbar-dark" id={Styles.nav}>
             <div className="container-fluid">
