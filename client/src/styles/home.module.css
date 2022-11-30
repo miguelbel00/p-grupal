@@ -1,3 +1,18 @@
+::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #440363;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #ca6add;
+    border-radius: 20px;
+    border: 3px solid #440363;
+  
+  }
+
 .container{
     background-color: #ececec;
     width: 100%;
@@ -18,13 +33,13 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
-    margin: 10px 20px;
+    margin: 40px 10px;
     gap: 15px;
 }
 .container .category div{
     border-radius: 10px; 
     width: 75vw;
-    max-width: 350px;
+    max-width: 450px;
     max-height: 250px;
     background-color: white;
     box-shadow: 0 3px 10px rgb(0 0 0 / 20%);
@@ -42,11 +57,11 @@
 .container .category div img{
     object-fit: contain;
     width: 100%;   
-    max-height: 200px;
+    max-height: 100%;
     border-radius: 5px;
 }
 .container .category div img:hover{
-    opacity: 0.5;
+    opacity: 0.8;
 }
 .container .products{
     grid-area: products;
@@ -56,15 +71,11 @@
     .container .category{
         margin: 10px 5px;
     }
-    .container .category div{
-        width: 100%;
-        max-width: 768px;
-        min-width: 250px;
-        max-height: 250px;
-    }
     .container .category div img{
         object-fit: contain;
         width: 100%;
-        max-height: 200px;
+    }
+    .container .category div{
+        margin: 10px auto;
     }
 } 
