@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import astroLogo from '../assets/astrologo2.0(sin fondo).png'
 import Styles from '../styles/navbar.module.css'
@@ -30,7 +30,7 @@ const Navbar = () => {
     }
     
     const handleLogOut = () => {
-        localStorage.removeItem("user")
+        localStorage.setItem("user", JSON.stringify({}))
         dispatch(LogOut({}))
         successAlert('Come Back Soon')
         history.push('/')
@@ -53,13 +53,6 @@ const Navbar = () => {
         });
     }
 
-
-    useEffect(() => {
-        
-    }, [user]);
-
-
-
     return (
         <nav className="navbar navbar-expand-lg navbar-dark" id={Styles.nav}>
             <div className="container-fluid">
@@ -78,8 +71,8 @@ const Navbar = () => {
                                 <i className="bi bi-house nav-link mb-3"> &nbsp;Home</i>
                             </Link>
                         </li>
-                        { user ? 
-                           <li className="nav-item">
+                        {Object.keys(user).length !== 0 && userOne !==null
+                        ?   <li className="nav-item">
                                 <Link to='/profile' >
                                     <i className="bi bi-person-circle nav-link mb-3"> &nbsp;My Account</i>
                                 </Link>
@@ -92,8 +85,8 @@ const Navbar = () => {
                             </Link>
                         </li>
                         {}
-                        {user ?
-                          <li className="nav-item">
+                        {Object.keys(user).length !== 0 && userOne !==null
+                        ?  <li className="nav-item">
                         <Link to='/' onClick={handleLogOut}>
                           <i className="bi bi-box-arrow-right nav-link mb-3"> &nbsp;Log Out</i>
                         </Link>
@@ -111,7 +104,7 @@ const Navbar = () => {
                         </li>
                     </>
                         }
-                        {user && userOne?.isAdmin === true
+                        {Object.keys(user).length !== 0 && userOne?.isAdmin === true
                         ?   
                                 <li className="nav-item">
                                     <Link to='/admin' >

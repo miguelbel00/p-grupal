@@ -2,7 +2,7 @@ const initialState = {
   detail: {},
   products: [],
   userOne: null,
-  user: JSON.parse(localStorage.getItem('user')) ||  null,
+  user: JSON.parse(localStorage.getItem('user')) ||  {},
 };
 
 export default function petitionsReducer(
@@ -62,6 +62,5 @@ export default function petitionsReducer(
       return state;
   }
 }
-
 
 
