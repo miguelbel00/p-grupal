@@ -17,16 +17,17 @@ export default function AdminTestAntDesign() {
     const [open, setOpen] = useState(false);
     const [confirmLoading, setConfirmLoading] = useState(false);
     const [modalText, setModalText] = useState(<Alert message="Estas seguro de que deseas acceder a estos datos?" type="error" />);
+    const [selectCategory,setSelectCategory] = useState({})
 
-
-    const showModal = () => {
+    const showModal = (value) => {
         setOpen(true);
+        setSelectCategory(value.id)
     };
 
-    const handleOk = (value) => {
+    const handleOk = () => {
         setModalText(<Alert message="Aguarde unos segundos..." type="success" />);
         setConfirmLoading(true);
-        dispatch(deleteCategory(value.id))
+        dispatch(deleteCategory(selectCategory))
         setTimeout(() => {
             setOpen(false);
             setConfirmLoading(false);
@@ -165,7 +166,7 @@ export default function AdminTestAntDesign() {
                     <Modal
                         title="Cuidado!"
                         open={open}
-                        onOk={()=>handleOk(value)}
+                        onOk={handleOk}
                         confirmLoading={confirmLoading}
                         onCancel={handleCancel}
                     >

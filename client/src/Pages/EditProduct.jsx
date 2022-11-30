@@ -38,7 +38,20 @@ const EditProduct = () => {
       imageHeight: "200px",
     });
   };
-
+  const errorAlert = (message) => {
+    Swal.fire({
+        title:'Error!',
+        text:`${message}`,
+        confirmButtonText:'Try Again',
+        background:'#67e9ff',
+        icon:'error',
+        customClass:{ 
+            popup:'popup-alert',
+            text:'titleAlert',
+            content:'titleAlert'
+        },
+    }); 
+}
   const [editProduct, setEditProduct] = useState({
     productId: productState ? productState.id : null,
     name: productState ? productState.name : "",
@@ -81,7 +94,7 @@ const EditProduct = () => {
       !editProduct.stock ||
       !editProduct.sold
     ) {
-      alert("Llene los campos correctamente");
+      errorAlert("Please fill the inputs");
       setErrors(
         validate({
           ...editProduct,

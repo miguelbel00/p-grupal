@@ -45,11 +45,18 @@ input[type=number] { -moz-appearance:textfield; }
 .showProduct { 
     position: relative;
     margin-left: -5rem;
-    padding: 100px;
+    padding-left: 100px;
 
    
 }
-.showProduct img {
+.showImg { 
+  position: relative;
+  margin-left: -5rem;
+  padding: 100px 100px 10px 100px;
+  
+ 
+}
+.showImg img {
     height: 300px;
     width: auto;
     box-shadow: 0 0 4px;

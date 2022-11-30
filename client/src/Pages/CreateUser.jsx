@@ -5,7 +5,8 @@ import { getAllProducts } from '../redux/actions/actionsFilter';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { registerUserAdmin } from '../redux/actions/actionsAdmin';
-
+import Swal from 'sweetalert2'
+import dino from '../assets/dino.jpg'
 
 
 
@@ -20,7 +21,36 @@ const CreateUser = () => {
     avatar:"",
     isAdmin:""
    });
-   
+   const errorAlert = (message) => {
+    Swal.fire({
+        title:'Error!',
+        text:`${message}`,
+        confirmButtonText:'Try Again',
+        background:'#67e9ff',
+        icon:'error',
+        customClass:{ 
+            popup:'popup-alert',
+            text:'titleAlert',
+            content:'titleAlert'
+        },
+    }); 
+}
+const successAlert =() => {
+    Swal.fire({
+        title:'Success!',
+        text:`User Created `,
+        confirmButtonText:'Lets Go',
+        background:'#67e9ff',
+        customClass:{ 
+            popup:'popup-alert',
+            text:'titleAlert',
+            content:'titleAlert'
+        },
+       imageUrl: dino,
+       imageWidth:'200px',
+       imageHeight:'200px'
+    });
+}
    const [errors, setErrors] = useState({});
 
 const validate = (user) => {
@@ -61,14 +91,14 @@ const validate = (user) => {
          !user.password || 
          !user.avatar || 
          !user.phone ) {
-         alert('Llene los campos corectamente');
+         errorAlert('Please fill the inputs');
          setErrors(validate({
            ...user
          }))
        }else {
        await dispatch(registerUserAdmin(user));
        await dispatch((getAllProducts()))
-       alert('Usuario creado correctamente') ; 
+       successAlert()  
        history.push('/admin');
        }      
    };

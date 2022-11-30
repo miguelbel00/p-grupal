@@ -20,7 +20,7 @@ export default function AdminTestAntDesign() {
     const history = useHistory()
     const dispatch = useDispatch()
     const productsSelector = useSelector((state) => state.reducerAdmin.products)
-
+    const [selectProduct,setSelectProduct] = useState({})
     useEffect(() => {
         dispatch(getProducts())
     }, [dispatch])
@@ -35,14 +35,15 @@ export default function AdminTestAntDesign() {
 
 
 
-    const showModal = () => {
+    const showModal = (value) => {
         setOpen(true);
+        setSelectProduct(value.id)
     };
 
-    const handleOk = (value) => {
+    const handleOk = () => {
         setModalText(<Alert message="Aguarde unos segundos..." type="success" />);
         setConfirmLoading(true);
-        dispatch(deleteProduct(value.id))
+        dispatch(deleteProduct(selectProduct))
         setTimeout(() => {
             setOpen(false);
             setConfirmLoading(false);
@@ -185,11 +186,11 @@ export default function AdminTestAntDesign() {
                 return <div>
                     <Button onClick={()=>editHandle(value)} success type="primary">Edit Product</Button>
                     &nbsp;&nbsp;&nbsp;
-                    <Button onClick={showModal} danger type="primary">Delete Product</Button>
+                    <Button onClick={()=>showModal(value)} danger type="primary">Delete Product</Button>
                     <Modal
                         title="Cuidado!"
                         open={open}
-                        onOk={()=>handleOk(value)}
+                        onOk={handleOk}
                         confirmLoading={confirmLoading}
                         onCancel={handleCancel}
                     >
