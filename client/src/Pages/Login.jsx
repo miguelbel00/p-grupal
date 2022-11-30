@@ -102,10 +102,18 @@ export default function Login() {
 
     }
     function forgetPass(e) {
+        if (!e.target.parentNode.firstChild.value){
+            errorAlert("Enter a email")
+        }
+        else if (!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(e.target.parentNode.firstChild.value)) {
+            errorAlert("Enter a valid email address");
+        }
+        
+        else{
         axios.post(`${process.env.REACT_APP_SERVER_BACK}/email/recoverPass`, {email: e.target.parentNode.firstChild.value})
         e.target.parentNode.firstChild.value = ""
         successAlert("password reset, check your email!")
-        e.target.parentNode.className = "forgotPass"
+        e.target.parentNode.className = "forgotPass"}
     }
     
     function showRecoverPass (e){
