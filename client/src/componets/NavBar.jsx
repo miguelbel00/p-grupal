@@ -5,7 +5,7 @@ import Styles from '../styles/navbar.module.css'
 import { LogOut } from '../redux/actions/actionsPetitions';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
-import dino from '../assets/dino.jpg'
+import dino from '../assets/dino.png'
 import Swal from 'sweetalert2'
 import SearchBar from './SearchBar';
 
@@ -28,7 +28,7 @@ const Navbar = () => {
             title:'Success LogOut!',
             text:`${message}`,
             confirmButtonText:'See you later',
-            background:'#67e9ff',
+            background:'#fff',
             customClass:{ 
                 popup:'popup-alert',
                 text:'titleAlert',

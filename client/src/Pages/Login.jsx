@@ -6,7 +6,7 @@ import logo2 from "./../assets/logo.png";
 import Swal from 'sweetalert2'
 import { loginUser } from "../redux/actions/actionsPetitions";
 import { Formik } from "formik";
-import dino from '../assets/dino.jpg'
+import dino from '../assets/dino.png'
 import axios from "axios";
 const { REACT_APP_GOOGLE_CLIENT_ID } = process.env
 const jwt = require('jsonwebtoken');
@@ -31,7 +31,7 @@ export default function Login() {
             title: 'Error!',
             text: `${message}`,
             confirmButtonText: 'Try Again',
-            background: '#67e9ff',
+            background: '#fff',
             icon: 'error',
             customClass: {
                 popup: 'popup-alert',
@@ -46,7 +46,7 @@ export default function Login() {
             title: `${title}`,
             text: `${message}`,
             confirmButtonText: 'Lets Go',
-            background: '#67e9ff',
+            background: '#fff',
             customClass: {
                 popup: 'popup-alert',
                 text: 'titleAlert',
@@ -66,8 +66,6 @@ export default function Login() {
             successAlert(user.message)
             localStorage.setItem("user", JSON.stringify(user.body.token))
             history.push('/')
-        } else if (typeof user == 'string' && !(user?.search(/[\d]/) >= 0)) {
-            errorAlert(user)
         }
     }
 
@@ -135,10 +133,10 @@ export default function Login() {
     }, [])
     //Google Auth End
 
-    useEffect(() => {
+     useEffect(() => {
         logged()
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [user])
+    }, [user]) 
 
     return (
         <div className="background">

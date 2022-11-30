@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { getCategory } from '../redux/actions/actionsAdmin';
 import Swal from 'sweetalert2'
-import dino from '../assets/dino.jpg'
+import dino from '../assets/dino.png'
 
 
 
@@ -36,7 +36,7 @@ const CreateProduct = () => {
       title: 'Error!',
       text: `${message}`,
       confirmButtonText: 'Try Again',
-      background: '#67e9ff',
+      background: '#fff',
       icon: 'error',
       customClass: {
         popup: 'popup-alert',
@@ -50,7 +50,7 @@ const CreateProduct = () => {
       title: 'Success!',
       text: `Product Created successfully `,
       confirmButtonText: 'Lets Go',
-      background: '#67e9ff',
+      background: '#fff',
       customClass: {
         popup: 'popup-alert',
         text: 'titleAlert',

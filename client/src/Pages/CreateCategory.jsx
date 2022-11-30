@@ -5,7 +5,7 @@
  import { useHistory } from 'react-router-dom';
  import Swal from 'sweetalert2'
 import { createCategory } from '../redux/actions/actionsAdmin';
-import dino from '../assets/dino.jpg'
+import dino from '../assets/dino.png'
 
 
 export default function CreateCategory() {
@@ -19,7 +19,7 @@ export default function CreateCategory() {
      const [errors, setErrors] = useState({});
 
      const errorAlert = (message) => {
-        Swal.fire({
+      Swal.fire({
             title:'Error!',
             text:`${message}`,
             confirmButtonText:'Try Again',
@@ -33,7 +33,7 @@ export default function CreateCategory() {
         }); 
     }
     const successAlert =() => {
-        Swal.fire({
+      Swal.fire({
             title:'Success!',
             text:`Category Created `,
             confirmButtonText:'Lets Go',

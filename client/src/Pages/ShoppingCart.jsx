@@ -38,7 +38,7 @@ export default function ShoppingCart() {
             title:'Error!',
             text:`ShoppingCart is empty`,
             confirmButtonText:"Let's buy products",
-            background:'#67e9ff',
+            background:'#fff',
             icon:'error',
             customClass:{ 
                 popup:'popup-alert',

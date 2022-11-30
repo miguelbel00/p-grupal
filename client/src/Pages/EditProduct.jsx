@@ -1,7 +1,7 @@
 import styles from "../styles/editProduct.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
-import dino from '../assets/dino.jpg'
+import dino from '../assets/dino.png'
 import { useHistory, useParams } from "react-router-dom";
 import {
   getOneProduct,
@@ -27,7 +27,7 @@ const EditProduct = () => {
       title: "Success!",
       text: `Product Edited `,
       confirmButtonText: "Lets Go",
-      background: "#67e9ff",
+      background: "#fff",
       customClass: {
         popup: "popup-alert",
         text: "titleAlert",
@@ -43,7 +43,7 @@ const EditProduct = () => {
         title:'Error!',
         text:`${message}`,
         confirmButtonText:'Try Again',
-        background:'#67e9ff',
+        background:'#fff',
         icon:'error',
         customClass:{ 
             popup:'popup-alert',
