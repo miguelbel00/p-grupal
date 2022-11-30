@@ -47,14 +47,13 @@ export function loginUser(payload) {
     return axios
       .post(`${REACT_APP_SERVER_BACK}/auth/login`, payload)
       .then((result) =>{
-      console.log(result);
         dispatch({
           type: "LOGIN_USER",
           payload: result.data,
         })}
       )
       .catch((error) => {  
-        console.log(error)
+        console.log(error.response.data.split('<')[9].split(':')[2])
         dispatch(
             {
             type: "LOGIN_USER",
