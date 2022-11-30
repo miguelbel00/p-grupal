@@ -3,7 +3,8 @@
 const initialState = {
   filterProducts: [],
   productos1: [],
-  categoriesSelected: []
+  categoriesSelected: [],
+  allCategories: []
 };
 
 export default function filterReducer(state = initialState, { type, payload }) {
@@ -14,8 +15,14 @@ export default function filterReducer(state = initialState, { type, payload }) {
         filterProducts: payload,
         productos1: payload,
       };
+
+    case "GET_ALL_CATEGORIES":
+      return {
+        ...state,
+        allCategories: payload
+      };
+
     case "ORDER_PRODUCTS":
-   
       return {
         ...state,
         filterProducts: orederedOption([...state.filterProducts], payload)

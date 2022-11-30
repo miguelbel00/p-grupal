@@ -49,3 +49,13 @@ export function getAllProducts() {
       });
     };
   }
+
+  export function getAllCategories() {
+    return async function (dispatch) {
+      var json = await axios.get(`${REACT_APP_SERVER_BACK}/categories`);
+      return dispatch({
+        type: "GET_ALL_CATEGORIES",
+        payload: json.data.body,
+      });
+    };
+  }
