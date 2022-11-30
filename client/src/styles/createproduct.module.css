@@ -118,5 +118,6 @@
         width: 100%;
         grid-area: containerTwo;
         margin: 0;
+        margin-bottom: 20px;
     }
 }
