@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import logo from "./../assets/astrologoC.png"
 
 import '../styles/footer.css'
-
+ 
 
 export default function Footer () {
     return (
