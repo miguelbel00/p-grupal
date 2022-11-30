@@ -5,7 +5,7 @@
  import { useHistory } from 'react-router-dom';
  import Swal from 'sweetalert2'
 import { createCategory } from '../redux/actions/actionsAdmin';
-
+import dino from '../assets/dino.jpg'
 
 
 export default function CreateCategory() {
@@ -43,7 +43,7 @@ export default function CreateCategory() {
                 text:'titleAlert',
                 content:'titleAlert'
             },
-           imageUrl: 'ss',
+           imageUrl: dino,
            imageWidth:'200px',
            imageHeight:'200px'
         });

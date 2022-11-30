@@ -1,16 +1,20 @@
  import '../styles/createproduct.css';
- import { useState } from 'react';
+ import { useEffect, useState } from 'react';
  import { postProduct } from '../redux/actions/actionsPetitions';
  import { getAllProducts } from '../redux/actions/actionsFilter';
- import { useDispatch } from 'react-redux';
+ import { useDispatch, useSelector } from 'react-redux';
  import { useHistory } from 'react-router-dom';
-
+import { getCategory } from '../redux/actions/actionsAdmin';
+import Swal from 'sweetalert2'
+import dino from '../assets/dino.jpg'
 
 
 
  const CreateProduct = () => {
    const dispatch = useDispatch();
    const history = useHistory();
+   const categoriesState = useSelector(state => state.reducerAdmin.categories)
+
     const [product, setProduct] = useState({
       name:"", 
       description:"", 
@@ -21,6 +25,41 @@
     });
     
     const [errors, setErrors] = useState({});
+
+    useEffect(() => {
+        dispatch(getCategory())
+      
+    }, []);
+    const errorAlert = (message) => {
+      Swal.fire({
+          title:'Error!',
+          text:`${message}`,
+          confirmButtonText:'Try Again',
+          background:'#67e9ff',
+          icon:'error',
+          customClass:{ 
+              popup:'popup-alert',
+              text:'titleAlert',
+              content:'titleAlert'
+          },
+      }); 
+  }
+    const successAlert =() => {
+      Swal.fire({
+          title:'Success!',
+          text:`Product Created successfully `,
+          confirmButtonText:'Lets Go',
+          background:'#67e9ff',
+          customClass:{ 
+              popup:'popup-alert',
+              text:'titleAlert',
+              content:'titleAlert'
+          },
+         imageUrl: dino,
+         imageWidth:'200px',
+         imageHeight:'200px'
+      });
+  }
 
 const validate = (product) => {
   let error = {};
@@ -59,15 +98,15 @@ const validate = (product) => {
           !product.description || 
           !product.stock ||
           !product.categories ) {
-          alert('Llene los campos corectamente');
+          errorAlert('Please fill the inputs');
           setErrors(validate({
             ...product
           }))
         }else {
         await dispatch(postProduct(product));
         await dispatch((getAllProducts()))
-        alert('producto creado correctamente') ; 
-        history.push('/products');
+        successAlert()
+        history.push('/admin');
         }      
     };
 
@@ -98,17 +137,7 @@ const validate = (product) => {
       })  
   
     };
-/* 
-    const moreImage = (e) => {
-      e.preventDefault();
-             let img = []
-        setProduct({
-          ...product,
-          image: [...product.image],
-          
-        })
-        
-    } */
+
 
     const handleDelete = (e) => {
       setProduct({
@@ -125,27 +154,7 @@ const validate = (product) => {
     };
 
 
-    const listCategory =
-[
-"Computadores",
-"Perifericos",
-"Amd",
-"Intel",
-"Trabajo",
-"Estudio",
-"Motherboard",
-"Procesador",
-"Disco Duro",
-"Disco SSD",
-"Memoria Ram",
-"Fuentes",
-"Refrigeracion",
-"Gabinet",
-"Teclad",
-"Auricular",
-"Mouse",
-]
-
+    const listCategory = categoriesState.map(c => c.name)
 
  
  
@@ -165,8 +174,6 @@ return (
      <div >
       <input onChange={(e) => handleImage(e)}  type="text" className="form-control"  name='image' placeholder='Imagen Url..' value={product.image} />   
       <p className='errors'><strong>{errors.image}</strong></p>
-
-     {/* <button onClick={(e) => moreImage(e)}>Añadir mas imagen</button> */}
     </div>
     <div className='inputsError'>
       <input  onChange={(e) => handleChange(e)} value= {product.name}  type="text" className="form-control" name='name' placeholder='Titulo' />  
@@ -205,14 +212,18 @@ return (
   </div>
   <div className='product'>
    {product.image && product.image.map((img) => (
-      <div className='showProduct' >
+      <div className='showImg' >
         <img  src={img} alt=""/> 
       </div>
     ))}
-   <h2 className='name'>{product.name}</h2> 
-  <label className='stock'>stock:{product.stock}</label> 
-  <label className='price'>${product.price}</label>
-  <label className='description'>{product.description}</label>
+    <div className='showProduct'>
+   <h2 >{product.name}</h2> 
+  <label >Stock:{product.stock}</label>
+  <br/> 
+  <label >Price: ${product.price}</label>
+  <br/> 
+  <label >Description: {product.description}</label>
+  </div>
    </div>
 </form>
 </div>

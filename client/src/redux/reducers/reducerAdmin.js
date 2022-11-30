@@ -49,6 +49,11 @@ export default function reducerAdmin(
                 ...state, 
                 transactions:payload
             }
+        case "UPDATE_PRODUCT_ADMIN":
+            return{
+                ...state, 
+                products:payload
+            }
         case "CREATE_USER_ADMIN":
             return {
                 ...state,
@@ -59,10 +64,20 @@ export default function reducerAdmin(
                 ...state, 
                 user: payload
             }
+        case "GET_ONE_PRODUCT":
+            return {
+                ...state, 
+                product: payload
+            }
         case "CLEAR_ONE_USER":
             return {
                 ...state, 
                 user: {}
+            }
+        case "CLEAR_ONE_PRODUCT":
+            return {
+                ...state, 
+                product: {}
             }
         case "CREATE_CATEGORY":
             return {

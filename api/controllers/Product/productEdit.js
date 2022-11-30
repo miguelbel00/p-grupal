@@ -7,8 +7,7 @@ const { where } = require('sequelize');
 module.exports = {
     productEdit: async(req, res, next) => {
         
-        const {productId} = req.params
-        const {price,description,image,stock,name} = req.body
+        const {price,stock,productId} = req.body
 
         try{            
                 const product = await Product.findOne({
@@ -16,10 +15,7 @@ module.exports = {
                 })
                 const response = await product.update({
                     price:price,
-                    description:description,
-                    image:image,
                     stock: stock,
-                    name:name
                 })
                 endpointResponse({
                     res,
@@ -32,7 +28,7 @@ module.exports = {
         catch (error) {
            const httpError = createHttpError(
                error.statusCode,
-               `[Error get all products] - [getAllProducts - GET]: ${error.message}`,
+               `[Error Edit products] - [EditProductProducts - GET]: ${error.message}`,
            )
            next(httpError)
        }

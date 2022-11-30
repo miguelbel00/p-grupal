@@ -59,10 +59,26 @@ export function getOneUser(id) {
     })
   }
 }
+export function getOneProduct(id) {
+  return async function (dispatch) {
+    let json = await axios.get(`${REACT_APP_SERVER_BACK}/products/${id}`)
+    return dispatch({
+      type: "GET_ONE_PRODUCT",
+      payload: json.data.body
+    })
+  }
+}
 export function clearOneUser() {
   return async function (dispatch) {
     return dispatch({
       type: "CLEAR_ONE_USER"
+    })
+  }
+}
+export function clearOneProduct() {
+  return async function (dispatch) {
+    return dispatch({
+      type: "CLEAR_ONE_PRODUCT"
     })
   }
 }
@@ -84,6 +100,16 @@ export function updateTransaction(body){
     let json = await axios.get(`${REACT_APP_SERVER_BACK}/transactions`)
     return dispatch({
       type: "UPDATE_TRANSACTION_ADMIN",
+      payload: json.data.body
+    })
+  }
+}
+export function updateProduct(body){
+  return async function(dispatch){
+    await axios.put(`${REACT_APP_SERVER_BACK}/products`,body)
+    let json = await axios.get(`${REACT_APP_SERVER_BACK}/products`)
+    return dispatch({
+      type: "UPDATE_PRODUCT_ADMIN",
       payload: json.data.body
     })
   }
