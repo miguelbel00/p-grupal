@@ -4,10 +4,10 @@ justify-content: left;
 margin-top: -50px;
 }
 
-.createContainer form input {
+/* .createContainer form input {
     width: 20em;
 
-}
+} */
 
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
@@ -41,26 +41,72 @@ input[type=number] { -moz-appearance:textfield; }
 .myProduct button:hover {
   opacity: 0.9;
 }
+/* .boxInput {
+  position: relative;
+  padding: 100px;
+} */
 
-.showProduct { 
-    position: relative;
-    margin-left: -5rem;
-    padding: 100px;
-
-   
+/* .category {
+box-shadow: 0 0 4px;
+gap: 40px;
+margin-top: 10px;
+display: flex;
+flex-direction: row;
+border-radius: 5px;
 }
-.showProduct img {
-    height: 300px;
+.category p{
+  margin: 0;
+  text-align: center;
+  width: 90%;
+}
+.category button {
+width: 10%;
+font-size: 15px;
+border-radius: 50rem;
+width: 25px;
+height: 25px;
+border: none;
+background: rgb(202, 202, 202);
+cursor: pointer;
+}
+
+.category button:hover  {
+opacity: 0.9;
+} */
+/* .showImg { 
+  position: relative;
+  margin-left: -5rem;
+  padding: 100px 100px 10px 100px;
+  width: 200px;
+  object-fit: cover;
+ 
+}
+.showImg img {
+    height: 250px;
     width: auto;
     box-shadow: 0 0 4px;
-  }
+  } */
 
-.boxInput {
-    position: relative;
-    padding: 100px;
+
+/* .showProduct { 
+  position: relative;
+  margin-left: -5rem;
+  padding-left: 100px;
+  background-color: aquamarine;
+  width: 80%;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+ 
 }
+.showProduct h2{
+  font-size: 28px;
+  max-width: 80%;
+} */
 
-.name {
+/* .name {
     position: relative;
     margin-left: 24rem;
     margin-top: -24rem;
@@ -84,37 +130,6 @@ input[type=number] { -moz-appearance:textfield; }
     position: relative;
      margin-left: 2rem;
      margin-top: 18rem;
-  }
+  } */
 
 
-.errors {
-    margin-top: -2px;
-    margin-left: 100px;
-    color: red;
-    font-size: 10px;
-  }
-
-.category {
-box-shadow: 0 0 4px;
-gap: 40px;
-margin-top: 20px;
-}
-
-.category button {
-  position: absolute;
-  margin-top: -40px;
-  font-size: 15px;
-  border-radius: 50rem;
-  border: none;
-  background: rgb(202, 202, 202);
-  cursor: pointer;
-  margin-left: 18rem;
-}
-
-.category button:hover  {
-  opacity: 0.9;
-}
-
-
-
- 
