@@ -108,7 +108,7 @@ export default function ShoppingCart() {
                 axios.post(`${process.env.REACT_APP_SERVER_BACK}/checkout/checkout-order`, objCart)
                 .then(response =>  window.location.href = response.data.links[1].href )
                 .then(()=> clearCartWithOutAlert())
-                his
+                
             },200)
             history.push('/')
         }else{
