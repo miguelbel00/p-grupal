@@ -71,8 +71,8 @@ const Navbar = () => {
                                 <i className="bi bi-house nav-link mb-3"> &nbsp;Home</i>
                             </Link>
                         </li>
-                        {Object.keys(user).length !== 0 && userOne !==null
-                        ?   <li className="nav-item">
+                        { user ? 
+                           <li className="nav-item">
                                 <Link to='/profile' >
                                     <i className="bi bi-person-circle nav-link mb-3"> &nbsp;My Account</i>
                                 </Link>
