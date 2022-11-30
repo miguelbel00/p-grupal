@@ -17,6 +17,8 @@ import AdminPage from "./AdminPage/Admin";
 import EditProfile from "./componets/EditProfile";
 import EditUser from "./Pages/EditUser";
 import EditTrasnsaction from "./Pages/EditTransaction";
+import PurchaseMade from "./Pages/PurchaseMade";
+
 
 function App() {
   const user = useSelector(state => state.petitionsReducer.user)
@@ -34,6 +36,8 @@ function App() {
         <Route exact path='/products' component={Products}/>
         <Route exact path='/shoppingcart' component={ShoppingCart}/>
         <Route exact path={'/editProfile/:userId'} component={EditProfile}/>
+        <Route exact path='/congratulations' component={PurchaseMade}/>
+
 
         <Route exact path='/admin' component={AdminPage}>
 

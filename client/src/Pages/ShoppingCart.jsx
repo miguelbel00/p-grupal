@@ -48,6 +48,18 @@ export default function ShoppingCart() {
             /* Read more about isConfirmed, isDenied below */
                 history.push('/products')
         });
+    };
+
+    const purchase = () => {
+        Swal.fire({
+            title: 'Congratulations on your purchase',
+            confirmButtonText: "Ok",
+            timer: 3000,
+            icon: "success"
+        }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+                history.push('/congratulations')
+        });
     }
 
     const successAlert = () => {
@@ -109,7 +121,10 @@ export default function ShoppingCart() {
                 .then(response =>  window.location.href = response.data.links[1].href )
                 .then(()=> clearCartWithOutAlert())
                 
-            },200)
+            },200);
+
+            purchase()
+
         }else{
             emptyCart()
         }

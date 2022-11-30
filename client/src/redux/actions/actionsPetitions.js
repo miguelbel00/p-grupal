@@ -4,10 +4,10 @@ const {REACT_APP_SERVER_BACK} = process.env
 
 export function getAllProducts() {
   return async function (dispatch) {
-    var json = await axios.get(`${REACT_APP_SERVER_BACK}/products`);
+    const json = await axios.get(`${REACT_APP_SERVER_BACK}/products`);
     return dispatch({
       type: "GET_ALL_PRODUCTS",
-      payload: json.data.body,
+      payload: json.data.body
     });
   };
 }

@@ -1,0 +1,32 @@
+.purchaContainer {
+    margin-top: 100px;
+    margin-bottom: 250px;
+    gap: 40px;
+    box-shadow: 0 0 10px black;
+    width: 400px;
+    justify-content: center;
+    margin-left: 380px;
+}
+.boxContainer {
+    display: block;
+    margin-top: 10px;
+}
+
+.msg {
+    text-align: center;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+.btn {
+    justify-content: center;
+    display: flex;
+    margin-bottom: 20px;
+
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 50px;
+}
