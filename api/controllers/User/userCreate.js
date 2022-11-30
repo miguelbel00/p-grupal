@@ -12,7 +12,8 @@ dotenv.config();
 
 module.exports = {
   createUser: async (req, res, next) => {
-    const { fullName, email, password, phone, avatar} = req.body;
+    let { fullName, email, password, phone, avatar,isAdmin} = req.body;
+ 
     try{
       const userEmail = await User.findAll({
         where: {
@@ -20,13 +21,23 @@ module.exports = {
             }
       })
       if(userEmail.length){
-          throw new ErrorObject("That email is already in use", 400)
+          return  res.json({error:"That email is already in use"})
       }
 
       const hasedPass = password ? await bcrypt.hash(password,10) : ""
+
+      const isBoolean = (string)=>{
+      if(string.toLowerCase()==='true'){
+      return   isAdmin=true
+      }else{
+       return  isAdmin=false
+      }
+      }
+
       const userCreated = await User.create({
-        fullName, email, avatar, password:hasedPass, phone,
+        fullName, email, avatar, password:hasedPass, phone,isAdmin:isAdmin? isBoolean(isAdmin) : false
       })
+      
       const token = jwt.sign( {user:userCreated} , process.env.JWT_SECRETO, {expiresIn: '1h'})
 
       axios.post(`${process.env.BACK_URL}/email/register`,{email:email, fullName:fullName})

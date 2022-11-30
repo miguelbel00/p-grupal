@@ -1,16 +1,20 @@
-import { useState } from 'react';
+import { useState, useEffect }from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import {  filterCategory, orderMostSold, addCategorieFilter, deleteFilter, orderProducts } from "../redux/actions/actionsFilter";
-import { getAllProducts } from "../redux/actions/actionsPetitions";
+import { getAllCategories } from '../redux/actions/actionsFilter'
 import Styles from "../styles/filters.module.css"
 
 
 export default function Filters({ setOption, setPage }) {
     const dispatch = useDispatch()
 
-    const [categories, setCategories] = useState([])
     const stateCategories = useSelector(state => state.filterReducer.categoriesSelected)
+    const [categories, setCategories] = useState(stateCategories)
+    const allCategories = useSelector(state => state.filterReducer.allCategories)
 
+    useEffect(() => {
+      dispatch(getAllCategories())
+    }, [])
 
     function handleOrder(e) {
        dispatch(orderProducts(e.target.value))
@@ -23,14 +27,10 @@ export default function Filters({ setOption, setPage }) {
 
     function handleFilterCategory(e) {
         e.preventDefault();
-        if(!categories.includes(e.target.value) && e.target.value !==  "Categorias"){
+        if(!categories.includes(e.target.value) && e.target.value !==  "Filter"){
         state([...categories, e.target.value])
 
-        console.log([...categories, e.target.value])
-
         dispatch(addCategorieFilter([...categories, e.target.value]))
-
-
         dispatch(filterCategory())
         }
     }
@@ -39,23 +39,7 @@ export default function Filters({ setOption, setPage }) {
         dispatch(deleteFilter(e.target.name))
         setCategories([...categories.filter(cat => cat !== e.target.name)])
         dispatch(filterCategory())
-       
-        
     }
-
-    function handleOrderMostSeller(e) {
-        e.preventDefault()
-        if (e.target.value === 'All') {
-            dispatch(getAllProducts())
-
-        } else {
-            dispatch(orderMostSold(e.target.value))
-            setOption(e.target.value)
-
-        }
-        setPage(1)
-    }
-
 
 
     return (
@@ -77,27 +61,12 @@ export default function Filters({ setOption, setPage }) {
             </div>
             <div className={Styles.filter}>
                 <select class="form-select form-select-lg " aria-label=".form-select-lg example" onChange={e => handleFilterCategory(e)}>
-                    <option selected>Filter</option>
-                    <option value="Computadores">Computadores</option>
-                    <option value="Perifericos">Perifericos</option>
-                    <option value="Componentes">Componentes</option>
-                    <option value="Amd">Amd</option>
-                    <option value="Intel">Intel</option>
-                    <option value="Gamer">Gamer</option>
-                    <option value="Trabajo">Trabajo</option>
-                    <option value="Estudio">Estudio</option>
-                    <option value="Motherboard">Motherboard</option>
-                    <option value="Procesador">Procesador</option>
-                    <option value="Disco Duro">Disco Duro</option>
-                    <option value="Disco SSD">Disco SSD</option>
-                    <option value="Memoria Ram">Memoria Ram</option>
-                    <option value="Fuentes">Fuentes</option>
-                    <option value="Refrigeracion">Refrigeracion</option>
-                    <option value="Placas de video">Placas de video</option>
-                    <option value="Gabinet">Gabinet</option>
-                    <option value="Teclad">Teclad</option>
-                    <option value="Auricular">Auricular</option>
-                    <option value="Mouse">Mouse</option>
+                    <option value='Filter'>Filter</option>
+                    {
+                    allCategories.map(c => 
+                        <option key={c.name} value={c.name}>{c.name}</option>
+                    )
+                    }
                 </select>
             </div>
             <div className={Styles.containerFilters}>

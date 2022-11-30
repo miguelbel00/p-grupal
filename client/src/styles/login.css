@@ -20,7 +20,7 @@
      }
      .divMayorLogin{
         width: 400px;
-        height: 400px; 
+        height: 500px; 
         background-color:#d6d6d6;
         border-radius: 15px;
         justify-content: center;
@@ -54,4 +54,24 @@
           }
           .dinoVolador{
            background-image: url('../assets/dinoVolador.png'); 
+          }
+
+          .forgotPass{
+            display: none;
+
+          }
+
+          .buttonKey{
+            border: none;
+            outline: none;
+            background-color:transparent;
+            font-size: 15px;
+          }
+          .buttonKey:hover{
+            color: #482857;
+          }
+
+          .forgotPassEnab{
+            display: block;
+         
           }

@@ -5,12 +5,13 @@ import {updateUser} from '../redux/actions/actionsPetitions';
 import {  useHistory, useParams } from 'react-router-dom';
 import {getOneUser,clearOneUser} from '../redux/actions/actionsAdmin';
 import Swal from 'sweetalert2'
+import dino from '../assets/dino.jpg'
 
 function EditUser () {
     const dispatch = useDispatch();
     const userState = useSelector((state)=> state.reducerAdmin.user)
         const { userId } = useParams()
-        const history = useHistory
+        const history = useHistory()
         useEffect(() => {
         
             dispatch(getOneUser(userId))
@@ -18,7 +19,20 @@ function EditUser () {
                 dispatch(clearOneUser())
             }
         }, []);
-    
+        const errorAlert = (message) => {
+            Swal.fire({
+                title:'Error!',
+                text:`${message}`,
+                confirmButtonText:'Try Again',
+                background:'#67e9ff',
+                icon:'error',
+                customClass:{ 
+                    popup:'popup-alert',
+                    text:'titleAlert',
+                    content:'titleAlert'
+                },
+            }); 
+        }
         const successAlert =() => {
             Swal.fire({
                 title:'Success!',
@@ -30,7 +44,7 @@ function EditUser () {
                     text:'titleAlert',
                     content:'titleAlert'
                 },
-               imageUrl: 'ss',
+               imageUrl: dino,
                imageWidth:'200px',
                imageHeight:'200px'
             });
@@ -75,7 +89,8 @@ function EditUser () {
 
     const handelSubmit = (e) => {
         e.preventDefault();
-      
+      editUser.userId = userState.id
+      editUser.email = userState.email
         if (!editUser.userId ||
             !editUser.fullName ||
             !editUser.password ||
@@ -83,7 +98,7 @@ function EditUser () {
             !editUser.email ||
             !editUser.isAdmin
             ) {
-            alert('Llene los campos correctamente')
+            errorAlert('Please fill the inputs')
            setErrors(validate({
             ...editUser
           }))
@@ -111,7 +126,7 @@ function EditUser () {
     return (
 <div className={styles.container}>
     <div className={styles.profileContainer}>
-            <h4>Edit</h4>
+            <h4>Edit User</h4>
             <form onSubmit={handelSubmit} className={styles.form}>         
     <div className={styles.containerName}>
                <label>Full name</label>

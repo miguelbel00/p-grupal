@@ -4,10 +4,6 @@ justify-content: left;
 margin-top: -50px;
 }
 
-/* .createContainer form input {
-    width: 20em;
-
-} */
 
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
@@ -41,95 +37,25 @@ input[type=number] { -moz-appearance:textfield; }
 .myProduct button:hover {
   opacity: 0.9;
 }
-/* .boxInput {
-  position: relative;
-  padding: 100px;
-} */
 
-/* .category {
-box-shadow: 0 0 4px;
-gap: 40px;
-margin-top: 10px;
-display: flex;
-flex-direction: row;
-border-radius: 5px;
-}
-.category p{
-  margin: 0;
-  text-align: center;
-  width: 90%;
-}
-.category button {
-width: 10%;
-font-size: 15px;
-border-radius: 50rem;
-width: 25px;
-height: 25px;
-border: none;
-background: rgb(202, 202, 202);
-cursor: pointer;
-}
 
-.category button:hover  {
-opacity: 0.9;
-} */
-/* .showImg { 
+.showProduct { 
+    position: relative;
+    margin-left: -5rem;
+    padding-left: 100px;
+
+   
+}
+.showImg { 
   position: relative;
   margin-left: -5rem;
   padding: 100px 100px 10px 100px;
-  width: 200px;
-  object-fit: cover;
+  
  
 }
 .showImg img {
-    height: 250px;
+    height: 300px;
     width: auto;
     box-shadow: 0 0 4px;
-  } */
-
-
-/* .showProduct { 
-  position: relative;
-  margin-left: -5rem;
-  padding-left: 100px;
-  background-color: aquamarine;
-  width: 80%;
-  height: 250px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  justify-content: center;
- 
-}
-.showProduct h2{
-  font-size: 28px;
-  max-width: 80%;
-} */
-
-/* .name {
-    position: relative;
-    margin-left: 24rem;
-    margin-top: -24rem;
-}
-
-.stock {
-    position: absolute;
-    margin-left: 25rem;
-    margin-top: 80px;
-   
-  }
-.price {
-    position: absolute;
-    color: black;
-    margin-left: 25rem ;
-  }
-
-
-
-.description {
-    position: relative;
-     margin-left: 2rem;
-     margin-top: 18rem;
-  } */
-
+  } 
 

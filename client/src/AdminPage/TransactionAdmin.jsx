@@ -23,19 +23,21 @@ export default function AdminTestAntDesign() {
       type="error"
     />
   );
+  const [seletedTransaction,setSeletedTransaction] = useState({})
   const history = useHistory();
   const editHandle = (value) => {
     history.push(`admin/editTransaction/${value.id}`);
   };
 
-  const showModal = () => {
+  const showModal = (value) => {
     setOpen(true);
+    setSeletedTransaction(value.id)
   };
 
-  const handleOk = (value) => {
+  const handleOk = () => {
     setModalText(<Alert message="Aguarde unos segundos..." type="success" />);
     setConfirmLoading(true);
-    dispatch(deleteTransaction(value.id));
+    dispatch(deleteTransaction(seletedTransaction));
     setTimeout(() => {
       setOpen(false);
       setConfirmLoading(false);
@@ -203,7 +205,7 @@ export default function AdminTestAntDesign() {
             <Modal
               title="Cuidado!"
               open={open}
-              onOk={() => handleOk(value)}
+              onOk={handleOk}
               confirmLoading={confirmLoading}
               onCancel={handleCancel}
             >

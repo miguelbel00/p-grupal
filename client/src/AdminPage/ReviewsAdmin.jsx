@@ -17,17 +17,18 @@ export default function AdminTestAntDesign() {
     const [open, setOpen] = useState(false);
     const [confirmLoading, setConfirmLoading] = useState(false);
     const [modalText, setModalText] = useState(<Alert message="Estas seguro de que deseas acceder a estos datos?" type="error" />);
+    const [selectedReview,setSelectedReview] = useState({})
 
 
-
-    const showModal = () => {
+    const showModal = (value) => {
         setOpen(true);
+        setSelectedReview(value.id)
     };
 
-    const handleOk = (value) => {
+    const handleOk = () => {
         setModalText(<Alert message="Aguarde unos segundos..." type="success" />);
         setConfirmLoading(true);
-        dispatch(deleteReview(value.id))
+        dispatch(deleteReview(selectedReview))
         setTimeout(() => {
             setOpen(false);
             setConfirmLoading(false);
@@ -194,11 +195,11 @@ export default function AdminTestAntDesign() {
             key: 'actionButon',
             render: (value) => {
                 return <div>
-                    <Button onClick={showModal} danger type="primary">Delete Review</Button>
+                    <Button onClick={()=>showModal(value)} danger type="primary">Delete Review</Button>
                     <Modal
                         title="Cuidado!"
                         open={open}
-                        onOk={()=>handleOk(value)}
+                        onOk={handleOk}
                         confirmLoading={confirmLoading}
                         onCancel={handleCancel}
                     >

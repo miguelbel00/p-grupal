@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useEffect } from "react";
+import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { useParams,useHistory } from "react-router-dom"
 import { getDetail, getUser } from "../redux/actions/actionsPetitions"
@@ -97,12 +98,17 @@ export default function Detail() {
         axios.post(`${process.env.REACT_APP_SERVER_BACK}/checkout/checkout-order`, objResult)
             .then(response => window.location.href = response.data.links[1].href)
 
+            
     }
 
     if (!Object.values(product).length) { return <Loading /> }
 
     return (
         <div className={Styles.body}>
+            <Link className="text-decoration-none text-white link" to='/products'>
+                <button className={Styles.button}>Volver</button>
+            </Link>
+
             <div className={Styles.container}>
                 <div className={Styles.carousel}>
                     <div id="carouselExampleControlsNoTouching" className="carousel slide" data-bs-touch="false">
