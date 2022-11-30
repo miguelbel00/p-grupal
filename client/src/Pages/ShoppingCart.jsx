@@ -110,7 +110,7 @@ export default function ShoppingCart() {
                 .then(()=> clearCartWithOutAlert())
                 
             },200)
-            
+                
         }else{
             emptyCart()
         }
