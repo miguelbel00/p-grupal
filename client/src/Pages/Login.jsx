@@ -82,10 +82,10 @@ export default function Login() {
 
     //Google Auth start
     const handleCallBackResponse = async (response) => {
-        const user =response.credential
+        const userGoogle =response.credential
         setSubmit(true)
         try {
-            const decoded = jwt.decode(user)
+            const decoded = jwt.decode(userGoogle)
             const newUser = {
                 email: decoded.email,
                 google:true
