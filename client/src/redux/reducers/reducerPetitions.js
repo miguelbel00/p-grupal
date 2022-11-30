@@ -35,7 +35,6 @@ export default function petitionsReducer(
 
       };
     case "LOGIN_USER":
-      console.log(payload)
       return {
         ...state,
         user: payload,

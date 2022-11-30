@@ -28,18 +28,9 @@ export function registerUser(payload) {
       .then((result) =>
         dispatch({
           type: "REGISTER_USER",
-          payload: result.data,
+          payload: result.data.hasOwnProperty('error') ? result.data.error :result.data,
         })
       )
-      .catch((error) => {  
-        dispatch(
-            {
-            type: "REGISTER_USER",
-            payload: error.response.data.split('<')[9].split(':')[2]
-    
-        })
-
-      });
   };
 }
 export function loginUser(payload) {
@@ -47,24 +38,11 @@ export function loginUser(payload) {
     return axios
       .post(`${REACT_APP_SERVER_BACK}/auth/login`, payload)
       .then((result) =>{
-        console.log(result.data)
-        if (result.data.hasOwnProperty('error')) {
-          result.data = result.data.error
-        }
-        console.log(result.data)
         dispatch({
           type: "LOGIN_USER",
-          payload: result.data,
+          payload: result.data.hasOwnProperty('error') ? result.data.error :result.data,
         })}
       )
-      .catch((error) => { 
-        dispatch(
-            {
-            type: "LOGIN_USER",
-            payload: error.response.data.split('<')[9].split(':')[2]
-    
-        })
-      });
        
   };
 }

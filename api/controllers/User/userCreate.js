@@ -21,8 +21,7 @@ module.exports = {
             }
       })
       if(userEmail.length){
-/*           throw new ErrorObject("That email is already in use", 400)
- */          return  res.json({error:"That email is already in use"})
+          return  res.json({error:"That email is already in use"})
       }
 
       const hasedPass = password ? await bcrypt.hash(password,10) : ""
@@ -34,8 +33,6 @@ module.exports = {
        return  isAdmin=false
       }
       }
-
-
 
       const userCreated = await User.create({
         fullName, email, avatar, password:hasedPass, phone,isAdmin:isAdmin? isBoolean(isAdmin) : false
