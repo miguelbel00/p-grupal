@@ -2,12 +2,11 @@ import React from 'react'
 import { Link, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux'
 import Styles from "../styles/home.module.css"
-import {  filterCategory, addCategorieFilter} from "../redux/actions/actionsFilter";
-import mainCategories_computers from '../assets/main_cateogires_computers.jpeg'
-import mainCategories_components from '../assets/main_cateogires_componentes.jpeg'
-import mainCategories_perifericos from '../assets/main_cateogires_perifericos.jpeg'
-
-
+import {  filterCategory, addCategorieFilter, resetFilterCategory} from "../redux/actions/actionsFilter";
+import productos from '../assets/main_categories_productos.png'
+import computadoras from '../assets/main_categories_computadoras.png'
+import componentes from '../assets/main_categories_componentes.png'
+import perifericos from '../assets/main_categories_perifericos.png'
 
 function MainCategories() {
     const dispatch = useDispatch()
@@ -19,18 +18,28 @@ function MainCategories() {
         dispatch(filterCategory())
         history.push('/products')
     }
+
+    function handleFilterAll(e) {
+        e.preventDefault();
+        dispatch(resetFilterCategory())
+        dispatch(filterCategory())
+        history.push('/products')
+    }
     
 
   return (
     <div className={Styles.category}>
         <div>
-            <img src={mainCategories_computers} alt="blank" onClick={handleFilterCategory} name='Computadores'/>
+            <img src={productos} alt="blank" onClick={handleFilterAll}/>
         </div>
         <div>
-            <img src={mainCategories_components} alt="blank" onClick={handleFilterCategory} name='Componentes'/>
+            <img src={computadoras} alt="blank" onClick={handleFilterCategory} name='Computadores'/>
         </div>
         <div>
-            <img src={mainCategories_perifericos} alt="blank" onClick={handleFilterCategory} name='Perifericos'/>
+            <img src={componentes} alt="blank" onClick={handleFilterCategory} name='Componentes'/>
+        </div>
+        <div>
+            <img src={perifericos} alt="blank" onClick={handleFilterCategory} name='Perifericos'/>
         </div>
     </div>
   )

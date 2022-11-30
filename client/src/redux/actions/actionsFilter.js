@@ -21,6 +21,12 @@ export function filterCategory() {
     }
 }
 
+export function resetFilterCategory() {
+    return {
+        type: "RESET_FILTER_CATEGORY",
+    }
+}
+
 export function deleteFilter(category){
     return {
         type:"DELET_FILTER",
