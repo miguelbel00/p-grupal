@@ -40,6 +40,7 @@ export default function Login() {
             },
         });
     }
+
     const successAlert = (message) => {
         Swal.fire({
             title: 'Success Login!',
@@ -100,17 +101,14 @@ export default function Login() {
         }
 
     }
-    function forGetPass(e) {
-        console.log(e.target.parentNode.firstChild.value)
-        console.log(userOne)
+    function forgetPass(e) {
         axios.post(`${process.env.REACT_APP_SERVER_BACK}/email/recoverPass`, {email: e.target.parentNode.firstChild.value})
         e.target.parentNode.firstChild.value = ""
-        alert("check your email!")
+        successAlert("password reset, check your email!")
         e.target.parentNode.className = "forgotPassEnab"
     }
     
     function showRecoverPass (e){
-        console.log(e.target.parentNode.nextElementSibling)
         e.target.parentNode.nextElementSibling.className = "forgotPassEnab"
         
         
@@ -214,7 +212,7 @@ export default function Login() {
                     <p className="parrafo">Did you forget your password?<button className="buttonKey"  onClick={showRecoverPass}>Click here</button></p>
                     <div className="forgotPass" >
                         <input placeholder="Insert Email" type="text" />
-                        <button  onClick={forGetPass}>send</button>
+                        <button  onClick={forgetPass}>send</button>
                     </div>
                 </div>
             </div>
