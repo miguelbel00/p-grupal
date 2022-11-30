@@ -3,7 +3,6 @@ import { FaStar } from "react-icons/fa"
 import { addReview, getDetail } from '../redux/actions/actionsPetitions'
 import { useDispatch, useSelector } from 'react-redux';
 import Styles from "../styles/addReview.module.css"
-import Swal from 'sweetalert2'
 
 const colors = {
   orange: "#FFBA5A",
@@ -55,45 +54,12 @@ function AddReview( {productId} ) {
     })
   }
 
-  const successAlert = () => {
-    Swal.fire({
-        title: 'Review created successfully',
-        confirmButtonText: "Ok",
-        timer: 3000,
-        icon: "success"
-    });
-  }
-  
-    const ratingAlert = () => {
-      Swal.fire({
-          title: 'The rating field is required',
-          confirmButtonText: "Ok",
-          timer: 3000,
-          icon: "error"
-      });
-    }
-    const commetAlert = () => {
-      Swal.fire({
-          title: 'The comment field is required',
-          confirmButtonText: "Ok",
-          timer: 3000,
-          icon: "error"
-      });
-    }
-    const userIdAlert = () => {
-      Swal.fire({
-          title: 'You must log in',
-          confirmButtonText: "Ok",
-          timer: 3000,
-          icon: "error"
-      });
-    }
   const handleSubmit = () => {
-    if (!review.rating) {return ratingAlert() }
-    if (!review.comment) {return commetAlert() }
-    if (!review.userId) {return userIdAlert() }
+    if (!review.rating) {return alert('The rating field is required') }
+    if (!review.comment) {return alert('The comment field is required') }
+    if (!review.userId) {return alert('You must log in') }
     dispatch(addReview(review))
-    successAlert()
+    alert(`Review created successfully`)
     setReview({ ...initialState})
     dispatch(getDetail(productId))
   }
