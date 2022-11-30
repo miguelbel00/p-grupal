@@ -3,6 +3,8 @@ import {useDispatch, useSelector} from 'react-redux';
 import {useState, useEffect} from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import {getTransactions, updateTransaction} from '../redux/actions/actionsAdmin';
+import Swal from 'sweetalert2'
+import dino from '../assets/dino.jpg'
 
 function EditTrasnsaction () {
 
@@ -13,6 +15,36 @@ function EditTrasnsaction () {
     const [editTransc, setEditTransc] = useState({
         status: transactions ? transactions.status : ''
     })
+    const errorAlert = (message) => {
+        Swal.fire({
+            title:'Error!',
+            text:`${message}`,
+            confirmButtonText:'Try Again',
+            background:'#67e9ff',
+            icon:'error',
+            customClass:{ 
+                popup:'popup-alert',
+                text:'titleAlert',
+                content:'titleAlert'
+            },
+        }); 
+    }
+    const successAlert =() => {
+        Swal.fire({
+            title:'Success!',
+            text:`Transaction Edited `,
+            confirmButtonText:'Lets Go',
+            background:'#67e9ff',
+            customClass:{ 
+                popup:'popup-alert',
+                text:'titleAlert',
+                content:'titleAlert'
+            },
+           imageUrl: dino,
+           imageWidth:'200px',
+           imageHeight:'200px'
+        });
+    }
 
     useEffect(() => {
         
@@ -34,13 +66,13 @@ function EditTrasnsaction () {
         e.preventDefault();
       
         if (!editTransc.status) {
-            alert('Llene los campos correctamente')
+            errorAlert('Please fill the inputs')
            setErrors(validate({
             ...editTransc
           }))
         } else {   
         dispatch(updateTransaction({status:editTransc.status,transactionId}));
-        alert('Transaccion actualizada');
+        successAlert();
         history.push('/admin')
         }  
     };

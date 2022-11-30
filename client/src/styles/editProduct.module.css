@@ -1,0 +1,115 @@
+.container {
+    display: flex;
+    margin-left: 150px;
+}
+
+.form {
+    display: grid;
+    gap: 10px;
+}
+.inputEmail{
+    background: rgb(101, 101, 101);
+    cursor: default;
+}
+
+.inputId {
+    background: rgb(101, 101, 101);
+    cursor: default;
+
+}
+
+.profileContainer {
+    display:grid;
+   justify-content: center;
+    box-shadow: 0 0 4px black;
+    width: 400px;
+    margin: auto;
+    margin-bottom: 50px;
+    margin-top: 50px;   
+}
+
+.cardUser{
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-align: center;
+    box-shadow: 0 0 4px black 
+}
+
+.inputIdBox {
+    margin-right: 50px;
+}
+
+.inputId{
+    font-size: 10px;
+}
+
+
+.input::placeholder { 
+    font-size: 13px;
+    color: rgb(94, 94, 94);
+ }
+
+.email{
+    margin-top: 20px;
+    font-size: 15px;
+}
+
+.containerName {
+    display: grid;
+    margin-top: 20px;
+}
+.containerEmail {
+    display: grid;
+    background-color: rgb(189, 186, 186);
+    margin-top: 20px;
+}
+
+.containerPhone{
+    display: grid;
+    margin-top: 20px;
+}
+
+.containerPassword{
+    display: grid;
+    margin-top: 20px;
+}
+
+.error {
+    font-size: 12px;
+    color: red;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+.btn {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    background-color: rgb(77, 23, 126);
+    color: white;
+    padding:5px 10px 5px;
+}
+.btn:hover{
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.btnCancel {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    background-color: rgb(77, 23, 126);
+    color: white;
+    padding:5px 10px 5px;
+    width: 250px;
+}
+
+.btnCancel:hover{
+    opacity: 0.8;
+    cursor: pointer;
+}
+
