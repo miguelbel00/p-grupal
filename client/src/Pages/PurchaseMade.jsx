@@ -6,16 +6,16 @@ function PurchaseMade() {
     return (
         <div className={styles.purchaContainer}>
           <div className={styles.boxContainer}>
-           <h4 className={styles.msg} >Muchas gracias por su compra!</h4>
+           <h4 className={styles.msg}>Thank you for your purchase!</h4>
            <div className={styles.buttonContainer}>
            <Link className={styles.btn} to='/'> 
              <button type="button" class="btn btn-outline-primary">
-               Inicio
+               Home
               </button>
            </Link>
            <Link className={styles.btn} to='/products'> 
              <button type="button" class="btn btn-outline-primary">
-               Volver a comprar
+             Buy More Products
               </button>
            </Link>
            </div>
