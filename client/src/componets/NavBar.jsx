@@ -30,7 +30,7 @@ const Navbar = () => {
     }
     
     const handleLogOut = () => {
-        localStorage.setItem("user", JSON.stringify({}))
+        localStorage.removeItem("user")
         dispatch(LogOut({}))
         successAlert('Come Back Soon')
         history.push('/')
