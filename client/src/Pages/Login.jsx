@@ -7,8 +7,10 @@ import Swal from 'sweetalert2'
 import { loginUser} from "../redux/actions/actionsPetitions";
 import { Formik } from "formik";
 import dino from '../assets/dino.jpg'
+import { passwordCreate } from "../functions/functions";
 const {REACT_APP_GOOGLE_CLIENT_ID} = process.env
 const jwt = require('jsonwebtoken');
+
 
 export default function Login() {
 
@@ -95,6 +97,10 @@ export default function Login() {
         } catch (error) {
             console.log(error)
         }
+
+      }
+      function forGetPass(){
+        const newPass = passwordCreate()
 
       }
   
@@ -193,7 +199,7 @@ export default function Login() {
                             </form>
                         )}
                     </Formik>
-                    <p className="parrafo">Did you forget your password?<Link>Click here</Link></p>
+                    <p className="parrafo">Did you forget your password?<Link onClick={forGetPass}>Click here</Link></p>
                 </div>
             </div>
         </div>
