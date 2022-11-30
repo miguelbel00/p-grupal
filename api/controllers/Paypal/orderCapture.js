@@ -48,8 +48,8 @@ module.exports = {
             
             axios.post(`${process.env.BACK_URL}/email`,{email, fullName, description, value,createTransaction})
 
-            res.redirect(process.env.FRONT_URL)
-
+            //res.redirect(process.env.FRONT_URL)
+           return  res.status(200)
 
         } catch (error) {
             const httpError = createHttpError(
