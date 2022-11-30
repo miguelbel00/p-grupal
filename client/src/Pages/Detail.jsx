@@ -5,12 +5,12 @@ import { useParams,useHistory } from "react-router-dom"
 import { getDetail, getUser } from "../redux/actions/actionsPetitions"
 import ReviewContainer from "../componets/ReviewContainer";
 
-
 import AddReview from "../componets/AddReview";
 import { addProductToCart } from '../redux/actions/actionShoppingCart.js'
 import Loading from "../componets/Loading"
 import Styles from "../styles/detail.module.css"
 import Swal from 'sweetalert2'
+import { scroll } from './Function';
 const jwt = require('jsonwebtoken');
 
 export default function Detail() {
@@ -22,6 +22,7 @@ export default function Detail() {
     const totalCart = useSelector((state) => state.shoppingReducer.totalCart)
     const user = useSelector((state) => state.petitionsReducer.userOne);
     const { productId } = useParams()
+    scroll()
 
     if(userJWT){
         try {
@@ -175,3 +176,4 @@ export default function Detail() {
         </div>
     )
 }
+
