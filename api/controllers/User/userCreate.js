@@ -21,7 +21,8 @@ module.exports = {
             }
       })
       if(userEmail.length){
-          throw new ErrorObject("That email is already in use", 400)
+/*           throw new ErrorObject("That email is already in use", 400)
+ */          return  res.send("That email is already in use")
       }
 
       const hasedPass = password ? await bcrypt.hash(password,10) : ""
