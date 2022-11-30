@@ -8,8 +8,8 @@ import Styles from "../styles/filters.module.css"
 export default function Filters({ setOption, setPage }) {
     const dispatch = useDispatch()
 
-    const [categories, setCategories] = useState([])
     const stateCategories = useSelector(state => state.filterReducer.categoriesSelected)
+    const [categories, setCategories] = useState(stateCategories)
     const allCategories = useSelector(state => state.filterReducer.allCategories)
 
     useEffect(() => {

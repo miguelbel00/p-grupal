@@ -4,10 +4,6 @@ justify-content: left;
 margin-top: -50px;
 }
 
-.createContainer form input {
-    width: 20em;
-
-}
 
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
@@ -42,6 +38,7 @@ input[type=number] { -moz-appearance:textfield; }
   opacity: 0.9;
 }
 
+
 .showProduct { 
     position: relative;
     margin-left: -5rem;
@@ -60,68 +57,5 @@ input[type=number] { -moz-appearance:textfield; }
     height: 300px;
     width: auto;
     box-shadow: 0 0 4px;
-  }
+  } 
 
-.boxInput {
-    position: relative;
-    padding: 100px;
-}
-
-.name {
-    position: relative;
-    margin-left: 24rem;
-    margin-top: -24rem;
-}
-
-.stock {
-    position: absolute;
-    margin-left: 25rem;
-    margin-top: 80px;
-   
-  }
-.price {
-    position: absolute;
-    color: black;
-    margin-left: 25rem ;
-  }
-
-
-
-.description {
-    position: relative;
-     margin-left: 2rem;
-     margin-top: 18rem;
-  }
-
-
-.errors {
-    margin-top: -2px;
-    margin-left: 100px;
-    color: red;
-    font-size: 10px;
-  }
-
-.category {
-box-shadow: 0 0 4px;
-gap: 40px;
-margin-top: 20px;
-}
-
-.category button {
-  position: absolute;
-  margin-top: -40px;
-  font-size: 15px;
-  border-radius: 50rem;
-  border: none;
-  background: rgb(202, 202, 202);
-  cursor: pointer;
-  margin-left: 18rem;
-}
-
-.category button:hover  {
-  opacity: 0.9;
-}
-
-
-
- 

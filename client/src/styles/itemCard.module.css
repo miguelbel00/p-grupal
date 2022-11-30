@@ -23,7 +23,8 @@
   text-align: center; 
 }
 .container .containerOne .img img{
-  width: 50px;
+  width: auto;
+  height: 50px;
   object-fit: cover;
 }
 .container .containerOne .name{
@@ -108,7 +109,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 250px;
+    justify-content: center;
+    height: 300px;
     margin: 10px auto;
     padding: 10px 0;
     gap: 10px;
