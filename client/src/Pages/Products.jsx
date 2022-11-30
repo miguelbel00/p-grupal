@@ -7,7 +7,6 @@ import Styles from '../styles/products.module.css'
 import Paginated from '../componets/Paginated.jsx'
 import Filters from "../componets/Filters";
 import Loading from "../componets/Loading"
-import { scroll } from "./Function";
 const jwt = require('jsonwebtoken');
 
 
@@ -22,7 +21,7 @@ export default function Products(){
     const [input, setInpunt] = useState(1);
     const [page, setPage] = useState(1);
     const [forPage] = useState(6);
-    scroll()
+
 
     if(userJWT){
         try {

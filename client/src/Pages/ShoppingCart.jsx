@@ -50,17 +50,6 @@ export default function ShoppingCart() {
                 history.push('/products')
         });
     }
-    const userRegister = () => {
-        Swal.fire({
-            title: 'The register is required',
-            confirmButtonText: "Ok",
-            timer: 3000,
-            icon: "error"
-        }).then((result) => {
-            /* Read more about isConfirmed, isDenied below */
-                history.push('/register')
-        });
-    }
 
     const successAlert = () => {
         Swal.fire({
@@ -108,9 +97,8 @@ export default function ShoppingCart() {
     }
 
     const handleBuyNow = () => {
-        if( Object.keys(totalCart).length > 0 ){
+        if(Object.keys(totalCart).length > 0 ){
             setTimeout(() => {
-                if(user){
                 const objCart = {
                     userId: user.id && user.id,
                     description: allProducts.length && allProducts.map((e) =>  `producto: ${e.name} cantidad: ${totalCart[e.id][1]} total: U$D ${totalCart[e.id][0] * totalCart[e.id][1]}`  ).join(' | '),
@@ -120,10 +108,9 @@ export default function ShoppingCart() {
                 }
                 axios.post(`${process.env.REACT_APP_SERVER_BACK}/checkout/checkout-order`, objCart)
                 .then(response =>  window.location.href = response.data.links[1].href )
-                .then(()=> clearCartWithOutAlert()) 
-            }else{
-                userRegister()
-            }},200)
+                .then(()=> clearCartWithOutAlert())
+                
+            },200)
                 
         }else{
             emptyCart()
