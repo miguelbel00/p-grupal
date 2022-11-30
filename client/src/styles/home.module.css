@@ -24,7 +24,7 @@
 .container .category div{
     border-radius: 10px; 
     width: 75vw;
-    max-width: 450px;
+    max-width: 350px;
     max-height: 250px;
     background-color: white;
     box-shadow: 0 3px 10px rgb(0 0 0 / 20%);

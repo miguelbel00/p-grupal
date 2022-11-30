@@ -48,6 +48,13 @@ export default function filterReducer(state = initialState, { type, payload }) {
           ...state,
           categoriesSelected: [...state.categoriesSelected.filter(category => category !== payload)]
         }
+
+        case "RESET_FILTER_CATEGORY":
+          return {
+            ...state,
+            categoriesSelected: []
+          };
+
     case "SEARCH_PRODUCT":
       return {
         ...state,
