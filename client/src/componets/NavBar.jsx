@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import astroLogo from '../assets/astrologo2.0(sin fondo).png'
 import Styles from '../styles/navbar.module.css'
@@ -55,7 +55,6 @@ const Navbar = () => {
 
 
     useEffect(() => {
-        
         
     }, [user]);
 
