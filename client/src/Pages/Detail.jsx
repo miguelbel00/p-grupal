@@ -5,12 +5,12 @@ import { useParams,useHistory } from "react-router-dom"
 import { getDetail, getUser } from "../redux/actions/actionsPetitions"
 import ReviewContainer from "../componets/ReviewContainer";
 
+
 import AddReview from "../componets/AddReview";
 import { addProductToCart } from '../redux/actions/actionShoppingCart.js'
 import Loading from "../componets/Loading"
 import Styles from "../styles/detail.module.css"
 import Swal from 'sweetalert2'
-import { scroll } from './Function';
 const jwt = require('jsonwebtoken');
 
 export default function Detail() {
@@ -22,7 +22,6 @@ export default function Detail() {
     const totalCart = useSelector((state) => state.shoppingReducer.totalCart)
     const user = useSelector((state) => state.petitionsReducer.userOne);
     const { productId } = useParams()
-    scroll()
 
     if(userJWT){
         try {
@@ -66,17 +65,6 @@ export default function Detail() {
             }
           })
     }
-    const userRegister = () => {
-        Swal.fire({
-            title: 'The register is required',
-            confirmButtonText: "Ok",
-            timer: 3000,
-            icon: "error"
-        }).then((result) => {
-            /* Read more about isConfirmed, isDenied below */
-                history.push('/register')
-        });
-    }
 
     const handleonClick =()=>{
         if(totalCart.hasOwnProperty(productId)){
@@ -96,23 +84,18 @@ export default function Detail() {
     }
 
     const handleBuyNow = (e) => {
-        if(user || userOne){
-            const userId = user.id
-            const value = Array.from(e.target.parentNode.children)
-           
-            const objResult = {
-                description: value[0].outerText,
-                price:value[1].outerText.slice(1)            ,
-                userId: userId,
-                productsId: productId,
-            }
-    
-            axios.post(`${process.env.REACT_APP_SERVER_BACK}/checkout/checkout-order`, objResult)
-                .then(response => window.location.href = response.data.links[1].href)
-    
-        }else{
-            userRegister()
+        const userId = user.id
+        const value = Array.from(e.target.parentNode.children)
+       
+        const objResult = {
+            description: value[0].outerText,
+            price:value[1].outerText.slice(1)            ,
+            userId: userId,
+            productsId: productId,
         }
+
+        axios.post(`${process.env.REACT_APP_SERVER_BACK}/checkout/checkout-order`, objResult)
+            .then(response => window.location.href = response.data.links[1].href)
 
             
     }
@@ -176,4 +159,3 @@ export default function Detail() {
         </div>
     )
 }
-
