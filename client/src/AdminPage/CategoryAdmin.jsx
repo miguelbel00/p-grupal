@@ -1,42 +1,187 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getCategory } from "../redux/actions/actionsAdmin";
-import eliminar from "../assets/eliminar.png"
+import React, { useRef, useState } from "react"
+import { Table, Button, Modal,Alert,Space,Input,Typography } from 'antd'
+import { useSelector, useDispatch } from 'react-redux'
+import { useEffect } from "react"
+import { deleteCategory, getCategory } from "../redux/actions/actionsAdmin"
+import '../adminStyles/AdminTestAntDesign.css'
+import { SearchOutlined } from '@ant-design/icons';
 
-export default function CategoryAdmin() {
+
+
+export default function AdminTestAntDesign() {
+
+    const [searchText, setSearchText] = useState('');
+    const [searchedColumn, setSearchedColumn] = useState('');
+    const searchInput = useRef(null);
+    const { Text} = Typography;
+    const [open, setOpen] = useState(false);
+    const [confirmLoading, setConfirmLoading] = useState(false);
+    const [modalText, setModalText] = useState(<Alert message="Estas seguro de que deseas acceder a estos datos?" type="error" />);
+    const [selectCategory,setSelectCategory] = useState({})
+
+    const showModal = (value) => {
+        setOpen(true);
+        setSelectCategory(value.id)
+    };
+
+    const handleOk = () => {
+        setModalText(<Alert message="Aguarde unos segundos..." type="success" />);
+        setConfirmLoading(true);
+        dispatch(deleteCategory(selectCategory))
+        setTimeout(() => {
+            setOpen(false);
+            setConfirmLoading(false);
+            setModalText(<Alert message="Estas seguro de que deseas acceder a estos datos?" type="error" />)
+        }, 2000);
+    };
+
+    const handleCancel = () => {
+        setOpen(false);
+    };
+
+
+
+
     const dispatch = useDispatch()
-    const categories = useSelector((state) => state.reducerAdmin.categories)
+    const categorySelector = useSelector((state) => state.reducerAdmin.categories)
 
     useEffect(() => {
         dispatch(getCategory())
-    }, [dispatch])
+    }, [])
+
+    const data = categorySelector
+
+
+
+
+    const handleSearch = (
+        selectedKeys,
+        confirm,
+        dataIndex,
+      ) => {
+        confirm();
+        setSearchText(selectedKeys[0]);
+        setSearchedColumn(dataIndex);
+      };
+
+      const handleReset = (clearFilters) => {
+        clearFilters();
+        setSearchText('');
+      };
+      const getColumnSearchProps = (dataIndex) => ({
+        filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters, close }) => (
+          <div style={{ padding: 8 }} onKeyDown={(e) => e.stopPropagation()}>
+            <Input
+              ref={searchInput}
+              placeholder={`Search ${dataIndex}`}
+              value={selectedKeys[0]}
+              onChange={(e) => setSelectedKeys(e.target.value ? [e.target.value] : [])}
+              onPressEnter={() => handleSearch(selectedKeys, confirm, dataIndex)}
+              style={{ marginBottom: 8, display: 'block' }}
+            />
+            <Space>
+              <Button
+                type="primary"
+                onClick={() => handleSearch(selectedKeys, confirm, dataIndex)}
+                icon={<SearchOutlined />}
+                size="small"
+                style={{ width: 90 }}
+              >
+                Search
+              </Button>
+              <Button
+                onClick={() => handleReset(clearFilters)}
+                size="small"
+                style={{ width: 90 }}
+              >
+                Reset
+              </Button>
+              <Button
+                type="link"
+                size="small"
+                onClick={() => {
+                  confirm({ closeDropdown: false });
+                  setSearchText((selectedKeys)[0]);
+                  setSearchedColumn(dataIndex);
+                }}
+              >
+                Filter
+              </Button>
+              <Button
+                type="link"
+                size="small"
+                onClick={() => {
+                  close();
+                }}
+              >
+                close
+              </Button>
+            </Space>
+          </div>
+        ),
+        filterIcon: (filtered) => (
+          <SearchOutlined style={{ color: filtered ? '#1890ff' : undefined }} />
+        ),
+        onFilter: (value, record) =>
+
+    record[dataIndex]
+            .toString()
+            .toLowerCase()
+            .includes((value).toLowerCase()),
+        onFilterDropdownOpenChange: (visible) => {
+          if (visible) {
+            setTimeout(() => searchInput.current?.select(), 100);
+          }
+        },
+        render: (text) => text
+      });
+
+
+
+
+    const columns = [
+        {
+            title: 'Id',
+            datIndex: 'id',
+            key: 'id',
+            sorter: (a, b) => a.id - b.id,
+            render: (value) => <Text strong>{value.id}</Text>
+        },
+        {
+            title: 'Name',
+            datIndex: 'name',
+            key: 'name',
+            ...getColumnSearchProps('name'),
+            render: (value) => <Text strong>{value.name}</Text>
+        },
+
+        
+        {
+            title: 'Actions',
+            datIndex: '',
+            key: 'actionButon',
+            render: (value) => {
+                return <div>
+                    <Button onClick={()=>showModal(value)} danger type="primary">Delete Category</Button>
+                    <Modal
+                        title="Cuidado!"
+                        open={open}
+                        onOk={handleOk}
+                        confirmLoading={confirmLoading}
+                        onCancel={handleCancel}
+                    >
+                        <p>{modalText}</p>
+                    </Modal>
+                </div>
+
+
+            }
+        }
+    ]
 
     return (
         <div>
-            <div id="container">
-                <table className="table">
-                    <thead>
-                        <tr>
-                            <th className="id">N°</th>
-                            <th>Categories</th>
-                            
-                             <th>Eliminar</th> 
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {categories.map((cat,i) =>
-                            <tr key={i}>
-                                <td >{cat.id}</td>
-                                <td >{cat.name}</td>
-                                
-                                <td ><button><img src={eliminar} alt="Eliminar" width={"18px"} /></button></td>
-                            </tr>
-                        )}
-                    </tbody>
-                </table>
-            </div>
+            <Table key='adminCategoriesTables' dataSource={data} columns={columns} />
         </div>
     )
 }
-
-

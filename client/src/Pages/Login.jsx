@@ -1,61 +1,62 @@
-import React,{useEffect, useState} from "react";
-import {useSelector,useDispatch} from 'react-redux'
-import { Link, useHistory } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from 'react-redux'
+import { useHistory } from "react-router-dom";
 import "../styles/login.css";
 import logo2 from "./../assets/logo.png";
 import Swal from 'sweetalert2'
-import { loginUser} from "../redux/actions/actionsPetitions";
+import { loginUser } from "../redux/actions/actionsPetitions";
 import { Formik } from "formik";
 import dino from '../assets/dino.jpg'
-import { passwordCreate } from "../functions/functions";
-const {REACT_APP_GOOGLE_CLIENT_ID} = process.env
+import axios from "axios";
+const { REACT_APP_GOOGLE_CLIENT_ID } = process.env
 const jwt = require('jsonwebtoken');
 
 
 export default function Login() {
 
     const user = useSelector((state) => state.petitionsReducer.user)
-    
+    const userOne = useSelector( (state) =>  state.petitionsReducer.userOne);
+
     const dispatch = useDispatch()
-    const [submit,setSubmit] = useState(false)
+    const [submit, setSubmit] = useState(false)
     const history = useHistory()
 
-    const handleSubmit= async (valoresLogin,  resetForm ) => {
+    const handleSubmit = async (valoresLogin, resetForm) => {
         setSubmit(true)
-        await dispatch(loginUser(valoresLogin))  
+        await dispatch(loginUser(valoresLogin))
         resetForm();
     }
     const errorAlert = (message) => {
         Swal.fire({
-            title:'Error!',
-            text:`${message}`,
-            confirmButtonText:'Try Again',
-            background:'#67e9ff',
-            icon:'error',
-            customClass:{ 
-                popup:'popup-alert',
-                text:'titleAlert',
-                content:'titleAlert'
+            title: 'Error!',
+            text: `${message}`,
+            confirmButtonText: 'Try Again',
+            background: '#67e9ff',
+            icon: 'error',
+            customClass: {
+                popup: 'popup-alert',
+                text: 'titleAlert',
+                content: 'titleAlert'
             },
-        }); 
-    }
-    const successAlert =(message) => {
-        Swal.fire({
-            title:'Success Login!',
-            text:`${message}`,
-            confirmButtonText:'Lets Go',
-            background:'#67e9ff',
-            customClass:{ 
-                popup:'popup-alert',
-                text:'titleAlert',
-                content:'titleAlert'
-            },
-           imageUrl: dino,
-           imageWidth:'200px',
-           imageHeight:'200px'
         });
     }
-    
+    const successAlert = (message) => {
+        Swal.fire({
+            title: 'Success Login!',
+            text: `${message}`,
+            confirmButtonText: 'Lets Go',
+            background: '#67e9ff',
+            customClass: {
+                popup: 'popup-alert',
+                text: 'titleAlert',
+                content: 'titleAlert'
+            },
+            imageUrl: dino,
+            imageWidth: '200px',
+            imageHeight: '200px'
+        });
+    }
+
     const logged = () => {
         if (user?.message) {
             if (!submit) {
@@ -64,7 +65,7 @@ export default function Login() {
             successAlert(user.message)
             localStorage.setItem("user", JSON.stringify(user.body.token))
             history.push('/')
-        }else if(typeof user == 'string' && !(user?.search(/[\d]/)>=0)  ){
+        } else if (typeof user == 'string' && !(user?.search(/[\d]/) >= 0)) {
             errorAlert(user)
         }
     }
@@ -73,9 +74,9 @@ export default function Login() {
         let errores = {};
         if (!valoresLogin.email) {
             errores.email = "Complete this field to continue"
-        } else if (!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(valoresLogin.email)){
-            errores.email="Enter a valid email address";
-        } 
+        } else if (!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(valoresLogin.email)) {
+            errores.email = "Enter a valid email address";
+        }
         if (!valoresLogin.password) {
             errores.password = 'Please enter a valid password'
         }
@@ -84,27 +85,38 @@ export default function Login() {
 
     //Google Auth start
     const handleCallBackResponse = async (response) => {
-        const user =response.credential
+        const user = response.credential
         setSubmit(true)
         try {
             const decoded = jwt.decode(user)
             const newUser = {
                 email: decoded.email,
-                google:true
+                google: true
             }
-           await  dispatch(loginUser(newUser)) 
-             
+            await dispatch(loginUser(newUser))
+
         } catch (error) {
             console.log(error)
         }
 
-      }
-      function forGetPass(){
-        const newPass = passwordCreate()
+    }
+    function forGetPass(e) {
+        console.log(e.target.parentNode.firstChild.value)
+        console.log(userOne)
+        axios.post(`${process.env.REACT_APP_SERVER_BACK}/email/recoverPass`, {email: e.target.parentNode.firstChild.value})
+        e.target.parentNode.firstChild.value = ""
+        alert("check your email!")
+        e.target.parentNode.className = "forgotPassEnab"
+    }
+    
+    function showRecoverPass (e){
+        console.log(e.target.parentNode.nextElementSibling)
+        e.target.parentNode.nextElementSibling.className = "forgotPassEnab"
+        
+        
+    }
 
-      }
-  
-    useEffect(()=> {
+    useEffect(() => {
         localStorage.setItem("userOne", JSON.stringify({}))
         /* global google */
         google.accounts.id.initialize({
@@ -113,16 +125,16 @@ export default function Login() {
         })
         google.accounts.id.renderButton(
             document.getElementById("singInDiv"),
-            {theme:"outline",size:"large"}
+            { theme: "outline", size: "large" }
         )
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[])
+    }, [])
     //Google Auth End
 
-    useEffect(()=> {
+    useEffect(() => {
         logged()
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[user])
+    }, [user])
 
     return (
         <div className="background">
@@ -138,12 +150,12 @@ export default function Login() {
                         />
                     </div>
                     <Formik
-                        onSubmit={(valoresLogin, { resetForm }) => handleSubmit(valoresLogin,resetForm)}
+                        onSubmit={(valoresLogin, { resetForm }) => handleSubmit(valoresLogin, resetForm)}
                         initialValues={{
                             email: "",
                             password: "",
                         }}
-                        validate={(valoresLogin) => validation(valoresLogin)}   
+                        validate={(valoresLogin) => validation(valoresLogin)}
                     >
                         {({
                             handleSubmit,
@@ -199,7 +211,11 @@ export default function Login() {
                             </form>
                         )}
                     </Formik>
-                    <p className="parrafo">Did you forget your password?<Link onClick={forGetPass}>Click here</Link></p>
+                    <p className="parrafo">Did you forget your password?<button className="buttonKey"  onClick={showRecoverPass}>Click here</button></p>
+                    <div className="forgotPass" >
+                        <input placeholder="Insert Email" type="text" />
+                        <button  onClick={forGetPass}>send</button>
+                    </div>
                 </div>
             </div>
         </div>

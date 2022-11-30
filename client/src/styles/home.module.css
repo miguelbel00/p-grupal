@@ -1,0 +1,70 @@
+.container{
+    background-color: #ececec;
+    width: 100%;
+    margin:auto;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(3, auto);
+    grid-template-areas: "carousel"
+                         "category"
+                         "products";   
+}
+.container .carousel{
+    grid-area: carousel;
+}
+.container .category{
+    grid-area: category;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 10px 20px;
+    gap: 15px;
+}
+.container .category div{
+    border-radius: 10px; 
+    width: 75vw;
+    max-width: 350px;
+    max-height: 250px;
+    background-color: white;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 20%);
+    font-size: 18px!important;
+    color: #2b2b2b;
+    font-weight: 700;
+}
+.container .category div:hover{
+    cursor: pointer;
+}
+.container .category div h3{
+    font-size: 25px;
+    text-align: center;
+}
+.container .category div img{
+    object-fit: contain;
+    width: 100%;   
+    max-height: 200px;
+    border-radius: 5px;
+}
+.container .category div img:hover{
+    opacity: 0.5;
+}
+.container .products{
+    grid-area: products;
+}
+
+@media (max-width: 768px) {
+    .container .category{
+        margin: 10px 5px;
+    }
+    .container .category div{
+        width: 100%;
+        max-width: 768px;
+        min-width: 250px;
+        max-height: 250px;
+    }
+    .container .category div img{
+        object-fit: contain;
+        width: 100%;
+        max-height: 200px;
+    }
+} 
