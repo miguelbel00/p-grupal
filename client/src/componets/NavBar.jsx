@@ -71,7 +71,7 @@ const Navbar = () => {
                                 <i className="bi bi-house nav-link mb-3"> &nbsp;Home</i>
                             </Link>
                         </li>
-                        {Object.keys(user).length !== 0 && userOne !==null
+                        {user && Object.keys(user).length !== 0 && userOne !==null
                         ?   <li className="nav-item">
                                 <Link to='/profile' >
                                     <i className="bi bi-person-circle nav-link mb-3"> &nbsp;My Account</i>
@@ -85,7 +85,7 @@ const Navbar = () => {
                             </Link>
                         </li>
                         {}
-                        {Object.keys(user).length !== 0 && userOne !==null
+                        {user && Object.keys(user).length !== 0 && userOne !==null
                         ?  <li className="nav-item">
                         <Link to='/' onClick={handleLogOut}>
                           <i className="bi bi-box-arrow-right nav-link mb-3"> &nbsp;Log Out</i>
@@ -104,7 +104,7 @@ const Navbar = () => {
                         </li>
                     </>
                         }
-                        {Object.keys(user).length !== 0 && userOne?.isAdmin === true
+                        {user && Object.keys(user).length !== 0 && userOne?.isAdmin === true
                         ?   
                                 <li className="nav-item">
                                     <Link to='/admin' >
