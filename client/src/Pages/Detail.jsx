@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useEffect } from "react";
+import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { useParams,useHistory } from "react-router-dom"
 import { getDetail, getUser } from "../redux/actions/actionsPetitions"
@@ -103,6 +104,10 @@ export default function Detail() {
 
     return (
         <div className={Styles.body}>
+            <Link className="text-decoration-none text-white link" to='/products'>
+                <button className={Styles.button}>Volver</button>
+            </Link>
+
             <div className={Styles.container}>
                 <div className={Styles.carousel}>
                     <div id="carouselExampleControlsNoTouching" className="carousel slide" data-bs-touch="false">

@@ -15,7 +15,7 @@
 }
 
 .container:hover {
-  box-shadow: 2px 8px 20px rgb(197, 197, 197);
+  box-shadow: 2px 8px 20px #9600F4;
   transition: 0.2s linear;
 }
 
