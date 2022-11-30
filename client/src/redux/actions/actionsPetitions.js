@@ -54,6 +54,11 @@ export function loginUser(payload) {
       )
       .catch((error) => {  
         console.log(error.response.data.split('<')[9].split(':')[2])
+        console.log(error.response.data.split('<')[9].split(':'))
+        console.log(error.response.data.split('<')[9])
+        console.log(error.response.data.split('<'))
+        console.log(error.response.data)
+        console.log(error.response)
         dispatch(
             {
             type: "LOGIN_USER",
