@@ -32,6 +32,7 @@ export default function ShoppingCart() {
     const history = useHistory()
     const [totalShow, setTotalShow] = useState(0);
 
+
     const emptyCart = () => {
         Swal.fire({
             title:'Error!',
