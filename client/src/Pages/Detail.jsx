@@ -97,6 +97,7 @@ export default function Detail() {
         axios.post(`${process.env.REACT_APP_SERVER_BACK}/checkout/checkout-order`, objResult)
             .then(response => window.location.href = response.data.links[1].href)
 
+            history.push('/')
     }
 
     if (!Object.values(product).length) { return <Loading /> }
