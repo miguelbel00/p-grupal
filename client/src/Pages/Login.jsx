@@ -105,13 +105,11 @@ export default function Login() {
         axios.post(`${process.env.REACT_APP_SERVER_BACK}/email/recoverPass`, {email: e.target.parentNode.firstChild.value})
         e.target.parentNode.firstChild.value = ""
         successAlert("password reset, check your email!")
-        e.target.parentNode.className = "forgotPassEnab"
+        e.target.parentNode.className = "forgotPass"
     }
     
     function showRecoverPass (e){
         e.target.parentNode.nextElementSibling.className = "forgotPassEnab"
-        
-        
     }
 
     useEffect(() => {
