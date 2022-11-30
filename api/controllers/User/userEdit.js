@@ -15,7 +15,7 @@ module.exports = {
 
       if (!userFound) throw new ErrorObject("User not found", 400);
       const hasedPass = password ? await bcrypt.hash(password,10) : ""
-      const responce = await userFound.update({ fullName, hasedPass, phone, email ,isAdmin});
+      const responce = await userFound.update({ fullName, password:hasedPass, phone, email ,isAdmin});
       await userFound.save();
       endpointResponse({
         res,
