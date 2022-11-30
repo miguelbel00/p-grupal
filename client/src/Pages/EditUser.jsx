@@ -10,7 +10,7 @@ function EditUser () {
     const dispatch = useDispatch();
     const userState = useSelector((state)=> state.reducerAdmin.user)
         const { userId } = useParams()
-        const history = useHistory
+        const history = useHistory()
         useEffect(() => {
         
             dispatch(getOneUser(userId))
@@ -111,7 +111,7 @@ function EditUser () {
     return (
 <div className={styles.container}>
     <div className={styles.profileContainer}>
-            <h4>Edit</h4>
+            <h4>Edit User</h4>
             <form onSubmit={handelSubmit} className={styles.form}>         
     <div className={styles.containerName}>
                <label>Full name</label>
