@@ -4,7 +4,8 @@ import {useState} from 'react';
 import {updateUser} from '../redux/actions/actionsPetitions';
 import CardUser from './CardUser';
 import { Link } from 'react-router-dom';
-
+import Swal from 'sweetalert2'
+import dino from '../assets/dino.jpg'
 
 
 
@@ -18,6 +19,39 @@ function EditProfile () {
         phone: "",
         email: user ? user.email : null,
     });
+
+
+    const errorAlert = (message) => {
+        Swal.fire({
+            title:'Error!',
+            text:`${message}`,
+            confirmButtonText:'Try Again',
+            background:'#67e9ff',
+            icon:'error',
+            customClass:{ 
+                popup:'popup-alert',
+                text:'titleAlert',
+                content:'titleAlert'
+            },
+        }); 
+    }
+    const successAlert =() => {
+        Swal.fire({
+            title:'Success!',
+            text:`Profile Edited `,
+            confirmButtonText:'Lets Go',
+            background:'#67e9ff',
+            customClass:{ 
+                popup:'popup-alert',
+                text:'titleAlert',
+                content:'titleAlert'
+            },
+           imageUrl: dino,
+           imageWidth:'200px',
+           imageHeight:'200px'
+        });
+    }
+
     const [errors, setErrors] = useState({});
     const validate = (input) => {
         let error = {};
@@ -38,19 +72,21 @@ function EditProfile () {
 
     const handelSubmit = (e) => {
         e.preventDefault();
-      
+      editUser.userId = user.id
+      editUser.email = user.email
+      editUser.isAdmin = user.isAdmin
         if (!editUser.userId ||
             !editUser.fullName ||
             !editUser.password ||
             !editUser.phone ||
             !editUser.email ) {
-            alert('Llene los campos correctamente')
+            errorAlert('Please fill the inputs')
            setErrors(validate({
             ...editUser
           }))
         } else {   
         dispatch(updateUser(editUser));
-        alert('Perfil actualizado');
+            successAlert()
         }  
     };
 

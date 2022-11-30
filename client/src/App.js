@@ -16,6 +16,7 @@ import CreateUser from "./Pages/CreateUser";
 import AdminPage from "./AdminPage/Admin";
 import EditProfile from "./componets/EditProfile";
 import EditUser from "./Pages/EditUser";
+import EditProduct from "./Pages/EditProduct";
 import EditTrasnsaction from "./Pages/EditTransaction";
 import PurchaseMade from "./Pages/PurchaseMade";
 
@@ -63,6 +64,11 @@ function App() {
         <Route exact path='/admin/edituser/:userId' component={EditUser}>
           <ProteccionRoutes user={user}>
            <EditUser/>
+          </ProteccionRoutes>
+        </Route>
+        <Route exact path='/admin/editproduct/:productId' component={EditProduct}>
+          <ProteccionRoutes user={user}>
+           <EditProduct/>
           </ProteccionRoutes>
         </Route>
         <Route exact path='/admin/editTransaction/:transactionId' component={EditTrasnsaction}>

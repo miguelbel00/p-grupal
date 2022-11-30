@@ -127,6 +127,7 @@ export function getUser(userId) {
 
 export function updateUser(payload) {
   return async function (dispatch) {
+    console.log(payload)
       const response = await axios.put(`${REACT_APP_SERVER_BACK}/users`, payload)
       const data = response.data.body
       return dispatch({
