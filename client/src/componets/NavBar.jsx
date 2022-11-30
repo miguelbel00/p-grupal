@@ -85,8 +85,8 @@ const Navbar = () => {
                             </Link>
                         </li>
                         {}
-                        {Object.keys(user).length !== 0 && userOne !==null
-                        ?  <li className="nav-item">
+                        {user ?
+                          <li className="nav-item">
                         <Link to='/' onClick={handleLogOut}>
                           <i className="bi bi-box-arrow-right nav-link mb-3"> &nbsp;Log Out</i>
                         </Link>
@@ -104,7 +104,7 @@ const Navbar = () => {
                         </li>
                     </>
                         }
-                        {Object.keys(user).length !== 0 && userOne?.isAdmin === true
+                        {user && userOne?.isAdmin === true
                         ?   
                                 <li className="nav-item">
                                     <Link to='/admin' >
