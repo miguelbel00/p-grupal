@@ -160,12 +160,10 @@ function EditUser () {
             </div>
             <div className={styles.containerName}>
                <label>Admin</label>
-               <input onChange={handleChange}
-                type="text" 
-                className={styles.input} 
-                placeholder={`${userState.isAdmin}`}
-                 name='isAdmin' 
-                 value={editUser?.isAdmin}/>
+                <select class="form-select form-select-lg" aria-label=".form-select-lg example" name='isAdmin'value={editUser?.isAdmin} onChange={(e) => handleChange(e)}>
+                    <option value='false'>Username</option>
+                    <option value='true'>admin</option>
+                </select>
                  <label className={styles.error}>{errors.isAdmin}</label>
      </div>
             <div className={styles.containerPassword}>
