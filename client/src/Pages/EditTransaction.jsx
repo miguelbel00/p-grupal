@@ -97,12 +97,11 @@ function EditTrasnsaction () {
                     <form onSubmit={handelSubmit} className={styles.form}>         
             <div className={styles.containerName}>
                        <label>Status</label>
-                       <input onChange={handleChange}
-                        type="text" 
-                        className={styles.input} 
-                        placeholder='Completed or Canceled'
-                         name='status' 
-                         value={editTransc?.status}/>
+                        <select class="form-select form-select-lg" aria-label=".form-select-lg example" name='status' value={editTransc?.status} onChange={(e) => handleChange(e)}>
+                            <option value='Complete'>Completed</option>
+                            <option value='Cancelled'>Canceled</option>
+                            <option value='Pending'>Pending</option>
+                        </select>
                          <label className={styles.error}>{errors?.status}</label>
                          </div>
                 <button className={styles.btn} type='submit'>Update</button>
