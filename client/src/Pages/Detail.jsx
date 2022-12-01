@@ -23,6 +23,8 @@ export default function Detail() {
     const user = useSelector((state) => state.petitionsReducer.userOne);
     const { productId } = useParams()
 
+    scroll()
+
     if(userJWT){
         try {
             const decoded = jwt.verify(userJWT?.body?.token ? userJWT.body.token :userJWT, process.env.REACT_APP_JWT_SECRETO);
