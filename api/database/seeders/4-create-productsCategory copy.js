@@ -435,12 +435,6 @@ module.exports = {
         createdAt: "2022-11-10T23:30:26.774Z"
       },
       {
-        productId: 46,
-        categoryId: 21,
-        updatedAt: "2022-11-10T23:30:26.774Z",
-        createdAt: "2022-11-10T23:30:26.774Z"
-      },
-      {
         productId: 15,
         categoryId: 1,
         updatedAt: "2022-11-10T23:30:26.774Z",
@@ -833,12 +827,6 @@ module.exports = {
       {
         productId: 45,
         categoryId: 3,
-        updatedAt: "2022-11-10T23:30:26.774Z",
-        createdAt: "2022-11-10T23:30:26.774Z"
-      },
-      {
-        productId: 45,
-        categoryId: 21,
         updatedAt: "2022-11-10T23:30:26.774Z",
         createdAt: "2022-11-10T23:30:26.774Z"
       },

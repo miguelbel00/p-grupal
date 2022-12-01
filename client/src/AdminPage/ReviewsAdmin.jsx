@@ -26,13 +26,13 @@ export default function AdminTestAntDesign() {
     };
 
     const handleOk = () => {
-        setModalText(<Alert message="Aguarde unos segundos..." type="success" />);
+        setModalText(<Alert message="Please wait a few seconds..." type="success" />);
         setConfirmLoading(true);
         dispatch(deleteReview(selectedReview))
         setTimeout(() => {
             setOpen(false);
             setConfirmLoading(false);
-            setModalText(<Alert message="Estas seguro de que deseas acceder a estos datos?" type="error" />)
+            setModalText(<Alert message="Are you sure you want to access this data?" type="error" />)
         }, 2000);
     };
 
@@ -197,7 +197,7 @@ export default function AdminTestAntDesign() {
                 return <div>
                     <Button onClick={()=>showModal(value)} danger type="primary">Delete Review</Button>
                     <Modal
-                        title="Cuidado!"
+                        title="Watch out!"
                         open={open}
                         onOk={handleOk}
                         confirmLoading={confirmLoading}
