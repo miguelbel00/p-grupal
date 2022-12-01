@@ -4,10 +4,6 @@ import Styles from '../styles/paginated.module.css'
 
 export default function Paginated({ page, setPage, max, input, setInpunt }) {
 
-
-
-
-
     const nextPage = () => {
         setInpunt(parseInt(input) + 1);
         setPage(parseInt(page) + 1)

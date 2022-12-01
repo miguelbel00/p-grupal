@@ -23,6 +23,8 @@ export default function Detail() {
     const user = useSelector((state) => state.petitionsReducer.userOne);
     const { productId } = useParams()
 
+    scroll()
+
     if(userJWT){
         try {
             const decoded = jwt.verify(userJWT?.body?.token ? userJWT.body.token :userJWT, process.env.REACT_APP_JWT_SECRETO);
@@ -117,7 +119,7 @@ export default function Detail() {
     return (
         <div className={Styles.body}>
             <Link className="text-decoration-none text-white link" to='/products'>
-                <button className={Styles.button}>Volver</button>
+                <button className={Styles.button}>Go back</button>
             </Link>
 
             <div className={Styles.container}>
@@ -161,7 +163,7 @@ export default function Detail() {
 
                 <div className={Styles.description}>
                     <div className={Styles.label}>
-                        <label htmlFor="description" >Description</label>
+                        <label htmlFor="description">Description</label>
                     </div>
                     <p>{product.description}</p>
                 </div>

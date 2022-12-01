@@ -8,7 +8,7 @@ module.exports = {
       {
         productId:1,
         userId:"7d24fdc6-300c-475e-9fba-6fe41b1304b1",
-        comment:"Super",
+        comment:"Cool",
         rating: 5,
         createdAt: new Date().toDateString(),
         updatedAt: new Date(),
@@ -17,7 +17,7 @@ module.exports = {
       {
         productId:1,
         userId:"a5f8a297-4dc4-4e59-be24-b417b47872a2",
-        comment:"No me parecio muy bueno la verdad",
+        comment:"I really didn't think it was very good",
         rating: 1,
         createdAt: new Date().toDateString(),
         updatedAt: new Date(),
@@ -26,7 +26,7 @@ module.exports = {
       {
         productId:1,
         userId:"ded44a11-3764-4818-bdee-b36bda2bc0a0",
-        comment:"El producto esta estupendo",
+        comment:"The product is great",
         rating: 2,
         createdAt: new Date().toDateString(),
         updatedAt: new Date(),
@@ -35,7 +35,7 @@ module.exports = {
       {
         productId:2,
         userId:"a5f8a297-4dc4-4e59-be24-b417b47872a2",
-        comment:"El producto no esta bien",
+        comment:"the product is not good",
         rating: 3,
         createdAt: new Date().toDateString(),
         updatedAt: new Date(),
@@ -44,7 +44,7 @@ module.exports = {
       {
         productId:3,
         userId:"f3225f0e-bbfb-4496-ab37-761bd31403bf",
-        comment:"Me gustaria otro color para ese producto",
+        comment:"I would like another color for that product",
         rating: 2,
         createdAt: new Date().toDateString(),
         updatedAt: new Date(),
@@ -53,7 +53,7 @@ module.exports = {
       {
         productId:4,
         userId:"7d24fdc6-300c-475e-9fba-6fe41b1304b1",
-        comment:"Me gusta el producto",
+        comment:"I like the product",
         rating: 3,
         createdAt: new Date().toDateString(),
         updatedAt: new Date(),
@@ -62,7 +62,7 @@ module.exports = {
       {
         productId:5,
         userId:"7d24fdc6-300c-475e-9fba-6fe41b1304b1",
-        comment:"No lo recomiendo para nada",
+        comment:"I do not recommend it at all",
         rating: 1,
         createdAt: new Date().toDateString(),
         updatedAt: new Date(),
@@ -71,7 +71,7 @@ module.exports = {
       {
         productId:6,
         userId:"7d24fdc6-300c-475e-9fba-6fe41b1304b1",
-        comment:"Podria mejorar la calidad del producto",
+        comment:"Could improve product quality",
         rating: 1,
         createdAt: new Date().toDateString(),
         updatedAt: new Date(),
@@ -80,7 +80,7 @@ module.exports = {
       {
         productId:7,
         userId:"a5f8a297-4dc4-4e59-be24-b417b47872a2",
-        comment:"No era lo que yo me esperaba",
+        comment:"It was not what I expected",
         rating: 1,
         createdAt: new Date().toDateString(),
         updatedAt: new Date(),
@@ -89,7 +89,7 @@ module.exports = {
       {
         productId:8,
         userId:"a5f8a297-4dc4-4e59-be24-b417b47872a2",
-        comment:"Es perfecto para su trabajo",
+        comment:"It's perfect for your job",
         rating: 5,
         createdAt: new Date().toDateString(),
         updatedAt: new Date(),
@@ -98,7 +98,7 @@ module.exports = {
       {
         productId:9,
         userId:"a4a6c3c1-1327-439d-979b-b40e419aba9b",
-        comment:"No me gusto ",
+        comment:"I did not like",
         rating: 1,
         createdAt: new Date().toDateString(),
         updatedAt: new Date(),
@@ -107,7 +107,7 @@ module.exports = {
       {
         productId:9,
         userId:"19750223-1209-4b74-93da-18198fa44fe0",
-        comment:"Me gusto",
+        comment:"I liked",
         rating: 5,
         createdAt: new Date().toDateString(),
         updatedAt: new Date(),
@@ -116,7 +116,7 @@ module.exports = {
       {
         productId:9,
         userId:"12f31e83-d880-43e9-938c-92bce27c9406",
-        comment:"Me impresiono lo bueno del producto",
+        comment:"I was impressed by the goodness of the product",
         rating: 5,
         createdAt: new Date().toDateString(),
         updatedAt: new Date(),
@@ -125,7 +125,7 @@ module.exports = {
       {
         productId:9,
         userId:"7d24fdc6-300c-475e-9fba-6fe41b1304b1",
-        comment:"Me gusta pero queria saber si tienes mas unidades",
+        comment:"I like it but I wanted to know if you have more units",
         rating: 3,
         createdAt: new Date().toDateString(),
         updatedAt: new Date(),
@@ -134,7 +134,7 @@ module.exports = {
       {
         productId:10,
         userId:"a5f8a297-4dc4-4e59-be24-b417b47872a2",
-        comment:"No me gusto el producto en absoluto",
+        comment:"I did not like the product at all",
         rating: 1,
         createdAt: new Date().toDateString(),
         updatedAt: new Date(),
