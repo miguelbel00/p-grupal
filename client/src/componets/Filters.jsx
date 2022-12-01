@@ -70,9 +70,12 @@ export default function Filters({ setOption, setPage }) {
                 </select>
             </div>
             <div className={Styles.containerFilters}>
-                {stateCategories.length > 0 && stateCategories.map(categ => {
-                    return <button className={Styles.categButton} name={categ} onClick={deleteCategory}>{categ}</button>
-                }
+                {stateCategories.length > 0 && stateCategories.map(categ => 
+                    <div className={Styles.divDeleteCategory} >
+                        <p className={Styles.categButton}>{categ}</p>
+                        <button className={Styles.buttonDelete} name={categ} onClick={deleteCategory}>X</button>
+                    </div>
+                
                 )}
             </div>
         </div>
