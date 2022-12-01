@@ -117,7 +117,7 @@ export default function Detail() {
     return (
         <div className={Styles.body}>
             <Link className="text-decoration-none text-white link" to='/products'>
-                <button className={Styles.button}>Volver</button>
+                <button className={Styles.button}>Go back</button>
             </Link>
 
             <div className={Styles.container}>
@@ -161,7 +161,7 @@ export default function Detail() {
 
                 <div className={Styles.description}>
                     <div className={Styles.label}>
-                        <label htmlFor="description" >Description</label>
+                        <label htmlFor="description">Description</label>
                     </div>
                     <p>{product.description}</p>
                 </div>

@@ -57,7 +57,7 @@ function EditTrasnsaction () {
         let errors = {};
 
         if (!input.status) {
-            errors.status = 'introduce el estado'
+            errors.status = 'Enter state'
         }
     }
 
