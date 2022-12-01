@@ -1,11 +1,11 @@
 import axios from 'axios'
 import React, { useEffect } from "react";
+import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { useParams,useHistory } from "react-router-dom"
 import { getDetail, getUser } from "../redux/actions/actionsPetitions"
 import ReviewContainer from "../componets/ReviewContainer";
-
-
+import { scroll } from './Function';
 import AddReview from "../componets/AddReview";
 import { addProductToCart } from '../redux/actions/actionShoppingCart.js'
 import Loading from "../componets/Loading"
@@ -30,9 +30,17 @@ export default function Detail() {
             dispatch(getUser(decoded?.id ?decoded.id :decoded.user.id  ))
         } catch (error) {}
     }
-
-
-
+    const userRegister = () => {
+        Swal.fire({
+            title: 'The register is required',
+            confirmButtonText: "Ok",
+            timer: 3000,
+            icon: "error"
+        }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+                history.push('/register')
+        });
+    }
     const history = useHistory()
 
     const saveLocal = () => {
@@ -84,26 +92,34 @@ export default function Detail() {
     }
 
     const handleBuyNow = (e) => {
-        const userId = user.id
-        const value = Array.from(e.target.parentNode.children)
-       
-        const objResult = {
-            description: value[0].outerText,
-            price:value[1].outerText.slice(1)            ,
-            userId: userId,
-            productsId: productId,
+
+        if(user || userOne){
+            const userId = user.id
+            const value = Array.from(e.target.parentNode.children)
+
+            const objResult = {
+                description: value[0].outerText,
+                price:value[1].outerText.slice(1),
+                userId: userId,
+                productsId: productId,
+            }
+
+            axios.post(`${process.env.REACT_APP_SERVER_BACK}/checkout/checkout-order`, objResult)
+                .then(response => window.location.href = response.data.links[1].href)
+
+        }else{
+            userRegister()
         }
-
-        axios.post(`${process.env.REACT_APP_SERVER_BACK}/checkout/checkout-order`, objResult)
-            .then(response => window.location.href = response.data.links[1].href)
-
-            
     }
 
     if (!Object.values(product).length) { return <Loading /> }
 
     return (
         <div className={Styles.body}>
+            <Link className="text-decoration-none text-white link" to='/products'>
+                <button className={Styles.button}>Volver</button>
+            </Link>
+
             <div className={Styles.container}>
                 <div className={Styles.carousel}>
                     <div id="carouselExampleControlsNoTouching" className="carousel slide" data-bs-touch="false">

@@ -147,6 +147,13 @@ export default function AdminTestAntDesign() {
 
   const columns = [
     {
+      title: "User Id",
+      datIndex: "id",
+      key: "id",
+      ...getColumnSearchProps("id"),
+      render: (value) => <Text strong>{value.id}</Text>,
+    },
+    {
       title: "FullName",
       datIndex: "fullName",
       key: "fullName",

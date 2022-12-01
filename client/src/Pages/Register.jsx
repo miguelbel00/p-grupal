@@ -52,7 +52,7 @@ export default function Register() {
             title:'Error!',
             text:`${message}`,
             confirmButtonText:'Try Again',
-            background:'#67e9ff',
+            background:'#fff',
             icon:'error',
             customClass:{ 
                 popup:'popup-alert',
@@ -67,7 +67,7 @@ export default function Register() {
             title:'Success Register!',
             text:`${message}`,
             confirmButtonText:'Lets Go',
-            background:'#67e9ff',
+            background:'#fff',
             customClass:{ 
                 popup:'popup-alert',
                 text:'titleAlert',
@@ -122,8 +122,6 @@ export default function Register() {
             successAlert(user.message)
             localStorage.setItem("user", JSON.stringify(user.body.token))
             history.push('/')
-        }else if(typeof user == 'string' &&!(user.search(/[\d]/)>=0) ) {
-            errorAlert(user)
         }
     }
     useEffect(()=>{

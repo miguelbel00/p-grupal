@@ -28,6 +28,23 @@
     background-color: white;  
     border: 1px solid #c4c4c4;  
 }
+
+.button {
+    color: whitesmoke;
+    border: none;
+    border-radius: 10px;
+    background-color: #350069;
+    width: 150px;
+    height: 35px;
+    cursor: pointer;
+    text-transform: uppercase;
+    margin: 10px;
+  }
+  
+  .button:hover {
+    background-color: #9600F4;
+  }
+
 .imgcarousel{  
     height: 370px;
 }

@@ -5,7 +5,7 @@ import {updateUser} from '../redux/actions/actionsPetitions';
 import CardUser from './CardUser';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2'
-import dino from '../assets/dino.jpg'
+import dino from '../assets/dino.png'
 
 
 

@@ -5,7 +5,7 @@ import {updateUser} from '../redux/actions/actionsPetitions';
 import {  useHistory, useParams } from 'react-router-dom';
 import {getOneUser,clearOneUser} from '../redux/actions/actionsAdmin';
 import Swal from 'sweetalert2'
-import dino from '../assets/dino.jpg'
+import dino from '../assets/dino.png'
 
 function EditUser () {
     const dispatch = useDispatch();
@@ -24,7 +24,7 @@ function EditUser () {
                 title:'Error!',
                 text:`${message}`,
                 confirmButtonText:'Try Again',
-                background:'#67e9ff',
+                background:'#fff',
                 icon:'error',
                 customClass:{ 
                     popup:'popup-alert',
@@ -38,7 +38,7 @@ function EditUser () {
                 title:'Success!',
                 text:`User Edited `,
                 confirmButtonText:'Lets Go',
-                background:'#67e9ff',
+                background:'#fff',
                 customClass:{ 
                     popup:'popup-alert',
                     text:'titleAlert',

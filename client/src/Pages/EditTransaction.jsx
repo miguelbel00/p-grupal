@@ -4,7 +4,7 @@ import {useState, useEffect} from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import {getTransactions, updateTransaction} from '../redux/actions/actionsAdmin';
 import Swal from 'sweetalert2'
-import dino from '../assets/dino.jpg'
+import dino from '../assets/dino.png'
 
 function EditTrasnsaction () {
 
@@ -20,7 +20,7 @@ function EditTrasnsaction () {
             title:'Error!',
             text:`${message}`,
             confirmButtonText:'Try Again',
-            background:'#67e9ff',
+            background:'#fff',
             icon:'error',
             customClass:{ 
                 popup:'popup-alert',
@@ -34,7 +34,7 @@ function EditTrasnsaction () {
             title:'Success!',
             text:`Transaction Edited `,
             confirmButtonText:'Lets Go',
-            background:'#67e9ff',
+            background:'#fff',
             customClass:{ 
                 popup:'popup-alert',
                 text:'titleAlert',

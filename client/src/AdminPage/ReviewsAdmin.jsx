@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react"
 import { Table, Button, Modal,Alert,Typography,Input, Space } from 'antd'
 import { useSelector, useDispatch } from 'react-redux'
 import { useEffect } from "react"
-import {   deleteReview, getReviews } from "../redux/actions/actionsAdmin"
+import {   deleteReview, getReviews, getUsers } from "../redux/actions/actionsAdmin"
 import { SearchOutlined } from '@ant-design/icons';
 import '../adminStyles/AdminTestAntDesign.css'
 
@@ -151,7 +151,7 @@ export default function AdminTestAntDesign() {
 
     const columns = [
         {
-            title: 'Id',
+            title: 'Review Id',
             datIndex: 'id',
             key: 'id',
             sorter: (a, b) => a.id - b.id,

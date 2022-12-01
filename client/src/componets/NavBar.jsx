@@ -2,32 +2,19 @@ import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import astroLogo from '../assets/astrologo2.0(sin fondo).png'
 import Styles from '../styles/navbar.module.css'
-import { searchProduct } from '../redux/actions/actionsFilter';
 import { LogOut } from '../redux/actions/actionsPetitions';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
-import dino from '../assets/dino.jpg'
+import dino from '../assets/dino.png'
 import Swal from 'sweetalert2'
+import SearchBar from './SearchBar';
 
 const Navbar = () => {
     const dispatch = useDispatch()
     const history = useHistory();
-    const [input, setInput] = useState('')
     const user = useSelector(state => state.petitionsReducer.user)
     const userOne = useSelector(state => state.petitionsReducer.userOne)
 
-    function handleInput(e){
-        e.preventDefault()
-        setInput(e.target.value)
-
-    }
-
-    function handleSubmit(e){
-        e.preventDefault();
-        dispatch(searchProduct(input))
-        history.push('/products')
-
-    }
     
     const handleLogOut = () => {
         localStorage.setItem("user", JSON.stringify({}))
@@ -41,7 +28,7 @@ const Navbar = () => {
             title:'Success LogOut!',
             text:`${message}`,
             confirmButtonText:'See you later',
-            background:'#67e9ff',
+            background:'#fff',
             customClass:{ 
                 popup:'popup-alert',
                 text:'titleAlert',
@@ -71,7 +58,7 @@ const Navbar = () => {
                                 <i className="bi bi-house nav-link mb-3"> &nbsp;Home</i>
                             </Link>
                         </li>
-                        {Object.keys(user).length !== 0 && userOne !==null
+                        {user && Object.keys(user).length !== 0 && userOne !==null
                         ?   <li className="nav-item">
                                 <Link to='/profile' >
                                     <i className="bi bi-person-circle nav-link mb-3"> &nbsp;My Account</i>
@@ -85,7 +72,7 @@ const Navbar = () => {
                             </Link>
                         </li>
                         {}
-                        {Object.keys(user).length !== 0 && userOne !==null
+                        {user && Object.keys(user).length !== 0 && userOne !==null
                         ?  <li className="nav-item">
                         <Link to='/' onClick={handleLogOut}>
                           <i className="bi bi-box-arrow-right nav-link mb-3"> &nbsp;Log Out</i>
@@ -104,7 +91,7 @@ const Navbar = () => {
                         </li>
                     </>
                         }
-                        {Object.keys(user).length !== 0 && userOne?.isAdmin === true
+                        {user && Object.keys(user).length !== 0 && userOne?.isAdmin === true
                         ?   
                                 <li className="nav-item">
                                     <Link to='/admin' >
@@ -116,10 +103,9 @@ const Navbar = () => {
                         }
 
                     </ul>
-                     <form className="d-flex" id={Styles.search} role="search"> 
-                        <input onChange={handleInput} value={input}className="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search"/>
-                        <button  className="btn btn-outline-secondary" type="submit" onClick={(e) => handleSubmit(e)}>Buscar</button>
-                     </form> 
+                     <div>
+                        <SearchBar/>
+                     </div> 
                 </div>
             </div>
         </nav>
