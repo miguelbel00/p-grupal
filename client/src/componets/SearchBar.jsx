@@ -39,14 +39,13 @@ export default function SearchBar() {
     return(
         <div>
             <form className="d-flex" role="search"> 
-                        <input onChange={handleInput} value={input} className="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search"
+                        <input onChange={handleInput} value={input} className="form-control me-2" type="search" placeholder="Search..." aria-label="Search"
                         /> 
-                        <button  className="btn btn-outline-secondary" type="button" onClick={(e) => handleProduct(e)}>Buscar</button>
+                        <button  className="btn btn-outline-secondary" type="button" onClick={(e) => handleProduct(e)}>Search</button>
                      </form> 
                      <div  className={input ? Search.dropdown : Search.dropdownHidden}>
                         {products.filter(p => {
                             let searchProduct = input?.charAt(0).toUpperCase() + input?.toLowerCase().slice(1);
-                            console.log(input)
                             return searchProduct && p.name.startsWith(searchProduct) && p.name !== searchProduct
                         }).slice(0,4)
                         .map(p=>(

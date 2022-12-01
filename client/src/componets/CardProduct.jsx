@@ -11,7 +11,7 @@ export default function Card({ image, name, price, id }) {
       <span>${price}</span>
       <Link className="text-decoration-none text-white link" to={`/detail/${id}`}>
         <button>
-          Ver más
+          See more
         </button>
       </Link>
     </div>

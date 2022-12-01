@@ -16,7 +16,7 @@ export default function AdminTestAntDesign() {
     const { Text} = Typography;
     const [open, setOpen] = useState(false);
     const [confirmLoading, setConfirmLoading] = useState(false);
-    const [modalText, setModalText] = useState(<Alert message="Estas seguro de que deseas acceder a estos datos?" type="error" />);
+    const [modalText, setModalText] = useState(<Alert message="Are you sure you want to delete this data?" type="error" />);
     const [selectCategory,setSelectCategory] = useState({})
 
     const showModal = (value) => {
@@ -25,13 +25,13 @@ export default function AdminTestAntDesign() {
     };
 
     const handleOk = () => {
-        setModalText(<Alert message="Aguarde unos segundos..." type="success" />);
+        setModalText(<Alert message="Please wait a seconds..." type="success" />);
         setConfirmLoading(true);
         dispatch(deleteCategory(selectCategory))
         setTimeout(() => {
             setOpen(false);
             setConfirmLoading(false);
-            setModalText(<Alert message="Estas seguro de que deseas acceder a estos datos?" type="error" />)
+            setModalText(<Alert message="Are you sure you want to delete this data?" type="error" />)
         }, 2000);
     };
 
@@ -164,7 +164,7 @@ export default function AdminTestAntDesign() {
                 return <div>
                     <Button onClick={()=>showModal(value)} danger type="primary">Delete Category</Button>
                     <Modal
-                        title="Cuidado!"
+                        title="Warning!"
                         open={open}
                         onOk={handleOk}
                         confirmLoading={confirmLoading}

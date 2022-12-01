@@ -65,23 +65,23 @@ function EditUser () {
         let error = {};
 
         if (!input.email) {
-            error.email = 'Introduce el email'
+            error.email = 'Enter email'
         }
 
         if (!input.fullName) {
-            error.fullName = 'Introduce el nombre'
+            error.fullName = 'Enter name'
         }
 
         if (!input.password) {
-            error.password = 'Introduce la contrasena'
+            error.password = 'Enter password'
         }
 
         if (!input.phone) {
-            error.phone = 'Introduce el numero'
+            error.phone = 'Enter number'
         }
 
         if (!input.isAdmin) {
-            error.isAdmin = 'Introduce el Admin'
+            error.isAdmin = 'Enter admin'
         }
 
         return error

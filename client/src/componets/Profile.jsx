@@ -25,19 +25,12 @@ export default function Profile() {
   return (
     <>{ 
       userOne && 
-
       <div className={Styles.container}>
-
         <CardUser user={ userOne } />
         <Link to={`/editProfile/${userOne?.id}`}>
           <button>Edit Profile</button>
         </Link>
-
       </div>
-
-
-  
-      
       }
     </>
   );

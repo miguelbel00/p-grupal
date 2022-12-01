@@ -66,23 +66,23 @@ const CreateProduct = () => {
     let error = {};
 
     if (product.name.length === 0) {
-      error.name = 'Introduce un título válido.'
+      error.name = 'Please enter a valid title.'
     }
     if (product.price.length === 0) {
-      error.price = 'Introduce el precio del artículo.'
+      error.price = 'Please enter the price of the product.'
     }
     if (product.image.length === 0) {
-      error.image = 'Introduce la URL de la imagen.'
+      error.image = 'Please enter the URL of the image.'
     }
     if (!product.image) {
-      error.image = 'No funciona la URL'
+      error.image = 'Invalid url'
     }
 
     if (!product.stock) {
-      error.stock = 'Introduce el stock del artículo.'
+      error.stock = 'Please enter the stock of the product.'
     }
     if (!product.description) {
-      error.description = 'Introduce la descripcion del artículo.'
+      error.description = 'Please enter the description of the product.'
     }
 
     return error;
@@ -166,7 +166,7 @@ const CreateProduct = () => {
       <div className={Styles.containerOne}>
         <form onSubmit={(e) => handleSubmit(e)} className="needs-validation">
           <div className='boxInput'>
-            <h4 ><strong>Artículo en venta</strong></h4>
+            <h4 ><strong>Sale product</strong></h4>
             {product.image && product.image.map((image) => (
               <div className='myProduct'>
                 <img src={image} alt="" />
@@ -174,15 +174,15 @@ const CreateProduct = () => {
               </div>
             ))}
             <div >
-              <input onChange={(e) => handleImage(e)} type="text" className="form-control" name='image' placeholder='Imagen Url..' value={product.image} />
+              <input onChange={(e) => handleImage(e)} type="text" className="form-control" name='image' placeholder='Image Url..' value={product.image} />
               <p className={Styles.errors}><strong>{errors.image}</strong></p>
             </div>
             <div className='inputsError'>
-              <input onChange={(e) => handleChange(e)} value={product.name} type="text" className="form-control" name='name' placeholder='Titulo' />
+              <input onChange={(e) => handleChange(e)} value={product.name} type="text" className="form-control" name='name' placeholder='Title' />
               <p className={Styles.errors}><strong>{errors.name}</strong></p>
             </div>
             <div>
-              <input onChange={(e) => handleChange(e)} type="number" className="form-control" name='price' value={product.price} placeholder='Precio' />
+              <input onChange={(e) => handleChange(e)} type="number" className="form-control" name='price' value={product.price} placeholder='Price' />
               <p className={Styles.errors}><strong>{errors.price}</strong></p>
             </div>
             <div >
@@ -190,12 +190,12 @@ const CreateProduct = () => {
               <p className={Styles.errors}><strong>{errors.stock}</strong></p>
             </div>
             <div>
-              <input onChange={(e) => handleChange(e)} type="text" className="form-control" name='description' value={product.description} placeholder='Descripcion' />
+              <input onChange={(e) => handleChange(e)} type="text" className="form-control" name='description' value={product.description} placeholder='Description' />
               <p className={Styles.errors}><strong>{errors.description}</strong></p>
             </div>
             <div >
               <select className="form-control" onChange={handleCategory} value={product.categories}>
-                <option value="">Elija su categoria...</option>
+                <option value="">Choose your category...</option>
                 {listCategory.map && listCategory?.map(category => (
                   <option key={category} value={category}>{category}</option>
                 ))}
@@ -208,7 +208,7 @@ const CreateProduct = () => {
               ))}
             </div>
             <div className='btn'>
-              <button className="btn btn-primary" type="submit">Publicar</button>
+              <button className="btn btn-primary" type="submit">Post</button>
             </div>
           </div>
 

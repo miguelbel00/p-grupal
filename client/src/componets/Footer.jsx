@@ -15,16 +15,16 @@ export default function Footer () {
                          </Link> 
                    </ul>
                    <ul className="col-xs-12 col-md-6 col-lg-3 list-unstyled">
-                        <li className="h5 mb-2">Direccion</li>
+                        <li className="h5 mb-2">Address</li>
                         <li className="">Avenida Siempre Viva 742</li>
                    </ul>
                    <ul  className="col-xs-12 col-md-6 col-lg-3 list-unstyled">
-                        <li className="h5 mb-2">Contacto</li>
+                        <li className="h5 mb-2">Contact</li>
                         <li className="mb-2">+54 9 011 789 654 123</li>
                         <li className="mb-2">astrogamer@gmail.com</li>
                    </ul>
                    <ul className="col-xs-12 col-md-6 col-lg-3 list-unstyled  ">
-                        <li className="h5 mb-2">Redes Sociales</li>
+                        <li className="h5 mb-2">Social Media</li>
                         <li className="mb-1">
                            <Link to='/facebook' className="text-reset text-decoration-none" >
                            <i className="bi bi-facebook"> Facebook</i>

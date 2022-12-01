@@ -34,7 +34,7 @@ export default function AdminTestAntDesign() {
   const [confirmLoading, setConfirmLoading] = useState(false);
   const [modalText, setModalText] = useState(
     <Alert
-      message="Estas seguro de que deseas acceder a estos datos?"
+      message="Are you sure you want to access this data?"
       type="error"
     />
   );
@@ -126,7 +126,7 @@ export default function AdminTestAntDesign() {
   };
 
   const handleOk = () => {
-    setModalText(<Alert message="Aguarde unos segundos..." type="success" />);
+    setModalText(<Alert message="Wait a few seconds..." type="success" />);
     setConfirmLoading(true);
     dispatch(deleteUser(userValue.id));
     setTimeout(() => {
@@ -134,7 +134,7 @@ export default function AdminTestAntDesign() {
       setConfirmLoading(false);
       setModalText(
         <Alert
-          message="Estas seguro de que deseas acceder a estos datos?"
+          message="Are you sure you want to access this data?"
           type="error"
         />
       );

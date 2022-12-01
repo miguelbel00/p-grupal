@@ -67,11 +67,11 @@ const EditProduct = () => {
     let error = {};
 
     if (!input.price) {
-      error.price = "Introduce el precio";
+      error.price = "Enter price";
     }
 
     if (!input.stock) {
-      error.stock = "Introduce el stock";
+      error.stock = "Enter stock";
     }
 
     return error;
