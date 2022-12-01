@@ -33,13 +33,13 @@ function MainCategories() {
             <img src={productos} alt="blank" onClick={handleFilterAll}/>
         </div>
         <div>
-            <img src={computadoras} alt="blank" onClick={handleFilterCategory} name='Computadores'/>
+            <img src={computadoras} alt="blank" onClick={handleFilterCategory} name='Computers'/>
         </div>
         <div>
-            <img src={componentes} alt="blank" onClick={handleFilterCategory} name='Componentes'/>
+            <img src={componentes} alt="blank" onClick={handleFilterCategory} name='Components'/>
         </div>
         <div>
-            <img src={perifericos} alt="blank" onClick={handleFilterCategory} name='Perifericos'/>
+            <img src={perifericos} alt="blank" onClick={handleFilterCategory} name='Peripherals'/>
         </div>
     </div>
   )
