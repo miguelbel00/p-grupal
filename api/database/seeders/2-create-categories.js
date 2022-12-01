@@ -7,21 +7,21 @@ module.exports = {
       [
         {
        
-          name: "Computadores",
+          name: "Computers",
           updatedAt: "2022-11-10T20:47:06.072Z",
           createdAt: "2022-11-10T20:47:06.072Z",
           deletedAt: null
         },
         {
       
-          name: "Perifericos",
+          name: "Peripherals",
           updatedAt: "2022-11-10T20:47:06.072Z",
           createdAt: "2022-11-10T20:47:06.072Z",
           deletedAt: null
         },
         {
       
-          name: "Componentes",
+          name: "Components",
           updatedAt: "2022-11-10T20:47:06.072Z",
           createdAt: "2022-11-10T20:47:06.072Z",
           deletedAt: null
@@ -63,77 +63,77 @@ module.exports = {
         },
         {
           
-          name: "Procesador",
+          name: "Processor",
           updatedAt: "2022-11-10T20:47:06.072Z",
           createdAt: "2022-11-10T20:47:06.072Z",
           deletedAt: null
         },
         {
           
-          name: "Disco HDD",
+          name: "Disk HDD",
           updatedAt: "2022-11-10T20:47:06.072Z",
           createdAt: "2022-11-10T20:47:06.072Z",
           deletedAt: null
         },
         {
          
-          name: "Disco SSD",
+          name: "Disk SSD",
           updatedAt: "2022-11-10T20:47:06.072Z",
           createdAt: "2022-11-10T20:47:06.072Z",
           deletedAt: null
         },
         {
          
-          name: "Disco M2",
+          name: "Disk M2",
           updatedAt: "2022-11-10T20:47:06.072Z",
           createdAt: "2022-11-10T20:47:06.072Z",
           deletedAt: null
         },
         {
           
-          name: "Memoria Ram",
+          name: "Memory Ram",
           updatedAt: "2022-11-10T20:47:06.072Z",
           createdAt: "2022-11-10T20:47:06.072Z",
           deletedAt: null
         },
         {
           
-          name: "Fuentes",
+          name: "Power Supply",
           updatedAt: "2022-11-10T20:47:06.072Z",
           createdAt: "2022-11-10T20:47:06.072Z",
           deletedAt: null
         },
         {
           
-          name: "Refrigeracion",
+          name: "Refrigeration",
           updatedAt: "2022-11-10T20:47:06.072Z",
           createdAt: "2022-11-10T20:47:06.072Z",
           deletedAt: null
         },
         {
         
-          name: "Placas de video",
+          name: "Video Cards",
           updatedAt: "2022-11-10T20:47:06.072Z",
           createdAt: "2022-11-10T20:47:06.072Z",
           deletedAt: null
         },
         {
        
-          name: "Gabinete",
+          name: "Cabinet",
           updatedAt: "2022-11-10T20:47:06.072Z",
           createdAt: "2022-11-10T20:47:06.072Z",
           deletedAt: null
         },
         {
     
-          name: "Teclado",
+          name: "Keyboard",
           updatedAt: "2022-11-10T20:47:06.072Z",
           createdAt: "2022-11-10T20:47:06.072Z",
           deletedAt: null
         },
         {
        
-          name: "Auricular",
+          name: "Handset",
           updatedAt: "2022-11-10T20:47:06.072Z",
           createdAt: "2022-11-10T20:47:06.072Z",
           deletedAt: null
@@ -141,13 +141,6 @@ module.exports = {
         {
    
           name: "Mouse",
-          updatedAt: "2022-11-10T20:47:06.072Z",
-          createdAt: "2022-11-10T20:47:06.072Z",
-          deletedAt: null
-        },
-        {
-   
-          name: "Disco Duro",
           updatedAt: "2022-11-10T20:47:06.072Z",
           createdAt: "2022-11-10T20:47:06.072Z",
           deletedAt: null
