@@ -66,23 +66,23 @@ const CreateProduct = () => {
     let error = {};
 
     if (product.name.length === 0) {
-      error.name = 'Introduce un título válido.'
+      error.name = 'Please enter a valid title.'
     }
     if (product.price.length === 0) {
-      error.price = 'Introduce el precio del artículo.'
+      error.price = 'Please enter the price of the product.'
     }
     if (product.image.length === 0) {
-      error.image = 'Introduce la URL de la imagen.'
+      error.image = 'Please enter the URL of the image.'
     }
     if (!product.image) {
-      error.image = 'No funciona la URL'
+      error.image = 'Invalid url'
     }
 
     if (!product.stock) {
-      error.stock = 'Introduce el stock del artículo.'
+      error.stock = 'Please enter the stock of the product.'
     }
     if (!product.description) {
-      error.description = 'Introduce la descripcion del artículo.'
+      error.description = 'Please enter the description of the product.'
     }
 
     return error;

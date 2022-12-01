@@ -57,15 +57,15 @@ function EditProfile () {
         let error = {};
 
         if (!input.fullName) {
-            error.fullName = 'Introduce el nombre'
+            error.fullName = 'Enter name'
         }
 
         if (!input.phone) {
-            error.phone = 'Introduce el numero'
+            error.phone = 'Enter number'
         }
 
         if (isNaN(input.phone)) {
-            error.phone = 'Introduce solo numeros'
+            error.phone = 'Enter only numbers'
         }
         return error
     }
