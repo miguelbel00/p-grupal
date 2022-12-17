@@ -18,11 +18,11 @@ import EditProfile from "./componets/EditProfile";
 import EditUser from "./Pages/EditUser";
 import EditProduct from "./Pages/EditProduct";
 import EditTrasnsaction from "./Pages/EditTransaction";
+import Congratulations from "./Pages/Congratulations"
+
 
 function App() {
   const user = useSelector(state => state.petitionsReducer.user)
-
-
   return (
     <BrowserRouter>
       <Navbar/>
@@ -35,6 +35,10 @@ function App() {
         <Route exact path='/products' component={Products}/>
         <Route exact path='/shoppingcart' component={ShoppingCart}/>
         <Route exact path={'/editProfile/:userId'} component={EditProfile}/>
+        <Route exact path={"/profile"} component={Profile} /> 
+        <Route exact path="/congratulations" component={Congratulations}/> 
+
+
 
         <Route exact path='/admin' component={AdminPage}>
 
